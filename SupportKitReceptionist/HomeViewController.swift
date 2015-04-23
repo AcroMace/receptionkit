@@ -10,15 +10,35 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var languageButton: UIBarButtonItem!
+    @IBOutlet weak var deliveryButton: UIButton!
+    @IBOutlet weak var visitorButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+//        deliveryButton.titleLabel!.text = Text.get("delivery")
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func languageButtonTapped(sender: AnyObject) {
+        if languageButton.title != "English" {
+            languageButton.title = "English"
+        } else {
+            languageButton.title = "français"
+        }
+        Text.swapLanguage()
+        
+        // The text on this view has to be manually updated
+//        deliveryButton.titleLabel?.text = Text.get("delivery")
     }
     
     

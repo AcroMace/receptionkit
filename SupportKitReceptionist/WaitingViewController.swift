@@ -9,12 +9,29 @@
 import UIKit
 
 class WaitingViewController: UIViewController {
+    
+    // Set to false if the message below thank you should ask the person to wait
+    var shouldAskToWait = true
+
+    @IBOutlet weak var thankYouLabel: UILabel!
+    @IBOutlet weak var thankYouMessageText: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         let timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "unwindToHome:", userInfo: nil, repeats: false)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        thankYouLabel.text = Text.get("thank you")
+        thankYouMessageText.selectable = true
+        if (shouldAskToWait) {
+            thankYouMessageText.text = Text.get("please wait")
+        } else {
+            thankYouMessageText.text = Text.get("nice day")
+        }
+        thankYouMessageText.selectable = false
     }
 
     override func didReceiveMemoryWarning() {

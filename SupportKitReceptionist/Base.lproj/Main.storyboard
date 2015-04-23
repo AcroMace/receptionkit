@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Radialpoint-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="SupportKitReceptionist" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-2M-Olk">
+                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-2M-Olk">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="536"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
                                 <state key="normal" title="delivery">
@@ -29,7 +29,7 @@
                                     <segue destination="GCF-Zq-Vv5" kind="show" id="xcE-97-maj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCB-dj-GQe">
+                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCB-dj-GQe">
                                 <rect key="frame" x="300" y="0.0" width="300" height="536"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
                                 <state key="normal" title="i'm a visitor">
@@ -53,7 +53,18 @@
                             <constraint firstItem="uCB-dj-GQe" firstAttribute="leading" secondItem="Dxu-2M-Olk" secondAttribute="trailing" id="xSZ-LJ-pnO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Radialpoint" id="ZpT-XF-Ski"/>
+                    <navigationItem key="navigationItem" id="ZpT-XF-Ski">
+                        <barButtonItem key="rightBarButtonItem" title="français" id="WBp-5Z-Vg3">
+                            <connections>
+                                <action selector="languageButtonTapped:" destination="BYZ-38-t0r" id="LRS-qY-ksX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="deliveryButton" destination="Dxu-2M-Olk" id="7Nj-KX-Fdu"/>
+                        <outlet property="languageButton" destination="WBp-5Z-Vg3" id="EEb-Ql-QA3"/>
+                        <outlet property="visitorButton" destination="uCB-dj-GQe" id="kKg-zq-bfQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,7 +134,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="The Wonderful Wizard of Oz" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ol3-q4-HxX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="The Wonderful Wizard of Oz" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ol3-q4-HxX">
                                 <rect key="frame" x="16" y="168" width="568" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="RNk-Kc-UUe"/>
@@ -243,8 +254,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0K-W6-gcL">
                                 <rect key="frame" x="16" y="8" width="280" height="250"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="32"/>
                                 <state key="normal" title="UPS">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -253,8 +265,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LtZ-Ol-jGY">
                                 <rect key="frame" x="304" y="8" width="280" height="250"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="32"/>
                                 <state key="normal" title="FedEx">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -263,8 +276,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dl-Y2-Nzf">
                                 <rect key="frame" x="16" y="266" width="280" height="250"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="32"/>
                                 <state key="normal" title="Canada Post">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -273,8 +287,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RQ-hM-htm">
                                 <rect key="frame" x="304" y="266" width="280" height="250"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="32"/>
                                 <state key="normal" title="Other">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -326,8 +341,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyD-yG-B4D">
                                 <rect key="frame" x="16" y="8" width="568" height="250"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
                                 <state key="normal" title="I need a signature">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -336,8 +352,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdR-hF-OqZ">
                                 <rect key="frame" x="16" y="266" width="568" height="250"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
                                 <state key="normal" title="I left a package at the reception">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -377,16 +394,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="thank you!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76f-7S-egt">
-                                <rect key="frame" x="0.0" y="176" width="600" height="135"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="someone will be here shortly to meet you" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GC-bk-SPR">
+                                <rect key="frame" x="16" y="299" width="568" height="217"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="42"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="thank you! :)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRS-C6-l35">
+                                <rect key="frame" x="16" y="153" width="568" height="130"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="100"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.75686274509999996" green="0.031372549020000001" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9GC-bk-SPR" firstAttribute="trailing" secondItem="C9E-yx-qLD" secondAttribute="trailingMargin" id="BUG-8Z-0Zm"/>
+                            <constraint firstItem="wRS-C6-l35" firstAttribute="trailing" secondItem="C9E-yx-qLD" secondAttribute="trailingMargin" id="Rmz-eB-3qc"/>
+                            <constraint firstItem="pgW-3I-Fy2" firstAttribute="top" secondItem="9GC-bk-SPR" secondAttribute="bottom" constant="20" id="Vie-Jp-26s"/>
+                            <constraint firstItem="9GC-bk-SPR" firstAttribute="top" secondItem="wRS-C6-l35" secondAttribute="bottom" constant="16" id="dY4-cF-NIR"/>
+                            <constraint firstAttribute="centerY" secondItem="wRS-C6-l35" secondAttribute="centerY" constant="50" id="dqN-WO-28B"/>
+                            <constraint firstItem="9GC-bk-SPR" firstAttribute="leading" secondItem="C9E-yx-qLD" secondAttribute="leadingMargin" id="gZm-EE-o1z"/>
+                            <constraint firstItem="wRS-C6-l35" firstAttribute="leading" secondItem="C9E-yx-qLD" secondAttribute="leadingMargin" id="qgt-l9-8Z8"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="thankYouLabel" destination="wRS-C6-l35" id="aR5-jW-j2m"/>
+                        <outlet property="thankYouMessageText" destination="9GC-bk-SPR" id="1BS-JA-jBz"/>
                         <segue destination="HLa-Ov-Wrv" kind="unwind" identifier="UnwindToHome" unwindAction="unwindToHome:" id="o92-oI-7E5"/>
                     </connections>
                 </viewController>
@@ -466,7 +501,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="9RB-Zb-qnu"/>
         <segue reference="i9k-c0-eZo"/>
-        <segue reference="MAi-B6-dIM"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -22,6 +22,7 @@
 		81E2AC861AE95AFF000D5F25 /* VisitorSearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2AC851AE95AFF000D5F25 /* VisitorSearchResultsTableViewController.swift */; };
 		81E2AC881AE95BF4000D5F25 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2AC871AE95BF4000D5F25 /* Contacts.swift */; };
 		81E2AC8B1AE995EF000D5F25 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2AC8A1AE995EF000D5F25 /* ContactTableViewCell.swift */; };
+		81E2AC8E1AE9A447000D5F25 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2AC8D1AE9A447000D5F25 /* Text.swift */; };
 		B4070FB0F1E65869E1CDE174 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F87E92FD6D5CD480E978ED15 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		81E2AC851AE95AFF000D5F25 /* VisitorSearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorSearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		81E2AC871AE95BF4000D5F25 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		81E2AC8A1AE995EF000D5F25 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		81E2AC8D1AE9A447000D5F25 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		F87E92FD6D5CD480E978ED15 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 			children = (
 				81B4451A1AE9313900725576 /* AppDelegate.swift */,
 				81B4451E1AE9313900725576 /* Main.storyboard */,
+				81E2AC8C1AE9A436000D5F25 /* Helpers */,
 				81E2AC891AE95D14000D5F25 /* Models */,
 				81E2AC781AE951BE000D5F25 /* View Controllers */,
 				81B445181AE9313900725576 /* Supporting Files */,
@@ -124,7 +127,6 @@
 		81B445181AE9313900725576 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				81E2AC761AE95163000D5F25 /* SupportKitHelpers.swift */,
 				81B4453E1AE939C700725576 /* SupportKitReceptionist-Bridging-Header.h */,
 				81B445231AE9313900725576 /* LaunchScreen.xib */,
 				81B445191AE9313900725576 /* Info.plist */,
@@ -186,6 +188,15 @@
 				81E2AC871AE95BF4000D5F25 /* Contacts.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		81E2AC8C1AE9A436000D5F25 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				81E2AC761AE95163000D5F25 /* SupportKitHelpers.swift */,
+				81E2AC8D1AE9A447000D5F25 /* Text.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		A1306A7163228330AB7D585B /* Pods */ = {
@@ -342,6 +353,7 @@
 				81B4451B1AE9313900725576 /* AppDelegate.swift in Sources */,
 				81E2AC861AE95AFF000D5F25 /* VisitorSearchResultsTableViewController.swift in Sources */,
 				81E2AC7E1AE95786000D5F25 /* HomeViewController.swift in Sources */,
+				81E2AC8E1AE9A447000D5F25 /* Text.swift in Sources */,
 				81B4453B1AE935E400725576 /* DeliveryCompanyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

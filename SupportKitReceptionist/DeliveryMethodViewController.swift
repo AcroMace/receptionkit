@@ -11,6 +11,7 @@ import UIKit
 class DeliveryMethodViewController: UIViewController {
     
     var deliveryCompany: String?
+    var shouldAskToWait = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +30,12 @@ class DeliveryMethodViewController: UIViewController {
     //
     
     @IBAction func signatureButtonTapped(sender: AnyObject) {
+        shouldAskToWait = true
         segueWithMessage(makeDeliveryFromText() + " that requires a signature!")
     }
     
     @IBAction func leftReceptionButtonTapped(sender: AnyObject) {
+        shouldAskToWait = false
         segueWithMessage(makeDeliveryFromText() + " that has been left at the reception!")
     }
     
@@ -51,14 +54,17 @@ class DeliveryMethodViewController: UIViewController {
         performSegueWithIdentifier("DeliveryMethodSelectedSegue", sender: self)
     }
 
-    /*
+    //
     // MARK: - Navigation
+    //
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let waitingViewController = segue.destinationViewController as? WaitingViewController {
+            waitingViewController.shouldAskToWait = shouldAskToWait
+        }
     }
-    */
 
 }
