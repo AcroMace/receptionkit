@@ -29,13 +29,11 @@ class DeliveryMethodViewController: UIViewController {
     //
     
     @IBAction func signatureButtonTapped(sender: AnyObject) {
-        let messageText = makeDeliveryFromText() + " that requires a signature!"
-        sendMessage(messageText)
+        segueWithMessage(makeDeliveryFromText() + " that requires a signature!")
     }
     
     @IBAction func leftReceptionButtonTapped(sender: AnyObject) {
-        let messageText = makeDeliveryFromText() + " that has been left at the reception!"
-        sendMessage(messageText)
+        segueWithMessage(makeDeliveryFromText() + " that has been left at the reception!")
     }
     
     // Exclude the "from" if the delivery company is unknown
@@ -45,6 +43,12 @@ class DeliveryMethodViewController: UIViewController {
             messageText += "from " + deliveryCompany!
         }
         return messageText
+    }
+    
+    // Segue to the thank you controller after sending a SupportKit message
+    func segueWithMessage(message: String) {
+        sendMessage(message)
+        performSegueWithIdentifier("DeliveryMethodSelectedSegue", sender: self)
     }
 
     /*

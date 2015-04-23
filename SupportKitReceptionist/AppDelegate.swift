@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         skSettings.enableAppWideGesture = false
         SupportKit.initWithSettings(skSettings)
         
+        // App-wide styles
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        
         return true
     }
 
