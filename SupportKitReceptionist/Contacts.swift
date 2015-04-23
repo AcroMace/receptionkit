@@ -13,10 +13,12 @@ class Contact {
     
     var name: String
     var email: [String]
+    var phone: [String]
     
-    init(name: String, email: [String]) {
+    init(name: String, email: [String], phone: [String]) {
         self.name = name
         self.email = email
+        self.phone = phone
     }
     
     
@@ -52,25 +54,37 @@ class Contact {
             
             for person:ABRecordRef in people {
                 let contactName: String = ABRecordCopyCompositeName(person).takeRetainedValue() as String
-                var contactEmails = [String]()
+                var contactEmails = getProperties(person, property: kABPersonEmailProperty)
+                var contactPhoneNumbers = getProperties(person, property: kABPersonPhoneProperty)
                 
-                // Get emails T_T
-                let emailProperty: ABMultiValueRef = ABRecordCopyValue(person, kABPersonEmailProperty).takeRetainedValue() as ABMultiValueRef
-                let emailPropertyValues = ABMultiValueCopyArrayOfAllValues(emailProperty) // Returns nil if empty
-                if (emailPropertyValues != nil) {
-                    let emailIds = emailPropertyValues.takeUnretainedValue() as NSArray
-                    for emailId in emailIds {
-                        let email = emailId as! String
-                        contactEmails.append(email)
-                    }
-                }
-                
-                contacts.append(Contact(name: contactName, email: contactEmails))
+                contacts.append(Contact(name: contactName, email: contactEmails, phone: contactPhoneNumbers))
             }
         }
 
         // Will return an empty array if not authorized
         return contacts
+    }
+    
+    
+    //
+    // Private functions
+    //
+    
+    // Get a property from a ABPerson, returns an array of Strings that matches the value
+    static func getProperties(person: ABRecordRef, property: ABPropertyID) -> [String] {
+        var propertyValues = [String]()
+        
+        let personProperty: ABMultiValueRef = ABRecordCopyValue(person, property).takeRetainedValue() as ABMultiValueRef
+        let personPropertyValues = ABMultiValueCopyArrayOfAllValues(personProperty) // Returns nil if empty
+
+        if (personPropertyValues != nil) {
+            let properties = personPropertyValues.takeUnretainedValue() as NSArray
+            for property in properties {
+                let propertyValue = property as! String
+                propertyValues.append(propertyValue)
+            }
+        }
+        return propertyValues
     }
     
 }

@@ -18,6 +18,7 @@ class VisitorAskNameViewController: UIViewController, UITextFieldDelegate {
         
         // Do any additional setup after loading the view.
         self.nameTextField.delegate = self
+        nameTextField.borderStyle = UITextBorderStyle.RoundedRect
     }
     
     override func viewDidAppear(animated: Bool) {

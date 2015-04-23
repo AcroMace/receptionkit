@@ -21,6 +21,7 @@
 		81E2AC821AE959FA000D5F25 /* VisitorSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2AC811AE959FA000D5F25 /* VisitorSearchViewController.swift */; };
 		81E2AC861AE95AFF000D5F25 /* VisitorSearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2AC851AE95AFF000D5F25 /* VisitorSearchResultsTableViewController.swift */; };
 		81E2AC881AE95BF4000D5F25 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2AC871AE95BF4000D5F25 /* Contacts.swift */; };
+		81E2AC8B1AE995EF000D5F25 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2AC8A1AE995EF000D5F25 /* ContactTableViewCell.swift */; };
 		B4070FB0F1E65869E1CDE174 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F87E92FD6D5CD480E978ED15 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		81E2AC811AE959FA000D5F25 /* VisitorSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorSearchViewController.swift; sourceTree = "<group>"; };
 		81E2AC851AE95AFF000D5F25 /* VisitorSearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorSearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		81E2AC871AE95BF4000D5F25 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		81E2AC8A1AE995EF000D5F25 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		F87E92FD6D5CD480E978ED15 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -152,6 +154,7 @@
 			children = (
 				81E2AC7D1AE95786000D5F25 /* HomeViewController.swift */,
 				81E2AC7F1AE95843000D5F25 /* WaitingViewController.swift */,
+				81E2AC8A1AE995EF000D5F25 /* ContactTableViewCell.swift */,
 				81E2AC791AE95395000D5F25 /* Delivery */,
 				81E2AC7A1AE953A0000D5F25 /* Visitor */,
 			);
@@ -331,6 +334,7 @@
 			files = (
 				81E2AC771AE95163000D5F25 /* SupportKitHelpers.swift in Sources */,
 				81B445441AE949A800725576 /* VisitorAskNameViewController.swift in Sources */,
+				81E2AC8B1AE995EF000D5F25 /* ContactTableViewCell.swift in Sources */,
 				81B4453D1AE9360400725576 /* DeliveryMethodViewController.swift in Sources */,
 				81E2AC821AE959FA000D5F25 /* VisitorSearchViewController.swift in Sources */,
 				81E2AC881AE95BF4000D5F25 /* Contacts.swift in Sources */,

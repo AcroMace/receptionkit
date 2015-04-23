@@ -20,6 +20,11 @@ class VisitorSearchViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         nameTextField.delegate = self
+        nameTextField.borderStyle = UITextBorderStyle.RoundedRect
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        nameTextField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +59,7 @@ class VisitorSearchViewController: UIViewController, UITextFieldDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if let visitorSearchResultsTableViewController = segue.destinationViewController as? VisitorSearchResultsTableViewController {
+            visitorSearchResultsTableViewController.searchQuery = nameTextField.text
             visitorSearchResultsTableViewController.searchResults = searchResults
         }
     }
