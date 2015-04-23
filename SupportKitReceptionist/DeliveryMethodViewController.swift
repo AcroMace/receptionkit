@@ -38,9 +38,9 @@ class DeliveryMethodViewController: UIViewController {
     
     // Exclude the "from" if the delivery company is unknown
     func makeDeliveryFromText() -> String {
-        var messageText = "There is a delivery "
+        var messageText = "There is a delivery"
         if deliveryCompany != "Other" {
-            messageText += "from " + deliveryCompany!
+            messageText += " from " + deliveryCompany!
         }
         return messageText
     }

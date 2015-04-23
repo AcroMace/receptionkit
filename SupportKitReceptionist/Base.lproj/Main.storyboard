@@ -129,7 +129,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bob Smith" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ol3-q4-HxX">
                                 <rect key="frame" x="16" y="153" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no" returnKeyType="search"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.75686274509999996" green="0.031372549020000001" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -153,7 +153,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0YX-Ga-Tki">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCell" id="0YX-Ga-Tki">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0YX-Ga-Tki" id="16j-6W-qcR">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -396,7 +396,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GYv-TI-Pgt"/>
+        <segue reference="i9k-c0-eZo"/>
         <segue reference="MAi-B6-dIM"/>
     </inferredMetricsTieBreakers>
 </document>
