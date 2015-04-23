@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Setup SupportKit
+        let skAppToken = "8xc3kjtbfmbyu7xi10n2h74z5"
+        let skSettings = SKTSettings(appToken: skAppToken)
+        skSettings.enableGestureHintOnFirstLaunch = false
+        skSettings.enableAppWideGesture = false
+        SupportKit.initWithSettings(skSettings)
+        
         return true
     }
 
