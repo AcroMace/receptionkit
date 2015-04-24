@@ -12,17 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let conversationDelegate = ConversationDelegate()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        // Setup SupportKit
+        // SupportKit Settings
         let skAppToken = "8xc3kjtbfmbyu7xi10n2h74z5"
         let skSettings = SKTSettings(appToken: skAppToken)
         skSettings.enableGestureHintOnFirstLaunch = false
         skSettings.enableAppWideGesture = false
         SupportKit.initWithSettings(skSettings)
+        
+        // Setup SupportKit
+        SupportKit.conversation().delegate = conversationDelegate
+        SupportKit.setUserFirstName("Reception", lastName: "")
         
         // App-wide styles
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
