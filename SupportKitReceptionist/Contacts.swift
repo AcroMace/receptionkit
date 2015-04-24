@@ -9,17 +9,33 @@
 import Foundation
 import AddressBook
 
+class ContactPhone {
+    var type: String
+    var number: String
+    
+    init(type: String, number: String) {
+        self.type = type
+        self.number = number
+    }
+    
+    func isWorkPhone() -> Bool {
+        return self.type == "_$!<Work>!$_"
+    }
+    
+    func isMobilePhone() -> Bool {
+        return self.type == "_$!<Mobile>!$_"
+    }
+}
+
 class Contact {
     
     var name: String
-    var email: [String]
-    var phone: [String]
+    var phones: [ContactPhone]
     var picture: UIImage?
     
-    init(name: String, email: [String], phone: [String], picture: UIImage?) {
+    init(name: String, phones: [ContactPhone], picture: UIImage?) {
         self.name = name
-        self.email = email
-        self.phone = phone
+        self.phones = phones
         self.picture = picture
     }
     
@@ -56,8 +72,7 @@ class Contact {
             
             for person:ABRecordRef in people {
                 let contactName: String = ABRecordCopyCompositeName(person).takeRetainedValue() as String
-                var contactEmails = getProperties(person, property: kABPersonEmailProperty)
-                var contactPhoneNumbers = getProperties(person, property: kABPersonPhoneProperty)
+                var contactPhoneNumbers = getPhoneNumbers(person, property: kABPersonPhoneProperty)
                 
                 let contactPictureDataOptional = ABPersonCopyImageData(person)
                 var contactPicture: UIImage?
@@ -66,7 +81,7 @@ class Contact {
                     contactPicture = UIImage(data: contactPictureData)
                 }
                 
-                contacts.append(Contact(name: contactName, email: contactEmails, phone: contactPhoneNumbers, picture: contactPicture))
+                contacts.append(Contact(name: contactName, phones: contactPhoneNumbers, picture: contactPicture))
             }
         }
 
@@ -80,17 +95,19 @@ class Contact {
     //
     
     // Get a property from a ABPerson, returns an array of Strings that matches the value
-    static func getProperties(person: ABRecordRef, property: ABPropertyID) -> [String] {
-        var propertyValues = [String]()
+    static func getPhoneNumbers(person: ABRecordRef, property: ABPropertyID) -> [ContactPhone] {
+        var propertyValues = [ContactPhone]()
         
         let personProperty: ABMultiValueRef = ABRecordCopyValue(person, property).takeRetainedValue() as ABMultiValueRef
         let personPropertyValues = ABMultiValueCopyArrayOfAllValues(personProperty) // Returns nil if empty
 
         if (personPropertyValues != nil) {
             let properties = personPropertyValues.takeUnretainedValue() as NSArray
-            for property in properties {
+            for (index, property) in enumerate(properties) {
+                let propertyLabel = ABMultiValueCopyLabelAtIndex(personProperty, index).takeRetainedValue() as String
                 let propertyValue = property as! String
-                propertyValues.append(propertyValue)
+                let phone = ContactPhone(type: propertyLabel, number: propertyValue)
+                propertyValues.append(phone)
             }
         }
         return propertyValues

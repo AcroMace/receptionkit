@@ -17,10 +17,13 @@ let TextEnglish = [
     "i don't know": "i don't know",
     "looking for": "Who are you looking for?",
     "wizard of oz": "The Wonderful Wizard of Oz",
+    "no contact info": "no contact info",
     "your name": "What is your name?",
     "thank you": "thank you! :)",
+    "please wait": "please wait",
     "nice day": "and have a nice day",
-    "please wait": "someone will be here shortly to meet you",
+    "please wait message": "someone will be here shortly to meet you",
+    "back": "Back",
     "other": "other"
 ]
 
@@ -29,14 +32,17 @@ let TextFrench = [
     "signature": "j'ai besoin d' une signature",
     "left at reception": "j'ai laissé un paquet à la réception",
     "visitor": "visiteur",
-    "i know": "je connais le nom\nde la personne que\nje suis ici pour voir",
+    "i know": "je connais le nom\nde la personne que\nje viens voir",
     "i don't know": "je ne sais pas",
-    "looking for": "Qui cherches-tu?",
+    "looking for": "Quel est le nom de la personne?",
     "wizard of oz": "Le Magicien d'Oz",
-    "your name": "Comment vous appelez-vous?",
+    "no contact info": "pas d'info de contact",
+    "your name": "Quel est votre nom?",
     "thank you": "merci! :)",
+    "please wait": "veuillez patienter",
     "nice day": "et bonne journée",
-    "please wait": "quelqu'un sera bientôt ici de vous rencontrer",
+    "please wait message": "quelqu'un sera avec vous sous peu",
+    "back": "retour",
     "other": "autre"
 ]
 

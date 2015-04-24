@@ -48,11 +48,7 @@ class VisitorSearchResultsTableViewController: UITableViewController {
 
         let contact = searchResults![indexPath.row]
         cell.contactNameLabel.text = contact.name
-        if (contact.phone.count > 0) {
-            cell.contactPhoneLabel.text = contact.phone[0]
-        } else {
-            cell.contactPhoneLabel.text = "No contact info"
-        }
+        cell.contactPhoneLabel.text = formatPhoneString(contact.phones)
         
         if (contact.picture != nil) {
             cell.contactImage.image = contact.picture
@@ -68,6 +64,41 @@ class VisitorSearchResultsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let contact = searchResults![indexPath.row]
 //        println(contact.phone)
+    }
+    
+    func formatPhoneString(phones: [ContactPhone]) -> String {
+        var workPhones = [ContactPhone]()
+        var mobilePhones = [ContactPhone]()
+        
+        var formattedString = ""
+        
+        for phone in phones {
+            println(phone.type)
+            if phone.isWorkPhone() == true {
+                workPhones.append(phone)
+            } else if phone.isMobilePhone() == true {
+                mobilePhones.append(phone)
+            }
+        }
+        
+        for workPhone in workPhones {
+            if (formattedString != "") {
+                formattedString += "\t\t"
+            }
+            formattedString += "Work: " + workPhone.number
+        }
+        for mobilePhone in mobilePhones {
+            if (formattedString != "") {
+                formattedString += "\t\t"
+            }
+            formattedString += "Mobile: " + mobilePhone.number
+        }
+        
+        if formattedString == "" {
+            return "No contact info"
+        } else {
+            return formattedString
+        }
     }
 
 
