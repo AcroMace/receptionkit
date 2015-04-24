@@ -22,8 +22,6 @@ class VisitorSearchResultsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        title = searchQuery
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -68,7 +66,8 @@ class VisitorSearchResultsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let contact = searchResults![indexPath.row]
-//        println(contact.phone)
+        sendMessage("Someone is at the reception looking for \(contact.name)")
+        performSegueWithIdentifier("SelectedContact", sender: self)
     }
     
     func formatPhoneString(phones: [ContactPhone]) -> String {

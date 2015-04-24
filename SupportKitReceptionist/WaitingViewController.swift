@@ -20,7 +20,7 @@ class WaitingViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let timer = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: "unwindToHome:", userInfo: nil, repeats: false)
+        let timer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: "unwindToHome:", userInfo: nil, repeats: false)
     }
     
     override func viewWillAppear(animated: Bool) {

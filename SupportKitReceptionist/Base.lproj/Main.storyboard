@@ -244,6 +244,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="eGz-c7-kMY" kind="unwind" identifier="UnwindToHome" unwindAction="unwindToHome:" id="VQx-bp-YgS"/>
+                        <segue destination="XcS-0N-QxK" kind="show" identifier="SelectedContact" id="qXu-7C-vqp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdX-Nl-x6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -529,7 +530,7 @@
         <image name="IconDeliveryUPS" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9RB-Zb-qnu"/>
         <segue reference="i9k-c0-eZo"/>
+        <segue reference="qXu-7C-vqp"/>
     </inferredMetricsTieBreakers>
 </document>
