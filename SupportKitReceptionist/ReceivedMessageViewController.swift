@@ -25,33 +25,16 @@ class ReceivedMessageViewController: UIViewController {
         contactTitle.text = name?.uppercaseString
         contactMessage.text = message
         
-        // Load the image
+        // Set a default image
         self.contactPicture.image = UIImage(named: "UnknownContact")
         self.contactPicture.layer.cornerRadius = 75.0
         self.contactPicture.layer.masksToBounds = true
 
+        // Load the image
         if (picture != nil) {
             NSURLConnection.sendAsynchronousRequest(NSURLRequest(URL: NSURL(string: picture!)!), queue: NSOperationQueue.mainQueue()) { (reponse, data, error) -> Void in
                 self.contactPicture.image = UIImage(data: data)
             }
         }
-        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

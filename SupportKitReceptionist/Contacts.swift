@@ -63,7 +63,7 @@ class Contact {
                 var contactPicture: UIImage?
                 if (contactPictureDataOptional != nil) {
                     let contactPictureData = ABPersonCopyImageData(person).takeRetainedValue() as NSData
-                    let contactPicture = UIImage(data: contactPictureData)
+                    contactPicture = UIImage(data: contactPictureData)
                 }
                 
                 contacts.append(Contact(name: contactName, email: contactEmails, phone: contactPhoneNumbers, picture: contactPicture))

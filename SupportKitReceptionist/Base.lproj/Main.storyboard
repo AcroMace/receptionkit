@@ -198,13 +198,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Awesome Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCa-rS-9cT">
-                                            <rect key="frame" x="123" y="22" width="469" height="26"/>
+                                            <rect key="frame" x="131" y="22" width="461" height="26"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(123) 456 - 7890" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vd-6a-2Zf">
-                                            <rect key="frame" x="123" y="56" width="469" height="21"/>
+                                            <rect key="frame" x="131" y="56" width="461" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -215,9 +215,9 @@
                                         <constraint firstItem="7vd-6a-2Zf" firstAttribute="trailing" secondItem="16j-6W-qcR" secondAttribute="trailingMargin" id="47f-Sg-iy3"/>
                                         <constraint firstItem="r9E-q8-YGT" firstAttribute="bottom" secondItem="16j-6W-qcR" secondAttribute="bottomMargin" id="Bfh-oU-det"/>
                                         <constraint firstItem="r9E-q8-YGT" firstAttribute="top" secondItem="16j-6W-qcR" secondAttribute="topMargin" id="Eqq-8P-Lq0"/>
-                                        <constraint firstItem="tCa-rS-9cT" firstAttribute="leading" secondItem="r9E-q8-YGT" secondAttribute="trailing" constant="16" id="drO-oc-vzo"/>
+                                        <constraint firstItem="tCa-rS-9cT" firstAttribute="leading" secondItem="r9E-q8-YGT" secondAttribute="trailing" constant="24" id="drO-oc-vzo"/>
                                         <constraint firstItem="r9E-q8-YGT" firstAttribute="leading" secondItem="16j-6W-qcR" secondAttribute="leadingMargin" constant="16" id="jqB-HL-wcL"/>
-                                        <constraint firstItem="7vd-6a-2Zf" firstAttribute="leading" secondItem="r9E-q8-YGT" secondAttribute="trailing" constant="16" id="m8i-KA-yQq"/>
+                                        <constraint firstItem="7vd-6a-2Zf" firstAttribute="leading" secondItem="r9E-q8-YGT" secondAttribute="trailing" constant="24" id="m8i-KA-yQq"/>
                                         <constraint firstItem="tCa-rS-9cT" firstAttribute="trailing" secondItem="16j-6W-qcR" secondAttribute="trailingMargin" id="mFQ-kK-nzY"/>
                                         <constraint firstItem="tCa-rS-9cT" firstAttribute="top" secondItem="16j-6W-qcR" secondAttribute="topMargin" constant="14" id="szw-hV-nHq"/>
                                         <constraint firstItem="7vd-6a-2Zf" firstAttribute="top" secondItem="tCa-rS-9cT" secondAttribute="bottom" constant="8" id="yX3-Cb-FcJ"/>
