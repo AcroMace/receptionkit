@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationItem.titleView = UIImageView(image: UIImage(named: "RadialpointLogo"))
+        
     }
     
     override func viewWillAppear(animated: Bool) {

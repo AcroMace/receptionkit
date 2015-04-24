@@ -15,6 +15,7 @@ class TextEnglish {
         case "thank you":   return "thank you! :)"
         case "nice day":    return "and have a nice day"
         case "please wait": return "someone will be here shortly to meet you"
+        case "other":       return "other"
         default:            return "oopsie"
         }
     }
@@ -27,6 +28,7 @@ class TextFrench {
         case "thank you":   return "merci! :)"
         case "nice day":    return "et bonne journée"
         case "please wait": return "quelqu'un sera bientôt ici de vous rencontrer"
+        case "other":       return "autre"
         default:            return "uh oh"
         }
     }

@@ -13,11 +13,26 @@ class DeliveryCompanyViewController: UIViewController {
     var deliveryCompany: String?
     let deliverySelectedSegue = "DeliveryCompanySelectedSegue"
     
+    @IBOutlet weak var upsButton: UIButton!
+    @IBOutlet weak var fedExButton: UIButton!
+    @IBOutlet weak var canadaPostButton: UIButton!
+    @IBOutlet weak var otherButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        title = "Delivery"
+        // Make sure that the button images are not skewed
+        upsButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
+        fedExButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
+        canadaPostButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
+    }
+    
+    override func viewWillLayoutSubviews() {
+        otherButton.titleLabel!.text = Text.get("other")
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        otherButton.titleLabel!.text = Text.get("other")
     }
 
     override func didReceiveMemoryWarning() {

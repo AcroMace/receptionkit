@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SupportKit.initWithSettings(skSettings)
         
         // App-wide styles
-//        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
         
         return true

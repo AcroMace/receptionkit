@@ -54,7 +54,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZpT-XF-Ski">
-                        <barButtonItem key="rightBarButtonItem" title="français" id="WBp-5Z-Vg3">
+                        <barButtonItem key="rightBarButtonItem" title="français" style="done" id="WBp-5Z-Vg3">
                             <connections>
                                 <action selector="languageButtonTapped:" destination="BYZ-38-t0r" id="LRS-qY-ksX"/>
                             </connections>
@@ -252,10 +252,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0K-W6-gcL">
-                                <rect key="frame" x="16" y="8" width="280" height="250"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="32"/>
-                                <state key="normal" title="UPS">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0K-W6-gcL">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="268"/>
+                                <state key="normal" image="IconDeliveryUPS">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -263,10 +262,9 @@
                                     <action selector="upsButtonTapped:" destination="GCF-Zq-Vv5" eventType="touchUpInside" id="ceR-3J-Hlh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LtZ-Ol-jGY">
-                                <rect key="frame" x="304" y="8" width="280" height="250"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="32"/>
-                                <state key="normal" title="FedEx">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LtZ-Ol-jGY">
+                                <rect key="frame" x="300" y="0.0" width="300" height="268"/>
+                                <state key="normal" image="IconDeliveryFedEx">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -274,10 +272,9 @@
                                     <action selector="fedExButtonTapped:" destination="GCF-Zq-Vv5" eventType="touchUpInside" id="zDv-gO-pw3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dl-Y2-Nzf">
-                                <rect key="frame" x="16" y="266" width="280" height="250"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="32"/>
-                                <state key="normal" title="Canada Post">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dl-Y2-Nzf">
+                                <rect key="frame" x="0.0" y="268" width="300" height="268"/>
+                                <state key="normal" image="IconDeliveryCanadaPost">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -285,9 +282,9 @@
                                     <action selector="canadaPostButtonTapped:" destination="GCF-Zq-Vv5" eventType="touchUpInside" id="fZQ-Xf-odF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RQ-hM-htm">
-                                <rect key="frame" x="304" y="266" width="280" height="250"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RQ-hM-htm">
+                                <rect key="frame" x="300" y="268" width="300" height="268"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="96"/>
                                 <state key="normal" title="Other">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -303,23 +300,27 @@
                             <constraint firstItem="LtZ-Ol-jGY" firstAttribute="width" secondItem="0RQ-hM-htm" secondAttribute="width" id="6b8-e8-gHt"/>
                             <constraint firstItem="LtZ-Ol-jGY" firstAttribute="height" secondItem="0RQ-hM-htm" secondAttribute="height" id="BUE-iK-QUT"/>
                             <constraint firstItem="LtZ-Ol-jGY" firstAttribute="width" secondItem="o0K-W6-gcL" secondAttribute="width" id="EbF-NH-mcO"/>
-                            <constraint firstItem="o0K-W6-gcL" firstAttribute="top" secondItem="KSR-iG-wmh" secondAttribute="bottom" constant="8" id="Eim-vS-dtN"/>
-                            <constraint firstItem="LtZ-Ol-jGY" firstAttribute="leading" secondItem="o0K-W6-gcL" secondAttribute="trailing" constant="8" id="IRb-LV-Gya"/>
+                            <constraint firstItem="o0K-W6-gcL" firstAttribute="top" secondItem="KSR-iG-wmh" secondAttribute="bottom" id="Eim-vS-dtN"/>
+                            <constraint firstItem="LtZ-Ol-jGY" firstAttribute="leading" secondItem="o0K-W6-gcL" secondAttribute="trailing" id="IRb-LV-Gya"/>
                             <constraint firstItem="LtZ-Ol-jGY" firstAttribute="height" secondItem="o0K-W6-gcL" secondAttribute="height" id="N1P-8l-kZ8"/>
                             <constraint firstItem="LtZ-Ol-jGY" firstAttribute="height" secondItem="6Dl-Y2-Nzf" secondAttribute="height" id="RXE-c4-zN4"/>
-                            <constraint firstItem="LtZ-Ol-jGY" firstAttribute="trailing" secondItem="Tp2-Fe-JbD" secondAttribute="trailingMargin" id="UPH-pd-6iQ"/>
-                            <constraint firstItem="LtZ-Ol-jGY" firstAttribute="top" secondItem="KSR-iG-wmh" secondAttribute="bottom" constant="8" id="VjT-DI-7Oc"/>
-                            <constraint firstItem="htw-V5-eIl" firstAttribute="top" secondItem="6Dl-Y2-Nzf" secondAttribute="bottom" constant="20" id="ZBy-mp-qzh"/>
-                            <constraint firstItem="0RQ-hM-htm" firstAttribute="leading" secondItem="6Dl-Y2-Nzf" secondAttribute="trailing" constant="8" id="a6K-HY-chE"/>
-                            <constraint firstItem="0RQ-hM-htm" firstAttribute="trailing" secondItem="Tp2-Fe-JbD" secondAttribute="trailingMargin" id="eyb-mv-Yb1"/>
-                            <constraint firstItem="6Dl-Y2-Nzf" firstAttribute="leading" secondItem="Tp2-Fe-JbD" secondAttribute="leadingMargin" id="f6b-4b-Cun"/>
-                            <constraint firstItem="6Dl-Y2-Nzf" firstAttribute="top" secondItem="o0K-W6-gcL" secondAttribute="bottom" constant="8" id="j0f-nu-EcI"/>
-                            <constraint firstItem="htw-V5-eIl" firstAttribute="top" secondItem="0RQ-hM-htm" secondAttribute="bottom" constant="20" id="rLD-Ia-MqC"/>
-                            <constraint firstItem="o0K-W6-gcL" firstAttribute="leading" secondItem="Tp2-Fe-JbD" secondAttribute="leadingMargin" id="smF-2n-Gnj"/>
-                            <constraint firstItem="0RQ-hM-htm" firstAttribute="top" secondItem="LtZ-Ol-jGY" secondAttribute="bottom" constant="8" id="tUS-eW-bEd"/>
+                            <constraint firstItem="LtZ-Ol-jGY" firstAttribute="trailing" secondItem="Tp2-Fe-JbD" secondAttribute="trailing" id="UPH-pd-6iQ"/>
+                            <constraint firstItem="LtZ-Ol-jGY" firstAttribute="top" secondItem="KSR-iG-wmh" secondAttribute="bottom" id="VjT-DI-7Oc"/>
+                            <constraint firstItem="htw-V5-eIl" firstAttribute="top" secondItem="6Dl-Y2-Nzf" secondAttribute="bottom" id="ZBy-mp-qzh"/>
+                            <constraint firstItem="0RQ-hM-htm" firstAttribute="leading" secondItem="6Dl-Y2-Nzf" secondAttribute="trailing" id="a6K-HY-chE"/>
+                            <constraint firstItem="0RQ-hM-htm" firstAttribute="trailing" secondItem="Tp2-Fe-JbD" secondAttribute="trailing" id="eyb-mv-Yb1"/>
+                            <constraint firstItem="6Dl-Y2-Nzf" firstAttribute="leading" secondItem="Tp2-Fe-JbD" secondAttribute="leading" id="f6b-4b-Cun"/>
+                            <constraint firstItem="6Dl-Y2-Nzf" firstAttribute="top" secondItem="o0K-W6-gcL" secondAttribute="bottom" id="j0f-nu-EcI"/>
+                            <constraint firstItem="htw-V5-eIl" firstAttribute="top" secondItem="0RQ-hM-htm" secondAttribute="bottom" id="rLD-Ia-MqC"/>
+                            <constraint firstItem="o0K-W6-gcL" firstAttribute="leading" secondItem="Tp2-Fe-JbD" secondAttribute="leading" id="smF-2n-Gnj"/>
+                            <constraint firstItem="0RQ-hM-htm" firstAttribute="top" secondItem="LtZ-Ol-jGY" secondAttribute="bottom" id="tUS-eW-bEd"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="canadaPostButton" destination="6Dl-Y2-Nzf" id="R3L-r3-w1H"/>
+                        <outlet property="fedExButton" destination="LtZ-Ol-jGY" id="cRw-L1-UPv"/>
+                        <outlet property="otherButton" destination="0RQ-hM-htm" id="Fdd-Fd-WnZ"/>
+                        <outlet property="upsButton" destination="o0K-W6-gcL" id="eL5-tk-9O7"/>
                         <segue destination="bto-05-yno" kind="show" identifier="DeliveryCompanySelectedSegue" id="ogb-K5-s20"/>
                     </connections>
                 </viewController>
@@ -500,6 +501,11 @@
             <point key="canvasLocation" x="1922" y="1131"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="IconDeliveryCanadaPost" width="400" height="400"/>
+        <image name="IconDeliveryFedEx" width="400" height="400"/>
+        <image name="IconDeliveryUPS" width="400" height="400"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9RB-Zb-qnu"/>
         <segue reference="i9k-c0-eZo"/>
