@@ -32,6 +32,7 @@ class VisitorSearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.get("back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         timer = NSTimer.scheduledTimerWithTimeInterval(Constants.TIMEOUT_SECONDS, target: self, selector: "unwindToHome:", userInfo: nil, repeats: false)
     }
     

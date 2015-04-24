@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
         // The text on this view has to be manually updated
         deliveryButton.setTitle(Text.get("delivery"), forState: UIControlState.Normal)
         visitorButton.setTitle(Text.get("visitor"), forState: UIControlState.Normal)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.get("back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
     }
     
     

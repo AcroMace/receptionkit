@@ -42,7 +42,7 @@ let TextFrench = [
     "please wait": "veuillez patienter",
     "nice day": "et bonne journée",
     "please wait message": "quelqu'un sera avec vous sous peu",
-    "back": "retour",
+    "back": "Retour",
     "other": "autre"
 ]
 
