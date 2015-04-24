@@ -28,11 +28,7 @@ class DeliveryCompanyViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
-        otherButton.titleLabel!.text = Text.get("other")
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        otherButton.titleLabel!.text = Text.get("other")
+//        otherButton.titleLabel!.text = Text.get("other")
     }
 
     override func didReceiveMemoryWarning() {

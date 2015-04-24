@@ -15,9 +15,6 @@ class DeliveryMethodViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        title = deliveryCompany
     }
 
     override func didReceiveMemoryWarning() {

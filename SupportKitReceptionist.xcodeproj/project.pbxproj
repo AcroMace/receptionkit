@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6376F15D1AEA077600C1F9C4 /* VisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */; };
 		81B4451B1AE9313900725576 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4451A1AE9313900725576 /* AppDelegate.swift */; };
 		81B445201AE9313900725576 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81B4451E1AE9313900725576 /* Main.storyboard */; };
 		81B445221AE9313900725576 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81B445211AE9313900725576 /* Images.xcassets */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		00E477EE5AE8C7590DA32D88 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4945AD572FCB449A9BC4C423 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorViewController.swift; sourceTree = "<group>"; };
 		81B445151AE9313900725576 /* SupportKitReceptionist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SupportKitReceptionist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B445191AE9313900725576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B4451A1AE9313900725576 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		81E2AC7A1AE953A0000D5F25 /* Visitor */ = {
 			isa = PBXGroup;
 			children = (
+				6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */,
 				81B445431AE949A800725576 /* VisitorAskNameViewController.swift */,
 				81E2AC811AE959FA000D5F25 /* VisitorSearchViewController.swift */,
 				81E2AC851AE95AFF000D5F25 /* VisitorSearchResultsTableViewController.swift */,
@@ -353,6 +356,7 @@
 				81B4451B1AE9313900725576 /* AppDelegate.swift in Sources */,
 				81E2AC861AE95AFF000D5F25 /* VisitorSearchResultsTableViewController.swift in Sources */,
 				81E2AC7E1AE95786000D5F25 /* HomeViewController.swift in Sources */,
+				6376F15D1AEA077600C1F9C4 /* VisitorViewController.swift in Sources */,
 				81E2AC8E1AE9A447000D5F25 /* Text.swift in Sources */,
 				81B4453B1AE935E400725576 /* DeliveryCompanyViewController.swift in Sources */,
 			);
@@ -488,6 +492,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SupportKitReceptionist/SupportKitReceptionist-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -500,6 +505,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SupportKitReceptionist/SupportKitReceptionist-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

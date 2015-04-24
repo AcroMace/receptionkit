@@ -21,9 +21,9 @@
                             <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-2M-Olk">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="536"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
-                                <state key="normal" title="delivery">
+                                <inset key="titleEdgeInsets" minX="0.0" minY="200" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="delivery" backgroundImage="ButtonDelivery">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="GCF-Zq-Vv5" kind="show" id="xcE-97-maj"/>
@@ -32,7 +32,8 @@
                             <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCB-dj-GQe">
                                 <rect key="frame" x="300" y="0.0" width="300" height="536"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
-                                <state key="normal" title="i'm a visitor">
+                                <inset key="contentEdgeInsets" minX="0.0" minY="200" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="i'm a visitor" backgroundImage="ButtonVisitor">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -70,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="1252" y="429"/>
         </scene>
-        <!--View Controller-->
+        <!--Visitor View Controller-->
         <scene sceneID="naA-Ia-S2g">
             <objects>
-                <viewController id="Jco-hV-A70" sceneMemberID="viewController">
+                <viewController id="Jco-hV-A70" customClass="VisitorViewController" customModule="SupportKitReceptionist" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EID-IK-FU7"/>
                         <viewControllerLayoutGuide type="bottom" id="m9J-2N-bMX"/>
@@ -82,10 +83,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Bh-Fw-aRw">
-                                <rect key="frame" x="16" y="8" width="280" height="508"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                <state key="normal" title="I know the name of the person I am here to see">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8Bh-Fw-aRw">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="536"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="264" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="I know the name of the person I am here to see" backgroundImage="ButtonVisitorKnow">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -93,10 +95,11 @@
                                     <segue destination="gmm-f4-xMQ" kind="show" id="ySL-3K-ifk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRx-RZ-T6n">
-                                <rect key="frame" x="304" y="8" width="280" height="508"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                <state key="normal" title="I don't know">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dRx-RZ-T6n">
+                                <rect key="frame" x="300" y="0.0" width="300" height="536"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="100" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="I don't know" backgroundImage="ButtonVisitorNotKnow">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -107,16 +110,20 @@
                         </subviews>
                         <color key="backgroundColor" red="0.75686274509999996" green="0.031372549020000001" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="8Bh-Fw-aRw" firstAttribute="top" secondItem="EID-IK-FU7" secondAttribute="bottom" constant="8" id="EwA-jn-sKf"/>
+                            <constraint firstItem="8Bh-Fw-aRw" firstAttribute="top" secondItem="EID-IK-FU7" secondAttribute="bottom" id="EwA-jn-sKf"/>
                             <constraint firstItem="8Bh-Fw-aRw" firstAttribute="width" secondItem="dRx-RZ-T6n" secondAttribute="width" id="QlR-rE-A8A"/>
-                            <constraint firstItem="m9J-2N-bMX" firstAttribute="top" secondItem="dRx-RZ-T6n" secondAttribute="bottom" constant="20" id="UWC-VU-aGS"/>
-                            <constraint firstItem="dRx-RZ-T6n" firstAttribute="leading" secondItem="8Bh-Fw-aRw" secondAttribute="trailing" constant="8" id="UfX-Hw-LAy"/>
-                            <constraint firstItem="dRx-RZ-T6n" firstAttribute="top" secondItem="EID-IK-FU7" secondAttribute="bottom" constant="8" id="bYq-fz-ed6"/>
-                            <constraint firstItem="dRx-RZ-T6n" firstAttribute="trailing" secondItem="vkX-EK-14f" secondAttribute="trailingMargin" id="eA7-wt-b5k"/>
-                            <constraint firstItem="8Bh-Fw-aRw" firstAttribute="leading" secondItem="vkX-EK-14f" secondAttribute="leadingMargin" id="p3c-7v-DhO"/>
-                            <constraint firstItem="m9J-2N-bMX" firstAttribute="top" secondItem="8Bh-Fw-aRw" secondAttribute="bottom" constant="20" id="ulA-ux-fac"/>
+                            <constraint firstItem="m9J-2N-bMX" firstAttribute="top" secondItem="dRx-RZ-T6n" secondAttribute="bottom" id="UWC-VU-aGS"/>
+                            <constraint firstItem="dRx-RZ-T6n" firstAttribute="leading" secondItem="8Bh-Fw-aRw" secondAttribute="trailing" id="UfX-Hw-LAy"/>
+                            <constraint firstItem="dRx-RZ-T6n" firstAttribute="top" secondItem="EID-IK-FU7" secondAttribute="bottom" id="bYq-fz-ed6"/>
+                            <constraint firstItem="dRx-RZ-T6n" firstAttribute="trailing" secondItem="vkX-EK-14f" secondAttribute="trailing" id="eA7-wt-b5k"/>
+                            <constraint firstItem="8Bh-Fw-aRw" firstAttribute="leading" secondItem="vkX-EK-14f" secondAttribute="leading" id="p3c-7v-DhO"/>
+                            <constraint firstItem="m9J-2N-bMX" firstAttribute="top" secondItem="8Bh-Fw-aRw" secondAttribute="bottom" id="ulA-ux-fac"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="knowButton" destination="8Bh-Fw-aRw" id="ikH-sp-91r"/>
+                        <outlet property="notKnowButton" destination="dRx-RZ-T6n" id="fi8-6d-N0t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yCp-eU-JQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -282,12 +289,11 @@
                                     <action selector="canadaPostButtonTapped:" destination="GCF-Zq-Vv5" eventType="touchUpInside" id="fZQ-Xf-odF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RQ-hM-htm">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RQ-hM-htm">
                                 <rect key="frame" x="300" y="268" width="300" height="268"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="96"/>
-                                <state key="normal" title="Other">
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="96"/>
+                                <state key="normal" title="other">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="otherButtonTapped:" destination="GCF-Zq-Vv5" eventType="touchUpInside" id="rKW-hB-Yvx"/>
@@ -342,8 +348,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyD-yG-B4D">
                                 <rect key="frame" x="16" y="8" width="568" height="250"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
-                                <state key="normal" title="I need a signature">
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="200" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="i need a signature" backgroundImage="ButtonDeliverySignature">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -353,8 +360,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdR-hF-OqZ">
                                 <rect key="frame" x="16" y="266" width="568" height="250"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
-                                <state key="normal" title="I left a package at the reception">
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="200" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="i left a package at the reception" backgroundImage="ButtonDeliveryLeaving">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -502,12 +510,18 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ButtonDelivery" width="512" height="704"/>
+        <image name="ButtonDeliveryLeaving" width="1024" height="352"/>
+        <image name="ButtonDeliverySignature" width="1024" height="352"/>
+        <image name="ButtonVisitor" width="512" height="704"/>
+        <image name="ButtonVisitorKnow" width="512" height="704"/>
+        <image name="ButtonVisitorNotKnow" width="512" height="704"/>
         <image name="IconDeliveryCanadaPost" width="400" height="400"/>
         <image name="IconDeliveryFedEx" width="400" height="400"/>
         <image name="IconDeliveryUPS" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9RB-Zb-qnu"/>
-        <segue reference="i9k-c0-eZo"/>
+        <segue reference="GYv-TI-Pgt"/>
     </inferredMetricsTieBreakers>
 </document>
