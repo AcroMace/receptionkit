@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // SupportKit Settings
-        let skAppToken = "8xc3kjtbfmbyu7xi10n2h74z5"
+        let skAppToken = "c51fv1ar9cdimplypleh2hpol"
         let skSettings = SKTSettings(appToken: skAppToken)
         skSettings.enableGestureHintOnFirstLaunch = false
         skSettings.enableAppWideGesture = false
@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setup SupportKit
         SupportKit.conversation().delegate = conversationDelegate
         SupportKit.setUserFirstName("Reception", lastName: "")
+        SKTUser.currentUser().email = "receptionniste@radialpoint.com"
         
         // App-wide styles
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
