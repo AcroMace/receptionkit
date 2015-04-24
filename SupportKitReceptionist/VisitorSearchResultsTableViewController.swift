@@ -54,6 +54,12 @@ class VisitorSearchResultsTableViewController: UITableViewController {
             cell.contactPhoneLabel.text = "No contact info"
         }
         
+        if (contact.picture != nil) {
+            cell.contactImage.image = contact.picture
+        }
+        cell.contactImage.layer.cornerRadius = 42.0
+        cell.contactImage.layer.masksToBounds = true
+        
         return cell
     }
     

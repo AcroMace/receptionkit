@@ -14,11 +14,13 @@ class Contact {
     var name: String
     var email: [String]
     var phone: [String]
+    var picture: UIImage?
     
-    init(name: String, email: [String], phone: [String]) {
+    init(name: String, email: [String], phone: [String], picture: UIImage?) {
         self.name = name
         self.email = email
         self.phone = phone
+        self.picture = picture
     }
     
     
@@ -57,7 +59,14 @@ class Contact {
                 var contactEmails = getProperties(person, property: kABPersonEmailProperty)
                 var contactPhoneNumbers = getProperties(person, property: kABPersonPhoneProperty)
                 
-                contacts.append(Contact(name: contactName, email: contactEmails, phone: contactPhoneNumbers))
+                let contactPictureDataOptional = ABPersonCopyImageData(person)
+                var contactPicture: UIImage?
+                if (contactPictureDataOptional != nil) {
+                    let contactPictureData = ABPersonCopyImageData(person).takeRetainedValue() as NSData
+                    let contactPicture = UIImage(data: contactPictureData)
+                }
+                
+                contacts.append(Contact(name: contactName, email: contactEmails, phone: contactPhoneNumbers, picture: contactPicture))
             }
         }
 
