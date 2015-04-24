@@ -26,11 +26,13 @@ class ReceivedMessageViewController: UIViewController {
         contactMessage.text = message
         
         // Load the image
+        self.contactPicture.image = UIImage(named: "UnknownContact")
+        self.contactPicture.layer.cornerRadius = 75.0
+        self.contactPicture.layer.masksToBounds = true
+
         if (picture != nil) {
             NSURLConnection.sendAsynchronousRequest(NSURLRequest(URL: NSURL(string: picture!)!), queue: NSOperationQueue.mainQueue()) { (reponse, data, error) -> Void in
                 self.contactPicture.image = UIImage(data: data)
-                self.contactPicture.layer.cornerRadius = 75.0
-                self.contactPicture.layer.masksToBounds = true
             }
         }
         

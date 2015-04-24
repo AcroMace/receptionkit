@@ -56,6 +56,8 @@ class VisitorSearchResultsTableViewController: UITableViewController {
         
         if (contact.picture != nil) {
             cell.contactImage.image = contact.picture
+        } else {
+            cell.contactImage.image = UIImage(named: "UnknownContact")
         }
         cell.contactImage.layer.cornerRadius = 42.0
         cell.contactImage.layer.masksToBounds = true
