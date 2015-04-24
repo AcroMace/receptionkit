@@ -19,13 +19,8 @@ class HomeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "RadialpointLogo"))
-        
     }
     
-    override func viewWillAppear(animated: Bool) {
-//        deliveryButton.titleLabel!.text = Text.get("delivery")
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -40,7 +35,8 @@ class HomeViewController: UIViewController {
         Text.swapLanguage()
         
         // The text on this view has to be manually updated
-//        deliveryButton.titleLabel?.text = Text.get("delivery")
+        deliveryButton.setTitle(Text.get("delivery"), forState: UIControlState.Normal)
+        visitorButton.setTitle(Text.get("visitor"), forState: UIControlState.Normal)
     }
     
     

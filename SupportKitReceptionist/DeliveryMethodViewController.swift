@@ -13,15 +13,16 @@ class DeliveryMethodViewController: UIViewController {
     var deliveryCompany: String?
     var shouldAskToWait = true
     
+    @IBOutlet weak var signatureButton: UIButton!
+    @IBOutlet weak var leftReceptionButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        signatureButton.setTitle(Text.get("signature"), forState: UIControlState.Normal)
+        leftReceptionButton.setTitle(Text.get("left at reception"), forState: UIControlState.Normal)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     //
     // Delivery method buttons
     //

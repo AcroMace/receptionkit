@@ -21,19 +21,12 @@ class DeliveryCompanyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Set the language
+        otherButton.setTitle(Text.get("other"), forState: UIControlState.Normal)
         // Make sure that the button images are not skewed
         upsButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
         fedExButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
         canadaPostButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
-    }
-    
-    override func viewWillLayoutSubviews() {
-//        otherButton.titleLabel!.text = Text.get("other")
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     

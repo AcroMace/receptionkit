@@ -13,27 +13,15 @@ class VisitorViewController: UIViewController {
     @IBOutlet weak var knowButton: UIButton!
     @IBOutlet weak var notKnowButton: UIButton!
 
+    override func viewWillAppear(animated: Bool) {
+        knowButton.titleLabel?.textAlignment = NSTextAlignment.Center
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        knowButton.titleLabel?.textAlignment = NSTextAlignment.Center
+        knowButton.setTitle(Text.get("i know"), forState: UIControlState.Normal)
+        notKnowButton.setTitle(Text.get("i don't know"), forState: UIControlState.Normal)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

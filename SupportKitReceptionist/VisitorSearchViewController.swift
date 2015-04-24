@@ -12,6 +12,7 @@ class VisitorSearchViewController: UIViewController, UITextFieldDelegate {
 
     var searchResults = [Contact]()
     
+    @IBOutlet weak var lookingForLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     
     
@@ -21,17 +22,14 @@ class VisitorSearchViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         nameTextField.delegate = self
         nameTextField.borderStyle = UITextBorderStyle.RoundedRect
+        nameTextField.placeholder = Text.get("wizard of oz")
+        lookingForLabel.text = Text.get("looking for")
     }
     
     override func viewDidAppear(animated: Bool) {
         nameTextField.becomeFirstResponder()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     //
     // MARK: - UITextFieldDelegate

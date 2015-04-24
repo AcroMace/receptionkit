@@ -8,31 +8,37 @@
 
 import Foundation
 
-class TextEnglish {
-    static func get(text: String) -> String {
-        switch text {
-        case "delivery":    return "delivery"
-        case "thank you":   return "thank you! :)"
-        case "nice day":    return "and have a nice day"
-        case "please wait": return "someone will be here shortly to meet you"
-        case "other":       return "other"
-        default:            return "oopsie"
-        }
-    }
-}
+let TextEnglish = [
+    "delivery": "delivery",
+    "signature": "i need a signature",
+    "left at reception": "i left a package at the reception",
+    "visitor": "i'm a visitor",
+    "i know": "i know the name\nof the person i am\nhere to see",
+    "i don't know": "i don't know",
+    "looking for": "who are you looking for?",
+    "wizard of oz": "The Wonderful Wizard of Oz",
+    "your name": "what is your name?",
+    "thank you": "thank you! :)",
+    "nice day": "and have a nice day",
+    "please wait": "someone will be here shortly to meet you",
+    "other": "other"
+]
 
-class TextFrench {
-    static func get(text: String) -> String {
-        switch text {
-        case "delivery":    return "livraison"
-        case "thank you":   return "merci! :)"
-        case "nice day":    return "et bonne journée"
-        case "please wait": return "quelqu'un sera bientôt ici de vous rencontrer"
-        case "other":       return "autre"
-        default:            return "uh oh"
-        }
-    }
-}
+let TextFrench = [
+    "delivery": "livraison",
+    "signature": "j'ai besoin d' une signature",
+    "left at reception": "j'ai laissé un paquet à la réception",
+    "visitor": "visiteur",
+    "i know": "je connais le nom\nde la personne que\nje suis ici pour voir",
+    "i don't know": "je ne sais pas",
+    "looking for": "qui cherches-tu?",
+    "wizard of oz": "Le Magicien d'Oz",
+    "your name": "comment vous appelez-vous?",
+    "thank you": "merci! :)",
+    "nice day": "et bonne journée",
+    "please wait": "quelqu'un sera bientôt ici de vous rencontrer",
+    "other": "autre"
+]
 
 // Apologies to whoever has to maintain this
 class Text {
@@ -41,9 +47,9 @@ class Text {
     // Get text from a key word
     static func get(text: String) -> String {
         if (language == "English") {
-            return TextEnglish.get(text)
+            return TextEnglish[text]!
         } else {
-            return TextFrench.get(text)
+            return TextFrench[text]!
         }
     }
     

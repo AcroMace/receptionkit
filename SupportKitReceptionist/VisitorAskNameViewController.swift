@@ -10,7 +10,9 @@ import UIKit
 
 class VisitorAskNameViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var yourNameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
+
     let visitorNameSetSegue = "VisitorNameSetSegue"
     
     override func viewDidLoad() {
@@ -19,16 +21,12 @@ class VisitorAskNameViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         self.nameTextField.delegate = self
         nameTextField.borderStyle = UITextBorderStyle.RoundedRect
+        yourNameLabel.text = Text.get("your name")
     }
     
     override func viewDidAppear(animated: Bool) {
         // Not doing this in viewDidLoad() as that raises the keyboard before the segue
         nameTextField.becomeFirstResponder()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     
