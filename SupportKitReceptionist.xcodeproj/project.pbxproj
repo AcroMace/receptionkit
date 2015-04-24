@@ -19,6 +19,7 @@
 		81D637C61AEA7F0E004D26DF /* SupportKitConversationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D637C51AEA7F0E004D26DF /* SupportKitConversationDelegate.swift */; };
 		81D637D41AEA9BA0004D26DF /* ReceivedMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D637D21AEA9BA0004D26DF /* ReceivedMessageViewController.swift */; };
 		81D637D51AEA9BA0004D26DF /* ReceivedMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D637D31AEA9BA0004D26DF /* ReceivedMessageViewController.xib */; };
+		81D637D71AEAEE54004D26DF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D637D61AEAEE54004D26DF /* Constants.swift */; };
 		81E2AC771AE95163000D5F25 /* SupportKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2AC761AE95163000D5F25 /* SupportKitHelpers.swift */; };
 		81E2AC7E1AE95786000D5F25 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2AC7D1AE95786000D5F25 /* HomeViewController.swift */; };
 		81E2AC801AE95843000D5F25 /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2AC7F1AE95843000D5F25 /* WaitingViewController.swift */; };
@@ -60,6 +61,7 @@
 		81D637C51AEA7F0E004D26DF /* SupportKitConversationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportKitConversationDelegate.swift; sourceTree = "<group>"; };
 		81D637D21AEA9BA0004D26DF /* ReceivedMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivedMessageViewController.swift; sourceTree = "<group>"; };
 		81D637D31AEA9BA0004D26DF /* ReceivedMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceivedMessageViewController.xib; sourceTree = "<group>"; };
+		81D637D61AEAEE54004D26DF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		81E2AC761AE95163000D5F25 /* SupportKitHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportKitHelpers.swift; sourceTree = "<group>"; };
 		81E2AC7D1AE95786000D5F25 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		81E2AC7F1AE95843000D5F25 /* WaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				81E2AC761AE95163000D5F25 /* SupportKitHelpers.swift */,
 				81D637C51AEA7F0E004D26DF /* SupportKitConversationDelegate.swift */,
 				81E2AC8D1AE9A447000D5F25 /* Text.swift */,
+				81D637D61AEAEE54004D26DF /* Constants.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				81E2AC821AE959FA000D5F25 /* VisitorSearchViewController.swift in Sources */,
 				81E2AC881AE95BF4000D5F25 /* Contacts.swift in Sources */,
 				81E2AC801AE95843000D5F25 /* WaitingViewController.swift in Sources */,
+				81D637D71AEAEE54004D26DF /* Constants.swift in Sources */,
 				81B4451B1AE9313900725576 /* AppDelegate.swift in Sources */,
 				81D637D41AEA9BA0004D26DF /* ReceivedMessageViewController.swift in Sources */,
 				81D637C61AEA7F0E004D26DF /* SupportKitConversationDelegate.swift in Sources */,

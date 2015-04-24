@@ -12,6 +12,7 @@ class VisitorSearchResultsTableViewController: UITableViewController {
 
     var searchQuery: String?
     var searchResults: [Contact]?
+    var timer: NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +26,15 @@ class VisitorSearchResultsTableViewController: UITableViewController {
         title = searchQuery
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(animated: Bool) {
+        timer = NSTimer.scheduledTimerWithTimeInterval(Constants.TIMEOUT_SECONDS, target: self, selector: "unwindToHome:", userInfo: nil, repeats: false)
     }
 
+    override func viewWillDisappear(animated: Bool) {
+        timer?.invalidate()
+        timer = nil
+    }
+    
     
     //
     // MARK: - Table view data source
@@ -73,7 +78,6 @@ class VisitorSearchResultsTableViewController: UITableViewController {
         var formattedString = ""
         
         for phone in phones {
-            println(phone.type)
             if phone.isWorkPhone() == true {
                 workPhones.append(phone)
             } else if phone.isMobilePhone() == true {
@@ -111,5 +115,9 @@ class VisitorSearchResultsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func unwindToHome(timer: NSTimer!) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
 
 }

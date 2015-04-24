@@ -14,6 +14,7 @@ class VisitorAskNameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
 
     let visitorNameSetSegue = "VisitorNameSetSegue"
+    var timer: NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +25,18 @@ class VisitorAskNameViewController: UIViewController, UITextFieldDelegate {
         yourNameLabel.text = Text.get("your name")
     }
     
+    override func viewWillAppear(animated: Bool) {
+        timer = NSTimer.scheduledTimerWithTimeInterval(Constants.TIMEOUT_SECONDS, target: self, selector: "unwindToHome:", userInfo: nil, repeats: false)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         // Not doing this in viewDidLoad() as that raises the keyboard before the segue
         nameTextField.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        timer?.invalidate()
+        timer = nil
     }
 
     
@@ -43,6 +53,10 @@ class VisitorAskNameViewController: UIViewController, UITextFieldDelegate {
         }
         performSegueWithIdentifier(visitorNameSetSegue, sender: self)
         return false
+    }
+    
+    func unwindToHome(timer: NSTimer!) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
 }

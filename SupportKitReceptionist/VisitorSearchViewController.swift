@@ -11,6 +11,7 @@ import UIKit
 class VisitorSearchViewController: UIViewController, UITextFieldDelegate {
 
     var searchResults = [Contact]()
+    var timer: NSTimer?
     
     @IBOutlet weak var lookingForLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
@@ -28,6 +29,15 @@ class VisitorSearchViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(animated: Bool) {
         nameTextField.becomeFirstResponder()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        timer = NSTimer.scheduledTimerWithTimeInterval(Constants.TIMEOUT_SECONDS, target: self, selector: "unwindToHome:", userInfo: nil, repeats: false)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        timer?.invalidate()
+        timer = nil
     }
 
     
@@ -60,6 +70,10 @@ class VisitorSearchViewController: UIViewController, UITextFieldDelegate {
             visitorSearchResultsTableViewController.searchQuery = nameTextField.text
             visitorSearchResultsTableViewController.searchResults = searchResults
         }
+    }
+    
+    func unwindToHome(timer: NSTimer!) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
 }

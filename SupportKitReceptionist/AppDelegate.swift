@@ -13,10 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let conversationDelegate = ConversationDelegate()
+    
+    //
+    // BEWARE ALL YE WHO ENTER
+    // THIS IS HACKATHON QUALITY CODE
+    //
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        
         // SupportKit Settings
         let skAppToken = "c51fv1ar9cdimplypleh2hpol"
         let skSettings = SKTSettings(appToken: skAppToken)

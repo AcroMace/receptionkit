@@ -12,6 +12,7 @@ class DeliveryCompanyViewController: UIViewController {
 
     var deliveryCompany: String?
     let deliverySelectedSegue = "DeliveryCompanySelectedSegue"
+    var timer: NSTimer?
     
     @IBOutlet weak var upsButton: UIButton!
     @IBOutlet weak var fedExButton: UIButton!
@@ -27,6 +28,15 @@ class DeliveryCompanyViewController: UIViewController {
         upsButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
         fedExButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
         canadaPostButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        timer = NSTimer.scheduledTimerWithTimeInterval(Constants.TIMEOUT_SECONDS, target: self, selector: "unwindToHome:", userInfo: nil, repeats: false)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        timer?.invalidate()
+        timer = nil
     }
     
     
@@ -66,6 +76,10 @@ class DeliveryCompanyViewController: UIViewController {
         if let deliveryMethodController = segue.destinationViewController as? DeliveryMethodViewController {
             deliveryMethodController.deliveryCompany = deliveryCompany
         }
+    }
+    
+    func unwindToHome(timer: NSTimer!) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
 }
