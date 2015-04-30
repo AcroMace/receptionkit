@@ -3,7 +3,7 @@
 //  ReceptionKit
 //
 //  Created by Andy Cho on 2015-04-29.
-//  Copyright (c) 2015 Andy cho. All rights reserved.
+//  Copyright (c) 2015 Andy Cho. All rights reserved.
 //
 
 import Foundation

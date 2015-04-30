@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReceivedMessageViewController" customModule="SupportKitReceptionist" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReceivedMessageViewController" customModule="ReceptionKit" customModuleProvider="target">
             <connections>
                 <outlet property="contactMessage" destination="PAP-Z3-kCJ" id="0AN-pN-UYO"/>
                 <outlet property="contactPicture" destination="BMI-ML-I9t" id="tww-yN-Lb6"/>

@@ -13,7 +13,7 @@
 		81B445201AE9313900725576 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81B4451E1AE9313900725576 /* Main.storyboard */; };
 		81B445221AE9313900725576 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81B445211AE9313900725576 /* Images.xcassets */; };
 		81B445251AE9313900725576 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81B445231AE9313900725576 /* LaunchScreen.xib */; };
-		81B445311AE9313900725576 /* SupportKitReceptionistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B445301AE9313900725576 /* SupportKitReceptionistTests.swift */; };
+		81B445311AE9313900725576 /* ReceptionKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B445301AE9313900725576 /* ReceptionKitTests.swift */; };
 		81B4453B1AE935E400725576 /* DeliveryCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4453A1AE935E400725576 /* DeliveryCompanyViewController.swift */; };
 		81B4453D1AE9360400725576 /* DeliveryMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4453C1AE9360400725576 /* DeliveryMethodViewController.swift */; };
 		81B445441AE949A800725576 /* VisitorAskNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B445431AE949A800725576 /* VisitorAskNameViewController.swift */; };
@@ -38,7 +38,7 @@
 			containerPortal = 81B4450D1AE9313900725576 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 81B445141AE9313900725576;
-			remoteInfo = SupportKitReceptionist;
+			remoteInfo = ReceptionKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -51,14 +51,14 @@
 		81B445191AE9313900725576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B4451A1AE9313900725576 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81B4451F1AE9313900725576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		81B445211AE9313900725576 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SupportKitReceptionist/Images.xcassets; sourceTree = "<group>"; };
+		81B445211AE9313900725576 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReceptionKit/Images.xcassets; sourceTree = "<group>"; };
 		81B445241AE9313900725576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		81B4452A1AE9313900725576 /* ReceptionKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReceptionKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B4452F1AE9313900725576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81B445301AE9313900725576 /* SupportKitReceptionistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportKitReceptionistTests.swift; sourceTree = "<group>"; };
+		81B445301AE9313900725576 /* ReceptionKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceptionKitTests.swift; sourceTree = "<group>"; };
 		81B4453A1AE935E400725576 /* DeliveryCompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryCompanyViewController.swift; sourceTree = "<group>"; };
 		81B4453C1AE9360400725576 /* DeliveryMethodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryMethodViewController.swift; sourceTree = "<group>"; };
-		81B4453E1AE939C700725576 /* SupportKitReceptionist-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SupportKitReceptionist-Bridging-Header.h"; sourceTree = "<group>"; };
+		81B4453E1AE939C700725576 /* ReceptionKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReceptionKit-Bridging-Header.h"; sourceTree = "<group>"; };
 		81B445431AE949A800725576 /* VisitorAskNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorAskNameViewController.swift; sourceTree = "<group>"; };
 		81D637C51AEA7F0E004D26DF /* SupportKitConversationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportKitConversationDelegate.swift; sourceTree = "<group>"; };
 		81D637D21AEA9BA0004D26DF /* ReceivedMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivedMessageViewController.swift; sourceTree = "<group>"; };
@@ -107,8 +107,8 @@
 			children = (
 				631439921AF1BCDA00B7B757 /* Config.swift */,
 				81B445211AE9313900725576 /* Images.xcassets */,
-				81B445171AE9313900725576 /* SupportKitReceptionist */,
-				81B4452D1AE9313900725576 /* SupportKitReceptionistTests */,
+				81B445171AE9313900725576 /* ReceptionKit */,
+				81B4452D1AE9313900725576 /* ReceptionKitTests */,
 				81B445161AE9313900725576 /* Products */,
 				A1306A7163228330AB7D585B /* Pods */,
 				343A318191D80FA991050F38 /* Frameworks */,
@@ -124,7 +124,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		81B445171AE9313900725576 /* SupportKitReceptionist */ = {
+		81B445171AE9313900725576 /* ReceptionKit */ = {
 			isa = PBXGroup;
 			children = (
 				81B4451A1AE9313900725576 /* AppDelegate.swift */,
@@ -134,26 +134,27 @@
 				81E2AC781AE951BE000D5F25 /* View Controllers */,
 				81B445181AE9313900725576 /* Supporting Files */,
 			);
-			path = SupportKitReceptionist;
+			path = ReceptionKit;
 			sourceTree = "<group>";
 		};
 		81B445181AE9313900725576 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				81B4453E1AE939C700725576 /* SupportKitReceptionist-Bridging-Header.h */,
+				81B4453E1AE939C700725576 /* ReceptionKit-Bridging-Header.h */,
 				81B445231AE9313900725576 /* LaunchScreen.xib */,
 				81B445191AE9313900725576 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		81B4452D1AE9313900725576 /* SupportKitReceptionistTests */ = {
+		81B4452D1AE9313900725576 /* ReceptionKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				81B445301AE9313900725576 /* SupportKitReceptionistTests.swift */,
+				81B445301AE9313900725576 /* ReceptionKitTests.swift */,
 				81B4452E1AE9313900725576 /* Supporting Files */,
 			);
-			path = SupportKitReceptionistTests;
+			name = ReceptionKitTests;
+			path = ReceptionKitTests;
 			sourceTree = "<group>";
 		};
 		81B4452E1AE9313900725576 /* Supporting Files */ = {
@@ -252,7 +253,7 @@
 			dependencies = (
 			);
 			name = ReceptionKit;
-			productName = SupportKitReceptionist;
+			productName = ReceptionKit;
 			productReference = 81B445151AE9313900725576 /* ReceptionKit.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -270,7 +271,7 @@
 				81B4452C1AE9313900725576 /* PBXTargetDependency */,
 			);
 			name = ReceptionKitTests;
-			productName = SupportKitReceptionistTests;
+			productName = ReceptionKitTests;
 			productReference = 81B4452A1AE9313900725576 /* ReceptionKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -281,7 +282,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0630;
-				ORGANIZATIONNAME = "Andy cho";
+				ORGANIZATIONNAME = "Andy Cho";
 				TargetAttributes = {
 					81B445141AE9313900725576 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -395,7 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81B445311AE9313900725576 /* SupportKitReceptionistTests.swift in Sources */,
+				81B445311AE9313900725576 /* ReceptionKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,10 +519,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = SupportKitReceptionist/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ReceptionKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = ReceptionKit;
-				SWIFT_OBJC_BRIDGING_HEADER = "SupportKitReceptionist/SupportKitReceptionist-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ReceptionKit/ReceptionKit-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -532,10 +533,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = SupportKitReceptionist/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ReceptionKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = ReceptionKit;
-				SWIFT_OBJC_BRIDGING_HEADER = "SupportKitReceptionist/SupportKitReceptionist-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ReceptionKit/ReceptionKit-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
@@ -552,10 +553,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SupportKitReceptionistTests/Info.plist;
+				INFOPLIST_FILE = ReceptionKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ReceptionKitTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SupportKitReceptionist.app/SupportKitReceptionist";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReceptionKit.app/ReceptionKit";
 			};
 			name = Debug;
 		};
@@ -567,10 +568,10 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SupportKitReceptionistTests/Info.plist;
+				INFOPLIST_FILE = ReceptionKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ReceptionKitTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SupportKitReceptionist.app/SupportKitReceptionist";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReceptionKit.app/ReceptionKit";
 			};
 			name = Release;
 		};

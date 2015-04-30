@@ -1,15 +1,15 @@
 //
-//  SupportKitReceptionistTests.swift
-//  SupportKitReceptionistTests
+//  ReceptionKitTests.swift
+//  ReceptionKitTests
 //
-//  Created by Andy cho on 2015-04-23.
-//  Copyright (c) 2015 Andy cho. All rights reserved.
+//  Created by Andy Cho on 2015-04-23.
+//  Copyright (c) 2015 Andy Cho. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class SupportKitReceptionistTests: XCTestCase {
+class ReceptionKitTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
