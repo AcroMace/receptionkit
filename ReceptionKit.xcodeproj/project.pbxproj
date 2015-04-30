@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		631439931AF1BCDA00B7B757 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631439921AF1BCDA00B7B757 /* Config.swift */; };
 		6376F15D1AEA077600C1F9C4 /* VisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */; };
 		81B4451B1AE9313900725576 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4451A1AE9313900725576 /* AppDelegate.swift */; };
 		81B445201AE9313900725576 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81B4451E1AE9313900725576 /* Main.storyboard */; };
@@ -44,14 +45,15 @@
 /* Begin PBXFileReference section */
 		00E477EE5AE8C7590DA32D88 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4945AD572FCB449A9BC4C423 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		631439921AF1BCDA00B7B757 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorViewController.swift; sourceTree = "<group>"; };
-		81B445151AE9313900725576 /* SupportKitReceptionist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SupportKitReceptionist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81B445151AE9313900725576 /* ReceptionKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReceptionKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B445191AE9313900725576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B4451A1AE9313900725576 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81B4451F1AE9313900725576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81B445211AE9313900725576 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SupportKitReceptionist/Images.xcassets; sourceTree = "<group>"; };
 		81B445241AE9313900725576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		81B4452A1AE9313900725576 /* SupportKitReceptionistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SupportKitReceptionistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		81B4452A1AE9313900725576 /* ReceptionKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReceptionKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B4452F1AE9313900725576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B445301AE9313900725576 /* SupportKitReceptionistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportKitReceptionistTests.swift; sourceTree = "<group>"; };
 		81B4453A1AE935E400725576 /* DeliveryCompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryCompanyViewController.swift; sourceTree = "<group>"; };
@@ -103,8 +105,9 @@
 		81B4450C1AE9313900725576 = {
 			isa = PBXGroup;
 			children = (
-				81B445171AE9313900725576 /* SupportKitReceptionist */,
+				631439921AF1BCDA00B7B757 /* Config.swift */,
 				81B445211AE9313900725576 /* Images.xcassets */,
+				81B445171AE9313900725576 /* SupportKitReceptionist */,
 				81B4452D1AE9313900725576 /* SupportKitReceptionistTests */,
 				81B445161AE9313900725576 /* Products */,
 				A1306A7163228330AB7D585B /* Pods */,
@@ -115,8 +118,8 @@
 		81B445161AE9313900725576 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				81B445151AE9313900725576 /* SupportKitReceptionist.app */,
-				81B4452A1AE9313900725576 /* SupportKitReceptionistTests.xctest */,
+				81B445151AE9313900725576 /* ReceptionKit.app */,
+				81B4452A1AE9313900725576 /* ReceptionKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,9 +237,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		81B445141AE9313900725576 /* SupportKitReceptionist */ = {
+		81B445141AE9313900725576 /* ReceptionKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81B445341AE9313900725576 /* Build configuration list for PBXNativeTarget "SupportKitReceptionist" */;
+			buildConfigurationList = 81B445341AE9313900725576 /* Build configuration list for PBXNativeTarget "ReceptionKit" */;
 			buildPhases = (
 				D303D3E14CD1FA2A2BCFE1AF /* Check Pods Manifest.lock */,
 				81B445111AE9313900725576 /* Sources */,
@@ -248,14 +251,14 @@
 			);
 			dependencies = (
 			);
-			name = SupportKitReceptionist;
+			name = ReceptionKit;
 			productName = SupportKitReceptionist;
-			productReference = 81B445151AE9313900725576 /* SupportKitReceptionist.app */;
+			productReference = 81B445151AE9313900725576 /* ReceptionKit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		81B445291AE9313900725576 /* SupportKitReceptionistTests */ = {
+		81B445291AE9313900725576 /* ReceptionKitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81B445371AE9313900725576 /* Build configuration list for PBXNativeTarget "SupportKitReceptionistTests" */;
+			buildConfigurationList = 81B445371AE9313900725576 /* Build configuration list for PBXNativeTarget "ReceptionKitTests" */;
 			buildPhases = (
 				81B445261AE9313900725576 /* Sources */,
 				81B445271AE9313900725576 /* Frameworks */,
@@ -266,9 +269,9 @@
 			dependencies = (
 				81B4452C1AE9313900725576 /* PBXTargetDependency */,
 			);
-			name = SupportKitReceptionistTests;
+			name = ReceptionKitTests;
 			productName = SupportKitReceptionistTests;
-			productReference = 81B4452A1AE9313900725576 /* SupportKitReceptionistTests.xctest */;
+			productReference = 81B4452A1AE9313900725576 /* ReceptionKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -282,6 +285,7 @@
 				TargetAttributes = {
 					81B445141AE9313900725576 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = N92XZM98NX;
 					};
 					81B445291AE9313900725576 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -289,7 +293,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 81B445101AE9313900725576 /* Build configuration list for PBXProject "SupportKitReceptionist" */;
+			buildConfigurationList = 81B445101AE9313900725576 /* Build configuration list for PBXProject "ReceptionKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -302,8 +306,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				81B445141AE9313900725576 /* SupportKitReceptionist */,
-				81B445291AE9313900725576 /* SupportKitReceptionistTests */,
+				81B445141AE9313900725576 /* ReceptionKit */,
+				81B445291AE9313900725576 /* ReceptionKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -370,6 +374,7 @@
 				81E2AC771AE95163000D5F25 /* SupportKitHelpers.swift in Sources */,
 				81B445441AE949A800725576 /* VisitorAskNameViewController.swift in Sources */,
 				81E2AC8B1AE995EF000D5F25 /* ContactTableViewCell.swift in Sources */,
+				631439931AF1BCDA00B7B757 /* Config.swift in Sources */,
 				81B4453D1AE9360400725576 /* DeliveryMethodViewController.swift in Sources */,
 				81E2AC821AE959FA000D5F25 /* VisitorSearchViewController.swift in Sources */,
 				81E2AC881AE95BF4000D5F25 /* Contacts.swift in Sources */,
@@ -399,7 +404,7 @@
 /* Begin PBXTargetDependency section */
 		81B4452C1AE9313900725576 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 81B445141AE9313900725576 /* SupportKitReceptionist */;
+			target = 81B445141AE9313900725576 /* ReceptionKit */;
 			targetProxy = 81B4452B1AE9313900725576 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -512,9 +517,10 @@
 			baseConfigurationReference = 4945AD572FCB449A9BC4C423 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SupportKitReceptionist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ReceptionKit;
 				SWIFT_OBJC_BRIDGING_HEADER = "SupportKitReceptionist/SupportKitReceptionist-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -525,9 +531,10 @@
 			baseConfigurationReference = 00E477EE5AE8C7590DA32D88 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SupportKitReceptionist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ReceptionKit;
 				SWIFT_OBJC_BRIDGING_HEADER = "SupportKitReceptionist/SupportKitReceptionist-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -547,7 +554,7 @@
 				);
 				INFOPLIST_FILE = SupportKitReceptionistTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ReceptionKitTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SupportKitReceptionist.app/SupportKitReceptionist";
 			};
 			name = Debug;
@@ -562,7 +569,7 @@
 				);
 				INFOPLIST_FILE = SupportKitReceptionistTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ReceptionKitTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SupportKitReceptionist.app/SupportKitReceptionist";
 			};
 			name = Release;
@@ -570,7 +577,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		81B445101AE9313900725576 /* Build configuration list for PBXProject "SupportKitReceptionist" */ = {
+		81B445101AE9313900725576 /* Build configuration list for PBXProject "ReceptionKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81B445321AE9313900725576 /* Debug */,
@@ -579,7 +586,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81B445341AE9313900725576 /* Build configuration list for PBXNativeTarget "SupportKitReceptionist" */ = {
+		81B445341AE9313900725576 /* Build configuration list for PBXNativeTarget "ReceptionKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81B445351AE9313900725576 /* Debug */,
@@ -588,7 +595,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81B445371AE9313900725576 /* Build configuration list for PBXNativeTarget "SupportKitReceptionistTests" */ = {
+		81B445371AE9313900725576 /* Build configuration list for PBXNativeTarget "ReceptionKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81B445381AE9313900725576 /* Debug */,

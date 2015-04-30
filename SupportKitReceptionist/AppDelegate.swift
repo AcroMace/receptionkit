@@ -13,24 +13,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let conversationDelegate = ConversationDelegate()
-    
-    //
-    // BEWARE ALL YE WHO ENTER
-    // THIS IS HACKATHON QUALITY CODE
-    //
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // SupportKit Settings
-        let skAppToken = "c51fv1ar9cdimplypleh2hpol"
-        let skSettings = SKTSettings(appToken: skAppToken)
+        let skSettings = SKTSettings(appToken: Config.SupportKit.AppToken)
         skSettings.enableGestureHintOnFirstLaunch = false
         skSettings.enableAppWideGesture = false
         SupportKit.initWithSettings(skSettings)
         
         // Setup SupportKit
         SupportKit.conversation().delegate = conversationDelegate
-        SupportKit.setUserFirstName("Reception", lastName: "")
-        SKTUser.currentUser().email = "receptionniste@radialpoint.com"
+        SupportKit.setUserFirstName(Config.Slack.Name, lastName: "")
+        SKTUser.currentUser().email = Config.Slack.Email
         
         // App-wide styles
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)

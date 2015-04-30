@@ -9,7 +9,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="SupportKitReceptionist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="ReceptionKit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -74,7 +74,7 @@
         <!--Visitor View Controller-->
         <scene sceneID="naA-Ia-S2g">
             <objects>
-                <viewController id="Jco-hV-A70" customClass="VisitorViewController" customModule="SupportKitReceptionist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jco-hV-A70" customClass="VisitorViewController" customModule="ReceptionKit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EID-IK-FU7"/>
                         <viewControllerLayoutGuide type="bottom" id="m9J-2N-bMX"/>
@@ -134,7 +134,7 @@
         <!--Visitor Search View Controller-->
         <scene sceneID="aic-cW-JLl">
             <objects>
-                <viewController id="gmm-f4-xMQ" customClass="VisitorSearchViewController" customModule="SupportKitReceptionist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gmm-f4-xMQ" customClass="VisitorSearchViewController" customModule="ReceptionKit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4BG-SS-xZN"/>
                         <viewControllerLayoutGuide type="bottom" id="U4K-RA-wbW"/>
@@ -184,13 +184,13 @@
         <!--Visitor Search Results Table View Controller-->
         <scene sceneID="lBv-8K-TaT">
             <objects>
-                <tableViewController id="yze-Re-wJM" customClass="VisitorSearchResultsTableViewController" customModule="SupportKitReceptionist" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="yze-Re-wJM" customClass="VisitorSearchResultsTableViewController" customModule="ReceptionKit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="j3x-oo-KLf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCell" rowHeight="100" id="0YX-Ga-Tki" customClass="ContactTableViewCell" customModule="SupportKitReceptionist" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCell" rowHeight="100" id="0YX-Ga-Tki" customClass="ContactTableViewCell" customModule="ReceptionKit" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0YX-Ga-Tki" id="16j-6W-qcR">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -255,7 +255,7 @@
         <!--Delivery Company View Controller-->
         <scene sceneID="gh1-uv-ZGA">
             <objects>
-                <viewController id="GCF-Zq-Vv5" customClass="DeliveryCompanyViewController" customModule="SupportKitReceptionist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GCF-Zq-Vv5" customClass="DeliveryCompanyViewController" customModule="ReceptionKit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KSR-iG-wmh"/>
                         <viewControllerLayoutGuide type="bottom" id="htw-V5-eIl"/>
@@ -342,7 +342,7 @@
         <!--Delivery Method View Controller-->
         <scene sceneID="OXm-GL-LL8">
             <objects>
-                <viewController id="bto-05-yno" customClass="DeliveryMethodViewController" customModule="SupportKitReceptionist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bto-05-yno" customClass="DeliveryMethodViewController" customModule="ReceptionKit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V0o-Fq-ta6"/>
                         <viewControllerLayoutGuide type="bottom" id="lac-AJ-t2f"/>
@@ -400,7 +400,7 @@
         <!--Waiting View Controller-->
         <scene sceneID="3sy-f7-ULV">
             <objects>
-                <viewController id="XcS-0N-QxK" customClass="WaitingViewController" customModule="SupportKitReceptionist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XcS-0N-QxK" customClass="WaitingViewController" customModule="ReceptionKit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F97-kI-ZfL"/>
                         <viewControllerLayoutGuide type="bottom" id="pgW-3I-Fy2"/>
@@ -471,7 +471,7 @@
         <!--Visitor Ask Name View Controller-->
         <scene sceneID="biw-l3-7I1">
             <objects>
-                <viewController id="3Yy-Wq-cJ7" customClass="VisitorAskNameViewController" customModule="SupportKitReceptionist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3Yy-Wq-cJ7" customClass="VisitorAskNameViewController" customModule="ReceptionKit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SLb-iG-fSm"/>
                         <viewControllerLayoutGuide type="bottom" id="YOj-9X-Ysf"/>
