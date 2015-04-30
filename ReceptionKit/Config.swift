@@ -6,13 +6,14 @@
 //  Copyright (c) 2015 Andy Cho. All rights reserved.
 //
 
-import Foundation
-
 class Config {
     
     class General {
         // Change to false if the logo at the top should not show
         static let ShowLogo = true
+        
+        // Change to false if the language toggle in the top right should not be displayed
+        static let ShowLanguageToggle = true
         
         // Time in seconds for when to reset back to the main screen
         static let Timeout = 30.0

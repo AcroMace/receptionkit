@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Andy Cho. All rights reserved.
 //
 
-import Foundation
-
 // Send a message through SupportKit
 func sendMessage(text: String) {
     let message = SKTMessage(text: text)

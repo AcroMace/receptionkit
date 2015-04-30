@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Andy Cho. All rights reserved.
 //
 
-import Foundation
-
 // From Rudolf Adamkovic
 // http://stackoverflow.com/questions/24263007/how-to-use-hex-colour-values-in-swift-ios
 extension UIColor {

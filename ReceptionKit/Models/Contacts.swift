@@ -68,8 +68,6 @@ class Contact {
             let query = name as CFString
             let people = ABAddressBookCopyPeopleWithName(addressBook, query).takeRetainedValue() as Array
             
-            
-            
             for person:ABRecordRef in people {
                 let contactName: String = ABRecordCopyCompositeName(person).takeRetainedValue() as String
                 var contactPhoneNumbers = getPhoneNumbers(person, property: kABPersonPhoneProperty)

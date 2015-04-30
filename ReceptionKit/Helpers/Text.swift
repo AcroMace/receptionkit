@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Andy Cho. All rights reserved.
 //
 
-import Foundation
-
 let TextEnglish = [
     "delivery": "delivery",
     "signature": "i need a signature",

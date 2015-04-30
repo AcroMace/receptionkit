@@ -17,15 +17,15 @@ class HomeViewController: ThemedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Set the logo if ShowLogo is enabled
         if (Config.General.ShowLogo) {
-            self.navigationItem.titleView = UIImageView(image: UIImage(named: "CompanyLogo"))
+            navigationItem.titleView = UIImageView(image: UIImage(named: "CompanyLogo"))
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        // Hide the language toggle if ShowLanguageToggle is disabled
+        if (!Config.General.ShowLanguageToggle) {
+            navigationItem.rightBarButtonItem = nil
+        }
     }
     
     @IBAction func languageButtonTapped(sender: AnyObject) {
@@ -39,7 +39,7 @@ class HomeViewController: ThemedViewController {
         // The text on this view has to be manually updated
         deliveryButton.setTitle(Text.get("delivery"), forState: UIControlState.Normal)
         visitorButton.setTitle(Text.get("visitor"), forState: UIControlState.Normal)
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.get("back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.get("back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
     }
 
 }
