@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ConversationDelegate: UIViewController, SKTConversationDelegate {
+class ConversationDelegate: NSObject, SKTConversationDelegate {
     
     var isPresentingMessage = false
     

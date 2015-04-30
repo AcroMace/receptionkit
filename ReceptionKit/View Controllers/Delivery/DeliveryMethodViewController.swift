@@ -8,11 +8,10 @@
 
 import UIKit
 
-class DeliveryMethodViewController: UIViewController {
+class DeliveryMethodViewController: ReturnToHomeViewController {
     
     var deliveryCompany: String?
     var shouldAskToWait = true
-    var timer: NSTimer?
     
     @IBOutlet weak var signatureButton: UIButton!
     @IBOutlet weak var leftReceptionButton: UIButton!
@@ -21,16 +20,6 @@ class DeliveryMethodViewController: UIViewController {
         super.viewDidLoad()
         signatureButton.setTitle(Text.get("signature"), forState: UIControlState.Normal)
         leftReceptionButton.setTitle(Text.get("left at reception"), forState: UIControlState.Normal)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.get("back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
-        timer = NSTimer.scheduledTimerWithTimeInterval(Config.General.Timeout, target: self, selector: "unwindToHome:", userInfo: nil, repeats: false)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        timer?.invalidate()
-        timer = nil
     }
 
 
@@ -63,6 +52,7 @@ class DeliveryMethodViewController: UIViewController {
         performSegueWithIdentifier("DeliveryMethodSelectedSegue", sender: self)
     }
 
+    
     //
     // MARK: - Navigation
     //
@@ -74,10 +64,6 @@ class DeliveryMethodViewController: UIViewController {
         if let waitingViewController = segue.destinationViewController as? WaitingViewController {
             waitingViewController.shouldAskToWait = shouldAskToWait
         }
-    }
-    
-    func unwindToHome(timer: NSTimer!) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
 }

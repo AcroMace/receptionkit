@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WaitingViewController: UIViewController {
+class WaitingViewController: ReturnToHomeViewController {
     
     // Set to false if the message below thank you should ask the person to wait
     var shouldAskToWait = true
@@ -16,14 +16,9 @@ class WaitingViewController: UIViewController {
     @IBOutlet weak var thankYouLabel: UILabel!
     @IBOutlet weak var thankYouMessageText: UITextView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        let timer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: "unwindToHome:", userInfo: nil, repeats: false)
-    }
-    
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         thankYouMessageText.selectable = true
         if (shouldAskToWait) {
             thankYouLabel.text = Text.get("please wait")
@@ -34,23 +29,5 @@ class WaitingViewController: UIViewController {
         }
         thankYouMessageText.selectable = false
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    
-    func unwindToHome(timer: NSTimer!) {
-        performSegueWithIdentifier("UnwindToHome", sender: self)
-    }
-
 }

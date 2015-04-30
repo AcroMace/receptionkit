@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: ThemedViewController {
 
     @IBOutlet weak var languageButton: UIBarButtonItem!
     @IBOutlet weak var deliveryButton: UIButton!
@@ -40,21 +40,6 @@ class HomeViewController: UIViewController {
         deliveryButton.setTitle(Text.get("delivery"), forState: UIControlState.Normal)
         visitorButton.setTitle(Text.get("visitor"), forState: UIControlState.Normal)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.get("back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
-    }
-    
-    
-    //
-    // MARK: - Navigation
-    //
-    
-    @IBAction func unwindToHome(unwindSegue: UIStoryboardSegue) {
-        // Perhaps delete conversation when that becomes supported by SupportKit?
-    }
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
 
 }

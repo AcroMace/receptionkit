@@ -8,10 +8,9 @@
 
 import UIKit
 
-class VisitorSearchViewController: UIViewController, UITextFieldDelegate {
+class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelegate {
 
     var searchResults = [Contact]()
-    var timer: NSTimer?
     
     @IBOutlet weak var lookingForLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
@@ -28,17 +27,9 @@ class VisitorSearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         nameTextField.becomeFirstResponder()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.get("back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
-        timer = NSTimer.scheduledTimerWithTimeInterval(Config.General.Timeout, target: self, selector: "unwindToHome:", userInfo: nil, repeats: false)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        timer?.invalidate()
-        timer = nil
     }
 
     
@@ -71,10 +62,6 @@ class VisitorSearchViewController: UIViewController, UITextFieldDelegate {
             visitorSearchResultsTableViewController.searchQuery = nameTextField.text
             visitorSearchResultsTableViewController.searchResults = searchResults
         }
-    }
-    
-    func unwindToHome(timer: NSTimer!) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
 }

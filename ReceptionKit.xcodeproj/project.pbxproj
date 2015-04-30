@@ -10,6 +10,9 @@
 		631439931AF1BCDA00B7B757 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631439921AF1BCDA00B7B757 /* Config.swift */; };
 		633DD7D91AF1E5D5001BE427 /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DD7D81AF1E5D5001BE427 /* Colour.swift */; };
 		6376F15D1AEA077600C1F9C4 /* VisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */; };
+		63AC285E1AF1F93E00D2AEA5 /* ThemedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC285D1AF1F93E00D2AEA5 /* ThemedViewController.swift */; };
+		63AC28601AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC285F1AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift */; };
+		63AC28621AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC28611AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift */; };
 		81B4451B1AE9313900725576 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4451A1AE9313900725576 /* AppDelegate.swift */; };
 		81B445201AE9313900725576 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81B4451E1AE9313900725576 /* Main.storyboard */; };
 		81B445221AE9313900725576 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81B445211AE9313900725576 /* Images.xcassets */; };
@@ -48,6 +51,9 @@
 		631439921AF1BCDA00B7B757 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = ReceptionKit/Config.swift; sourceTree = "<group>"; };
 		633DD7D81AF1E5D5001BE427 /* Colour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colour.swift; path = Helpers/Colour.swift; sourceTree = "<group>"; };
 		6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VisitorViewController.swift; path = "View Controllers/Visitor/VisitorViewController.swift"; sourceTree = "<group>"; };
+		63AC285D1AF1F93E00D2AEA5 /* ThemedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemedViewController.swift; path = "View Controllers/Template/ThemedViewController.swift"; sourceTree = "<group>"; };
+		63AC285F1AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturnToHomeViewController.swift; path = "View Controllers/Template/ReturnToHomeViewController.swift"; sourceTree = "<group>"; };
+		63AC28611AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturnToHomeTableViewController.swift; path = "View Controllers/Template/ReturnToHomeTableViewController.swift"; sourceTree = "<group>"; };
 		81B445151AE9313900725576 /* ReceptionKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReceptionKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B445191AE9313900725576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B4451A1AE9313900725576 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,10 +108,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		63AC285C1AF1F85300D2AEA5 /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				63AC285D1AF1F93E00D2AEA5 /* ThemedViewController.swift */,
+				63AC285F1AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift */,
+				63AC28611AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift */,
+			);
+			name = Template;
+			sourceTree = "<group>";
+		};
 		81B4450C1AE9313900725576 = {
 			isa = PBXGroup;
 			children = (
 				631439921AF1BCDA00B7B757 /* Config.swift */,
+				81B445231AE9313900725576 /* LaunchScreen.xib */,
 				81B445211AE9313900725576 /* Images.xcassets */,
 				81B445171AE9313900725576 /* ReceptionKit */,
 				81B4452D1AE9313900725576 /* ReceptionKitTests */,
@@ -141,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				81B4453E1AE939C700725576 /* ReceptionKit-Bridging-Header.h */,
-				81B445231AE9313900725576 /* LaunchScreen.xib */,
 				81B445191AE9313900725576 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -179,6 +195,7 @@
 			children = (
 				81E2AC7D1AE95786000D5F25 /* HomeViewController.swift */,
 				81E2AC7F1AE95843000D5F25 /* WaitingViewController.swift */,
+				63AC285C1AF1F85300D2AEA5 /* Template */,
 				81D637C91AEA8D8F004D26DF /* Received Messages */,
 				81E2AC791AE95395000D5F25 /* Delivery */,
 				81E2AC7A1AE953A0000D5F25 /* Visitor */,
@@ -374,6 +391,7 @@
 				81E2AC771AE95163000D5F25 /* SupportKitHelpers.swift in Sources */,
 				81B445441AE949A800725576 /* VisitorAskNameViewController.swift in Sources */,
 				633DD7D91AF1E5D5001BE427 /* Colour.swift in Sources */,
+				63AC28621AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift in Sources */,
 				81E2AC8B1AE995EF000D5F25 /* ContactTableViewCell.swift in Sources */,
 				631439931AF1BCDA00B7B757 /* Config.swift in Sources */,
 				81B4453D1AE9360400725576 /* DeliveryMethodViewController.swift in Sources */,
@@ -388,6 +406,8 @@
 				6376F15D1AEA077600C1F9C4 /* VisitorViewController.swift in Sources */,
 				81E2AC8E1AE9A447000D5F25 /* Text.swift in Sources */,
 				81B4453B1AE935E400725576 /* DeliveryCompanyViewController.swift in Sources */,
+				63AC28601AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift in Sources */,
+				63AC285E1AF1F93E00D2AEA5 /* ThemedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +444,7 @@
 				81B445241AE9313900725576 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = ReceptionKit;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

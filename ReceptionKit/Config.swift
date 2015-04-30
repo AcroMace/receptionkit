@@ -21,6 +21,9 @@ class Config {
     class Colour {
         // Colour of the navigation bar
         static let NavigationBar = 0xC10812
+        
+        // Colour of the background
+        static let Background = 0xC10812
     }
     
     class SupportKit {

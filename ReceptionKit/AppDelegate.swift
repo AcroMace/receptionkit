@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let conversationDelegate = ConversationDelegate()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         // SupportKit Settings
         let skSettings = SKTSettings(appToken: Config.SupportKit.AppToken)
         skSettings.enableGestureHintOnFirstLaunch = false

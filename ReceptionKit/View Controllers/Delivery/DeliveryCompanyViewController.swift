@@ -8,11 +8,10 @@
 
 import UIKit
 
-class DeliveryCompanyViewController: UIViewController {
+class DeliveryCompanyViewController: ReturnToHomeViewController {
 
     var deliveryCompany: String?
     let deliverySelectedSegue = "DeliveryCompanySelectedSegue"
-    var timer: NSTimer?
     
     @IBOutlet weak var upsButton: UIButton!
     @IBOutlet weak var fedExButton: UIButton!
@@ -24,20 +23,11 @@ class DeliveryCompanyViewController: UIViewController {
 
         // Set the language
         otherButton.setTitle(Text.get("other"), forState: UIControlState.Normal)
+        
         // Make sure that the button images are not skewed
         upsButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
         fedExButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
         canadaPostButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.get("back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
-        timer = NSTimer.scheduledTimerWithTimeInterval(Config.General.Timeout, target: self, selector: "unwindToHome:", userInfo: nil, repeats: false)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        timer?.invalidate()
-        timer = nil
     }
     
     
@@ -79,8 +69,4 @@ class DeliveryCompanyViewController: UIViewController {
         }
     }
     
-    func unwindToHome(timer: NSTimer!) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
-    }
-
 }

@@ -8,13 +8,12 @@
 
 import UIKit
 
-class VisitorAskNameViewController: UIViewController, UITextFieldDelegate {
+class VisitorAskNameViewController: ReturnToHomeViewController, UITextFieldDelegate {
     
     @IBOutlet weak var yourNameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
 
     let visitorNameSetSegue = "VisitorNameSetSegue"
-    var timer: NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,21 +24,13 @@ class VisitorAskNameViewController: UIViewController, UITextFieldDelegate {
         yourNameLabel.text = Text.get("your name")
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.get("back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
-        timer = NSTimer.scheduledTimerWithTimeInterval(Config.General.Timeout, target: self, selector: "unwindToHome:", userInfo: nil, repeats: false)
-    }
-    
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         // Not doing this in viewDidLoad() as that raises the keyboard before the segue
         nameTextField.becomeFirstResponder()
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        timer?.invalidate()
-        timer = nil
-    }
-
     
     //
     // MARK: - UITextViewDelegate
@@ -54,10 +45,6 @@ class VisitorAskNameViewController: UIViewController, UITextFieldDelegate {
         }
         performSegueWithIdentifier(visitorNameSetSegue, sender: self)
         return false
-    }
-    
-    func unwindToHome(timer: NSTimer!) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
 }

@@ -123,11 +123,9 @@
                     <connections>
                         <outlet property="knowButton" destination="8Bh-Fw-aRw" id="ikH-sp-91r"/>
                         <outlet property="notKnowButton" destination="dRx-RZ-T6n" id="fi8-6d-N0t"/>
-                        <segue destination="cQL-yI-l40" kind="unwind" identifier="UnwindToHome" unwindAction="unwindToHome:" id="5rU-MX-fJk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yCp-eU-JQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="cQL-yI-l40" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1252" y="1131"/>
         </scene>
@@ -173,11 +171,9 @@
                         <outlet property="nameTextField" destination="Ol3-q4-HxX" id="GRt-VE-ooX"/>
                         <segue destination="yze-Re-wJM" kind="show" identifier="VisitorNameSearchSegue" id="IB9-oJ-9xM"/>
                         <segue destination="3Yy-Wq-cJ7" kind="show" identifier="VisitorNameInvalidSearchSegue" id="i9k-c0-eZo"/>
-                        <segue destination="u30-ZR-M6C" kind="unwind" identifier="UnwindToHome" unwindAction="unwindToHome:" id="bJg-NW-fe0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDu-fM-8Fz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="u30-ZR-M6C" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1252" y="1823"/>
         </scene>
@@ -243,12 +239,10 @@
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="xT2-3J-o2g"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="eGz-c7-kMY" kind="unwind" identifier="UnwindToHome" unwindAction="unwindToHome:" id="VQx-bp-YgS"/>
                         <segue destination="XcS-0N-QxK" kind="show" identifier="SelectedContact" id="qXu-7C-vqp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdX-Nl-x6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="eGz-c7-kMY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1922" y="1823"/>
         </scene>
@@ -437,11 +431,9 @@
                     <connections>
                         <outlet property="thankYouLabel" destination="wRS-C6-l35" id="aR5-jW-j2m"/>
                         <outlet property="thankYouMessageText" destination="9GC-bk-SPR" id="1BS-JA-jBz"/>
-                        <segue destination="HLa-Ov-Wrv" kind="unwind" identifier="UnwindToHome" unwindAction="unwindToHome:" id="o92-oI-7E5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0Q-QB-EVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="HLa-Ov-Wrv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3309" y="789"/>
         </scene>
@@ -509,11 +501,9 @@
                         <outlet property="nameTextField" destination="dbb-CH-MQ3" id="COK-xX-CbT"/>
                         <outlet property="yourNameLabel" destination="TCf-HB-Rk0" id="YdR-ZG-n1e"/>
                         <segue destination="XcS-0N-QxK" kind="show" identifier="VisitorNameSetSegue" id="MAi-B6-dIM"/>
-                        <segue destination="XFc-PV-NIw" kind="unwind" identifier="UnwindToHome" unwindAction="unwindToHome:" id="o4q-ej-mZ3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0e4-xI-OQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="XFc-PV-NIw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1922" y="1131"/>
         </scene>
