@@ -18,7 +18,9 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationItem.titleView = UIImageView(image: UIImage(named: "RadialpointLogo"))
+        if (Config.General.ShowLogo) {
+            self.navigationItem.titleView = UIImageView(image: UIImage(named: "CompanyLogo"))
+        }
     }
     
     override func didReceiveMemoryWarning() {

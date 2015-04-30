@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // App-wide styles
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
+        UINavigationBar.appearance().barTintColor = UIColor(hex: Config.Colour.NavigationBar)
         
         return true
     }

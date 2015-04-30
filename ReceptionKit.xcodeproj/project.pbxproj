@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		631439931AF1BCDA00B7B757 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631439921AF1BCDA00B7B757 /* Config.swift */; };
+		633DD7D91AF1E5D5001BE427 /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DD7D81AF1E5D5001BE427 /* Colour.swift */; };
 		6376F15D1AEA077600C1F9C4 /* VisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */; };
 		81B4451B1AE9313900725576 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4451A1AE9313900725576 /* AppDelegate.swift */; };
 		81B445201AE9313900725576 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81B4451E1AE9313900725576 /* Main.storyboard */; };
@@ -20,7 +21,6 @@
 		81D637C61AEA7F0E004D26DF /* SupportKitConversationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D637C51AEA7F0E004D26DF /* SupportKitConversationDelegate.swift */; };
 		81D637D41AEA9BA0004D26DF /* ReceivedMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D637D21AEA9BA0004D26DF /* ReceivedMessageViewController.swift */; };
 		81D637D51AEA9BA0004D26DF /* ReceivedMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D637D31AEA9BA0004D26DF /* ReceivedMessageViewController.xib */; };
-		81D637D71AEAEE54004D26DF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D637D61AEAEE54004D26DF /* Constants.swift */; };
 		81E2AC771AE95163000D5F25 /* SupportKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2AC761AE95163000D5F25 /* SupportKitHelpers.swift */; };
 		81E2AC7E1AE95786000D5F25 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2AC7D1AE95786000D5F25 /* HomeViewController.swift */; };
 		81E2AC801AE95843000D5F25 /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2AC7F1AE95843000D5F25 /* WaitingViewController.swift */; };
@@ -46,6 +46,7 @@
 		00E477EE5AE8C7590DA32D88 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4945AD572FCB449A9BC4C423 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		631439921AF1BCDA00B7B757 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		633DD7D81AF1E5D5001BE427 /* Colour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
 		6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorViewController.swift; sourceTree = "<group>"; };
 		81B445151AE9313900725576 /* ReceptionKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReceptionKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B445191AE9313900725576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		81D637C51AEA7F0E004D26DF /* SupportKitConversationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportKitConversationDelegate.swift; sourceTree = "<group>"; };
 		81D637D21AEA9BA0004D26DF /* ReceivedMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivedMessageViewController.swift; sourceTree = "<group>"; };
 		81D637D31AEA9BA0004D26DF /* ReceivedMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceivedMessageViewController.xib; sourceTree = "<group>"; };
-		81D637D61AEAEE54004D26DF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		81E2AC761AE95163000D5F25 /* SupportKitHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportKitHelpers.swift; sourceTree = "<group>"; };
 		81E2AC7D1AE95786000D5F25 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		81E2AC7F1AE95843000D5F25 /* WaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
@@ -153,7 +153,6 @@
 				81B445301AE9313900725576 /* ReceptionKitTests.swift */,
 				81B4452E1AE9313900725576 /* Supporting Files */,
 			);
-			name = ReceptionKitTests;
 			path = ReceptionKitTests;
 			sourceTree = "<group>";
 		};
@@ -165,13 +164,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		81D637C91AEA8D8F004D26DF /* Received */ = {
+		81D637C91AEA8D8F004D26DF /* Received Messages */ = {
 			isa = PBXGroup;
 			children = (
+				81D637C51AEA7F0E004D26DF /* SupportKitConversationDelegate.swift */,
 				81D637D21AEA9BA0004D26DF /* ReceivedMessageViewController.swift */,
 				81D637D31AEA9BA0004D26DF /* ReceivedMessageViewController.xib */,
 			);
-			name = Received;
+			name = "Received Messages";
 			sourceTree = "<group>";
 		};
 		81E2AC781AE951BE000D5F25 /* View Controllers */ = {
@@ -179,8 +179,7 @@
 			children = (
 				81E2AC7D1AE95786000D5F25 /* HomeViewController.swift */,
 				81E2AC7F1AE95843000D5F25 /* WaitingViewController.swift */,
-				81E2AC8A1AE995EF000D5F25 /* ContactTableViewCell.swift */,
-				81D637C91AEA8D8F004D26DF /* Received */,
+				81D637C91AEA8D8F004D26DF /* Received Messages */,
 				81E2AC791AE95395000D5F25 /* Delivery */,
 				81E2AC7A1AE953A0000D5F25 /* Visitor */,
 			);
@@ -199,6 +198,7 @@
 		81E2AC7A1AE953A0000D5F25 /* Visitor */ = {
 			isa = PBXGroup;
 			children = (
+				81E2AC8A1AE995EF000D5F25 /* ContactTableViewCell.swift */,
 				6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */,
 				81B445431AE949A800725576 /* VisitorAskNameViewController.swift */,
 				81E2AC811AE959FA000D5F25 /* VisitorSearchViewController.swift */,
@@ -218,10 +218,9 @@
 		81E2AC8C1AE9A436000D5F25 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				81E2AC761AE95163000D5F25 /* SupportKitHelpers.swift */,
-				81D637C51AEA7F0E004D26DF /* SupportKitConversationDelegate.swift */,
+				633DD7D81AF1E5D5001BE427 /* Colour.swift */,
 				81E2AC8D1AE9A447000D5F25 /* Text.swift */,
-				81D637D61AEAEE54004D26DF /* Constants.swift */,
+				81E2AC761AE95163000D5F25 /* SupportKitHelpers.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -374,13 +373,13 @@
 			files = (
 				81E2AC771AE95163000D5F25 /* SupportKitHelpers.swift in Sources */,
 				81B445441AE949A800725576 /* VisitorAskNameViewController.swift in Sources */,
+				633DD7D91AF1E5D5001BE427 /* Colour.swift in Sources */,
 				81E2AC8B1AE995EF000D5F25 /* ContactTableViewCell.swift in Sources */,
 				631439931AF1BCDA00B7B757 /* Config.swift in Sources */,
 				81B4453D1AE9360400725576 /* DeliveryMethodViewController.swift in Sources */,
 				81E2AC821AE959FA000D5F25 /* VisitorSearchViewController.swift in Sources */,
 				81E2AC881AE95BF4000D5F25 /* Contacts.swift in Sources */,
 				81E2AC801AE95843000D5F25 /* WaitingViewController.swift in Sources */,
-				81D637D71AEAEE54004D26DF /* Constants.swift in Sources */,
 				81B4451B1AE9313900725576 /* AppDelegate.swift in Sources */,
 				81D637D41AEA9BA0004D26DF /* ReceivedMessageViewController.swift in Sources */,
 				81D637C61AEA7F0E004D26DF /* SupportKitConversationDelegate.swift in Sources */,
