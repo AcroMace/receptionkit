@@ -21,9 +21,13 @@ A simple, customizable receptionist iPad app built with [SupportKit](http://supp
 
 ## Slack
 
+![](https://github.com/AcroMace/receptionkit/raw/master/Screenshots/slack.png)
+
 **Replies**
 
 You can send a message to the iPad by using `/sk [message]` inside the iPad channel (called `sk-receptionist` by default). If you want the message to be sent in real time, you need to [configure push notifications](http://docs.supportkit.io/#configuring-push-notifications). Otherwise, there may be up to a 5 second delay before the message arrives.
+
+![](https://github.com/AcroMace/receptionkit/raw/master/Screenshots/reply.png)
 
 **Name**
 
@@ -40,12 +44,16 @@ A new channel will be created for each iPad running the app. You can rename the 
 
 ## Contacts
 
+![](https://github.com/AcroMace/receptionkit/raw/master/Screenshots/search.png)
+
 ReceptionKit uses the contacts on the iPad for searching contacts when a visitor presses the `i know the name of the person i am here to see` button.
 
 You can sync the iPad with contacts from [Google](https://support.google.com/mail/answer/2753077?hl=en), [Outlook](https://support.office.com/en-au/article/Synchronize-Outlook-and-Apple-iPhone-or-iPod-touch-contacts-149cbfc5-4396-4ab3-8b65-22915e4043dc), or use any standard way of syncing contacts with iOS.
 
 
 ## Customization
+
+![](https://github.com/AcroMace/receptionkit/raw/master/Screenshots/colours.png)
 
 **Background colour**
 
@@ -69,6 +77,8 @@ The image assets can be changed by replacing the images in `Images.xcassets`. Th
 The logo is displayed only in the first view and can be disabled by setting `Config.General.ShowLogo` to `false`. Otherwise, you can replace the placeholder logo with your own image (see Image Assets)
 
 *Language toggle*
+
+![](https://github.com/AcroMace/receptionkit/raw/master/Screenshots/french.png)
 
 The English/French language toggle is enabled by default. You can turn it off by setting `Config.General.ShowLanguageToggle` to `false`.
 
