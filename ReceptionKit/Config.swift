@@ -8,6 +8,11 @@
 
 class Config {
     
+    class SupportKit {
+        // Replace the token with App Token you get from app.supportkit.io
+        static let AppToken = "eurqdnoj2xjppgfbh51zs2v89"
+    }
+    
     class General {
         // Change to false if the logo at the top should not show
         static let ShowLogo = true
@@ -25,11 +30,6 @@ class Config {
         
         // Colour of the background
         static let Background = 0xB71C1C
-    }
-    
-    class SupportKit {
-        // Replace the token with App Token you get from app.supportkit.io
-        static let AppToken = "eurqdnoj2xjppgfbh51zs2v89"
     }
     
     class Slack {

@@ -1,10 +1,10 @@
 PODS:
-  - SupportKit (2.7.1)
+  - SupportKit (2.7.2)
 
 DEPENDENCIES:
   - SupportKit
 
 SPEC CHECKSUMS:
-  SupportKit: 1292a907fe6017994b23aec1aa2dc6245395fe3b
+  SupportKit: d467d81d430ac01304f7e3b2668748126b84e0d0
 
 COCOAPODS: 0.36.3

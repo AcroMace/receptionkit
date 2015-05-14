@@ -13,6 +13,12 @@ class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
     var searchQuery: String?
     var searchResults: [Contact]?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Overwrite the theme - table should be white
+        self.view.backgroundColor = UIColor.whiteColor()
+    }
     
     //
     // MARK: - Table view data source
