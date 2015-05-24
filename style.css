@@ -1,0 +1,95 @@
+body, p {
+  background-color: #eee;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+}
+
+/*****************/
+/* Jumbotron     */
+/*****************/
+
+.jumbotron {
+  text-align: center;
+  color: white;
+  background-color: #B71C1C;
+  overflow: auto;
+  padding-bottom: 0;
+}
+
+.jumbotron h1 {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.jumbotron h4 {
+  margin: 20px;
+}
+
+.jumbotron img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*****************/
+/* Features      */
+/*****************/
+
+.features {
+  overflow: auto;
+}
+
+.feature img {
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.feature h3 {
+  padding-left: 0.2em;
+}
+
+.feature .description {
+  font-family: 'Bitter', serif;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-size: 1.2em;
+}
+
+/* Fix issue where the 1st feature text becoming 3 lines
+   resulted in the 4th feature being shifted right */
+@media(min-width:768px){
+  .feature .description {
+    height: 72px;
+  }
+}
+
+/*****************/
+/* Footer        */
+/*****************/
+
+.footer {
+  margin-top: 50px;
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.footer .btn {
+  font-size: 16px;
+  font-weight: medium;
+  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+  color: white;
+  background: none;
+  border-color: white;
+  border-width: 2px;
+  margin-top: 10px;
+}
+
+.footer .btn:hover {
+  background-color: white;
+  color: #B71C1C;
+}
