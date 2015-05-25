@@ -44,7 +44,7 @@ A new channel will be created for each iPad running the app. You can rename the 
 
 ## Contacts
 
-![](https://github.com/AcroMace/receptionkit/raw/master/Screenshots/search.png)
+![](https://github.com/AcroMace/receptionkit/raw/master/Screenshots/contacts.png)
 
 ReceptionKit uses the contacts on the iPad for searching contacts when a visitor presses the `i know the name of the person i am here to see` button.
 
