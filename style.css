@@ -33,6 +33,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: auto;
 }
 
+.jumbotron a {
+  color: white;
+  text-decoration: underline;
+}
+
+.jumbotron a:hover {
+  color: #eee;
+}
+
 /*****************/
 /* Features      */
 /*****************/
