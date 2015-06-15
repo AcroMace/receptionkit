@@ -10,6 +10,7 @@ import UIKit
 
 class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
 
+    var visitorName: String?
     var searchQuery: String?
     var searchResults: [Contact]?
     
@@ -52,7 +53,11 @@ class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let contact = searchResults![indexPath.row]
-        sendMessage("Someone is at the reception looking for \(contact.name)")
+        if visitorName == nil || visitorName == "" {
+            sendMessage("Someone is at the reception looking for \(contact.name)!")
+        } else {
+            sendMessage("\(visitorName!) is at the reception looking for \(contact.name)!")
+        }
         performSegueWithIdentifier("SelectedContact", sender: self)
     }
     

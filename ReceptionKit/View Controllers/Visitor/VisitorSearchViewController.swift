@@ -10,6 +10,7 @@ import UIKit
 
 class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelegate {
 
+    var visitorName: String?
     var searchResults = [Contact]()
     
     @IBOutlet weak var lookingForLabel: UILabel!
@@ -40,6 +41,7 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         searchResults = Contact.search(nameTextField.text)
 
+        // Check if the person the visitor is searching for exists
         if searchResults.count > 0 {
             performSegueWithIdentifier("VisitorNameSearchSegue", sender: self)
         } else {
@@ -54,13 +56,21 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
     // MARK: - Navigation
     //
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Post a message if the person the visitor is looking for does not exist
+    // Otherwise show the result of the search
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         if let visitorSearchResultsTableViewController = segue.destinationViewController as? VisitorSearchResultsTableViewController {
+            // Exists
+            visitorSearchResultsTableViewController.visitorName = visitorName
             visitorSearchResultsTableViewController.searchQuery = nameTextField.text
             visitorSearchResultsTableViewController.searchResults = searchResults
+        } else if let waitingViewController = segue.destinationViewController as? WaitingViewController {
+            // Does not exist
+            if visitorName == nil || visitorName == "" {
+                sendMessage("Someone is at the reception looking for \(nameTextField.text)!")
+            } else {
+                sendMessage("\(visitorName!) is at the reception looking for \(nameTextField.text)!")
+            }
         }
     }
 
