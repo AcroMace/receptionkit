@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IaD-hP-Gwr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IaD-hP-Gwr">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -38,7 +38,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Jco-hV-A70" kind="show" id="uTC-Jq-Q2g"/>
+                                    <segue destination="3Yy-Wq-cJ7" kind="show" id="vVh-Fq-cLT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -92,7 +92,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gmm-f4-xMQ" kind="show" id="ySL-3K-ifk"/>
+                                    <segue destination="gmm-f4-xMQ" kind="show" identifier="" id="ySL-3K-ifk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dRx-RZ-T6n">
@@ -104,7 +104,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="3Yy-Wq-cJ7" kind="show" id="GYv-TI-Pgt"/>
+                                    <segue destination="XcS-0N-QxK" kind="show" identifier="" id="Uts-8T-2PH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -127,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yCp-eU-JQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="1131"/>
+            <point key="canvasLocation" x="1252" y="1915"/>
         </scene>
         <!--Visitor Search View Controller-->
         <scene sceneID="aic-cW-JLl">
@@ -142,7 +142,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="The Wonderful Wizard of Oz" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ol3-q4-HxX">
-                                <rect key="frame" x="16" y="168" width="568" height="60"/>
+                                <rect key="frame" x="16" y="167.5" width="568" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="RNk-Kc-UUe"/>
                                 </constraints>
@@ -150,7 +150,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who are you looking for?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSU-lu-VD8">
-                                <rect key="frame" x="16" y="120" width="568" height="32"/>
+                                <rect key="frame" x="16" y="120" width="568" height="31.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -170,12 +170,12 @@
                         <outlet property="lookingForLabel" destination="WSU-lu-VD8" id="bS0-4Q-0lN"/>
                         <outlet property="nameTextField" destination="Ol3-q4-HxX" id="GRt-VE-ooX"/>
                         <segue destination="yze-Re-wJM" kind="show" identifier="VisitorNameSearchSegue" id="IB9-oJ-9xM"/>
-                        <segue destination="3Yy-Wq-cJ7" kind="show" identifier="VisitorNameInvalidSearchSegue" id="i9k-c0-eZo"/>
+                        <segue destination="XcS-0N-QxK" kind="show" identifier="VisitorNameInvalidSearchSegue" id="gFX-Oy-Kkb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDu-fM-8Fz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="1823"/>
+            <point key="canvasLocation" x="1922" y="1915"/>
         </scene>
         <!--Visitor Search Results Table View Controller-->
         <scene sceneID="lBv-8K-TaT">
@@ -204,7 +204,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(123) 456 - 7890" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vd-6a-2Zf">
-                                            <rect key="frame" x="131" y="56" width="461" height="21"/>
+                                            <rect key="frame" x="131" y="56.5" width="461" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -244,7 +244,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdX-Nl-x6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1922" y="1823"/>
+            <point key="canvasLocation" x="2579" y="1915"/>
         </scene>
         <!--Delivery Company View Controller-->
         <scene sceneID="gh1-uv-ZGA">
@@ -435,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0Q-QB-EVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3309" y="789"/>
+            <point key="canvasLocation" x="2579" y="1177"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TmD-pg-Dto">
@@ -473,7 +473,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Barack Obama" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dbb-CH-MQ3">
-                                <rect key="frame" x="16" y="168" width="568" height="60"/>
+                                <rect key="frame" x="16" y="167" width="568" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="d7u-fz-Qya"/>
                                 </constraints>
@@ -481,7 +481,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad" returnKeyType="go"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your name?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCf-HB-Rk0">
-                                <rect key="frame" x="16" y="120" width="568" height="32"/>
+                                <rect key="frame" x="16" y="120" width="568" height="31.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -500,12 +500,12 @@
                     <connections>
                         <outlet property="nameTextField" destination="dbb-CH-MQ3" id="COK-xX-CbT"/>
                         <outlet property="yourNameLabel" destination="TCf-HB-Rk0" id="YdR-ZG-n1e"/>
-                        <segue destination="XcS-0N-QxK" kind="show" identifier="VisitorNameSetSegue" id="MAi-B6-dIM"/>
+                        <segue destination="Jco-hV-A70" kind="show" identifier="VisitorEnteredNameSegue" id="3KN-I9-G1D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0e4-xI-OQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1922" y="1131"/>
+            <point key="canvasLocation" x="1252" y="1177"/>
         </scene>
     </scenes>
     <resources>
@@ -520,7 +520,6 @@
         <image name="IconDeliveryUPS" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="i9k-c0-eZo"/>
-        <segue reference="MAi-B6-dIM"/>
+        <segue reference="Uts-8T-2PH"/>
     </inferredMetricsTieBreakers>
 </document>
