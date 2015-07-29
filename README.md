@@ -9,14 +9,15 @@ A simple, customizable receptionist iPad app built with [SupportKit](http://supp
 
 1. `git clone https://github.com/AcroMace/receptionkit.git`
 2. `cd receptionkit`
-3. `pod install`
-4. Sign up with [SupportKit](http://supportkit.io) and copy the App Token from Settings
-5. [Configure Slack with SupportKit](http://docs.supportkit.io/#slack)
-6. **Disable Auto Archiving**
-5. Open `ReceptionKit.xcworkspace`
-6. Navigate to `Config.swift`
-7. Replace `Config.SupportKit.AppToken` with the App Token from SupportKit
-6. Build and run the app
+3. This project uses [CocoaPods](https://cocoapods.org). If you don't have CocoaPods installed already, you must run `sudo gem install cocoapods`. [Learn more here](https://guides.cocoapods.org/using/getting-started.html).
+4. `pod install`
+5. Sign up with [SupportKit](http://supportkit.io) and copy the App Token from Settings
+6. [Configure Slack with SupportKit](http://docs.supportkit.io/#slack)
+7. **Disable Auto Archiving**
+8. Open `ReceptionKit.xcworkspace` with Xcode
+9. Navigate to `Config.swift`
+10. Replace `Config.SupportKit.AppToken` with the App Token from SupportKit
+11. Build and run the app (`⌘R`)
 
 
 ## Slack
