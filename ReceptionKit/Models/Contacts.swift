@@ -47,10 +47,10 @@ class Contact {
         let authStatus = ABAddressBookGetAuthorizationStatus()
         if (authStatus == ABAuthorizationStatus.Denied ||
             authStatus == ABAuthorizationStatus.Restricted) {
-                println("No permission to access the contacts")
+                print("No permission to access the contacts")
         } else if (authStatus == ABAuthorizationStatus.NotDetermined) {
             ABAddressBookRequestAccessWithCompletion(nil) { (granted: Bool, error: CFError!) in
-                println("Successfully got permission for the contacts")
+                print("Successfully got permission for the contacts")
             }
         }
         
@@ -70,7 +70,7 @@ class Contact {
             
             for person:ABRecordRef in people {
                 let contactName: String = ABRecordCopyCompositeName(person).takeRetainedValue() as String
-                var contactPhoneNumbers = getPhoneNumbers(person, property: kABPersonPhoneProperty)
+                let contactPhoneNumbers = getPhoneNumbers(person, property: kABPersonPhoneProperty)
                 
                 let contactPictureDataOptional = ABPersonCopyImageData(person)
                 var contactPicture: UIImage?
@@ -101,7 +101,7 @@ class Contact {
 
         if (personPropertyValues != nil) {
             let properties = personPropertyValues.takeUnretainedValue() as NSArray
-            for (index, property) in enumerate(properties) {
+            for (index, property) in properties.enumerate() {
                 let propertyLabel = ABMultiValueCopyLabelAtIndex(personProperty, index).takeRetainedValue() as String
                 let propertyValue = property as! String
                 let phone = ContactPhone(type: propertyLabel, number: propertyValue)

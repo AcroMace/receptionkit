@@ -39,13 +39,15 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
     //
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        searchResults = Contact.search(nameTextField.text)
-
-        // Check if the person the visitor is searching for exists
-        if searchResults.count > 0 {
-            performSegueWithIdentifier("VisitorNameSearchSegue", sender: self)
-        } else {
-            performSegueWithIdentifier("VisitorNameInvalidSearchSegue", sender: self)
+        if let nameText = nameTextField.text {
+            searchResults = Contact.search(nameText)
+            
+            // Check if the person the visitor is searching for exists
+            if searchResults.count > 0 {
+                performSegueWithIdentifier("VisitorNameSearchSegue", sender: self)
+            } else {
+                performSegueWithIdentifier("VisitorNameInvalidSearchSegue", sender: self)
+            }
         }
         
         return false
@@ -64,7 +66,7 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
             visitorSearchResultsTableViewController.visitorName = visitorName
             visitorSearchResultsTableViewController.searchQuery = nameTextField.text
             visitorSearchResultsTableViewController.searchResults = searchResults
-        } else if let waitingViewController = segue.destinationViewController as? WaitingViewController {
+        } else if let _ = segue.destinationViewController as? WaitingViewController {
             // Does not exist
             if visitorName == nil || visitorName == "" {
                 sendMessage("Someone is at the reception looking for \(nameTextField.text)!")
