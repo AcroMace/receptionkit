@@ -16,15 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        // SupportKit Settings
-        let skSettings = SKTSettings(appToken: Config.SupportKit.AppToken)
-        skSettings.enableGestureHintOnFirstLaunch = false
-        skSettings.enableAppWideGesture = false
-        SupportKit.initWithSettings(skSettings)
+        // Smooch Settings
+        let smoochSettings = SKTSettings(appToken: Config.Smooch.AppToken)
+        Smooch.initWithSettings(smoochSettings)
         
-        // Setup SupportKit
-        SupportKit.conversation().delegate = conversationDelegate
-        SupportKit.setUserFirstName(Config.Slack.Name, lastName: "")
+        // Setup Smooch
+        Smooch.conversation().delegate = conversationDelegate
+        Smooch.setUserFirstName(Config.Slack.Name, lastName: "")
         SKTUser.currentUser().email = Config.Slack.Email
         
         // App-wide styles
@@ -35,4 +33,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

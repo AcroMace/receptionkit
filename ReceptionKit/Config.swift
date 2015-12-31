@@ -8,8 +8,8 @@
 
 class Config {
     
-    class SupportKit {
-        // Replace the token with App Token you get from app.supportkit.io
+    class Smooch {
+        // Replace the token with App Token you get from app.smooch.io
         static let AppToken = "eurqdnoj2xjppgfbh51zs2v89"
     }
     

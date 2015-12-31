@@ -1,5 +1,5 @@
 //
-//  SupportKitConversationDelegate.swift
+//  SmoochConversationDelegate.swift
 //  ReceptionKit
 //
 //  Created by Andy Cho on 2015-04-24.
@@ -63,12 +63,12 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
         }
     }
     
-    // Don't show the default SupportKit conversation
+    // Don't show the default Smooch conversation
     func conversation(conversation: SKTConversation!, shouldShowForAction action: SKTAction) -> Bool {
         return false
     }
     
-    // Don't show the default SupportKit notification
+    // Don't show the default Smooch notification
     func conversation(conversation: SKTConversation!, shouldShowInAppNotificationForMessage message: SKTMessage!) -> Bool {
         return false
     }

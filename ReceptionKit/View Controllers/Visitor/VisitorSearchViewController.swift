@@ -68,10 +68,12 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
             visitorSearchResultsTableViewController.searchResults = searchResults
         } else if let _ = segue.destinationViewController as? WaitingViewController {
             // Does not exist
-            if visitorName == nil || visitorName == "" {
-                sendMessage("Someone is at the reception looking for \(nameTextField.text)!")
-            } else {
-                sendMessage("\(visitorName!) is at the reception looking for \(nameTextField.text)!")
+            if let lookingForName = nameTextField.text {
+                if visitorName == nil || visitorName == "" {
+                    sendMessage("Someone is at the reception looking for \(lookingForName)!")
+                } else {
+                    sendMessage("\(visitorName!) is at the reception looking for \(lookingForName)!")
+                }
             }
         }
     }

@@ -46,7 +46,7 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
         return messageText
     }
     
-    // Segue to the thank you controller after sending a SupportKit message
+    // Segue to the thank you controller after sending a Smooch message
     func segueWithMessage(message: String) {
         sendMessage(message)
         performSegueWithIdentifier("DeliveryMethodSelectedSegue", sender: self)
