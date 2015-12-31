@@ -1,6 +1,6 @@
 # ReceptionKit
 
-A simple, customizable receptionist iPad app built with [SupportKit](http://supportkit.io). Receive a message on Slack when someone is at the reception.
+A simple, customizable receptionist iPad app built with [Smooch](http://smooch.io). Receive a message on Slack when someone is at the reception.
 
 ![](https://github.com/AcroMace/receptionkit/raw/master/Screenshots/home.png)
 
@@ -11,12 +11,12 @@ A simple, customizable receptionist iPad app built with [SupportKit](http://supp
 2. `cd receptionkit`
 3. This project uses [CocoaPods](https://cocoapods.org). If you don't have CocoaPods installed already, you must run `sudo gem install cocoapods`. [Learn more here](https://guides.cocoapods.org/using/getting-started.html).
 4. `pod install`
-5. Sign up with [SupportKit](http://supportkit.io) and copy the App Token from Settings
-6. [Configure Slack with SupportKit](http://docs.supportkit.io/#slack)
+5. Sign up with [Smooch](http://smooch.io) and copy the App Token from Settings
+6. [Configure Slack with Smooch](http://docs.smooch.io/#slack)
 7. **Disable Auto Archiving**
 8. Open `ReceptionKit.xcworkspace` with Xcode
 9. Navigate to `Config.swift`
-10. Replace `Config.SupportKit.AppToken` with the App Token from SupportKit
+10. Replace `Config.Smooch.AppToken` with the App Token from Smooch
 11. Build and run the app (`⌘R`)
 
 
@@ -26,7 +26,7 @@ A simple, customizable receptionist iPad app built with [SupportKit](http://supp
 
 **Replies**
 
-You can send a message to the iPad by using `/sk [message]` inside the iPad channel (called `sk-receptionist` by default). If you want the message to be sent in real time, you need to [configure push notifications](http://docs.supportkit.io/#configuring-push-notifications). Otherwise, there may be up to a 5 second delay before the message arrives.
+You can send a message to the iPad by using `/sk [message]` inside the iPad channel (called `sk-receptionist` by default). If you want the message to be sent in real time, you need to [configure push notifications](http://docs.smooch.io/#configuring-push-notifications). Otherwise, there may be up to a 5 second delay before the message arrives.
 
 ![](https://github.com/AcroMace/receptionkit/raw/master/Screenshots/reply.png)
 
@@ -36,7 +36,7 @@ You can set the name of how the receptionist appears in Slack by changing `Confi
 
 **Picture**
 
-SupportKit uses Gravatar to set the user's profile pictures. If you want to set a profile picture, you must [set a Gravatar](http://en.gravatar.com) for an email and set `Config.Slack.Email` to that email.
+Smooch uses Gravatar to set the user's profile pictures. If you want to set a profile picture, you must [set a Gravatar](http://en.gravatar.com) for an email and set `Config.Slack.Email` to that email.
 
 **Channel name**
 
@@ -92,4 +92,4 @@ If you wish to customize the launch screen, you must change the `LaunchScreen.xi
 
 - The default button images are from [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
 - The first time you search for a contact, you will have to give the app permission to access the device's contact list
-- You should really, really [configure push notifications](http://docs.supportkit.io/#configuring-push-notifications) if you want to send messages to the iPad
+- You should really, really [configure push notifications](http://docs.smooch.io/#configuring-push-notifications) if you want to send messages to the iPad
