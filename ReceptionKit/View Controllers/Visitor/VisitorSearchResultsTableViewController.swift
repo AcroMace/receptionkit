@@ -13,14 +13,15 @@ class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
     var visitorName: String?
     var searchQuery: String?
     var searchResults: [Contact]?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Overwrite the theme - table should be white
         self.view.backgroundColor = UIColor.whiteColor()
     }
-    
+
+
     //
     // MARK: - Table view data source
     //
@@ -34,23 +35,28 @@ class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ContactTableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("contactCell", forIndexPath: indexPath) as! ContactTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("contactCell", forIndexPath: indexPath) as? ContactTableViewCell
+
+        guard cell != nil else {
+            print("ERROR: Could not dequeue contactCell in VisitorSearchResultsTableViewController")
+            return ContactTableViewCell()
+        }
 
         let contact = searchResults![indexPath.row]
-        cell.contactNameLabel.text = contact.name
-        cell.contactPhoneLabel.text = formatPhoneString(contact.phones)
-        
-        if (contact.picture != nil) {
-            cell.contactImage.image = contact.picture
+        cell!.contactNameLabel.text = contact.name
+        cell!.contactPhoneLabel.text = formatPhoneString(contact.phones)
+
+        if contact.picture != nil {
+            cell!.contactImage.image = contact.picture
         } else {
-            cell.contactImage.image = UIImage(named: "UnknownContact")
+            cell!.contactImage.image = UIImage(named: "UnknownContact")
         }
-        cell.contactImage.layer.cornerRadius = 42.0
-        cell.contactImage.layer.masksToBounds = true
-        
-        return cell
+        cell!.contactImage.layer.cornerRadius = 42.0
+        cell!.contactImage.layer.masksToBounds = true
+
+        return cell!
     }
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let contact = searchResults![indexPath.row]
         if visitorName == nil || visitorName == "" {
@@ -60,14 +66,14 @@ class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
         }
         performSegueWithIdentifier("SelectedContact", sender: self)
     }
-    
+
     // Take the phone numbers and create a descriptive string for it
     func formatPhoneString(phones: [ContactPhone]) -> String {
         var workPhones = [ContactPhone]()
         var mobilePhones = [ContactPhone]()
-        
+
         var formattedString = ""
-        
+
         for phone in phones {
             if phone.isWorkPhone() == true {
                 workPhones.append(phone)
@@ -75,20 +81,20 @@ class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
                 mobilePhones.append(phone)
             }
         }
-        
+
         for workPhone in workPhones {
-            if (formattedString != "") {
+            if formattedString != "" {
                 formattedString += "\t\t"
             }
             formattedString += "Work: " + workPhone.number
         }
         for mobilePhone in mobilePhones {
-            if (formattedString != "") {
+            if formattedString != "" {
                 formattedString += "\t\t"
             }
             formattedString += "Mobile: " + mobilePhone.number
         }
-        
+
         if formattedString == "" {
             return "No contact info"
         } else {

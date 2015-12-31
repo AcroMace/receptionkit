@@ -18,16 +18,16 @@ class HomeViewController: ThemedViewController {
         super.viewDidLoad()
 
         // Set the logo if ShowLogo is enabled
-        if (Config.General.ShowLogo) {
+        if Config.General.ShowLogo {
             navigationItem.titleView = UIImageView(image: UIImage(named: "CompanyLogo"))
         }
-        
+
         // Hide the language toggle if ShowLanguageToggle is disabled
-        if (!Config.General.ShowLanguageToggle) {
+        if !Config.General.ShowLanguageToggle {
             navigationItem.rightBarButtonItem = nil
         }
     }
-    
+
     @IBAction func languageButtonTapped(sender: AnyObject) {
         if languageButton.title != "English" {
             languageButton.title = "English"
@@ -35,7 +35,7 @@ class HomeViewController: ThemedViewController {
             languageButton.title = "français"
         }
         Text.swapLanguage()
-        
+
         // The text on this view has to be manually updated
         deliveryButton.setTitle(Text.get("delivery"), forState: UIControlState.Normal)
         visitorButton.setTitle(Text.get("visitor"), forState: UIControlState.Normal)

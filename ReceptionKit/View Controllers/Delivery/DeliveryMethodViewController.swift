@@ -9,10 +9,10 @@
 import UIKit
 
 class DeliveryMethodViewController: ReturnToHomeViewController {
-    
+
     var deliveryCompany: String?
     var shouldAskToWait = true
-    
+
     @IBOutlet weak var signatureButton: UIButton!
     @IBOutlet weak var leftReceptionButton: UIButton!
 
@@ -26,17 +26,17 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
     //
     // Delivery method buttons
     //
-    
+
     @IBAction func signatureButtonTapped(sender: AnyObject) {
         shouldAskToWait = true
         segueWithMessage(makeDeliveryFromText() + " that requires a signature!")
     }
-    
+
     @IBAction func leftReceptionButtonTapped(sender: AnyObject) {
         shouldAskToWait = false
         segueWithMessage(makeDeliveryFromText() + " that has been left at the reception!")
     }
-    
+
     // Exclude the "from" if the delivery company is unknown
     func makeDeliveryFromText() -> String {
         var messageText = "There is a delivery"
@@ -45,14 +45,14 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
         }
         return messageText
     }
-    
+
     // Segue to the thank you controller after sending a Smooch message
     func segueWithMessage(message: String) {
         sendMessage(message)
         performSegueWithIdentifier("DeliveryMethodSelectedSegue", sender: self)
     }
 
-    
+
     //
     // MARK: - Navigation
     //

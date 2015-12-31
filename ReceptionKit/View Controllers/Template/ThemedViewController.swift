@@ -15,7 +15,7 @@ class ThemedViewController: UIViewController {
 
         // Set the background colour
         self.view.backgroundColor = UIColor(hex: Config.Colour.Background)
-        
+
         // Set the back button
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.get("back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
     }
