@@ -1,10 +1,10 @@
 PODS:
-  - SupportKit (2.10.2)
+  - Smooch (3.2.3)
 
 DEPENDENCIES:
-  - SupportKit
+  - Smooch
 
 SPEC CHECKSUMS:
-  SupportKit: 7ec8dab8cdd2468a74901a7e88c647f504d265e4
+  Smooch: 78b8a064e4f5baf4f8309e8f9f72601b69f58164
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

@@ -12,36 +12,35 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
 
     var visitorName: String?
     var searchResults = [Contact]()
-    
+
     @IBOutlet weak var lookingForLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
-    
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         nameTextField.delegate = self
         nameTextField.borderStyle = UITextBorderStyle.RoundedRect
         nameTextField.placeholder = Text.get("wizard of oz")
         lookingForLabel.text = Text.get("looking for")
     }
-    
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         nameTextField.becomeFirstResponder()
     }
 
-    
+
     //
     // MARK: - UITextFieldDelegate
     //
-    
+
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let nameText = nameTextField.text {
             searchResults = Contact.search(nameText)
-            
+
             // Check if the person the visitor is searching for exists
             if searchResults.count > 0 {
                 performSegueWithIdentifier("VisitorNameSearchSegue", sender: self)
@@ -49,10 +48,10 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
                 performSegueWithIdentifier("VisitorNameInvalidSearchSegue", sender: self)
             }
         }
-        
+
         return false
     }
-    
+
 
     //
     // MARK: - Navigation
@@ -68,10 +67,12 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
             visitorSearchResultsTableViewController.searchResults = searchResults
         } else if let _ = segue.destinationViewController as? WaitingViewController {
             // Does not exist
-            if visitorName == nil || visitorName == "" {
-                sendMessage("Someone is at the reception looking for \(nameTextField.text)!")
-            } else {
-                sendMessage("\(visitorName!) is at the reception looking for \(nameTextField.text)!")
+            if let lookingForName = nameTextField.text {
+                if visitorName == nil || visitorName == "" {
+                    sendMessage("Someone is at the reception looking for \(lookingForName)!")
+                } else {
+                    sendMessage("\(visitorName!) is at the reception looking for \(lookingForName)!")
+                }
             }
         }
     }

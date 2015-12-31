@@ -1,1 +1,1 @@
-pod 'SupportKit'
+pod 'Smooch'

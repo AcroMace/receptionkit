@@ -9,13 +9,13 @@
 import UIKit
 
 class VisitorViewController: ReturnToHomeViewController {
-    
+
     // Name of the visitor set by VisitorAskNameViewController
     var visitorName: String?
-    
+
     @IBOutlet weak var knowButton: UIButton!
     @IBOutlet weak var notKnowButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,21 +23,21 @@ class VisitorViewController: ReturnToHomeViewController {
         knowButton.setTitle(Text.get("i know"), forState: UIControlState.Normal)
         notKnowButton.setTitle(Text.get("i don't know"), forState: UIControlState.Normal)
     }
-    
+
     // Centre align the button text - left-aligned by default
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         knowButton.titleLabel?.textAlignment = NSTextAlignment.Center
     }
-    
-    
+
+
     //
     // MARK: - Navigation
     //
-    
+
     // Should post message if the visitor does not know who they are looking for
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let waitingViewController = segue.destinationViewController as? WaitingViewController {
+        if let _ = segue.destinationViewController as? WaitingViewController {
             if visitorName == nil || visitorName == "" {
                 sendMessage("Someone is at the reception!")
             } else {

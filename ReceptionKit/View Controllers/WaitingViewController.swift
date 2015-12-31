@@ -9,7 +9,7 @@
 import UIKit
 
 class WaitingViewController: ReturnToHomeViewController {
-    
+
     // Set to false if the message below thank you should ask the person to wait
     var shouldAskToWait = true
 
@@ -18,9 +18,9 @@ class WaitingViewController: ReturnToHomeViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         thankYouMessageText.selectable = true
-        if (shouldAskToWait) {
+        if shouldAskToWait {
             thankYouLabel.text = Text.get("please wait")
             thankYouMessageText.text = Text.get("please wait message")
         } else {
@@ -29,5 +29,5 @@ class WaitingViewController: ReturnToHomeViewController {
         }
         thankYouMessageText.selectable = false
     }
-    
+
 }
