@@ -43,7 +43,7 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
                 }
 
                 // Dismiss the message after 10 seconds
-                let _ = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "dismissMessageView:", userInfo: nil, repeats: false)
+                let _ = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: #selector(ConversationDelegate.dismissMessageView(_:)), userInfo: nil, repeats: false)
             }
         }
     }

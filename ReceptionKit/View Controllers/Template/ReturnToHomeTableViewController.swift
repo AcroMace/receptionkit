@@ -29,7 +29,7 @@ class ReturnToHomeTableViewController: UITableViewController {
         super.viewWillAppear(animated)
 
         // Start a timer to return back to the first view
-        backToHomeTimer = NSTimer.scheduledTimerWithTimeInterval(Config.General.Timeout, target: self, selector: "unwindToHome:", userInfo: nil, repeats: false)
+        backToHomeTimer = NSTimer.scheduledTimerWithTimeInterval(Config.General.Timeout, target: self, selector: #selector(ReturnToHomeTableViewController.unwindToHome(_:)), userInfo: nil, repeats: false)
     }
 
     override func viewWillDisappear(animated: Bool) {
