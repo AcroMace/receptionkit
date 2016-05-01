@@ -67,8 +67,6 @@ The image assets can be changed by replacing the images in `Images.xcassets`. Th
 | Image type         | Resolution  |
 | ------------------ | ----------- |
 | Company logo       | 800 x 88    |
-| Horizontal buttons | 2048 x 704  |
-| Vertical buttons   | 1024 x 1408 |
 | Delivery logos     | 800 x 800   |
 
 **Navigation bar**
@@ -90,6 +88,5 @@ If you wish to customize the launch screen, you must change the `LaunchScreen.xi
 
 ## Note
 
-- The default button images are from [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
-- The first time you search for a contact, you will have to give the app permission to access the device's contact list
-- You should really, really [configure push notifications](http://docs.smooch.io/#configuring-push-notifications) if you want to send messages to the iPad
+- The icons on the buttons are from [Font Awesome](http://fortawesome.github.io/Font-Awesome/). You can replace the icon in `Icons.swift` by changing the Unicode values.
+- The first time you search for a contact, you will have to give the app permission to access the device's contact list.
