@@ -13,8 +13,8 @@ class ButtonFormatter {
     
     // Fonts used to display the buttons
     // If these are missing, the app should crash
-    private static let IconFont = UIFont(name: "FontAwesome", size: 300.0)!
-    private static let TextFont = UIFont(name: "Futura-Medium", size: 48.0)!
+    private static let IconFont = UIFont(name: "FontAwesome", size: 360.0)!
+    private static let TextFont = UIFont(name: "Futura-Medium", size: 64.0)!
 
     static func getAttributedString(key: String) -> NSAttributedString {
         let attributedString = NSMutableAttributedString()
