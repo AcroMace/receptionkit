@@ -26,6 +26,8 @@ class HomeViewController: ThemedViewController {
         if !Config.General.ShowLanguageToggle {
             navigationItem.rightBarButtonItem = nil
         }
+
+        updateButtons()
     }
 
     @IBAction func languageButtonTapped(sender: AnyObject) {
@@ -37,9 +39,12 @@ class HomeViewController: ThemedViewController {
         Text.swapLanguage()
 
         // The text on this view has to be manually updated
-        deliveryButton.setTitle(Text.get("delivery"), forState: UIControlState.Normal)
-        visitorButton.setTitle(Text.get("visitor"), forState: UIControlState.Normal)
+        updateButtons()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.get("back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
     }
 
+    private func updateButtons() {
+        deliveryButton.setAttributedTitle(ButtonFormatter.getAttributedString("delivery"), forState: .Normal)
+        visitorButton.setAttributedTitle(ButtonFormatter.getAttributedString("visitor"), forState: .Normal)
+    }
 }
