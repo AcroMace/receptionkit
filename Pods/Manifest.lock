@@ -1,11 +1,11 @@
 PODS:
-  - Smooch (3.2.3)
+  - Smooch (4.2.2)
 
 DEPENDENCIES:
   - Smooch
 
 SPEC CHECKSUMS:
-  Smooch: 78b8a064e4f5baf4f8309e8f9f72601b69f58164
+  Smooch: eac65a9b9e888e3325fde725ce1a6a1ec2137dfc
 
 PODFILE CHECKSUM: 493877d9007576af49a11a1d700c648a05029cf2
 

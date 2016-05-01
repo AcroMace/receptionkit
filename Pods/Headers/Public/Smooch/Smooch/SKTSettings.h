@@ -1,1 +1,1 @@
-../../../../Smooch/Smooch.framework/Versions/A/Headers/SKTSettings.h
+../../../../Smooch/Smooch.framework/Headers/SKTSettings.h
