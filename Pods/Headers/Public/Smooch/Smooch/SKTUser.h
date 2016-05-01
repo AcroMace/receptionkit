@@ -1,1 +1,1 @@
-../../../../Smooch/Smooch.framework/Versions/A/Headers/SKTUser.h
+../../../../Smooch/Smooch.framework/Headers/SKTUser.h

@@ -20,8 +20,9 @@ class VisitorViewController: ReturnToHomeViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        knowButton.setTitle(Text.get("i know"), forState: UIControlState.Normal)
-        notKnowButton.setTitle(Text.get("i don't know"), forState: UIControlState.Normal)
+        knowButton.setAttributedTitle(ButtonFormatter.getAttributedString("i know"), forState: .Normal)
+        notKnowButton.setAttributedTitle(ButtonFormatter.getAttributedString("i don't know"), forState: .Normal)
+        resetButtonVerticalAlignment(view.bounds.size)
     }
 
     // Centre align the button text - left-aligned by default
@@ -30,6 +31,23 @@ class VisitorViewController: ReturnToHomeViewController {
         knowButton.titleLabel?.textAlignment = NSTextAlignment.Center
     }
 
+    
+    // Reset the alignment of the text on rotation
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        resetButtonVerticalAlignment(size)
+    }
+    
+    func resetButtonVerticalAlignment(size: CGSize) {
+        if size.width < size.height {
+            // Vertical - alignment doesn't matter
+            knowButton.contentVerticalAlignment = .Center
+            notKnowButton.contentVerticalAlignment = .Center
+        } else {
+            // Horizontal - align to top
+            knowButton.contentVerticalAlignment = .Top
+            notKnowButton.contentVerticalAlignment = .Top
+        }
+    }
 
     //
     // MARK: - Navigation

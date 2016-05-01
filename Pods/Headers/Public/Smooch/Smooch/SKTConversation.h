@@ -1,1 +1,1 @@
-../../../../Smooch/Smooch.framework/Versions/A/Headers/SKTConversation.h
+../../../../Smooch/Smooch.framework/Headers/SKTConversation.h

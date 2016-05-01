@@ -10,19 +10,6 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
-		<key>00767E5F31D306A0575F2D191128E023</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>3669D957E6B63529D5FF09BDEFB4E29A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>06A9077C3441211E0F71D73BD4F52485</key>
 		<dict>
 			<key>explicitFileType</key>
@@ -38,18 +25,24 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>0F45870FDC4D9CEC3CE44993C9EF9E0B</key>
+		<key>0C2951FA6F095E4C475EB6A8D396A7C6</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>children</key>
+			<array>
+				<string>72B8F5FC766EE22D4432034573CB9FDC</string>
+				<string>486975F14CC4B0A68E518CBA46DAC533</string>
+				<string>CC54D1050547211AC8EC6E5A3F6034AB</string>
+				<string>64D83F5A63BFBDB22EE283497B356B0C</string>
+				<string>134248F4B298E04F303C1EE11506F51E</string>
+				<string>6EA4A9CEB26F5FAC337D42B5C7A57696</string>
+				<string>2CF04FFEF0C9B3B9027A7EAF29DF95AF</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>PBXGroup</string>
 			<key>name</key>
-			<string>SKTMessageAction.h</string>
+			<string>Smooch</string>
 			<key>path</key>
-			<string>Smooch.framework/Versions/A/Headers/SKTMessageAction.h</string>
+			<string>Smooch</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -73,29 +66,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>1E99E0B023C5B3C80427BCA4010D2EDC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>7FE7F88700B5F4A3BC0087B96D98C578</string>
-				<string>5417648B4155BF9633BC50AA12DC5B74</string>
-				<string>0F45870FDC4D9CEC3CE44993C9EF9E0B</string>
-				<string>BCC44B19A22F61056E36BE8186C10F37</string>
-				<string>CAC038F231B115A834D3042DC249C46A</string>
-				<string>2635AA26D19618982B77188CC96CC52D</string>
-				<string>88606BAA366D5C04FDF3F1DB3EB86F18</string>
-				<string>00767E5F31D306A0575F2D191128E023</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Smooch</string>
-			<key>path</key>
-			<string>Smooch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2635AA26D19618982B77188CC96CC52D</key>
+		<key>134248F4B298E04F303C1EE11506F51E</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -104,13 +75,13 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>Smooch.h</string>
+			<string>SKTUser.h</string>
 			<key>path</key>
-			<string>Smooch.framework/Versions/A/Headers/Smooch.h</string>
+			<string>Smooch.framework/Headers/SKTUser.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>2C060609A0CBAEDD27A8547AEDA478DD</key>
+		<key>199B6B2E18FFD5BE27C1153447D2F468</key>
 		<dict>
 			<key>isa</key>
 			<string>PBXFileReference</string>
@@ -134,6 +105,19 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>2CF04FFEF0C9B3B9027A7EAF29DF95AF</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>199B6B2E18FFD5BE27C1153447D2F468</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
 		<dict>
 			<key>buildConfigurations</key>
@@ -147,19 +131,6 @@
 			<string>Release</string>
 			<key>isa</key>
 			<string>XCConfigurationList</string>
-		</dict>
-		<key>3669D957E6B63529D5FF09BDEFB4E29A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.plug-in</string>
-			<key>path</key>
-			<string>Smooch.bundle</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>372FF5048FF42C3A7A18B70A30D785C1</key>
 		<dict>
@@ -277,6 +248,21 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>486975F14CC4B0A68E518CBA46DAC533</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SKTMessage.h</string>
+			<key>path</key>
+			<string>Smooch.framework/Headers/SKTMessage.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>4D70E78ACADD747B93F20A288B35A7D4</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -356,21 +342,6 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>5417648B4155BF9633BC50AA12DC5B74</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SKTMessage.h</string>
-			<key>path</key>
-			<string>Smooch.framework/Versions/A/Headers/SKTMessage.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>5F85B6A074F27BCD5DDD84F41553F34F</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -408,16 +379,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>62EF5C677013A76C7787731E065477D3</key>
+		<key>64D83F5A63BFBDB22EE283497B356B0C</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>1E99E0B023C5B3C80427BCA4010D2EDC</string>
-			</array>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>Pods</string>
+			<string>SKTSettings.h</string>
+			<key>path</key>
+			<string>Smooch.framework/Headers/SKTSettings.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -456,6 +429,21 @@
 			<string>text.script.sh</string>
 			<key>path</key>
 			<string>Pods-ReceptionKit-frameworks.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6EA4A9CEB26F5FAC337D42B5C7A57696</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>Smooch.h</string>
+			<key>path</key>
+			<string>Smooch.framework/Headers/Smooch.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -535,22 +523,7 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>7DB346D0F39D3F0E887471402A8071AB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
-				<string>BC3CA7F9E30CC8F7E2DD044DD34432FC</string>
-				<string>62EF5C677013A76C7787731E065477D3</string>
-				<string>94D5CC6246EEFAD90A94DFD1B8FD0FC5</string>
-				<string>FB93A2A99C36253F08147AD56D8C2FCE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7FE7F88700B5F4A3BC0087B96D98C578</key>
+		<key>72B8F5FC766EE22D4432034573CB9FDC</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -561,7 +534,22 @@
 			<key>name</key>
 			<string>SKTConversation.h</string>
 			<key>path</key>
-			<string>Smooch.framework/Versions/A/Headers/SKTConversation.h</string>
+			<string>Smooch.framework/Headers/SKTConversation.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7DB346D0F39D3F0E887471402A8071AB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
+				<string>BC3CA7F9E30CC8F7E2DD044DD34432FC</string>
+				<string>C3880F64B6326BE89C7DF61146F0A1A4</string>
+				<string>94D5CC6246EEFAD90A94DFD1B8FD0FC5</string>
+				<string>FB93A2A99C36253F08147AD56D8C2FCE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -575,19 +563,6 @@
 			<string>text.xcconfig</string>
 			<key>path</key>
 			<string>Pods-ReceptionKit.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>88606BAA366D5C04FDF3F1DB3EB86F18</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2C060609A0CBAEDD27A8547AEDA478DD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -755,22 +730,20 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>BCC44B19A22F61056E36BE8186C10F37</key>
+		<key>C3880F64B6326BE89C7DF61146F0A1A4</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>children</key>
+			<array>
+				<string>0C2951FA6F095E4C475EB6A8D396A7C6</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>PBXGroup</string>
 			<key>name</key>
-			<string>SKTSettings.h</string>
-			<key>path</key>
-			<string>Smooch.framework/Versions/A/Headers/SKTSettings.h</string>
+			<string>Pods</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>CAC038F231B115A834D3042DC249C46A</key>
+		<key>CC54D1050547211AC8EC6E5A3F6034AB</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -779,9 +752,9 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>SKTUser.h</string>
+			<string>SKTMessageAction.h</string>
 			<key>path</key>
-			<string>Smooch.framework/Versions/A/Headers/SKTUser.h</string>
+			<string>Smooch.framework/Headers/SKTMessageAction.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>

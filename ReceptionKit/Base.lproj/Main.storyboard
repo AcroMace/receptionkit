@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IaD-hP-Gwr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IaD-hP-Gwr">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -19,22 +19,10 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-2M-Olk">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="536"/>
+                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uCB-dj-GQe">
+                                <rect key="frame" x="270" y="440" width="330" height="96"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="200" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="delivery" backgroundImage="ButtonDelivery">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="GCF-Zq-Vv5" kind="show" id="xcE-97-maj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCB-dj-GQe">
-                                <rect key="frame" x="300" y="0.0" width="300" height="536"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="200" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="i'm a visitor" backgroundImage="ButtonVisitor">
+                                <state key="normal" title="i'm a visitor">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -42,18 +30,58 @@
                                     <segue destination="3Yy-Wq-cJ7" kind="show" id="vVh-Fq-cLT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-2M-Olk">
+                                <rect key="frame" x="0.0" y="0.0" width="330" height="96"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
+                                <state key="normal" title="delivery">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="GCF-Zq-Vv5" kind="show" id="xcE-97-maj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.75686274509803919" green="0.031372549019607843" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="uCB-dj-GQe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="7fE-Gp-W3C"/>
-                            <constraint firstItem="Dxu-2M-Olk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Lzh-L2-9U8"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Dxu-2M-Olk" secondAttribute="bottom" id="Vso-Zh-RY3"/>
-                            <constraint firstAttribute="trailing" secondItem="uCB-dj-GQe" secondAttribute="trailing" id="bev-dz-HYi"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uCB-dj-GQe" secondAttribute="bottom" id="fyj-ju-SYh"/>
-                            <constraint firstItem="uCB-dj-GQe" firstAttribute="width" secondItem="Dxu-2M-Olk" secondAttribute="width" id="tP0-2u-gvh"/>
-                            <constraint firstItem="Dxu-2M-Olk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="u29-3i-bVh"/>
-                            <constraint firstItem="uCB-dj-GQe" firstAttribute="leading" secondItem="Dxu-2M-Olk" secondAttribute="trailing" id="xSZ-LJ-pnO"/>
+                            <constraint firstItem="Dxu-2M-Olk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="AZ3-dy-u9F" userLabel="Delivery Left"/>
+                            <constraint firstItem="uCB-dj-GQe" firstAttribute="width" secondItem="Dxu-2M-Olk" secondAttribute="width" id="Bl4-kC-PYc" userLabel="Equal Width"/>
+                            <constraint firstItem="Dxu-2M-Olk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Jnt-r5-QP0" userLabel="Delivery Top"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uCB-dj-GQe" secondAttribute="bottom" id="KZg-AZ-hN6" userLabel="Visitor Bottom"/>
+                            <constraint firstAttribute="trailing" secondItem="Dxu-2M-Olk" secondAttribute="trailing" id="Sdu-DE-y0Y" userLabel="Delivery Right"/>
+                            <constraint firstItem="uCB-dj-GQe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bJ4-xO-OBl" userLabel="Visitor Left"/>
+                            <constraint firstItem="uCB-dj-GQe" firstAttribute="top" secondItem="Dxu-2M-Olk" secondAttribute="bottom" id="cbz-pI-rn8" userLabel="Vertical Margin"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Dxu-2M-Olk" secondAttribute="bottom" id="esz-Kt-vNK" userLabel="Delivery Bottom"/>
+                            <constraint firstItem="uCB-dj-GQe" firstAttribute="leading" secondItem="Dxu-2M-Olk" secondAttribute="trailing" id="naM-sm-Lyz" userLabel="Horizontal Margin"/>
+                            <constraint firstItem="uCB-dj-GQe" firstAttribute="height" secondItem="Dxu-2M-Olk" secondAttribute="height" id="nk2-Fo-hsY" userLabel="Equal Height"/>
+                            <constraint firstAttribute="trailing" secondItem="uCB-dj-GQe" secondAttribute="trailing" id="zfv-R8-fqB" userLabel="Visitor Right"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Sdu-DE-y0Y"/>
+                                <exclude reference="bJ4-xO-OBl"/>
+                                <exclude reference="cbz-pI-rn8"/>
+                                <exclude reference="naM-sm-Lyz"/>
+                                <exclude reference="esz-Kt-vNK"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="Sdu-DE-y0Y"/>
+                                <include reference="bJ4-xO-OBl"/>
+                                <include reference="cbz-pI-rn8"/>
+                                <exclude reference="naM-sm-Lyz"/>
+                                <exclude reference="esz-Kt-vNK"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="Sdu-DE-y0Y"/>
+                                <exclude reference="bJ4-xO-OBl"/>
+                                <exclude reference="cbz-pI-rn8"/>
+                                <include reference="naM-sm-Lyz"/>
+                                <include reference="esz-Kt-vNK"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="ZpT-XF-Ski">
                         <barButtonItem key="rightBarButtonItem" title="français" style="done" id="WBp-5Z-Vg3">
@@ -70,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="429"/>
+            <point key="canvasLocation" x="1251" y="429"/>
         </scene>
         <!--Visitor View Controller-->
         <scene sceneID="naA-Ia-S2g">
@@ -84,23 +112,10 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8Bh-Fw-aRw">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="536"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="48"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="232" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="i know" backgroundImage="ButtonVisitorKnow">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="gmm-f4-xMQ" kind="show" identifier="" id="ySL-3K-ifk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dRx-RZ-T6n">
-                                <rect key="frame" x="300" y="0.0" width="300" height="536"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="48"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="100" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="i don't know" backgroundImage="ButtonVisitorNotKnow">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dRx-RZ-T6n">
+                                <rect key="frame" x="246" y="440" width="354" height="96"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
+                                <state key="normal" title="i don't know">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -108,18 +123,70 @@
                                     <segue destination="XcS-0N-QxK" kind="show" identifier="" id="Uts-8T-2PH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8Bh-Fw-aRw">
+                                <rect key="frame" x="0.0" y="65" width="354" height="96"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
+                                <state key="normal" title="i know">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="gmm-f4-xMQ" kind="show" identifier="" id="ySL-3K-ifk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.75686274509999996" green="0.031372549020000001" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="8Bh-Fw-aRw" firstAttribute="top" secondItem="EID-IK-FU7" secondAttribute="bottom" id="EwA-jn-sKf"/>
-                            <constraint firstItem="8Bh-Fw-aRw" firstAttribute="width" secondItem="dRx-RZ-T6n" secondAttribute="width" id="QlR-rE-A8A"/>
-                            <constraint firstItem="m9J-2N-bMX" firstAttribute="top" secondItem="dRx-RZ-T6n" secondAttribute="bottom" id="UWC-VU-aGS"/>
-                            <constraint firstItem="dRx-RZ-T6n" firstAttribute="leading" secondItem="8Bh-Fw-aRw" secondAttribute="trailing" id="UfX-Hw-LAy"/>
-                            <constraint firstItem="dRx-RZ-T6n" firstAttribute="top" secondItem="EID-IK-FU7" secondAttribute="bottom" id="bYq-fz-ed6"/>
-                            <constraint firstItem="dRx-RZ-T6n" firstAttribute="trailing" secondItem="vkX-EK-14f" secondAttribute="trailing" id="eA7-wt-b5k"/>
-                            <constraint firstItem="8Bh-Fw-aRw" firstAttribute="leading" secondItem="vkX-EK-14f" secondAttribute="leading" id="p3c-7v-DhO"/>
-                            <constraint firstItem="m9J-2N-bMX" firstAttribute="top" secondItem="8Bh-Fw-aRw" secondAttribute="bottom" id="ulA-ux-fac"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8Bh-Fw-aRw" secondAttribute="trailing" id="E0a-qX-6eJ" userLabel="Know Right"/>
+                            <constraint firstItem="8Bh-Fw-aRw" firstAttribute="top" secondItem="EID-IK-FU7" secondAttribute="bottom" id="EwA-jn-sKf" userLabel="Know Top Vertical"/>
+                            <constraint firstItem="8Bh-Fw-aRw" firstAttribute="width" secondItem="dRx-RZ-T6n" secondAttribute="width" id="QlR-rE-A8A" userLabel="Equal Width"/>
+                            <constraint firstItem="8Bh-Fw-aRw" firstAttribute="top" secondItem="EID-IK-FU7" secondAttribute="bottom" constant="240" id="TYC-HJ-ORL" userLabel="Know Top Horizontal"/>
+                            <constraint firstItem="m9J-2N-bMX" firstAttribute="top" secondItem="dRx-RZ-T6n" secondAttribute="bottom" id="UWC-VU-aGS" userLabel="Not Know Bottom"/>
+                            <constraint firstItem="dRx-RZ-T6n" firstAttribute="leading" secondItem="8Bh-Fw-aRw" secondAttribute="trailing" id="UfX-Hw-LAy" userLabel="Horizontal Margin"/>
+                            <constraint firstItem="dRx-RZ-T6n" firstAttribute="top" secondItem="8Bh-Fw-aRw" secondAttribute="bottom" id="XhZ-Ah-MeP" userLabel="Vertical Margin"/>
+                            <constraint firstItem="dRx-RZ-T6n" firstAttribute="trailing" secondItem="vkX-EK-14f" secondAttribute="trailing" id="eA7-wt-b5k" userLabel="Not Know Right"/>
+                            <constraint firstItem="8Bh-Fw-aRw" firstAttribute="leading" secondItem="vkX-EK-14f" secondAttribute="leading" id="p3c-7v-DhO" userLabel="Know Left"/>
+                            <constraint firstItem="dRx-RZ-T6n" firstAttribute="height" secondItem="8Bh-Fw-aRw" secondAttribute="height" id="tru-FT-I78" userLabel="Equal Height"/>
+                            <constraint firstItem="dRx-RZ-T6n" firstAttribute="top" secondItem="EID-IK-FU7" secondAttribute="bottom" constant="240" id="uk2-zc-VaY" userLabel="Not Know Top Horizontal"/>
+                            <constraint firstItem="m9J-2N-bMX" firstAttribute="top" secondItem="8Bh-Fw-aRw" secondAttribute="bottom" id="ulA-ux-fac" userLabel="Know Bottom"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="E0a-qX-6eJ"/>
+                                <exclude reference="EwA-jn-sKf"/>
+                                <exclude reference="TYC-HJ-ORL"/>
+                                <exclude reference="UfX-Hw-LAy"/>
+                                <exclude reference="XhZ-Ah-MeP"/>
+                                <exclude reference="uk2-zc-VaY"/>
+                                <exclude reference="ulA-ux-fac"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="E0a-qX-6eJ"/>
+                                <include reference="EwA-jn-sKf"/>
+                                <exclude reference="TYC-HJ-ORL"/>
+                                <exclude reference="UfX-Hw-LAy"/>
+                                <include reference="XhZ-Ah-MeP"/>
+                                <exclude reference="uk2-zc-VaY"/>
+                                <exclude reference="ulA-ux-fac"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="E0a-qX-6eJ"/>
+                                <exclude reference="EwA-jn-sKf"/>
+                                <include reference="TYC-HJ-ORL"/>
+                                <include reference="UfX-Hw-LAy"/>
+                                <exclude reference="XhZ-Ah-MeP"/>
+                                <include reference="ulA-ux-fac"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="uk2-zc-VaY"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="knowButton" destination="8Bh-Fw-aRw" id="ikH-sp-91r"/>
@@ -143,7 +210,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="The Wonderful Wizard of Oz" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ol3-q4-HxX">
-                                <rect key="frame" x="20" y="167" width="560" height="60"/>
+                                <rect key="frame" x="20" y="-2" width="560" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="RNk-Kc-UUe"/>
                                 </constraints>
@@ -151,7 +218,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who are you looking for?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSU-lu-VD8">
-                                <rect key="frame" x="20" y="120" width="560" height="31.5"/>
+                                <rect key="frame" x="20" y="-50" width="560" height="32"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -162,9 +229,9 @@
                             <constraint firstItem="Ol3-q4-HxX" firstAttribute="trailing" secondItem="COD-6K-BSq" secondAttribute="trailingMargin" id="D0f-7u-t9V"/>
                             <constraint firstItem="WSU-lu-VD8" firstAttribute="trailing" secondItem="COD-6K-BSq" secondAttribute="trailingMargin" id="Ylp-SJ-RUg"/>
                             <constraint firstItem="Ol3-q4-HxX" firstAttribute="top" secondItem="WSU-lu-VD8" secondAttribute="bottom" constant="16" id="bt2-fE-s9P"/>
-                            <constraint firstItem="WSU-lu-VD8" firstAttribute="top" secondItem="4BG-SS-xZN" secondAttribute="bottom" constant="120" id="gCD-Tw-CsJ"/>
                             <constraint firstItem="WSU-lu-VD8" firstAttribute="leading" secondItem="COD-6K-BSq" secondAttribute="leadingMargin" id="kFH-WC-FzO"/>
                             <constraint firstItem="Ol3-q4-HxX" firstAttribute="leading" secondItem="COD-6K-BSq" secondAttribute="leadingMargin" id="lFu-49-fGG"/>
+                            <constraint firstItem="Ol3-q4-HxX" firstAttribute="centerY" secondItem="COD-6K-BSq" secondAttribute="centerY" constant="-240" id="rrO-OB-6Ko"/>
                         </constraints>
                     </view>
                     <connections>
@@ -346,22 +413,20 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyD-yG-B4D">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DyD-yG-B4D">
                                 <rect key="frame" x="20" y="8" width="560" height="250"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="48"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="200" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="i need a signature" backgroundImage="ButtonDeliverySignature">
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
+                                <state key="normal" title="i need a signature">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="signatureButtonTapped:" destination="bto-05-yno" eventType="touchUpInside" id="8FA-Sl-1R0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdR-hF-OqZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fdR-hF-OqZ">
                                 <rect key="frame" x="20" y="266" width="560" height="250"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="48"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="200" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="i left a package at the reception" backgroundImage="ButtonDeliveryLeaving">
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
+                                <state key="normal" title="i left a package at the reception">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -438,10 +503,10 @@
             </objects>
             <point key="canvasLocation" x="2579" y="1177"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Orientation Navigation Controller-->
         <scene sceneID="TmD-pg-Dto">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IaD-hP-Gwr" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IaD-hP-Gwr" customClass="OrientationNavigationController" customModule="ReceptionKit" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="9x2-Lj-Ylp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -473,29 +538,29 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your name?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCf-HB-Rk0">
+                                <rect key="frame" x="20" y="-50" width="560" height="31.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Barack Obama" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dbb-CH-MQ3">
-                                <rect key="frame" x="20" y="167" width="560" height="60"/>
+                                <rect key="frame" x="20" y="-2" width="560" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="d7u-fz-Qya"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad" returnKeyType="go"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your name?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCf-HB-Rk0">
-                                <rect key="frame" x="20" y="120" width="560" height="31.5"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.75686274509999996" green="0.031372549020000001" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="TCf-HB-Rk0" firstAttribute="top" secondItem="SLb-iG-fSm" secondAttribute="bottom" constant="120" id="1KS-2g-hw3"/>
-                            <constraint firstItem="dbb-CH-MQ3" firstAttribute="top" secondItem="TCf-HB-Rk0" secondAttribute="bottom" constant="16" id="8vr-fa-0uQ"/>
-                            <constraint firstItem="TCf-HB-Rk0" firstAttribute="leading" secondItem="hEp-bq-gHR" secondAttribute="leadingMargin" id="9ye-Pe-Mag"/>
-                            <constraint firstItem="dbb-CH-MQ3" firstAttribute="trailing" secondItem="hEp-bq-gHR" secondAttribute="trailingMargin" id="Rny-lL-d2d"/>
-                            <constraint firstItem="TCf-HB-Rk0" firstAttribute="trailing" secondItem="hEp-bq-gHR" secondAttribute="trailingMargin" id="TZ2-Cn-Tk4"/>
-                            <constraint firstItem="dbb-CH-MQ3" firstAttribute="leading" secondItem="hEp-bq-gHR" secondAttribute="leadingMargin" id="wa7-UO-y78"/>
+                            <constraint firstItem="dbb-CH-MQ3" firstAttribute="top" secondItem="TCf-HB-Rk0" secondAttribute="bottom" constant="16" id="8vr-fa-0uQ" userLabel="Vertical Margin"/>
+                            <constraint firstItem="TCf-HB-Rk0" firstAttribute="leading" secondItem="hEp-bq-gHR" secondAttribute="leadingMargin" id="9ye-Pe-Mag" userLabel="Name Label Left"/>
+                            <constraint firstItem="dbb-CH-MQ3" firstAttribute="trailing" secondItem="hEp-bq-gHR" secondAttribute="trailingMargin" id="Rny-lL-d2d" userLabel="Name Text Field Right"/>
+                            <constraint firstItem="TCf-HB-Rk0" firstAttribute="trailing" secondItem="hEp-bq-gHR" secondAttribute="trailingMargin" id="TZ2-Cn-Tk4" userLabel="Name Label Right"/>
+                            <constraint firstItem="dbb-CH-MQ3" firstAttribute="centerY" secondItem="hEp-bq-gHR" secondAttribute="centerY" constant="-240" id="VGT-lQ-Nab" userLabel="Name Text Field Centre"/>
+                            <constraint firstItem="dbb-CH-MQ3" firstAttribute="leading" secondItem="hEp-bq-gHR" secondAttribute="leadingMargin" id="wa7-UO-y78" userLabel="Name Text Field Left"/>
                         </constraints>
                     </view>
                     <connections>
@@ -510,17 +575,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ButtonDelivery" width="512" height="704"/>
-        <image name="ButtonDeliveryLeaving" width="1024" height="352"/>
-        <image name="ButtonDeliverySignature" width="1024" height="352"/>
-        <image name="ButtonVisitor" width="512" height="704"/>
-        <image name="ButtonVisitorKnow" width="512" height="704"/>
-        <image name="ButtonVisitorNotKnow" width="512" height="704"/>
         <image name="IconDeliveryCanadaPost" width="400" height="400"/>
         <image name="IconDeliveryFedEx" width="400" height="400"/>
         <image name="IconDeliveryUPS" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9RB-Zb-qnu"/>
+        <segue reference="Uts-8T-2PH"/>
     </inferredMetricsTieBreakers>
 </document>

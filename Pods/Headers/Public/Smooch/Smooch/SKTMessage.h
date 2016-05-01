@@ -1,1 +1,1 @@
-../../../../Smooch/Smooch.framework/Versions/A/Headers/SKTMessage.h
+../../../../Smooch/Smooch.framework/Headers/SKTMessage.h

@@ -18,8 +18,8 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        signatureButton.setTitle(Text.get("signature"), forState: UIControlState.Normal)
-        leftReceptionButton.setTitle(Text.get("left at reception"), forState: UIControlState.Normal)
+        signatureButton.setAttributedTitle(ButtonFormatter.getAttributedString("signature"), forState: .Normal)
+        leftReceptionButton.setAttributedTitle(ButtonFormatter.getAttributedString("left at reception"), forState: .Normal)
     }
 
 
