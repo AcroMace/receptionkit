@@ -49,9 +49,10 @@ class VisitorAskNameViewController: ReturnToHomeViewController, UITextFieldDeleg
 
     // Set the visitor's name before the segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let visitorViewController = segue.destinationViewController as? VisitorViewController {
-            visitorViewController.visitorName = nameTextField.text
+        guard let visitorViewController = segue.destinationViewController as? VisitorViewController else {
+            return
         }
+        visitorViewController.visitorName = nameTextField.text
     }
 
 }

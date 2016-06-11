@@ -61,9 +61,10 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if let waitingViewController = segue.destinationViewController as? WaitingViewController {
-            waitingViewController.shouldAskToWait = shouldAskToWait
+        guard let waitingViewController = segue.destinationViewController as? WaitingViewController else {
+            return
         }
+        waitingViewController.shouldAskToWait = shouldAskToWait
     }
 
 }

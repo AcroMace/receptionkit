@@ -35,30 +35,37 @@ class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ContactTableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("contactCell", forIndexPath: indexPath) as? ContactTableViewCell
-
-        guard cell != nil else {
+        guard let cell = tableView.dequeueReusableCellWithIdentifier("contactCell", forIndexPath: indexPath) as? ContactTableViewCell else {
             print("ERROR: Could not dequeue contactCell in VisitorSearchResultsTableViewController")
             return ContactTableViewCell()
         }
 
-        let contact = searchResults![indexPath.row]
-        cell!.contactNameLabel.text = contact.name
-        cell!.contactPhoneLabel.text = formatPhoneString(contact.phones)
-
-        if contact.picture != nil {
-            cell!.contactImage.image = contact.picture
-        } else {
-            cell!.contactImage.image = UIImage(named: "UnknownContact")
+        guard let searchResults = searchResults where indexPath.row < searchResults.count else {
+            print("ERROR: Search results not specified in VisitorSearchResultsTableViewController")
+            return ContactTableViewCell()
         }
-        cell!.contactImage.layer.cornerRadius = 42.0
-        cell!.contactImage.layer.masksToBounds = true
 
-        return cell!
+        let contact = searchResults[indexPath.row]
+        cell.contactNameLabel.text = contact.name
+        cell.contactPhoneLabel.text = formatPhoneString(contact.phones)
+
+        if let picture = contact.picture {
+            cell.contactImage.image = picture
+        } else {
+            cell.contactImage.image = UIImage(named: "UnknownContact")
+        }
+        cell.contactImage.layer.cornerRadius = 42.0
+        cell.contactImage.layer.masksToBounds = true
+
+        return cell
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let contact = searchResults![indexPath.row]
+        guard let searchResults = searchResults where indexPath.row < searchResults.count else {
+            return
+        }
+
+        let contact = searchResults[indexPath.row]
         if visitorName == nil || visitorName == "" {
             sendMessage("Someone is at the reception looking for \(contact.name)!")
         } else {

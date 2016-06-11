@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IaD-hP-Gwr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IaD-hP-Gwr">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -123,7 +123,7 @@
                                     <segue destination="XcS-0N-QxK" kind="show" identifier="" id="Uts-8T-2PH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8Bh-Fw-aRw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8Bh-Fw-aRw">
                                 <rect key="frame" x="0.0" y="65" width="354" height="96"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
                                 <state key="normal" title="i know">
@@ -145,6 +145,7 @@
                             <constraint firstItem="dRx-RZ-T6n" firstAttribute="leading" secondItem="8Bh-Fw-aRw" secondAttribute="trailing" id="UfX-Hw-LAy" userLabel="Horizontal Margin"/>
                             <constraint firstItem="dRx-RZ-T6n" firstAttribute="top" secondItem="8Bh-Fw-aRw" secondAttribute="bottom" id="XhZ-Ah-MeP" userLabel="Vertical Margin"/>
                             <constraint firstItem="dRx-RZ-T6n" firstAttribute="trailing" secondItem="vkX-EK-14f" secondAttribute="trailing" id="eA7-wt-b5k" userLabel="Not Know Right"/>
+                            <constraint firstItem="8Bh-Fw-aRw" firstAttribute="top" secondItem="EID-IK-FU7" secondAttribute="bottom" constant="65" placeholder="YES" id="eEC-vM-pqu"/>
                             <constraint firstItem="8Bh-Fw-aRw" firstAttribute="leading" secondItem="vkX-EK-14f" secondAttribute="leading" id="p3c-7v-DhO" userLabel="Know Left"/>
                             <constraint firstItem="dRx-RZ-T6n" firstAttribute="height" secondItem="8Bh-Fw-aRw" secondAttribute="height" id="tru-FT-I78" userLabel="Equal Height"/>
                             <constraint firstItem="dRx-RZ-T6n" firstAttribute="top" secondItem="EID-IK-FU7" secondAttribute="bottom" constant="240" id="uk2-zc-VaY" userLabel="Not Know Top Horizontal"/>

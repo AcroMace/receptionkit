@@ -18,34 +18,37 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
     func conversation(conversation: SKTConversation!, didReceiveMessages messages: [AnyObject]!) {
         // May be a bug here where messages are ignored if the messages are batched
         // and multiple messages are sent at once
-        if let lastMessage = messages.last as? SKTMessage {
-
-            // This method is also called when the user sends a message
-            // (ex. when a delivery method is tapped)
-            if !lastMessage.isFromCurrentUser {
-                let topVC = getTopViewController()
-
-                let receivedMessageView = ReceivedMessageViewController(nibName: "ReceivedMessageViewController", bundle: nil)
-                receivedMessageView.name = lastMessage.name
-                receivedMessageView.message = lastMessage.text
-                receivedMessageView.picture = lastMessage.avatarUrl
-                receivedMessageView.modalPresentationStyle = UIModalPresentationStyle.FormSheet
-                receivedMessageView.preferredContentSize = CGSize(width: 600.0, height: 500.0)
-
-                // Check that there is no presentation already before presenting
-                if isPresentingMessage {
-                    topVC.dismissViewControllerAnimated(true) { () -> Void in
-                        self.isPresentingMessage = false
-                        self.presentMessageView(receivedMessageView)
-                    }
-                } else {
-                    self.presentMessageView(receivedMessageView)
-                }
-
-                // Dismiss the message after 10 seconds
-                let _ = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: #selector(ConversationDelegate.dismissMessageView(_:)), userInfo: nil, repeats: false)
-            }
+        // This method is also called when the user sends a message
+        // (ex. when a delivery method is tapped)
+        guard let lastMessage = messages.last as? SKTMessage where lastMessage.isFromCurrentUser else {
+            return
         }
+
+        let topVC = getTopViewController()
+
+        let receivedMessageView = ReceivedMessageViewController(nibName: "ReceivedMessageViewController", bundle: nil)
+        receivedMessageView.name = lastMessage.name
+        receivedMessageView.message = lastMessage.text
+        receivedMessageView.picture = lastMessage.avatarUrl
+        receivedMessageView.modalPresentationStyle = UIModalPresentationStyle.FormSheet
+        receivedMessageView.preferredContentSize = CGSize(width: 600.0, height: 500.0)
+
+        // Check that there is no presentation already before presenting
+        if isPresentingMessage {
+            topVC.dismissViewControllerAnimated(true) { () -> Void in
+                self.isPresentingMessage = false
+                self.presentMessageView(receivedMessageView)
+            }
+        } else {
+            self.presentMessageView(receivedMessageView)
+        }
+
+        // Dismiss the message after 10 seconds
+        NSTimer.scheduledTimerWithTimeInterval(10.0,
+                                               target: self,
+                                               selector: #selector(ConversationDelegate.dismissMessageView(_:)),
+                                               userInfo: nil,
+                                               repeats: false)
     }
 
     // Present the message
