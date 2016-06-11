@@ -1,0 +1,8 @@
+language: objective-c
+osx_image: xcode7.3
+
+install:
+  - ./Scripts/install_swiftlint.sh
+
+script:
+  - swiftlint
