@@ -20,7 +20,7 @@ class Icons {
         "i know": "\u{f02d}",
         "i don't know": "\u{f059}"
     ]
-    
+
     static func get(key: String) -> String {
         return IconUnicode[key]!
     }

@@ -276,6 +276,7 @@
 				81B445131AE9313900725576 /* Resources */,
 				1FDFE393B2243F47B95C3F50 /* [CP] Embed Pods Frameworks */,
 				8E793CB2E423D8D4BA991FB9 /* [CP] Copy Pods Resources */,
+				631A49EE1D0C850A00EA1BA7 /* Run Linter */,
 			);
 			buildRules = (
 			);
@@ -396,6 +397,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReceptionKit/Pods-ReceptionKit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		631A49EE1D0C850A00EA1BA7 /* Run Linter */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Linter";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nfi";
 		};
 		8E793CB2E423D8D4BA991FB9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

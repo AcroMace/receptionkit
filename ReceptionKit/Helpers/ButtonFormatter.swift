@@ -10,7 +10,7 @@ import Foundation
 
 // Creates attributed strings using a provided key for buttons
 class ButtonFormatter {
-    
+
     // Fonts used to display the buttons
     // If these are missing, the app should crash
     private static let IconFont = UIFont(name: "FontAwesome", size: 360.0)!
@@ -18,7 +18,7 @@ class ButtonFormatter {
 
     static func getAttributedString(key: String) -> NSAttributedString {
         let attributedString = NSMutableAttributedString()
-        
+
         // Center align the text
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .Center
@@ -30,7 +30,7 @@ class ButtonFormatter {
         attributedString.addAttributes([
             NSParagraphStyleAttributeName: paragraphStyle,
             NSForegroundColorAttributeName: UIColor.whiteColor()
-            ], range: NSMakeRange(0, attributedString.length))
+            ], range: NSRange(location: 0, length: attributedString.length))
 
         return attributedString
     }
