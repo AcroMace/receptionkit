@@ -270,12 +270,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81B445341AE9313900725576 /* Build configuration list for PBXNativeTarget "ReceptionKit" */;
 			buildPhases = (
-				0A2F71588AF36D0FC03FF1DB /* Check Pods Manifest.lock */,
+				0A2F71588AF36D0FC03FF1DB /* [CP] Check Pods Manifest.lock */,
 				81B445111AE9313900725576 /* Sources */,
 				81B445121AE9313900725576 /* Frameworks */,
 				81B445131AE9313900725576 /* Resources */,
-				1FDFE393B2243F47B95C3F50 /* Embed Pods Frameworks */,
-				8E793CB2E423D8D4BA991FB9 /* Copy Pods Resources */,
+				1FDFE393B2243F47B95C3F50 /* [CP] Embed Pods Frameworks */,
+				8E793CB2E423D8D4BA991FB9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -367,14 +367,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A2F71588AF36D0FC03FF1DB /* Check Pods Manifest.lock */ = {
+		0A2F71588AF36D0FC03FF1DB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,14 +382,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		1FDFE393B2243F47B95C3F50 /* Embed Pods Frameworks */ = {
+		1FDFE393B2243F47B95C3F50 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,14 +397,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReceptionKit/Pods-ReceptionKit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8E793CB2E423D8D4BA991FB9 /* Copy Pods Resources */ = {
+		8E793CB2E423D8D4BA991FB9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
