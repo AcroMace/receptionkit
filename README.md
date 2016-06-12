@@ -1,5 +1,7 @@
 # ReceptionKit
 
+[![Build Status](https://travis-ci.org/AcroMace/receptionkit.svg?branch=master)](https://travis-ci.org/AcroMace/receptionkit) [![DUB](https://img.shields.io/dub/l/vibe-d.svg?maxAge=2592000)](https://github.com/AcroMace/receptionkit/blob/master/LICENSE)
+
 A simple, customizable receptionist iPad app built with [Smooch](http://smooch.io). Receive a message on Slack when someone is at the reception.
 
 ![](https://github.com/AcroMace/receptionkit/raw/master/Screenshots/home.png)
