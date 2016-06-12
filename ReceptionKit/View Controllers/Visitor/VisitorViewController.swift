@@ -31,12 +31,12 @@ class VisitorViewController: ReturnToHomeViewController {
         knowButton.titleLabel?.textAlignment = NSTextAlignment.Center
     }
 
-    
+
     // Reset the alignment of the text on rotation
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         resetButtonVerticalAlignment(size)
     }
-    
+
     func resetButtonVerticalAlignment(size: CGSize) {
         if size.width < size.height {
             // Vertical - alignment doesn't matter

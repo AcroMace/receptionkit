@@ -38,15 +38,17 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
     //
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if let nameText = nameTextField.text {
-            searchResults = Contact.search(nameText)
+        guard let nameText = nameTextField.text else {
+            return false
+        }
 
-            // Check if the person the visitor is searching for exists
-            if searchResults.count > 0 {
-                performSegueWithIdentifier("VisitorNameSearchSegue", sender: self)
-            } else {
-                performSegueWithIdentifier("VisitorNameInvalidSearchSegue", sender: self)
-            }
+        searchResults = Contact.search(nameText)
+
+        // Check if the person the visitor is searching for exists
+        if searchResults.count > 0 {
+            performSegueWithIdentifier("VisitorNameSearchSegue", sender: self)
+        } else {
+            performSegueWithIdentifier("VisitorNameInvalidSearchSegue", sender: self)
         }
 
         return false
@@ -66,13 +68,13 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
             visitorSearchResultsTableViewController.searchQuery = nameTextField.text
             visitorSearchResultsTableViewController.searchResults = searchResults
         } else if let _ = segue.destinationViewController as? WaitingViewController {
-            // Does not exist
-            if let lookingForName = nameTextField.text {
-                if visitorName == nil || visitorName == "" {
-                    sendMessage("Someone is at the reception looking for \(lookingForName)!")
-                } else {
-                    sendMessage("\(visitorName!) is at the reception looking for \(lookingForName)!")
-                }
+            guard let lookingForName = nameTextField.text else {
+                return
+            }
+            if visitorName == nil || visitorName == "" {
+                sendMessage("Someone is at the reception looking for \(lookingForName)!")
+            } else {
+                sendMessage("\(visitorName!) is at the reception looking for \(lookingForName)!")
             }
         }
     }
