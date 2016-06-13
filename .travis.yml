@@ -4,8 +4,12 @@ xcode_workspace: ReceptionKit.xcworkspace
 xcode_scheme: ReceptionKit
 
 install:
+  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
   - ./Scripts/install_swiftlint.sh
 
+# Temporarily disable xctool: https://github.com/travis-ci/travis-ci/issues/3986
+# xcodebuild runs swiftlint automatically
 script:
-  - swiftlint
-  - xctool test -workspace ReceptionKit.xcworkspace -scheme ReceptionKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPad Pro'
+#  - swiftlint
+#  - xctool test -workspace ReceptionKit.xcworkspace -scheme ReceptionKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPad Pro'
+  - set -o pipefail && xcodebuild test -workspace ReceptionKit.xcworkspace -scheme ReceptionKit -destination 'platform=iOS Simulator,name=iPad Pro'
