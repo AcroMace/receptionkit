@@ -1,5 +1,7 @@
 language: objective-c
 osx_image: xcode7.3
+xcode_workspace: ReceptionKit.xcworkspace
+xcode_scheme: ReceptionKit
 
 install:
   - ./Scripts/install_swiftlint.sh
