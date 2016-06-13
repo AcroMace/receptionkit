@@ -54,6 +54,13 @@ ReceptionKit uses the contacts on the iPad for searching contacts when a visitor
 You can sync the iPad with contacts from [Google](https://support.google.com/mail/answer/2753077?hl=en), [Outlook](https://support.office.com/en-au/article/Synchronize-Outlook-and-Apple-iPhone-or-iPod-touch-contacts-149cbfc5-4396-4ab3-8b65-22915e4043dc), or use any standard way of syncing contacts with iOS.
 
 
+## Getting images
+
+If you use `/sk #image` in Slack, it will post an image from the front-facing camera. You can change the command by changing `Config.Photos.ImageCaptureCommand`. You can also disable the command by setting `Config.Photos.EnableCommand` to `false`.
+
+The app will also post a picture when someone interacts with the iPad. You can disable this behaviour by setting `SendOnInteraction` to `false`.
+
+
 ## Customization
 
 ![](https://github.com/AcroMace/receptionkit/raw/master/Screenshots/colours.png)
