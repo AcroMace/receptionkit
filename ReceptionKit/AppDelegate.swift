@@ -8,6 +8,8 @@
 
 import UIKit
 
+var camera: Camera!
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -28,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // App-wide styles
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
         UINavigationBar.appearance().barTintColor = UIColor(hex: Config.Colour.NavigationBar)
+
+        // Create an instance of the Camera
+        // Cannot create this as a declaration above since the camera will not start
+        // recording in that case
+        camera = Camera()
 
         return true
     }

@@ -10,6 +10,7 @@
 		631439931AF1BCDA00B7B757 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631439921AF1BCDA00B7B757 /* Config.swift */; };
 		6336ADD61CD6237600036786 /* ButtonFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6336ADD51CD6237600036786 /* ButtonFormatter.swift */; };
 		633DD7D91AF1E5D5001BE427 /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DD7D81AF1E5D5001BE427 /* Colour.swift */; };
+		633FD21D1D0E165D0093419B /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633FD21C1D0E165D0093419B /* Camera.swift */; };
 		63607DB01CD6091700A0934F /* OrientationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63607DAF1CD6091600A0934F /* OrientationNavigationController.swift */; };
 		63607DB21CD61EF200A0934F /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63607DB11CD61EF200A0934F /* Icons.swift */; };
 		63607DB41CD61F3900A0934F /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 63607DB31CD61F3900A0934F /* FontAwesome.otf */; };
@@ -50,9 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		631439921AF1BCDA00B7B757 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = ReceptionKit/Config.swift; sourceTree = "<group>"; };
+		631439921AF1BCDA00B7B757 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6336ADD51CD6237600036786 /* ButtonFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonFormatter.swift; path = Helpers/ButtonFormatter.swift; sourceTree = "<group>"; };
 		633DD7D81AF1E5D5001BE427 /* Colour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colour.swift; path = Helpers/Colour.swift; sourceTree = "<group>"; };
+		633FD21C1D0E165D0093419B /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Camera.swift; path = Helpers/Camera.swift; sourceTree = "<group>"; };
 		63607DAF1CD6091600A0934F /* OrientationNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrientationNavigationController.swift; path = "View Controllers/OrientationNavigationController.swift"; sourceTree = "<group>"; };
 		63607DB11CD61EF200A0934F /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Icons.swift; path = Helpers/Icons.swift; sourceTree = "<group>"; };
 		63607DB31CD61F3900A0934F /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
@@ -138,8 +140,6 @@
 		81B4450C1AE9313900725576 = {
 			isa = PBXGroup;
 			children = (
-				631439921AF1BCDA00B7B757 /* Config.swift */,
-				81B445231AE9313900725576 /* LaunchScreen.xib */,
 				81B445211AE9313900725576 /* Images.xcassets */,
 				81B445171AE9313900725576 /* ReceptionKit */,
 				81B4452D1AE9313900725576 /* ReceptionKitTests */,
@@ -161,6 +161,7 @@
 		81B445171AE9313900725576 /* ReceptionKit */ = {
 			isa = PBXGroup;
 			children = (
+				631439921AF1BCDA00B7B757 /* Config.swift */,
 				81B4451A1AE9313900725576 /* AppDelegate.swift */,
 				81B4451E1AE9313900725576 /* Main.storyboard */,
 				81E2AC8C1AE9A436000D5F25 /* Helpers */,
@@ -174,6 +175,7 @@
 		81B445181AE9313900725576 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				81B445231AE9313900725576 /* LaunchScreen.xib */,
 				63607DB31CD61F3900A0934F /* FontAwesome.otf */,
 				81B4453E1AE939C700725576 /* ReceptionKit-Bridging-Header.h */,
 				81B445191AE9313900725576 /* Info.plist */,
@@ -259,6 +261,7 @@
 				63607DB11CD61EF200A0934F /* Icons.swift */,
 				6336ADD51CD6237600036786 /* ButtonFormatter.swift */,
 				639A54131C34FA55005FC850 /* SmoochHelpers.swift */,
+				633FD21C1D0E165D0093419B /* Camera.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				81E2AC8B1AE995EF000D5F25 /* ContactTableViewCell.swift in Sources */,
 				631439931AF1BCDA00B7B757 /* Config.swift in Sources */,
 				81B4453D1AE9360400725576 /* DeliveryMethodViewController.swift in Sources */,
+				633FD21D1D0E165D0093419B /* Camera.swift in Sources */,
 				81E2AC821AE959FA000D5F25 /* VisitorSearchViewController.swift in Sources */,
 				81E2AC881AE95BF4000D5F25 /* Contacts.swift in Sources */,
 				81E2AC801AE95843000D5F25 /* WaitingViewController.swift in Sources */,
@@ -493,7 +497,6 @@
 				81B445241AE9313900725576 /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = ReceptionKit;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
