@@ -26,10 +26,10 @@ class Config {
 
     class Colour {
         /// Colour of the navigation bar
-        static let NavigationBar = 0xB71C1C
+        static let NavigationBar = 0x007c00
 
         /// Colour of the background
-        static let Background = 0xB71C1C
+        static let Background = 0x007c00
     }
 
     class Slack {
