@@ -8,3 +8,4 @@ install:
 
 script:
   - swiftlint
+  - xctool test -workspace ReceptionKit.xcworkspace -scheme ReceptionKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPad Pro'
