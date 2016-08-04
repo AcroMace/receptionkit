@@ -153,4 +153,5 @@ class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
             return .RightMirrored
         }
     }
+
 }

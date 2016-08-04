@@ -35,9 +35,8 @@ class ReceivedMessageViewController: UIViewController {
             return
         }
         NSURLConnection.sendAsynchronousRequest(NSURLRequest(URL: URL), queue: NSOperationQueue.mainQueue()) { [weak self] (reponse, data, error) -> Void in
-            guard let `self` = self else { return }
             if let data = data {
-                self.contactPicture.image = UIImage(data: data)
+                self?.contactPicture.image = UIImage(data: data)
             }
         }
     }

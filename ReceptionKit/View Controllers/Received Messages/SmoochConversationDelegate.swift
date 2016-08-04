@@ -115,4 +115,5 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
         receivedMessageView.preferredContentSize = CGSize(width: 600.0, height: 500.0)
         return receivedMessageView
     }
+
 }

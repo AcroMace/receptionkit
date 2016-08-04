@@ -47,4 +47,5 @@ class HomeViewController: ThemedViewController {
         deliveryButton.setAttributedTitle(ButtonFormatter.getAttributedString("delivery"), forState: .Normal)
         visitorButton.setAttributedTitle(ButtonFormatter.getAttributedString("visitor"), forState: .Normal)
     }
+
 }
