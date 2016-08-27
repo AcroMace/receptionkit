@@ -24,28 +24,24 @@ class ReceivedMessageViewController: UIViewController {
 
     var viewModel: ReceivedMessageViewModel?
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    func configure(viewModel: ReceivedMessageViewModel) {
+        self.viewModel = viewModel
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
         modalPresentationStyle = UIModalPresentationStyle.FormSheet
         preferredContentSize = CGSize(width: 600.0, height: 500.0)
+
+        // Set the text
+        contactTitle.text = viewModel?.name.uppercaseString
+        contactMessage.text = viewModel?.message
 
         // Set a default image
         contactPicture.image = UIImage(named: "UnknownContact")
         contactPicture.layer.cornerRadius = 75.0
         contactPicture.layer.masksToBounds = true
-    }
-
-    func configure(viewModel: ReceivedMessageViewModel) {
-        self.viewModel = viewModel
-
-        // Set the text
-        contactTitle.text = viewModel.name.uppercaseString
-        contactMessage.text = viewModel.message
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
         // Load the image
         guard let picture = viewModel?.picture, URL = NSURL(string: picture) else { return }

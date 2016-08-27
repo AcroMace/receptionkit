@@ -21,6 +21,11 @@ class WaitingViewController: ReturnToHomeViewController {
 
     func configure(viewModel: WaitingViewModel) {
         self.viewModel = viewModel
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        guard let `viewModel` = viewModel else { return }
 
         thankYouMessageText.selectable = true
         if viewModel.shouldAskToWait {
@@ -32,5 +37,4 @@ class WaitingViewController: ReturnToHomeViewController {
         }
         thankYouMessageText.selectable = false
     }
-
 }

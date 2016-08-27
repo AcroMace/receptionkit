@@ -25,10 +25,6 @@ class ContactTableViewCell: UITableViewCell {
         } else {
             contactImage.image = UIImage(named: "UnknownContact")
         }
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
         contactImage.layer.cornerRadius = 42.0
         contactImage.layer.masksToBounds = true
     }
