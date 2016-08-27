@@ -9,20 +9,29 @@
 import Foundation
 
 // Used to get icons from Font Awesome for buttons
-class Icons {
+enum Icons {
+    case Delivery
+    case Signature
+    case LeftAtReception
+    case Visitor
+    case IKnow
+    case IDontKnow
 
     // The unicode in FontAwesome for the icons
-    private static let IconUnicode = [
-        "delivery": "\u{f0d1}",
-        "signature": "\u{f044}",
-        "left at reception": "\u{f187}",
-        "visitor": "\u{f007}",
-        "i know": "\u{f02d}",
-        "i don't know": "\u{f059}"
-    ]
-
-    static func get(key: String) -> String {
-        return IconUnicode[key]!
+    func unicode() -> String {
+        switch self {
+        case .Delivery:
+            return "\u{f0d1}"
+        case .Signature:
+            return "\u{f044}"
+        case .LeftAtReception:
+            return "\u{f187}"
+        case .Visitor:
+            return "\u{f007}"
+        case .IKnow:
+            return "\u{f02d}"
+        case .IDontKnow:
+            return "\u{f059}"
+        }
     }
-
 }

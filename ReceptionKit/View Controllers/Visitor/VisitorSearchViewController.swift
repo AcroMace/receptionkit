@@ -32,8 +32,8 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
 
         nameTextField.delegate = self
         nameTextField.borderStyle = UITextBorderStyle.RoundedRect
-        nameTextField.placeholder = Text.get("wizard of oz")
-        lookingForLabel.text = Text.get("looking for")
+        nameTextField.placeholder = Text.WizardOfOz.get()
+        lookingForLabel.text = Text.LookingFor.get()
     }
 
     override func viewDidAppear(animated: Bool) {

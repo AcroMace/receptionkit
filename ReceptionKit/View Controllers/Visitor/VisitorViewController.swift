@@ -20,8 +20,8 @@ class VisitorViewController: ReturnToHomeViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        knowButton.setAttributedTitle(ButtonFormatter.getAttributedString("i know"), forState: .Normal)
-        notKnowButton.setAttributedTitle(ButtonFormatter.getAttributedString("i don't know"), forState: .Normal)
+        knowButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .IKnow, text: .IKnow), forState: .Normal)
+        notKnowButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .IDontKnow, text: .IDontKnow), forState: .Normal)
         resetButtonVerticalAlignment(view.bounds.size)
     }
 

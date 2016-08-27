@@ -21,7 +21,7 @@ class VisitorAskNameViewController: ReturnToHomeViewController, UITextFieldDeleg
         // Do any additional setup after loading the view.
         nameTextField.delegate = self
         nameTextField.borderStyle = UITextBorderStyle.RoundedRect
-        yourNameLabel.text = Text.get("your name")
+        yourNameLabel.text = Text.YourName.get()
     }
 
     override func viewDidAppear(animated: Bool) {

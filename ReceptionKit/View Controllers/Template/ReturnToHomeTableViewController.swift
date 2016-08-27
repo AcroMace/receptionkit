@@ -22,7 +22,7 @@ class ReturnToHomeTableViewController: UITableViewController {
         self.view.backgroundColor = UIColor(hex: Config.Colour.Background)
 
         // Set the back button
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.get("back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.Back.get(), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
     }
 
     override func viewWillAppear(animated: Bool) {
