@@ -46,7 +46,7 @@ class Config {
         static let SendOnInteraction = true
         /// Enable using the ImageCaptureCommand in a message to take a photo from the iPad
         static let EnableCommand = true
-        /// Text of the image command
+        /// Text of the image command - type this in Slack to get an image from the camera
         static let ImageCaptureCommand = "#image"
     }
 }

@@ -8,22 +8,35 @@
 
 import UIKit
 
+struct ReceivedMessageViewModel {
+    let name: String
+    let message: String
+    let picture: String
+}
+
 class ReceivedMessageViewController: UIViewController {
 
     @IBOutlet weak var contactPicture: UIImageView!
     @IBOutlet weak var contactTitle: UILabel!
     @IBOutlet weak var contactMessage: UITextView!
 
-    var picture: String?
-    var name: String?
-    var message: String?
+    static let nibName = String(ReceivedMessageViewController)
+
+    var viewModel: ReceivedMessageViewModel?
+
+    func configure(viewModel: ReceivedMessageViewModel) {
+        self.viewModel = viewModel
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        modalPresentationStyle = UIModalPresentationStyle.FormSheet
+        preferredContentSize = CGSize(width: 600.0, height: 500.0)
+
         // Set the text
-        contactTitle.text = name?.uppercaseString
-        contactMessage.text = message
+        contactTitle.text = viewModel?.name.uppercaseString
+        contactMessage.text = viewModel?.message
 
         // Set a default image
         contactPicture.image = UIImage(named: "UnknownContact")
@@ -31,14 +44,10 @@ class ReceivedMessageViewController: UIViewController {
         contactPicture.layer.masksToBounds = true
 
         // Load the image
-        guard let picture = picture, URL = NSURL(string: picture) else {
-            return
-        }
+        guard let picture = viewModel?.picture, URL = NSURL(string: picture) else { return }
         NSURLConnection.sendAsynchronousRequest(NSURLRequest(URL: URL), queue: NSOperationQueue.mainQueue()) { [weak self] (reponse, data, error) -> Void in
-            guard let `self` = self else { return }
-            if let data = data {
-                self.contactPicture.image = UIImage(data: data)
-            }
+            guard let `data` = data else { return }
+            self?.contactPicture.image = UIImage(data: data)
         }
     }
 

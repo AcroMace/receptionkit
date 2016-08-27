@@ -8,19 +8,27 @@
 
 import UIKit
 
-class WaitingViewController: ReturnToHomeViewController {
-
+struct WaitingViewModel {
     // Set to false if the message below thank you should ask the person to wait
-    var shouldAskToWait = true
+    var shouldAskToWait: Bool
+}
+
+class WaitingViewController: ReturnToHomeViewController {
+    var viewModel: WaitingViewModel?
 
     @IBOutlet weak var thankYouLabel: UILabel!
     @IBOutlet weak var thankYouMessageText: UITextView!
 
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    func configure(viewModel: WaitingViewModel) {
+        self.viewModel = viewModel
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        guard let `viewModel` = viewModel else { return }
 
         thankYouMessageText.selectable = true
-        if shouldAskToWait {
+        if viewModel.shouldAskToWait {
             thankYouLabel.text = Text.get("please wait")
             thankYouMessageText.text = Text.get("please wait message")
         } else {
@@ -29,5 +37,4 @@ class WaitingViewController: ReturnToHomeViewController {
         }
         thankYouMessageText.selectable = false
     }
-
 }

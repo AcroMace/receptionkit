@@ -8,14 +8,24 @@
 
 import UIKit
 
-class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelegate {
-
+struct VisitorSearchViewModel {
     var visitorName: String?
     var searchResults = [Contact]()
+
+    init(visitorName: String?) {
+        self.visitorName = visitorName
+    }
+}
+
+class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelegate {
+    private var viewModel: VisitorSearchViewModel?
 
     @IBOutlet weak var lookingForLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
 
+    func configure(viewModel: VisitorSearchViewModel) {
+        self.viewModel = viewModel
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,20 +42,17 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
         nameTextField.becomeFirstResponder()
     }
 
-
-    //
     // MARK: - UITextFieldDelegate
-    //
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         guard let nameText = nameTextField.text else {
             return false
         }
 
-        searchResults = Contact.search(nameText)
+        viewModel?.searchResults = Contact.search(nameText)
 
         // Check if the person the visitor is searching for exists
-        if searchResults.count > 0 {
+        if viewModel?.searchResults.count > 0 {
             performSegueWithIdentifier("VisitorNameSearchSegue", sender: self)
         } else {
             performSegueWithIdentifier("VisitorNameInvalidSearchSegue", sender: self)
@@ -54,28 +61,30 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
         return false
     }
 
-
-    //
     // MARK: - Navigation
-    //
 
     // Post a message if the person the visitor is looking for does not exist
     // Otherwise show the result of the search
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let visitorSearchResultsTableViewController = segue.destinationViewController as? VisitorSearchResultsTableViewController {
-            // Exists
-            visitorSearchResultsTableViewController.visitorName = visitorName
-            visitorSearchResultsTableViewController.searchQuery = nameTextField.text
-            visitorSearchResultsTableViewController.searchResults = searchResults
-        } else if let _ = segue.destinationViewController as? WaitingViewController {
+            // There is a result
+            let searchResultsViewModel = VisitorSearchResultsViewModel(
+                visitorName: viewModel?.visitorName,
+                searchQuery: nameTextField.text,
+                searchResults: viewModel?.searchResults)
+            visitorSearchResultsTableViewController.configure(searchResultsViewModel)
+        } else if segue.destinationViewController is WaitingViewController {
+            // Don't do anything if the visitor hasn't specified who they are looking for
             guard let lookingForName = nameTextField.text else {
                 return
             }
-            if visitorName == nil || visitorName == "" {
+            // The visitor's name is unknown
+            guard let visitorName = viewModel?.visitorName where !visitorName.isEmpty else {
                 sendMessage("Someone is at the reception looking for \(lookingForName)!")
-            } else {
-                sendMessage("\(visitorName!) is at the reception looking for \(lookingForName)!")
+                return
             }
+            // The visitor's name is known
+            sendMessage("\(visitorName) is at the reception looking for \(lookingForName)!")
         }
     }
 

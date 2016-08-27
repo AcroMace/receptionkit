@@ -34,4 +34,5 @@ class ButtonFormatter {
 
         return attributedString
     }
+
 }
