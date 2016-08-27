@@ -10,8 +10,53 @@ import UIKit
 
 class ContactTableViewCell: UITableViewCell {
 
+    static let reuseIdentifier = String(ContactTableViewCell)
+
     @IBOutlet weak var contactImage: UIImageView!
     @IBOutlet weak var contactNameLabel: UILabel!
     @IBOutlet weak var contactPhoneLabel: UILabel!
+
+    func configure(contact: Contact) {
+        contactNameLabel.text = contact.name
+        contactPhoneLabel.text = formatPhoneString(contact.phones)
+
+        if let picture = contact.picture {
+            contactImage.image = picture
+        } else {
+            contactImage.image = UIImage(named: "UnknownContact")
+        }
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        contactImage.layer.cornerRadius = 42.0
+        contactImage.layer.masksToBounds = true
+    }
+
+    // Take the phone numbers and create a descriptive string for it
+    private func formatPhoneString(phones: [ContactPhone]) -> String {
+        var workPhones = [String]()
+        var mobilePhones = [String]()
+
+        let separator = "\t\t"
+        var formattedString = ""
+
+        phones.forEach { phone in
+            if phone.isWorkPhone() {
+                workPhones.append(phone.number)
+            } else if phone.isMobilePhone() {
+                mobilePhones.append(phone.number)
+            }
+        }
+
+        if !workPhones.isEmpty {
+            formattedString += "Work: " + workPhones.joinWithSeparator(separator)
+        }
+        if !mobilePhones.isEmpty {
+            formattedString += "Mobile: " + mobilePhones.joinWithSeparator(separator)
+        }
+
+        return formattedString.isEmpty ? "No contact info" : formattedString
+    }
 
 }

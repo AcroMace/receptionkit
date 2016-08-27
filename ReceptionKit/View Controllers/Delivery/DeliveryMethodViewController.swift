@@ -8,13 +8,24 @@
 
 import UIKit
 
-class DeliveryMethodViewController: ReturnToHomeViewController {
-
+struct DeliveryMethodViewModel {
     var deliveryCompany: String?
     var shouldAskToWait = true
 
+    init(deliveryCompany: String?) {
+        self.deliveryCompany = deliveryCompany
+    }
+}
+
+class DeliveryMethodViewController: ReturnToHomeViewController {
+    var viewModel: DeliveryMethodViewModel?
+
     @IBOutlet weak var signatureButton: UIButton!
     @IBOutlet weak var leftReceptionButton: UIButton!
+
+    func configure(viewModel: DeliveryMethodViewModel) {
+        self.viewModel = viewModel
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,26 +33,23 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
         leftReceptionButton.setAttributedTitle(ButtonFormatter.getAttributedString("left at reception"), forState: .Normal)
     }
 
-
-    //
-    // Delivery method buttons
-    //
+    // MARK: - Delivery method buttons
 
     @IBAction func signatureButtonTapped(sender: AnyObject) {
-        shouldAskToWait = true
+        viewModel?.shouldAskToWait = true
         segueWithMessage(makeDeliveryFromText() + " that requires a signature!")
     }
 
     @IBAction func leftReceptionButtonTapped(sender: AnyObject) {
-        shouldAskToWait = false
+        viewModel?.shouldAskToWait = false
         segueWithMessage(makeDeliveryFromText() + " that has been left at the reception!")
     }
 
     // Exclude the "from" if the delivery company is unknown
     func makeDeliveryFromText() -> String {
         var messageText = "There is a delivery"
-        if deliveryCompany != "Other" {
-            messageText += " from " + deliveryCompany!
+        if let deliveryCompany = viewModel?.deliveryCompany where deliveryCompany != "Other" {
+            messageText += " from " + deliveryCompany
         }
         return messageText
     }
@@ -52,10 +60,7 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
         performSegueWithIdentifier("DeliveryMethodSelectedSegue", sender: self)
     }
 
-
-    //
     // MARK: - Navigation
-    //
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -64,7 +69,7 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
         guard let waitingViewController = segue.destinationViewController as? WaitingViewController else {
             return
         }
-        waitingViewController.shouldAskToWait = shouldAskToWait
+        waitingViewController.configure(WaitingViewModel(shouldAskToWait: viewModel?.shouldAskToWait ?? true))
     }
 
 }

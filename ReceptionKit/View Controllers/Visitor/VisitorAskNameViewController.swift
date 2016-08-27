@@ -13,13 +13,13 @@ class VisitorAskNameViewController: ReturnToHomeViewController, UITextFieldDeleg
     @IBOutlet weak var yourNameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
 
-    let visitorEnteredNameSegue = "VisitorEnteredNameSegue"
+    static let visitorEnteredNameSegue = "VisitorEnteredNameSegue"
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.nameTextField.delegate = self
+        nameTextField.delegate = self
         nameTextField.borderStyle = UITextBorderStyle.RoundedRect
         yourNameLabel.text = Text.get("your name")
     }
@@ -31,21 +31,15 @@ class VisitorAskNameViewController: ReturnToHomeViewController, UITextFieldDeleg
         nameTextField.becomeFirstResponder()
     }
 
-
-    //
     // MARK: - UITextViewDelegate
-    //
 
     // Segue to the VisitorViewController when the name is entered
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        performSegueWithIdentifier(visitorEnteredNameSegue, sender: self)
+        performSegueWithIdentifier(VisitorAskNameViewController.visitorEnteredNameSegue, sender: self)
         return false
     }
 
-
-    //
     // MARK: - Navigation
-    //
 
     // Set the visitor's name before the segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

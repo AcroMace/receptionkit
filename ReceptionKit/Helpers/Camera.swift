@@ -8,7 +8,7 @@
 
 import AVFoundation
 
-class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+class Camera: NSObject {
     /// The last image captured from the camera
     private var cameraImage: UIImage?
     /// Keep a reference to the session so it doesn't get deallocated
@@ -31,17 +31,6 @@ class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         return cameraImage
     }
 
-
-    // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
-
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
-        guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
-            return
-        }
-        cameraImage = createImageFromBuffer(imageBuffer)
-    }
-
-
     // MARK: - Private methods
 
     /**
@@ -49,11 +38,11 @@ class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
      */
     private func setupCamera() {
         guard let camera = getFrontFacingCamera() else {
-            print("ERROR: Front facing camera not found")
+            Logger.error("Front facing camera not found")
             return
         }
         guard let input = try? AVCaptureDeviceInput(device: camera) else {
-            print("ERROR: Could not get the input stream for the camera")
+            Logger.error("Could not get the input stream for the camera")
             return
         }
         let output = createCameraOutputStream()
@@ -110,6 +99,19 @@ class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         captureSession.sessionPreset = AVCaptureSessionPresetPhoto
         captureSession.startRunning()
         return captureSession
+    }
+
+}
+
+// MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
+
+extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
+
+    func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
+        guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
+            return
+        }
+        cameraImage = createImageFromBuffer(imageBuffer)
     }
 
     /**

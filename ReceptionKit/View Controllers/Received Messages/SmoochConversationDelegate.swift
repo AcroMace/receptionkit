@@ -60,7 +60,6 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
         // Do nothing
     }
 
-
     // MARK: - Private methods
 
     private func containsImageCommand(text: String) -> Bool {
@@ -107,12 +106,12 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
      - returns: The view created
      */
     private func createReceivedMessageView(lastMessage: SKTMessage) -> ReceivedMessageViewController {
-        let receivedMessageView = ReceivedMessageViewController(nibName: "ReceivedMessageViewController", bundle: nil)
-        receivedMessageView.name = lastMessage.name
-        receivedMessageView.message = lastMessage.text
-        receivedMessageView.picture = lastMessage.avatarUrl
-        receivedMessageView.modalPresentationStyle = UIModalPresentationStyle.FormSheet
-        receivedMessageView.preferredContentSize = CGSize(width: 600.0, height: 500.0)
+        let receivedMessageView = ReceivedMessageViewController(nibName: ReceivedMessageViewController.nibName, bundle: nil)
+        let receivedMessageViewModel = ReceivedMessageViewModel(
+            name: lastMessage.name,
+            message: lastMessage.text,
+            picture: lastMessage.avatarUrl)
+        receivedMessageView.configure(receivedMessageViewModel)
         return receivedMessageView
     }
 

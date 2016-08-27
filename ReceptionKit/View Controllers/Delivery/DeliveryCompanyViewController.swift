@@ -11,7 +11,7 @@ import UIKit
 class DeliveryCompanyViewController: ReturnToHomeViewController {
 
     var deliveryCompany: String?
-    let deliverySelectedSegue = "DeliveryCompanySelectedSegue"
+    static let deliverySelectedSegue = "DeliveryCompanySelectedSegue"
 
     @IBOutlet weak var upsButton: UIButton!
     @IBOutlet weak var fedExButton: UIButton!
@@ -37,35 +37,32 @@ class DeliveryCompanyViewController: ReturnToHomeViewController {
 
     @IBAction func upsButtonTapped(sender: AnyObject) {
         deliveryCompany = "UPS"
-        performSegueWithIdentifier(deliverySelectedSegue, sender: self)
+        performSegueWithIdentifier(DeliveryCompanyViewController.deliverySelectedSegue, sender: self)
     }
 
     @IBAction func fedExButtonTapped(sender: AnyObject) {
         deliveryCompany = "FedEx"
-        performSegueWithIdentifier(deliverySelectedSegue, sender: self)
+        performSegueWithIdentifier(DeliveryCompanyViewController.deliverySelectedSegue, sender: self)
     }
 
     @IBAction func canadaPostButtonTapped(sender: AnyObject) {
         deliveryCompany = "Canada Post"
-        performSegueWithIdentifier(deliverySelectedSegue, sender: self)
+        performSegueWithIdentifier(DeliveryCompanyViewController.deliverySelectedSegue, sender: self)
     }
 
     @IBAction func otherButtonTapped(sender: AnyObject) {
         deliveryCompany = "Other"
-        performSegueWithIdentifier(deliverySelectedSegue, sender: self)
+        performSegueWithIdentifier(DeliveryCompanyViewController.deliverySelectedSegue, sender: self)
     }
 
-
-    //
     // MARK: - Navigation
-    //
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if let deliveryMethodController = segue.destinationViewController as? DeliveryMethodViewController {
-            deliveryMethodController.deliveryCompany = deliveryCompany
+            deliveryMethodController.configure(DeliveryMethodViewModel(deliveryCompany: deliveryCompany))
         }
     }
 
