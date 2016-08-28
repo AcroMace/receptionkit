@@ -6,67 +6,125 @@
 //  Copyright (c) 2015 Andy Cho. All rights reserved.
 //
 
+enum TextLanguage {
+    case English
+    case French
+}
 
 // This is a class used to toggle between English and French
 // In-app language toggle is not a feature that is supported by default by Apple
-class Text {
+enum Text {
+    case Delivery
+    case Signature
+    case LeftAtReception
+    case Visitor
+    case IKnow
+    case IDontKnow
+    case LookingFor
+    case WizardOfOz
+    case NoContactInfo
+    case YourName
+    case ThankYou
+    case PleaseWait
+    case PleaseWaitMessage
+    case NiceDay
+    case Back
+    case Other
 
     // The language to use by default
-    static var language = "English"
+    static var language: TextLanguage = .English
 
-    private static let TextEnglish = [
-        "delivery": "delivery",
-        "signature": "i need a signature",
-        "left at reception": "i left a package at the reception",
-        "visitor": "i'm a visitor",
-        "i know": "i know the name\nof the person i am\nhere to see",
-        "i don't know": "i don't know",
-        "looking for": "Who are you looking for?",
-        "wizard of oz": "The Wonderful Wizard of Oz",
-        "no contact info": "no contact info",
-        "your name": "What is your name?",
-        "thank you": "thank you! :)",
-        "please wait": "please wait",
-        "nice day": "and have a nice day",
-        "please wait message": "someone will be here shortly to meet you",
-        "back": "Back",
-        "other": "other"
-    ]
+    private func english() -> String {
+        switch self {
+        case .Delivery:
+            return "delivery"
+        case .Signature:
+            return "i need a signature"
+        case .LeftAtReception:
+            return "i left a package at the reception"
+        case .Visitor:
+            return "i'm a visitor"
+        case .IKnow:
+            return "i know the name\nof the person i am\nhere to see"
+        case .IDontKnow:
+            return "i don't know"
+        case .LookingFor:
+            return "Who are you looking for?"
+        case .WizardOfOz:
+            return "The Wonderful Wizard of Oz"
+        case .NoContactInfo:
+            return "no contact info"
+        case .YourName:
+            return "What is your name?"
+        case .ThankYou:
+            return "thank you! :)"
+        case .PleaseWait:
+            return "please wait"
+        case .PleaseWaitMessage:
+            return "someone will be here shortly to meet you"
+        case .NiceDay:
+            return "and have a nice day"
+        case .Back:
+            return "Back"
+        case .Other:
+            return "other"
+        }
+    }
 
-    private static let TextFrench = [
-        "delivery": "livraison",
-        "signature": "j'ai besoin d' une signature",
-        "left at reception": "j'ai laissé un paquet à la réception",
-        "visitor": "visiteur",
-        "i know": "je connais le nom\nde la personne que\nje viens voir",
-        "i don't know": "je ne sais pas",
-        "looking for": "Quel est le nom de la personne?",
-        "wizard of oz": "Le Magicien d'Oz",
-        "no contact info": "pas d'info de contact",
-        "your name": "Quel est votre nom?",
-        "thank you": "merci! :)",
-        "please wait": "veuillez patienter",
-        "nice day": "et bonne journée",
-        "please wait message": "quelqu'un sera avec vous sous peu",
-        "back": "Retour",
-        "other": "autre"
-    ]
+    private func french() -> String {
+        switch self {
+        case .Delivery:
+            return "livraison"
+        case .Signature:
+            return "j'ai besoin d' une signature"
+        case .LeftAtReception:
+            return "j'ai laissé un paquet à la réception"
+        case .Visitor:
+            return "visiteur"
+        case .IKnow:
+            return "je connais le nom\nde la personne que\nje viens voir"
+        case .IDontKnow:
+            return "je ne sais pas"
+        case .LookingFor:
+            return "Quel est le nom de la personne?"
+        case .WizardOfOz:
+            return "Le Magicien d'Oz"
+        case .NoContactInfo:
+            return "pas d'info de contact"
+        case .YourName:
+            return "Quel est votre nom?"
+        case .ThankYou:
+            return "merci! :)"
+        case .PleaseWait:
+            return "veuillez patienter"
+        case .PleaseWaitMessage:
+            return "quelqu'un sera avec vous sous peu"
+        case .NiceDay:
+            return "et bonne journée"
+        case .Back:
+            return "Retour"
+        case .Other:
+            return "autre"
+        }
+    }
 
     // Get text from a key word
-    static func get(text: String) -> String {
-        if language == "English" {
-            return TextEnglish[text]!
-        } else {
-            return TextFrench[text]!
+    func get() -> String {
+        switch Text.language {
+        case .English:
+            return self.english()
+        case .French:
+            return self.french()
         }
     }
 
     // Switch between English and French
     static func swapLanguage() {
-        if language == "English" {
-            language = "French"
-        } else {
-            language = "English"
+        switch language {
+        case .English:
+            language = .French
+        case .French:
+            language = .English
         }
     }
 

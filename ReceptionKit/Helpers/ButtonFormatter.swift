@@ -16,16 +16,16 @@ class ButtonFormatter {
     private static let IconFont = UIFont(name: "FontAwesome", size: 360.0)!
     private static let TextFont = UIFont(name: "Futura-Medium", size: 64.0)!
 
-    static func getAttributedString(key: String) -> NSAttributedString {
+    static func getAttributedString(icon icon: Icons, text: Text) -> NSAttributedString {
         let attributedString = NSMutableAttributedString()
 
         // Center align the text
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .Center
         // Add the text
-        attributedString.appendAttributedString(NSAttributedString(string: Icons.get(key) + "\n",
+        attributedString.appendAttributedString(NSAttributedString(string: icon.unicode() + "\n",
             attributes: [NSFontAttributeName: IconFont]))
-        attributedString.appendAttributedString(NSAttributedString(string: Text.get(key), attributes: [NSFontAttributeName: TextFont]))
+        attributedString.appendAttributedString(NSAttributedString(string: text.get(), attributes: [NSFontAttributeName: TextFont]))
         // Set the style
         attributedString.addAttributes([
             NSParagraphStyleAttributeName: paragraphStyle,

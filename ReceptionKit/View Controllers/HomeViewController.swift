@@ -40,12 +40,12 @@ class HomeViewController: ThemedViewController {
 
         // The text on this view has to be manually updated
         updateButtons()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.get("back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.Back.get(), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
     }
 
     private func updateButtons() {
-        deliveryButton.setAttributedTitle(ButtonFormatter.getAttributedString("delivery"), forState: .Normal)
-        visitorButton.setAttributedTitle(ButtonFormatter.getAttributedString("visitor"), forState: .Normal)
+        deliveryButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .Delivery, text: .Delivery), forState: .Normal)
+        visitorButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .Visitor, text: .Visitor), forState: .Normal)
     }
 
 }

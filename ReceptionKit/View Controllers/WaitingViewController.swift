@@ -29,11 +29,11 @@ class WaitingViewController: ReturnToHomeViewController {
 
         thankYouMessageText.selectable = true
         if viewModel.shouldAskToWait {
-            thankYouLabel.text = Text.get("please wait")
-            thankYouMessageText.text = Text.get("please wait message")
+            thankYouLabel.text = Text.PleaseWait.get()
+            thankYouMessageText.text = Text.PleaseWaitMessage.get()
         } else {
-            thankYouLabel.text = Text.get("thank you")
-            thankYouMessageText.text = Text.get("nice day")
+            thankYouLabel.text = Text.ThankYou.get()
+            thankYouMessageText.text = Text.NiceDay.get()
         }
         thankYouMessageText.selectable = false
     }

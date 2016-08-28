@@ -22,7 +22,7 @@ class DeliveryCompanyViewController: ReturnToHomeViewController {
         super.viewDidLoad()
 
         // Set the language
-        otherButton.setTitle(Text.get("other"), forState: UIControlState.Normal)
+        otherButton.setTitle(Text.Other.get(), forState: UIControlState.Normal)
 
         // Make sure that the button images are not skewed
         upsButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
