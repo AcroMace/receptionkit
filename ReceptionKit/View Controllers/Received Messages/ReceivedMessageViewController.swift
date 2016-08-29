@@ -26,13 +26,12 @@ class ReceivedMessageViewController: UIViewController {
 
     func configure(viewModel: ReceivedMessageViewModel) {
         self.viewModel = viewModel
+        modalPresentationStyle = UIModalPresentationStyle.FormSheet
+        preferredContentSize = CGSize(width: 600.0, height: 500.0)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        modalPresentationStyle = UIModalPresentationStyle.FormSheet
-        preferredContentSize = CGSize(width: 600.0, height: 500.0)
 
         // Set the text
         contactTitle.text = viewModel?.name.uppercaseString
