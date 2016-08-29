@@ -2,7 +2,7 @@ PODS:
   - KIF (3.4.2):
     - KIF/Core (= 3.4.2)
   - KIF/Core (3.4.2)
-  - Smooch (4.2.2)
+  - Smooch (4.3.0)
 
 DEPENDENCIES:
   - KIF (~> 3.0)
@@ -10,8 +10,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   KIF: b518c9831453abea5afdbbde3908ec47832d6d56
-  Smooch: eac65a9b9e888e3325fde725ce1a6a1ec2137dfc
+  Smooch: c266cae1bbe3abdadcb69c310858e85d9498a91a
 
-PODFILE CHECKSUM: 1fa5b484b8de9c3f803ab34d127156a81f466050
+PODFILE CHECKSUM: 0e7f7930d3fe466c5ebfb2a7f1f3e28bc9a04155
 
 COCOAPODS: 1.0.1
