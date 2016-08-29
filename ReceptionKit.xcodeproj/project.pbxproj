@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A458416901B5B0AC04FA2AE /* Pods_ReceptionKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA2F68F2CEEA6977D14179A /* Pods_ReceptionKitTests.framework */; };
 		631439931AF1BCDA00B7B757 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631439921AF1BCDA00B7B757 /* Config.swift */; };
 		6336ADD61CD6237600036786 /* ButtonFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6336ADD51CD6237600036786 /* ButtonFormatter.swift */; };
 		633DD7D91AF1E5D5001BE427 /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DD7D81AF1E5D5001BE427 /* Colour.swift */; };
@@ -52,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C63AD1B0E0D9A68E8E1739B /* Pods-ReceptionKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceptionKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReceptionKitTests/Pods-ReceptionKitTests.release.xcconfig"; sourceTree = "<group>"; };
+		3AA2F68F2CEEA6977D14179A /* Pods_ReceptionKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReceptionKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B21716A959D98ED01E5ABB4 /* Pods-ReceptionKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceptionKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReceptionKitTests/Pods-ReceptionKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		631439921AF1BCDA00B7B757 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6336ADD51CD6237600036786 /* ButtonFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonFormatter.swift; path = Helpers/ButtonFormatter.swift; sourceTree = "<group>"; };
 		633DD7D81AF1E5D5001BE427 /* Colour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colour.swift; path = Helpers/Colour.swift; sourceTree = "<group>"; };
@@ -61,6 +65,7 @@
 		63607DB31CD61F3900A0934F /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VisitorViewController.swift; path = "View Controllers/Visitor/VisitorViewController.swift"; sourceTree = "<group>"; };
 		639A54131C34FA55005FC850 /* SmoochHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SmoochHelpers.swift; path = Helpers/SmoochHelpers.swift; sourceTree = "<group>"; };
+		639D9CE41D73D25000D6E781 /* ReceptionKitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReceptionKitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		63AC285D1AF1F93E00D2AEA5 /* ThemedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemedViewController.swift; path = "View Controllers/Template/ThemedViewController.swift"; sourceTree = "<group>"; };
 		63AC285F1AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturnToHomeViewController.swift; path = "View Controllers/Template/ReturnToHomeViewController.swift"; sourceTree = "<group>"; };
 		63AC28611AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturnToHomeTableViewController.swift; path = "View Controllers/Template/ReturnToHomeTableViewController.swift"; sourceTree = "<group>"; };
@@ -106,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A458416901B5B0AC04FA2AE /* Pods_ReceptionKitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				86AA4327724ADBCA7910AC8C /* Pods_ReceptionKit.framework */,
+				3AA2F68F2CEEA6977D14179A /* Pods_ReceptionKitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -125,6 +132,8 @@
 			children = (
 				7E33FB737E7A75FA7AE679B4 /* Pods-ReceptionKit.debug.xcconfig */,
 				992797A78B870C763F37BCD3 /* Pods-ReceptionKit.release.xcconfig */,
+				4B21716A959D98ED01E5ABB4 /* Pods-ReceptionKitTests.debug.xcconfig */,
+				0C63AD1B0E0D9A68E8E1739B /* Pods-ReceptionKitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -197,6 +206,7 @@
 		81B4452E1AE9313900725576 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				639D9CE41D73D25000D6E781 /* ReceptionKitTests-Bridging-Header.h */,
 				81B4452F1AE9313900725576 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -297,9 +307,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81B445371AE9313900725576 /* Build configuration list for PBXNativeTarget "ReceptionKitTests" */;
 			buildPhases = (
+				EFCFF50FF67DB1DF1316905A /* [CP] Check Pods Manifest.lock */,
 				81B445261AE9313900725576 /* Sources */,
 				81B445271AE9313900725576 /* Frameworks */,
 				81B445281AE9313900725576 /* Resources */,
+				12241A3B187D681F06E27231 /* [CP] Embed Pods Frameworks */,
+				3BFB28EBDFDB31C093255A95 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -318,7 +331,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Andy Cho";
 				TargetAttributes = {
@@ -389,6 +402,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		12241A3B187D681F06E27231 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReceptionKitTests/Pods-ReceptionKitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1FDFE393B2243F47B95C3F50 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -402,6 +430,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReceptionKit/Pods-ReceptionKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3BFB28EBDFDB31C093255A95 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReceptionKitTests/Pods-ReceptionKitTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		631A49EE1D0C850A00EA1BA7 /* Run Linter */ = {
@@ -431,6 +474,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReceptionKit/Pods-ReceptionKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFCFF50FF67DB1DF1316905A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -622,8 +680,10 @@
 		};
 		81B445381AE9313900725576 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B21716A959D98ED01E5ABB4 /* Pods-ReceptionKitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -636,14 +696,18 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "RadialPoint.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ReceptionKitTests;
+				SWIFT_OBJC_BRIDGING_HEADER = "ReceptionKitTests/ReceptionKitTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReceptionKit.app/ReceptionKit";
 			};
 			name = Debug;
 		};
 		81B445391AE9313900725576 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C63AD1B0E0D9A68E8E1739B /* Pods-ReceptionKitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -652,6 +716,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "RadialPoint.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ReceptionKitTests;
+				SWIFT_OBJC_BRIDGING_HEADER = "ReceptionKitTests/ReceptionKitTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReceptionKit.app/ReceptionKit";
 			};
 			name = Release;

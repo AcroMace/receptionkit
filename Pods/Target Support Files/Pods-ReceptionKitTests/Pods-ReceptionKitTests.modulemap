@@ -1,0 +1,6 @@
+framework module Pods_ReceptionKitTests {
+  umbrella header "Pods-ReceptionKitTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
