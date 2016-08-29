@@ -34,13 +34,19 @@ class ReceivedMessageViewController: UIViewController {
         super.viewDidLoad()
 
         // Set the text
-        contactTitle.text = viewModel?.name.uppercaseString
-        contactMessage.text = viewModel?.message
+        let name = viewModel?.name.uppercaseString
+        contactTitle.text = name
+        contactTitle.accessibilityLabel = name
+
+        let message = viewModel?.message
+        contactMessage.text = message
+        contactMessage.accessibilityLabel = message
 
         // Set a default image
         contactPicture.image = UIImage(named: "UnknownContact")
         contactPicture.layer.cornerRadius = 75.0
         contactPicture.layer.masksToBounds = true
+        contactPicture.accessibilityLabel = "\(name) Picture"
 
         // Load the image
         guard let picture = viewModel?.picture, URL = NSURL(string: picture) else { return }

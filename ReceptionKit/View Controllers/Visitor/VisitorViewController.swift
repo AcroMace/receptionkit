@@ -19,9 +19,12 @@ class VisitorViewController: ReturnToHomeViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         knowButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .IKnow, text: .IKnow), forState: .Normal)
+        knowButton.accessibilityLabel = Text.IKnow.accessibility()
+
         notKnowButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .IDontKnow, text: .IDontKnow), forState: .Normal)
+        notKnowButton.accessibilityLabel = Text.IDontKnow.accessibility()
+
         resetButtonVerticalAlignment(view.bounds.size)
     }
 

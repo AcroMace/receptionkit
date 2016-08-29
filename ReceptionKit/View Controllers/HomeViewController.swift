@@ -14,6 +14,9 @@ class HomeViewController: ThemedViewController {
     @IBOutlet weak var deliveryButton: UIButton!
     @IBOutlet weak var visitorButton: UIButton!
 
+    static let toggleEnglish = "English"
+    static let toggleFrench = "français"
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,12 +34,9 @@ class HomeViewController: ThemedViewController {
     }
 
     @IBAction func languageButtonTapped(sender: AnyObject) {
-        if languageButton.title != "English" {
-            languageButton.title = "English"
-        } else {
-            languageButton.title = "français"
-        }
         Text.swapLanguage()
+        languageButton.title = Text.LanguageToggle.get()
+        languageButton.accessibilityLabel = Text.LanguageToggle.accessibility()
 
         // The text on this view has to be manually updated
         updateButtons()
@@ -45,7 +45,10 @@ class HomeViewController: ThemedViewController {
 
     private func updateButtons() {
         deliveryButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .Delivery, text: .Delivery), forState: .Normal)
+        deliveryButton.accessibilityLabel = Text.Delivery.accessibility()
+
         visitorButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .Visitor, text: .Visitor), forState: .Normal)
+        visitorButton.accessibilityLabel = Text.Visitor.accessibility()
     }
 
 }

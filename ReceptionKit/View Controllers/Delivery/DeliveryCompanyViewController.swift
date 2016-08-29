@@ -10,7 +10,7 @@ import UIKit
 
 class DeliveryCompanyViewController: ReturnToHomeViewController {
 
-    var deliveryCompany: String?
+    var deliveryCompany: DeliveryCompany?
     static let deliverySelectedSegue = "DeliveryCompanySelectedSegue"
 
     @IBOutlet weak var upsButton: UIButton!
@@ -23,11 +23,16 @@ class DeliveryCompanyViewController: ReturnToHomeViewController {
 
         // Set the language
         otherButton.setTitle(Text.Other.get(), forState: UIControlState.Normal)
+        otherButton.accessibilityLabel = Text.Other.accessibility()
 
         // Make sure that the button images are not skewed
         upsButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
+        upsButton.accessibilityLabel = DeliveryCompany.UPS.text()
         fedExButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
+        fedExButton.accessibilityLabel = DeliveryCompany.FedEx.text()
         canadaPostButton.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
+        canadaPostButton.accessibilityLabel = DeliveryCompany.CanadaPost.text()
+        otherButton.accessibilityLabel = DeliveryCompany.Other.text()
     }
 
 
@@ -36,22 +41,22 @@ class DeliveryCompanyViewController: ReturnToHomeViewController {
     //
 
     @IBAction func upsButtonTapped(sender: AnyObject) {
-        deliveryCompany = "UPS"
+        deliveryCompany = .UPS
         performSegueWithIdentifier(DeliveryCompanyViewController.deliverySelectedSegue, sender: self)
     }
 
     @IBAction func fedExButtonTapped(sender: AnyObject) {
-        deliveryCompany = "FedEx"
+        deliveryCompany = .FedEx
         performSegueWithIdentifier(DeliveryCompanyViewController.deliverySelectedSegue, sender: self)
     }
 
     @IBAction func canadaPostButtonTapped(sender: AnyObject) {
-        deliveryCompany = "Canada Post"
+        deliveryCompany = .CanadaPost
         performSegueWithIdentifier(DeliveryCompanyViewController.deliverySelectedSegue, sender: self)
     }
 
     @IBAction func otherButtonTapped(sender: AnyObject) {
-        deliveryCompany = "Other"
+        deliveryCompany = .Other
         performSegueWithIdentifier(DeliveryCompanyViewController.deliverySelectedSegue, sender: self)
     }
 
@@ -59,11 +64,11 @@ class DeliveryCompanyViewController: ReturnToHomeViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if let deliveryMethodController = segue.destinationViewController as? DeliveryMethodViewController {
-            deliveryMethodController.configure(DeliveryMethodViewModel(deliveryCompany: deliveryCompany))
+        let deliveryMethodViewController = segue.destinationViewController as? DeliveryMethodViewController
+        guard let deliveryVC = deliveryMethodViewController, deliveryCompany = deliveryCompany else {
+            return
         }
+        deliveryVC.configure(DeliveryMethodViewModel(deliveryCompany: deliveryCompany))
     }
 
 }

@@ -23,6 +23,9 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
     @IBOutlet weak var lookingForLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
 
+    static let lookingForLabelAccessibilityLabel = "Looking for label"
+    static let nameTextFieldAccessibilityLabel = "Name text field"
+
     func configure(viewModel: VisitorSearchViewModel) {
         self.viewModel = viewModel
     }
@@ -30,10 +33,13 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        lookingForLabel.text = Text.LookingFor.get()
+        lookingForLabel.accessibilityLabel = VisitorSearchViewController.lookingForLabelAccessibilityLabel
+
         nameTextField.delegate = self
         nameTextField.borderStyle = UITextBorderStyle.RoundedRect
         nameTextField.placeholder = Text.WizardOfOz.get()
-        lookingForLabel.text = Text.LookingFor.get()
+        nameTextField.accessibilityLabel = VisitorSearchViewController.nameTextFieldAccessibilityLabel
     }
 
     override func viewDidAppear(animated: Bool) {

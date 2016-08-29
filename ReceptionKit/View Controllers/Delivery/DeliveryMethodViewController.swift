@@ -9,10 +9,10 @@
 import UIKit
 
 struct DeliveryMethodViewModel {
-    var deliveryCompany: String?
+    var deliveryCompany: DeliveryCompany
     var shouldAskToWait = true
 
-    init(deliveryCompany: String?) {
+    init(deliveryCompany: DeliveryCompany) {
         self.deliveryCompany = deliveryCompany
     }
 }
@@ -29,8 +29,12 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         signatureButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .Signature, text: .Signature), forState: .Normal)
+        signatureButton.accessibilityLabel = Text.Signature.accessibility()
+
         leftReceptionButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .LeftAtReception, text: .LeftAtReception), forState: .Normal)
+        leftReceptionButton.accessibilityLabel = Text.Signature.accessibility()
     }
 
     // MARK: - Delivery method buttons
@@ -48,8 +52,8 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
     // Exclude the "from" if the delivery company is unknown
     func makeDeliveryFromText() -> String {
         var messageText = "There is a delivery"
-        if let deliveryCompany = viewModel?.deliveryCompany where deliveryCompany != "Other" {
-            messageText += " from " + deliveryCompany
+        if let deliveryCompany = viewModel?.deliveryCompany where deliveryCompany != .Other {
+            messageText += " from " + deliveryCompany.text()
         }
         return messageText
     }

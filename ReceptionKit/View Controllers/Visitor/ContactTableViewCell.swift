@@ -17,14 +17,20 @@ class ContactTableViewCell: UITableViewCell {
     @IBOutlet weak var contactPhoneLabel: UILabel!
 
     func configure(contact: Contact) {
-        contactNameLabel.text = contact.name
-        contactPhoneLabel.text = formatPhoneString(contact.phones)
+        let name = contact.name
+        contactNameLabel.text = name
+        contactNameLabel.accessibilityLabel = name
+
+        let phone = formatPhoneString(contact.phones)
+        contactPhoneLabel.text = phone
+        contactPhoneLabel.accessibilityLabel = phone
 
         if let picture = contact.picture {
             contactImage.image = picture
         } else {
             contactImage.image = UIImage(named: "UnknownContact")
         }
+        contactImage.accessibilityLabel = "\(contact.name) Phone"
         contactImage.layer.cornerRadius = 42.0
         contactImage.layer.masksToBounds = true
     }
