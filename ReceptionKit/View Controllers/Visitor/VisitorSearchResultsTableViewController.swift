@@ -61,12 +61,12 @@ class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
 
         // No visitor name
         guard let visitorName = viewModel?.visitorName where !visitorName.isEmpty else {
-            sendMessage("Someone is at the reception looking for \(contactName)!")
+            messageSender.sendMessage(.UnknownVisitorKnownVisitee(visiteeName: contactName))
             performSelectedContactSegue()
             return
         }
 
-        sendMessage("\(visitorName) is at the reception looking for \(contactName)!")
+        messageSender.sendMessage(.KnownVisitorKnownVisitee(visitorName: visitorName, visiteeName: contactName))
         performSelectedContactSegue()
     }
 

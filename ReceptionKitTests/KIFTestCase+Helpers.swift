@@ -12,11 +12,21 @@ import KIF
 extension KIFTestCase {
 
     func reset() {
+        getAppDelegate().reset()
+    }
+
+    func getAppDelegate() -> AppDelegate {
         guard let delegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
             Logger.error("Could not get the app delegate")
-            return
+            return AppDelegate()
         }
-        delegate.reset()
+        return delegate
+    }
+
+    func mockOutMessageSender() -> MockMessageSender {
+        let mockMessageSender = MockMessageSender()
+        getAppDelegate().replaceMessageSender(mockMessageSender)
+        return mockMessageSender
     }
 
 }

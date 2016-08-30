@@ -12,10 +12,13 @@ import KIF
 
 class DeliveryTests: KIFTestCase {
 
+    var mockMessageSender = MockMessageSender()
+
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
         reset()
+        mockMessageSender = mockOutMessageSender()
     }
 
     func testUPSDeliveryRequiresSignature() {

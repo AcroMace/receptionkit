@@ -18,7 +18,9 @@
 		63607DB21CD61EF200A0934F /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63607DB11CD61EF200A0934F /* Icons.swift */; };
 		63607DB41CD61F3900A0934F /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 63607DB31CD61F3900A0934F /* FontAwesome.otf */; };
 		6376F15D1AEA077600C1F9C4 /* VisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */; };
-		639A54141C34FA55005FC850 /* SmoochHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A54131C34FA55005FC850 /* SmoochHelpers.swift */; };
+		639744521D75602C0046F62B /* MockMessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639744511D75602C0046F62B /* MockMessageSender.swift */; };
+		639744561D7566630046F62B /* SlackMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639744551D7566630046F62B /* SlackMessage.swift */; };
+		639A54141C34FA55005FC850 /* MessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A54131C34FA55005FC850 /* MessageSender.swift */; };
 		63AC285E1AF1F93E00D2AEA5 /* ThemedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC285D1AF1F93E00D2AEA5 /* ThemedViewController.swift */; };
 		63AC28601AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC285F1AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift */; };
 		63AC28621AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC28611AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift */; };
@@ -70,7 +72,9 @@
 		63607DB11CD61EF200A0934F /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Icons.swift; path = Helpers/Icons.swift; sourceTree = "<group>"; };
 		63607DB31CD61F3900A0934F /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VisitorViewController.swift; path = "View Controllers/Visitor/VisitorViewController.swift"; sourceTree = "<group>"; };
-		639A54131C34FA55005FC850 /* SmoochHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SmoochHelpers.swift; path = Helpers/SmoochHelpers.swift; sourceTree = "<group>"; };
+		639744511D75602C0046F62B /* MockMessageSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMessageSender.swift; sourceTree = "<group>"; };
+		639744551D7566630046F62B /* SlackMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackMessage.swift; path = Models/SlackMessage.swift; sourceTree = "<group>"; };
+		639A54131C34FA55005FC850 /* MessageSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageSender.swift; path = Helpers/MessageSender.swift; sourceTree = "<group>"; };
 		639D9CE41D73D25000D6E781 /* ReceptionKitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReceptionKitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		63AC285D1AF1F93E00D2AEA5 /* ThemedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemedViewController.swift; path = "View Controllers/Template/ThemedViewController.swift"; sourceTree = "<group>"; };
 		63AC285F1AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturnToHomeViewController.swift; path = "View Controllers/Template/ReturnToHomeViewController.swift"; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 		63C9695D1D75069E0025FA15 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				639744511D75602C0046F62B /* MockMessageSender.swift */,
 				630603051D74FF19005FF564 /* XCTestCase+KIF.swift */,
 				63C9695B1D7506710025FA15 /* KIFTestCase+Helpers.swift */,
 			);
@@ -279,6 +284,9 @@
 		81E2AC891AE95D14000D5F25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				81E2AC8D1AE9A447000D5F25 /* Text.swift */,
+				639744551D7566630046F62B /* SlackMessage.swift */,
+				63607DB11CD61EF200A0934F /* Icons.swift */,
 				81E2AC871AE95BF4000D5F25 /* Contacts.swift */,
 				63D16C8F1D74DEEE004B54F5 /* DeliveryCompany.swift */,
 			);
@@ -289,10 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				633DD7D81AF1E5D5001BE427 /* Colour.swift */,
-				81E2AC8D1AE9A447000D5F25 /* Text.swift */,
-				63607DB11CD61EF200A0934F /* Icons.swift */,
 				6336ADD51CD6237600036786 /* ButtonFormatter.swift */,
-				639A54131C34FA55005FC850 /* SmoochHelpers.swift */,
+				639A54131C34FA55005FC850 /* MessageSender.swift */,
 				633FD21C1D0E165D0093419B /* Camera.swift */,
 				63EC19901D5303C3007C6FAC /* Logger.swift */,
 			);
@@ -519,7 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6336ADD61CD6237600036786 /* ButtonFormatter.swift in Sources */,
-				639A54141C34FA55005FC850 /* SmoochHelpers.swift in Sources */,
+				639A54141C34FA55005FC850 /* MessageSender.swift in Sources */,
 				81B445441AE949A800725576 /* VisitorAskNameViewController.swift in Sources */,
 				633DD7D91AF1E5D5001BE427 /* Colour.swift in Sources */,
 				63AC28621AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift in Sources */,
@@ -543,6 +549,7 @@
 				81E2AC8E1AE9A447000D5F25 /* Text.swift in Sources */,
 				81B4453B1AE935E400725576 /* DeliveryCompanyViewController.swift in Sources */,
 				63AC28601AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift in Sources */,
+				639744561D7566630046F62B /* SlackMessage.swift in Sources */,
 				63AC285E1AF1F93E00D2AEA5 /* ThemedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,6 +559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63C9695F1D7507450025FA15 /* VisitorTests.swift in Sources */,
+				639744521D75602C0046F62B /* MockMessageSender.swift in Sources */,
 				63C9695C1D7506710025FA15 /* KIFTestCase+Helpers.swift in Sources */,
 				630603081D75002E005FF564 /* DeliveryTests.swift in Sources */,
 				630603061D74FF19005FF564 /* XCTestCase+KIF.swift in Sources */,

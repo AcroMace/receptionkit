@@ -15,10 +15,13 @@ class VisitorTests: KIFTestCase {
     static let visitorName = "Bob Bobberson"
     static let visiteeName = "Nancy Nannerson"
 
+    var mockMessageSender = MockMessageSender()
+
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
         reset()
+        mockMessageSender = mockOutMessageSender()
     }
 
     func testVisitorsNameUnknownAndDontKnowVisitee() {

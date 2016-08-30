@@ -40,27 +40,26 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
     // MARK: - Delivery method buttons
 
     @IBAction func signatureButtonTapped(sender: AnyObject) {
+        guard let deliveryCompany = viewModel?.deliveryCompany else {
+            Logger.error("Tapped signature button without delivery company being set")
+            return
+        }
         viewModel?.shouldAskToWait = true
-        segueWithMessage(makeDeliveryFromText() + " that requires a signature!")
+        segueWithMessage(.RequiresSignature(deliveryCompany: deliveryCompany))
     }
 
     @IBAction func leftReceptionButtonTapped(sender: AnyObject) {
-        viewModel?.shouldAskToWait = false
-        segueWithMessage(makeDeliveryFromText() + " that has been left at the reception!")
-    }
-
-    // Exclude the "from" if the delivery company is unknown
-    func makeDeliveryFromText() -> String {
-        var messageText = "There is a delivery"
-        if let deliveryCompany = viewModel?.deliveryCompany where deliveryCompany != .Other {
-            messageText += " from " + deliveryCompany.text()
+        guard let deliveryCompany = viewModel?.deliveryCompany else {
+            Logger.error("Tapped left at reception button without delivery company being set")
+            return
         }
-        return messageText
+        viewModel?.shouldAskToWait = false
+        segueWithMessage(.LeftAtReception(deliveryCompany: deliveryCompany))
     }
 
     // Segue to the thank you controller after sending a Smooch message
-    func segueWithMessage(message: String) {
-        sendMessage(message)
+    func segueWithMessage(message: SlackMessage) {
+        messageSender.sendMessage(message)
         performSegueWithIdentifier("DeliveryMethodSelectedSegue", sender: self)
     }
 

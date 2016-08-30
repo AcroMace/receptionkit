@@ -8,6 +8,7 @@
 
 import UIKit
 
+var messageSender: MessageSender!
 var camera: Camera!
 
 @UIApplicationMain
@@ -36,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // recording in that case
         camera = Camera()
 
+        // Used to send messages to Smooch
+        messageSender = SmoochMessageSender()
+
         return true
     }
 
@@ -53,6 +57,16 @@ extension AppDelegate {
             return
         }
         rootVC.popToRootViewControllerAnimated(false)
+    }
+
+    /**
+     Replace the message sender being used with the provided one
+     Used to provide a mock message sender
+
+     - parameter newMessageSender: The message sender to use
+     */
+    func replaceMessageSender(newMessageSender: MessageSender) {
+        messageSender = newMessageSender
     }
 
 }
