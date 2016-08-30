@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2A458416901B5B0AC04FA2AE /* Pods_ReceptionKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA2F68F2CEEA6977D14179A /* Pods_ReceptionKitTests.framework */; };
+		630603061D74FF19005FF564 /* XCTestCase+KIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630603051D74FF19005FF564 /* XCTestCase+KIF.swift */; };
+		630603081D75002E005FF564 /* DeliveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630603071D75002E005FF564 /* DeliveryTests.swift */; };
 		631439931AF1BCDA00B7B757 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631439921AF1BCDA00B7B757 /* Config.swift */; };
 		6336ADD61CD6237600036786 /* ButtonFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6336ADD51CD6237600036786 /* ButtonFormatter.swift */; };
 		633DD7D91AF1E5D5001BE427 /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DD7D81AF1E5D5001BE427 /* Colour.swift */; };
@@ -20,13 +22,13 @@
 		63AC285E1AF1F93E00D2AEA5 /* ThemedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC285D1AF1F93E00D2AEA5 /* ThemedViewController.swift */; };
 		63AC28601AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC285F1AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift */; };
 		63AC28621AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC28611AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift */; };
+		63C9695C1D7506710025FA15 /* KIFTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C9695B1D7506710025FA15 /* KIFTestCase+Helpers.swift */; };
 		63D16C901D74DEEE004B54F5 /* DeliveryCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D16C8F1D74DEEE004B54F5 /* DeliveryCompany.swift */; };
 		63EC19911D5303C3007C6FAC /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EC19901D5303C3007C6FAC /* Logger.swift */; };
 		81B4451B1AE9313900725576 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4451A1AE9313900725576 /* AppDelegate.swift */; };
 		81B445201AE9313900725576 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81B4451E1AE9313900725576 /* Main.storyboard */; };
 		81B445221AE9313900725576 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81B445211AE9313900725576 /* Images.xcassets */; };
 		81B445251AE9313900725576 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81B445231AE9313900725576 /* LaunchScreen.xib */; };
-		81B445311AE9313900725576 /* ReceptionKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B445301AE9313900725576 /* ReceptionKitTests.swift */; };
 		81B4453B1AE935E400725576 /* DeliveryCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4453A1AE935E400725576 /* DeliveryCompanyViewController.swift */; };
 		81B4453D1AE9360400725576 /* DeliveryMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4453C1AE9360400725576 /* DeliveryMethodViewController.swift */; };
 		81B445441AE949A800725576 /* VisitorAskNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B445431AE949A800725576 /* VisitorAskNameViewController.swift */; };
@@ -57,6 +59,8 @@
 		0C63AD1B0E0D9A68E8E1739B /* Pods-ReceptionKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceptionKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReceptionKitTests/Pods-ReceptionKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		3AA2F68F2CEEA6977D14179A /* Pods_ReceptionKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReceptionKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B21716A959D98ED01E5ABB4 /* Pods-ReceptionKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceptionKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReceptionKitTests/Pods-ReceptionKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		630603051D74FF19005FF564 /* XCTestCase+KIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+KIF.swift"; sourceTree = "<group>"; };
+		630603071D75002E005FF564 /* DeliveryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryTests.swift; sourceTree = "<group>"; };
 		631439921AF1BCDA00B7B757 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6336ADD51CD6237600036786 /* ButtonFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonFormatter.swift; path = Helpers/ButtonFormatter.swift; sourceTree = "<group>"; };
 		633DD7D81AF1E5D5001BE427 /* Colour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colour.swift; path = Helpers/Colour.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 		63AC285D1AF1F93E00D2AEA5 /* ThemedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemedViewController.swift; path = "View Controllers/Template/ThemedViewController.swift"; sourceTree = "<group>"; };
 		63AC285F1AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturnToHomeViewController.swift; path = "View Controllers/Template/ReturnToHomeViewController.swift"; sourceTree = "<group>"; };
 		63AC28611AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturnToHomeTableViewController.swift; path = "View Controllers/Template/ReturnToHomeTableViewController.swift"; sourceTree = "<group>"; };
+		63C9695B1D7506710025FA15 /* KIFTestCase+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KIFTestCase+Helpers.swift"; sourceTree = "<group>"; };
 		63D16C8F1D74DEEE004B54F5 /* DeliveryCompany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeliveryCompany.swift; path = Models/DeliveryCompany.swift; sourceTree = "<group>"; };
 		63EC19901D5303C3007C6FAC /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Helpers/Logger.swift; sourceTree = "<group>"; };
 		7E33FB737E7A75FA7AE679B4 /* Pods-ReceptionKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceptionKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReceptionKit/Pods-ReceptionKit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,7 +86,6 @@
 		81B445241AE9313900725576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		81B4452A1AE9313900725576 /* ReceptionKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReceptionKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B4452F1AE9313900725576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81B445301AE9313900725576 /* ReceptionKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceptionKitTests.swift; sourceTree = "<group>"; };
 		81B4453A1AE935E400725576 /* DeliveryCompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeliveryCompanyViewController.swift; path = "View Controllers/Delivery/DeliveryCompanyViewController.swift"; sourceTree = "<group>"; };
 		81B4453C1AE9360400725576 /* DeliveryMethodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeliveryMethodViewController.swift; path = "View Controllers/Delivery/DeliveryMethodViewController.swift"; sourceTree = "<group>"; };
 		81B4453E1AE939C700725576 /* ReceptionKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReceptionKit-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -150,6 +154,15 @@
 			name = Template;
 			sourceTree = "<group>";
 		};
+		63C9695D1D75069E0025FA15 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				630603051D74FF19005FF564 /* XCTestCase+KIF.swift */,
+				63C9695B1D7506710025FA15 /* KIFTestCase+Helpers.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		81B4450C1AE9313900725576 = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +212,8 @@
 		81B4452D1AE9313900725576 /* ReceptionKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				81B445301AE9313900725576 /* ReceptionKitTests.swift */,
+				630603071D75002E005FF564 /* DeliveryTests.swift */,
+				63C9695D1D75069E0025FA15 /* Helpers */,
 				81B4452E1AE9313900725576 /* Supporting Files */,
 			);
 			path = ReceptionKitTests;
@@ -534,7 +548,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81B445311AE9313900725576 /* ReceptionKitTests.swift in Sources */,
+				63C9695C1D7506710025FA15 /* KIFTestCase+Helpers.swift in Sources */,
+				630603081D75002E005FF564 /* DeliveryTests.swift in Sources */,
+				630603061D74FF19005FF564 /* XCTestCase+KIF.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

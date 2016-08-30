@@ -40,3 +40,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+// Extensions for tests
+extension AppDelegate {
+
+    /**
+     Reset the application before starting a test
+     */
+    func reset() {
+        guard let rootVC = self.window?.rootViewController as? UINavigationController else {
+            Logger.error("Could not get the root view controller")
+            return
+        }
+        rootVC.popToRootViewControllerAnimated(false)
+    }
+
+}

@@ -34,7 +34,7 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
         signatureButton.accessibilityLabel = Text.Signature.accessibility()
 
         leftReceptionButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .LeftAtReception, text: .LeftAtReception), forState: .Normal)
-        leftReceptionButton.accessibilityLabel = Text.Signature.accessibility()
+        leftReceptionButton.accessibilityLabel = Text.LeftAtReception.accessibility()
     }
 
     // MARK: - Delivery method buttons
