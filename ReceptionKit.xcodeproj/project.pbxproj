@@ -23,6 +23,7 @@
 		63AC28601AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC285F1AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift */; };
 		63AC28621AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC28611AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift */; };
 		63C9695C1D7506710025FA15 /* KIFTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C9695B1D7506710025FA15 /* KIFTestCase+Helpers.swift */; };
+		63C9695F1D7507450025FA15 /* VisitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C9695E1D7507450025FA15 /* VisitorTests.swift */; };
 		63D16C901D74DEEE004B54F5 /* DeliveryCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D16C8F1D74DEEE004B54F5 /* DeliveryCompany.swift */; };
 		63EC19911D5303C3007C6FAC /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EC19901D5303C3007C6FAC /* Logger.swift */; };
 		81B4451B1AE9313900725576 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4451A1AE9313900725576 /* AppDelegate.swift */; };
@@ -75,6 +76,7 @@
 		63AC285F1AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturnToHomeViewController.swift; path = "View Controllers/Template/ReturnToHomeViewController.swift"; sourceTree = "<group>"; };
 		63AC28611AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturnToHomeTableViewController.swift; path = "View Controllers/Template/ReturnToHomeTableViewController.swift"; sourceTree = "<group>"; };
 		63C9695B1D7506710025FA15 /* KIFTestCase+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KIFTestCase+Helpers.swift"; sourceTree = "<group>"; };
+		63C9695E1D7507450025FA15 /* VisitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorTests.swift; sourceTree = "<group>"; };
 		63D16C8F1D74DEEE004B54F5 /* DeliveryCompany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeliveryCompany.swift; path = Models/DeliveryCompany.swift; sourceTree = "<group>"; };
 		63EC19901D5303C3007C6FAC /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Helpers/Logger.swift; sourceTree = "<group>"; };
 		7E33FB737E7A75FA7AE679B4 /* Pods-ReceptionKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceptionKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReceptionKit/Pods-ReceptionKit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				630603071D75002E005FF564 /* DeliveryTests.swift */,
+				63C9695E1D7507450025FA15 /* VisitorTests.swift */,
 				63C9695D1D75069E0025FA15 /* Helpers */,
 				81B4452E1AE9313900725576 /* Supporting Files */,
 			);
@@ -548,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C9695F1D7507450025FA15 /* VisitorTests.swift in Sources */,
 				63C9695C1D7506710025FA15 /* KIFTestCase+Helpers.swift in Sources */,
 				630603081D75002E005FF564 /* DeliveryTests.swift in Sources */,
 				630603061D74FF19005FF564 /* XCTestCase+KIF.swift in Sources */,

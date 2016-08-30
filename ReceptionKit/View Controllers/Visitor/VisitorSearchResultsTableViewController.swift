@@ -17,6 +17,8 @@ struct VisitorSearchResultsViewModel {
 class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
     private var viewModel: VisitorSearchResultsViewModel?
 
+    static let selectedContactSegue = "SelectedContact"
+
     func configure(viewModel: VisitorSearchResultsViewModel) {
         self.viewModel = viewModel
     }
@@ -60,12 +62,25 @@ class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
         // No visitor name
         guard let visitorName = viewModel?.visitorName where !visitorName.isEmpty else {
             sendMessage("Someone is at the reception looking for \(contactName)!")
-            performSegueWithIdentifier("SelectedContact", sender: self)
+            performSelectedContactSegue()
             return
         }
 
         sendMessage("\(visitorName) is at the reception looking for \(contactName)!")
-        performSegueWithIdentifier("SelectedContact", sender: self)
+        performSelectedContactSegue()
     }
 
+    private func performSelectedContactSegue() {
+        performSegueWithIdentifier(VisitorSearchResultsTableViewController.selectedContactSegue, sender: self)
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let waitingViewController = segue.destinationViewController as? WaitingViewController else {
+            return
+        }
+
+        // Configure the view model
+        let waitingViewModel = WaitingViewModel(shouldAskToWait: true)
+        waitingViewController.configure(waitingViewModel)
+    }
 }

@@ -25,7 +25,10 @@ class WaitingViewController: ReturnToHomeViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let `viewModel` = viewModel else { return }
+        guard let `viewModel` = viewModel else {
+            Logger.error("View model was not set on WaitingViewController")
+            return
+        }
 
         thankYouMessageText.selectable = true
         if viewModel.shouldAskToWait {

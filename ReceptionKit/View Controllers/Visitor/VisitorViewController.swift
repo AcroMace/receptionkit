@@ -56,11 +56,18 @@ class VisitorViewController: ReturnToHomeViewController {
 
     // Should post message if the visitor does not know who they are looking for
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.destinationViewController is WaitingViewController {
+        if let waitingViewController = segue.destinationViewController as? WaitingViewController {
+            // Configure the view model
+            let waitingViewModel = WaitingViewModel(shouldAskToWait: true)
+            waitingViewController.configure(waitingViewModel)
+
+            // We don't know the name of the person who just checked in
             guard let visitorName = visitorName where !visitorName.isEmpty else {
                 sendMessage("Someone is at the reception!")
                 return
             }
+
+            // We know the visitor's name but they don't know the person they're looking for
             sendMessage("\(visitorName) is at the reception!")
         } else if let visitorSearchViewController = segue.destinationViewController as? VisitorSearchViewController {
             visitorSearchViewController.configure(VisitorSearchViewModel(visitorName: visitorName))
