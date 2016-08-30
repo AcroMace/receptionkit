@@ -14,14 +14,16 @@ class VisitorAskNameViewController: ReturnToHomeViewController, UITextFieldDeleg
     @IBOutlet weak var nameTextField: UITextField!
 
     static let visitorEnteredNameSegue = "VisitorEnteredNameSegue"
+    static let nameTextFieldAccessibilityLabel = "Name text field"
+    static let yourNameLabelAccessibilityLabel = "Your name label"
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         nameTextField.delegate = self
         nameTextField.borderStyle = UITextBorderStyle.RoundedRect
-        yourNameLabel.text = Text.YourName.get()
+        nameTextField.accessibilityLabel = VisitorAskNameViewController.nameTextFieldAccessibilityLabel
+        yourNameLabel.text = VisitorAskNameViewController.nameTextFieldAccessibilityLabel
     }
 
     override func viewDidAppear(animated: Bool) {

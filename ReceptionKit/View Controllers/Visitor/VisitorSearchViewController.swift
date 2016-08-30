@@ -23,6 +23,9 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
     @IBOutlet weak var lookingForLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
 
+    static let lookingForLabelAccessibilityLabel = "Looking for label"
+    static let nameTextFieldAccessibilityLabel = "Name text field"
+
     func configure(viewModel: VisitorSearchViewModel) {
         self.viewModel = viewModel
     }
@@ -30,10 +33,13 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        lookingForLabel.text = Text.LookingFor.get()
+        lookingForLabel.accessibilityLabel = VisitorSearchViewController.lookingForLabelAccessibilityLabel
+
         nameTextField.delegate = self
         nameTextField.borderStyle = UITextBorderStyle.RoundedRect
         nameTextField.placeholder = Text.WizardOfOz.get()
-        lookingForLabel.text = Text.LookingFor.get()
+        nameTextField.accessibilityLabel = VisitorSearchViewController.nameTextFieldAccessibilityLabel
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -73,11 +79,14 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
                 searchQuery: nameTextField.text,
                 searchResults: viewModel?.searchResults)
             visitorSearchResultsTableViewController.configure(searchResultsViewModel)
-        } else if segue.destinationViewController is WaitingViewController {
+        } else if let waitingViewController = segue.destinationViewController as? WaitingViewController {
             // Don't do anything if the visitor hasn't specified who they are looking for
-            guard let lookingForName = nameTextField.text else {
-                return
-            }
+            guard let lookingForName = nameTextField.text else { return }
+
+            // Configure the view model
+            let waitingViewModel = WaitingViewModel(shouldAskToWait: true)
+            waitingViewController.configure(waitingViewModel)
+
             // The visitor's name is unknown
             guard let visitorName = viewModel?.visitorName where !visitorName.isEmpty else {
                 sendMessage("Someone is at the reception looking for \(lookingForName)!")

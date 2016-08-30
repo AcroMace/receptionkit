@@ -38,10 +38,9 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
 
     // Dismiss the message
     func dismissMessageView(timer: NSTimer!) {
-        if isPresentingMessage {
-            getTopViewController().dismissViewControllerAnimated(true) { () -> Void in
-                self.isPresentingMessage = false
-            }
+        guard isPresentingMessage else { return }
+        getTopViewController().dismissViewControllerAnimated(true) { [weak self] in
+            self?.isPresentingMessage = false
         }
     }
 
@@ -81,11 +80,12 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
         }
 
         // Dismiss the message after 10 seconds
-        NSTimer.scheduledTimerWithTimeInterval(10.0,
-                                               target: self,
-                                               selector: #selector(ConversationDelegate.dismissMessageView(_:)),
-                                               userInfo: nil,
-                                               repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(
+            10.0,
+            target: self,
+            selector: #selector(ConversationDelegate.dismissMessageView(_:)),
+            userInfo: nil,
+            repeats: false)
     }
 
     /**

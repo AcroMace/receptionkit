@@ -14,6 +14,7 @@ enum TextLanguage {
 // This is a class used to toggle between English and French
 // In-app language toggle is not a feature that is supported by default by Apple
 enum Text {
+    case LanguageToggle
     case Delivery
     case Signature
     case LeftAtReception
@@ -36,6 +37,8 @@ enum Text {
 
     private func english() -> String {
         switch self {
+        case .LanguageToggle:
+            return "français" // Show the button to switch to French if English
         case .Delivery:
             return "delivery"
         case .Signature:
@@ -73,6 +76,8 @@ enum Text {
 
     private func french() -> String {
         switch self {
+        case .LanguageToggle:
+            return "English" // Show the button to switch to English if French
         case .Delivery:
             return "livraison"
         case .Signature:
@@ -108,7 +113,7 @@ enum Text {
         }
     }
 
-    // Get text from a key word
+    /// Get text from a key word
     func get() -> String {
         switch Text.language {
         case .English:
@@ -118,7 +123,7 @@ enum Text {
         }
     }
 
-    // Switch between English and French
+    /// Switch between English and French
     static func swapLanguage() {
         switch language {
         case .English:
@@ -128,4 +133,13 @@ enum Text {
         }
     }
 
+    /// Get the accessibility label
+    func accessibility() -> String {
+        switch self {
+        case .LanguageToggle:
+            return "Switch to \(get())"
+        default:
+            return english().stringByReplacingOccurrencesOfString("\n", withString: " ")
+        }
+    }
 }
