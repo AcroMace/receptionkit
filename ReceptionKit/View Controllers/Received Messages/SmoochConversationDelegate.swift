@@ -23,7 +23,7 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
         }
 
         if Config.Photos.EnableCommand && containsImageCommand(lastMessage.text), let photo = camera.takePhoto() {
-            sendImage(photo)
+            messageSender.sendImage(photo)
         } else {
             showReceivedMessage(lastMessage)
         }

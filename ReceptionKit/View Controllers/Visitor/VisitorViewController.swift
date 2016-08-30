@@ -63,12 +63,12 @@ class VisitorViewController: ReturnToHomeViewController {
 
             // We don't know the name of the person who just checked in
             guard let visitorName = visitorName where !visitorName.isEmpty else {
-                sendMessage("Someone is at the reception!")
+                messageSender.sendMessage(.UnknownVisitorUnknownVisitee())
                 return
             }
 
             // We know the visitor's name but they don't know the person they're looking for
-            sendMessage("\(visitorName) is at the reception!")
+            messageSender.sendMessage(.KnownVisitorUnknownVisitee(visitorName: visitorName))
         } else if let visitorSearchViewController = segue.destinationViewController as? VisitorSearchViewController {
             visitorSearchViewController.configure(VisitorSearchViewModel(visitorName: visitorName))
         }

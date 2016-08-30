@@ -89,11 +89,11 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
 
             // The visitor's name is unknown
             guard let visitorName = viewModel?.visitorName where !visitorName.isEmpty else {
-                sendMessage("Someone is at the reception looking for \(lookingForName)!")
+                messageSender.sendMessage(.UnknownVisitorKnownVisitee(visiteeName: lookingForName))
                 return
             }
             // The visitor's name is known
-            sendMessage("\(visitorName) is at the reception looking for \(lookingForName)!")
+            messageSender.sendMessage(.KnownVisitorKnownVisitee(visitorName: visitorName, visiteeName: lookingForName))
         }
     }
 

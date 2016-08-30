@@ -12,10 +12,13 @@ import KIF
 
 class DeliveryTests: KIFTestCase {
 
+    var mockMessageSender = MockMessageSender()
+
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
         reset()
+        mockMessageSender = mockOutMessageSender()
     }
 
     func testUPSDeliveryRequiresSignature() {
@@ -23,6 +26,8 @@ class DeliveryTests: KIFTestCase {
         tapUPS()
         tapSignatureRequired()
         assertPleaseWaitMessageExists()
+        assertMessage(.RequiresSignature(deliveryCompany: .UPS))
+
     }
 
     func testCanadaPostDeliveryDoesNotRequireSignature() {
@@ -30,6 +35,7 @@ class DeliveryTests: KIFTestCase {
         tapCanadaPost()
         tapLeftAtReception()
         assertThankYouMessageExists()
+        assertMessage(.LeftAtReception(deliveryCompany: .CanadaPost))
     }
 
     func testOtherCompanyOption() {
@@ -37,6 +43,7 @@ class DeliveryTests: KIFTestCase {
         tapOther()
         tapLeftAtReception()
         assertThankYouMessageExists()
+        assertMessage(.LeftAtReception(deliveryCompany: .Other))
     }
 
 }
@@ -85,5 +92,14 @@ private extension DeliveryTests {
     private func assertThankYouMessageExists() {
         tester.waitForViewWithAccessibilityLabel(Text.ThankYou.accessibility())
         tester.waitForViewWithAccessibilityLabel(Text.NiceDay.accessibility())
+    }
+
+    /**
+     Helper to check sent message
+
+     - parameter sentMessage: The message that should have been sent
+     */
+    private func assertMessage(sentMessage: SlackMessage) {
+        assertMessageSent(mockMessageSender, message: sentMessage)
     }
 }

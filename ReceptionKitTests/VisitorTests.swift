@@ -15,10 +15,13 @@ class VisitorTests: KIFTestCase {
     static let visitorName = "Bob Bobberson"
     static let visiteeName = "Nancy Nannerson"
 
+    var mockMessageSender = MockMessageSender()
+
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
         reset()
+        mockMessageSender = mockOutMessageSender()
     }
 
     func testVisitorsNameUnknownAndDontKnowVisitee() {
@@ -26,6 +29,16 @@ class VisitorTests: KIFTestCase {
         tapReturnKey()
         tapDontKnowName()
         assertPleaseWaitMessageExists()
+        assertMessage(.UnknownVisitorUnknownVisitee())
+    }
+
+    func testVisitorsNameUnknownButKnowVisitee() {
+        tapVisitor()
+        tapReturnKey()
+        tapKnowName()
+        enterVisiteeName()
+        assertPleaseWaitMessageExists()
+        assertMessage(.UnknownVisitorKnownVisitee(visiteeName: VisitorTests.visiteeName))
     }
 
     func testVisitorsNameKnownButDontKnowVisitee() {
@@ -33,6 +46,7 @@ class VisitorTests: KIFTestCase {
         enterVisitorName()
         tapDontKnowName()
         assertPleaseWaitMessageExists()
+        assertMessage(.KnownVisitorUnknownVisitee(visitorName: VisitorTests.visitorName))
     }
 
     func testVisitorsNameKnownButVisteeNotInContacts() {
@@ -41,6 +55,7 @@ class VisitorTests: KIFTestCase {
         tapKnowName()
         enterVisiteeName()
         assertPleaseWaitMessageExists()
+        assertMessage(.KnownVisitorKnownVisitee(visitorName: VisitorTests.visitorName, visiteeName: VisitorTests.visiteeName))
     }
 }
 
@@ -101,4 +116,12 @@ extension VisitorTests {
         tester.waitForViewWithAccessibilityLabel(Text.PleaseWaitMessage.accessibility())
     }
 
+    /**
+     Helper to check sent message
+
+     - parameter sentMessage: The message that should have been sent
+     */
+    private func assertMessage(sentMessage: SlackMessage) {
+        assertMessageSent(mockMessageSender, message: sentMessage)
+    }
 }
