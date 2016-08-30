@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Haneke
 
 struct ReceivedMessageViewModel {
     let name: String
@@ -50,10 +51,7 @@ class ReceivedMessageViewController: UIViewController {
 
         // Load the image
         guard let picture = viewModel?.picture, URL = NSURL(string: picture) else { return }
-        NSURLConnection.sendAsynchronousRequest(NSURLRequest(URL: URL), queue: NSOperationQueue.mainQueue()) { [weak self] (reponse, data, error) -> Void in
-            guard let `data` = data else { return }
-            self?.contactPicture.image = UIImage(data: data)
-        }
+        contactPicture.hnk_setImageFromURL(URL)
     }
 
 }
