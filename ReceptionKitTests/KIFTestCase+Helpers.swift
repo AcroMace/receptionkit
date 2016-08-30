@@ -29,4 +29,10 @@ extension KIFTestCase {
         return mockMessageSender
     }
 
+    func assertMessageSent(messageSender: MockMessageSender, message: SlackMessage) {
+        if !messageSender.wasMessageSent(message) {
+            XCTFail("Message: \(message.text()) was expected to be sent but was not")
+        }
+    }
+
 }

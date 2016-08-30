@@ -29,9 +29,13 @@ class MockMessageSender: MessageSender {
         imagesSent.append(image)
     }
 
-    func reset() {
-        textSent = [SlackMessage]()
-        imagesSent = [UIImage]()
+    func wasMessageSent(slackMessage: SlackMessage) -> Bool {
+        let message = slackMessage.text()
+        for sentText in textSent {
+            if sentText.text() == message {
+                return true
+            }
+        }
+        return false
     }
-
 }
