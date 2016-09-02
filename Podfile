@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'ReceptionKit' do
   pod 'Smooch'
+  pod 'HanekeSwift'
 end
 
 target 'ReceptionKitTests' do

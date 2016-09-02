@@ -1,17 +1,20 @@
 PODS:
+  - HanekeSwift (0.10.1)
   - KIF (3.4.2):
     - KIF/Core (= 3.4.2)
   - KIF/Core (3.4.2)
   - Smooch (4.3.0)
 
 DEPENDENCIES:
+  - HanekeSwift
   - KIF (~> 3.0)
   - Smooch
 
 SPEC CHECKSUMS:
+  HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
   KIF: b518c9831453abea5afdbbde3908ec47832d6d56
   Smooch: c266cae1bbe3abdadcb69c310858e85d9498a91a
 
-PODFILE CHECKSUM: 0e7f7930d3fe466c5ebfb2a7f1f3e28bc9a04155
+PODFILE CHECKSUM: 85629312317a630f8ca608fdf5ce2e12717faab6
 
 COCOAPODS: 1.0.1
