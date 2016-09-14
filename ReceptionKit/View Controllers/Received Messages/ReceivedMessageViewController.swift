@@ -21,13 +21,13 @@ class ReceivedMessageViewController: UIViewController {
     @IBOutlet weak var contactTitle: UILabel!
     @IBOutlet weak var contactMessage: UITextView!
 
-    static let nibName = String(ReceivedMessageViewController)
+    static let nibName = String(describing: ReceivedMessageViewController.self)
 
     var viewModel: ReceivedMessageViewModel?
 
-    func configure(viewModel: ReceivedMessageViewModel) {
+    func configure(_ viewModel: ReceivedMessageViewModel) {
         self.viewModel = viewModel
-        modalPresentationStyle = UIModalPresentationStyle.FormSheet
+        modalPresentationStyle = UIModalPresentationStyle.formSheet
         preferredContentSize = CGSize(width: 600.0, height: 500.0)
     }
 
@@ -35,7 +35,7 @@ class ReceivedMessageViewController: UIViewController {
         super.viewDidLoad()
 
         // Set the text
-        let name = viewModel?.name.uppercaseString
+        let name = viewModel?.name.uppercased()
         contactTitle.text = name
         contactTitle.accessibilityLabel = name
 
@@ -50,8 +50,8 @@ class ReceivedMessageViewController: UIViewController {
         contactPicture.accessibilityLabel = "\(name) Picture"
 
         // Load the image
-        guard let picture = viewModel?.picture, URL = NSURL(string: picture) else { return }
-        contactPicture.sd_setImageWithURL(URL)
+        guard let picture = viewModel?.picture, let URL = URL(string: picture) else { return }
+        contactPicture.sd_setImage(with: URL)
     }
 
 }

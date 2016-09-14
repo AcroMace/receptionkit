@@ -19,57 +19,57 @@ class VisitorViewController: ReturnToHomeViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        knowButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .IKnow, text: .IKnow), forState: .Normal)
-        knowButton.accessibilityLabel = Text.IKnow.accessibility()
+        knowButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .iKnow, text: .iKnow), for: UIControlState())
+        knowButton.accessibilityLabel = Text.iKnow.accessibility()
 
-        notKnowButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .IDontKnow, text: .IDontKnow), forState: .Normal)
-        notKnowButton.accessibilityLabel = Text.IDontKnow.accessibility()
+        notKnowButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .iDontKnow, text: .iDontKnow), for: UIControlState())
+        notKnowButton.accessibilityLabel = Text.iDontKnow.accessibility()
 
         resetButtonVerticalAlignment(view.bounds.size)
     }
 
     // Centre align the button text - left-aligned by default
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        knowButton.titleLabel?.textAlignment = NSTextAlignment.Center
+        knowButton.titleLabel?.textAlignment = NSTextAlignment.center
     }
 
 
     // Reset the alignment of the text on rotation
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         resetButtonVerticalAlignment(size)
     }
 
-    func resetButtonVerticalAlignment(size: CGSize) {
+    func resetButtonVerticalAlignment(_ size: CGSize) {
         if size.width < size.height {
             // Vertical - alignment doesn't matter
-            knowButton.contentVerticalAlignment = .Center
-            notKnowButton.contentVerticalAlignment = .Center
+            knowButton.contentVerticalAlignment = .center
+            notKnowButton.contentVerticalAlignment = .center
         } else {
             // Horizontal - align to top
-            knowButton.contentVerticalAlignment = .Top
-            notKnowButton.contentVerticalAlignment = .Top
+            knowButton.contentVerticalAlignment = .top
+            notKnowButton.contentVerticalAlignment = .top
         }
     }
 
     // MARK: - Navigation
 
     // Should post message if the visitor does not know who they are looking for
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let waitingViewController = segue.destinationViewController as? WaitingViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let waitingViewController = segue.destination as? WaitingViewController {
             // Configure the view model
             let waitingViewModel = WaitingViewModel(shouldAskToWait: true)
             waitingViewController.configure(waitingViewModel)
 
             // We don't know the name of the person who just checked in
-            guard let visitorName = visitorName where !visitorName.isEmpty else {
-                messageSender.sendMessage(.UnknownVisitorUnknownVisitee())
+            guard let visitorName = visitorName, !visitorName.isEmpty else {
+                messageSender.sendMessage(.unknownVisitorUnknownVisitee())
                 return
             }
 
             // We know the visitor's name but they don't know the person they're looking for
-            messageSender.sendMessage(.KnownVisitorUnknownVisitee(visitorName: visitorName))
-        } else if let visitorSearchViewController = segue.destinationViewController as? VisitorSearchViewController {
+            messageSender.sendMessage(.knownVisitorUnknownVisitee(visitorName: visitorName))
+        } else if let visitorSearchViewController = segue.destination as? VisitorSearchViewController {
             visitorSearchViewController.configure(VisitorSearchViewModel(visitorName: visitorName))
         }
     }

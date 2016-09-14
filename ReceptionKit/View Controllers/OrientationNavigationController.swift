@@ -12,11 +12,11 @@ class OrientationNavigationController: UINavigationController {
 
     // Ensure that the orientation change triggers an Auto Layout change on the iPad
     // Otherwise, the iPad dimensions are always Regular x Regular
-    override func overrideTraitCollectionForChildViewController(childViewController: UIViewController) -> UITraitCollection? {
+    override func overrideTraitCollection(forChildViewController childViewController: UIViewController) -> UITraitCollection? {
         if view.bounds.width < view.bounds.height {
-            return UITraitCollection(horizontalSizeClass: .Compact)
+            return UITraitCollection(horizontalSizeClass: .compact)
         }
-        return UITraitCollection(horizontalSizeClass: .Regular)
+        return UITraitCollection(horizontalSizeClass: .regular)
     }
 
 }

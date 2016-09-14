@@ -15,10 +15,10 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
 
     // Display the message modal when a message arrives
     // Only displays the last message
-    func conversation(conversation: SKTConversation!, didReceiveMessages messages: [AnyObject]!) {
+    func conversation(_ conversation: SKTConversation!, didReceiveMessages messages: [AnyObject]!) {
         // May be a bug here where messages are ignored if the messages are batched
         // and multiple messages are sent at once
-        guard let lastMessage = conversation.messages.last as? SKTMessage where !lastMessage.isFromCurrentUser else {
+        guard let lastMessage = conversation.messages.last as? SKTMessage , !lastMessage.isFromCurrentUser else {
             return
         }
 
@@ -30,48 +30,48 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
     }
 
     // Present the message
-    func presentMessageView(viewController: UIViewController) {
-        getTopViewController().presentViewController(viewController, animated: true) { () -> Void in
+    func presentMessageView(_ viewController: UIViewController) {
+        getTopViewController().present(viewController, animated: true) { () -> Void in
             self.isPresentingMessage = true
         }
     }
 
     // Dismiss the message
-    func dismissMessageView(timer: NSTimer!) {
+    func dismissMessageView(_ timer: Timer!) {
         guard isPresentingMessage else { return }
-        getTopViewController().dismissViewControllerAnimated(true) { [weak self] in
+        getTopViewController().dismiss(animated: true) { [weak self] in
             self?.isPresentingMessage = false
         }
     }
 
     // Don't show the default Smooch conversation
-    func conversation(conversation: SKTConversation!, shouldShowForAction action: SKTAction) -> Bool {
+    func conversation(_ conversation: SKTConversation!, shouldShowFor action: SKTAction) -> Bool {
         return false
     }
 
     // Don't show the default Smooch notification
-    func conversation(conversation: SKTConversation!, shouldShowInAppNotificationForMessage message: SKTMessage!) -> Bool {
+    func conversation(_ conversation: SKTConversation!, shouldShowInAppNotificationFor message: SKTMessage!) -> Bool {
         return false
     }
 
     // Don't do anything when reading messages
-    func conversation(conversation: SKTConversation!, unreadCountDidChange unreadCount: UInt) {
+    func conversation(_ conversation: SKTConversation!, unreadCountDidChange unreadCount: UInt) {
         // Do nothing
     }
 
     // MARK: - Private methods
 
-    private func containsImageCommand(text: String) -> Bool {
-        return text.containsString(Config.Photos.ImageCaptureCommand)
+    fileprivate func containsImageCommand(_ text: String) -> Bool {
+        return text.contains(Config.Photos.ImageCaptureCommand)
     }
 
-    private func showReceivedMessage(message: SKTMessage) {
+    fileprivate func showReceivedMessage(_ message: SKTMessage) {
         let topVC = getTopViewController()
         let receivedMessageView = createReceivedMessageView(message)
 
         // Check that there is no presentation already before presenting
         if isPresentingMessage {
-            topVC.dismissViewControllerAnimated(true) { () -> Void in
+            topVC.dismiss(animated: true) { () -> Void in
                 self.isPresentingMessage = false
                 self.presentMessageView(receivedMessageView)
             }
@@ -80,8 +80,8 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
         }
 
         // Dismiss the message after 10 seconds
-        NSTimer.scheduledTimerWithTimeInterval(
-            10.0,
+        Timer.scheduledTimer(
+            timeInterval: 10.0,
             target: self,
             selector: #selector(ConversationDelegate.dismissMessageView(_:)),
             userInfo: nil,
@@ -94,8 +94,8 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
 
      - returns: The top view controller
      */
-    private func getTopViewController() -> UIViewController {
-        return UIApplication.sharedApplication().keyWindow!.rootViewController!
+    fileprivate func getTopViewController() -> UIViewController {
+        return UIApplication.shared.keyWindow!.rootViewController!
     }
 
     /**
@@ -105,7 +105,7 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
 
      - returns: The view created
      */
-    private func createReceivedMessageView(lastMessage: SKTMessage) -> ReceivedMessageViewController {
+    fileprivate func createReceivedMessageView(_ lastMessage: SKTMessage) -> ReceivedMessageViewController {
         let receivedMessageView = ReceivedMessageViewController(nibName: ReceivedMessageViewController.nibName, bundle: nil)
         let receivedMessageViewModel = ReceivedMessageViewModel(
             name: lastMessage.name,

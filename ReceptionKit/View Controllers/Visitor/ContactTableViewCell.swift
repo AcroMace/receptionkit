@@ -10,13 +10,13 @@ import UIKit
 
 class ContactTableViewCell: UITableViewCell {
 
-    static let reuseIdentifier = String(ContactTableViewCell)
+    static let reuseIdentifier = String(describing: ContactTableViewCell.self)
 
     @IBOutlet weak var contactImage: UIImageView!
     @IBOutlet weak var contactNameLabel: UILabel!
     @IBOutlet weak var contactPhoneLabel: UILabel!
 
-    func configure(contact: Contact) {
+    func configure(_ contact: Contact) {
         let name = contact.name
         contactNameLabel.text = name
         contactNameLabel.accessibilityLabel = name
@@ -36,7 +36,7 @@ class ContactTableViewCell: UITableViewCell {
     }
 
     // Take the phone numbers and create a descriptive string for it
-    private func formatPhoneString(phones: [ContactPhone]) -> String {
+    fileprivate func formatPhoneString(_ phones: [ContactPhone]) -> String {
         var workPhones = [String]()
         var mobilePhones = [String]()
 
@@ -52,10 +52,10 @@ class ContactTableViewCell: UITableViewCell {
         }
 
         if !workPhones.isEmpty {
-            formattedString += "Work: " + workPhones.joinWithSeparator(separator)
+            formattedString += "Work: " + workPhones.joined(separator: separator)
         }
         if !mobilePhones.isEmpty {
-            formattedString += "Mobile: " + mobilePhones.joinWithSeparator(separator)
+            formattedString += "Mobile: " + mobilePhones.joined(separator: separator)
         }
 
         return formattedString.isEmpty ? "No contact info" : formattedString

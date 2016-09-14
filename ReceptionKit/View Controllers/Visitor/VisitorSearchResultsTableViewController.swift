@@ -15,11 +15,11 @@ struct VisitorSearchResultsViewModel {
 }
 
 class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
-    private var viewModel: VisitorSearchResultsViewModel?
+    fileprivate var viewModel: VisitorSearchResultsViewModel?
 
     static let selectedContactSegue = "SelectedContact"
 
-    func configure(viewModel: VisitorSearchResultsViewModel) {
+    func configure(_ viewModel: VisitorSearchResultsViewModel) {
         self.viewModel = viewModel
     }
 
@@ -27,55 +27,55 @@ class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
         super.viewDidLoad()
 
         // Overwrite the theme - table should be white
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
     }
 
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.searchResults?.count ?? 0
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ContactTableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier(ContactTableViewCell.reuseIdentifier, forIndexPath: indexPath) as? ContactTableViewCell else {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> ContactTableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ContactTableViewCell.reuseIdentifier, for: indexPath) as? ContactTableViewCell else {
             Logger.error("Could not dequeue contact cell in VisitorSearchResultsTableViewController")
             return ContactTableViewCell()
         }
 
-        guard let searchResults = viewModel?.searchResults where indexPath.row < searchResults.count else {
+        guard let searchResults = viewModel?.searchResults , (indexPath as NSIndexPath).row < searchResults.count else {
             Logger.error("Search results not specified in VisitorSearchResultsTableViewController")
             return ContactTableViewCell()
         }
 
-        let contact = searchResults[indexPath.row]
+        let contact = searchResults[(indexPath as NSIndexPath).row]
         cell.configure(contact)
         return cell
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // No search results
-        guard let searchResults = viewModel?.searchResults where indexPath.row < searchResults.count else {
+        guard let searchResults = viewModel?.searchResults , (indexPath as NSIndexPath).row < searchResults.count else {
             return
         }
-        let contactName = searchResults[indexPath.row].name
+        let contactName = searchResults[(indexPath as NSIndexPath).row].name
 
         // No visitor name
-        guard let visitorName = viewModel?.visitorName where !visitorName.isEmpty else {
-            messageSender.sendMessage(.UnknownVisitorKnownVisitee(visiteeName: contactName))
+        guard let visitorName = viewModel?.visitorName , !visitorName.isEmpty else {
+            messageSender.sendMessage(.unknownVisitorKnownVisitee(visiteeName: contactName))
             performSelectedContactSegue()
             return
         }
 
-        messageSender.sendMessage(.KnownVisitorKnownVisitee(visitorName: visitorName, visiteeName: contactName))
+        messageSender.sendMessage(.knownVisitorKnownVisitee(visitorName: visitorName, visiteeName: contactName))
         performSelectedContactSegue()
     }
 
-    private func performSelectedContactSegue() {
-        performSegueWithIdentifier(VisitorSearchResultsTableViewController.selectedContactSegue, sender: self)
+    fileprivate func performSelectedContactSegue() {
+        performSegue(withIdentifier: VisitorSearchResultsTableViewController.selectedContactSegue, sender: self)
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        guard let waitingViewController = segue.destinationViewController as? WaitingViewController else {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let waitingViewController = segue.destination as? WaitingViewController else {
             return
         }
 

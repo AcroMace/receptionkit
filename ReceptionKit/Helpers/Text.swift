@@ -7,108 +7,108 @@
 //
 
 enum TextLanguage {
-    case English
-    case French
+    case english
+    case french
 }
 
 // This is a class used to toggle between English and French
 // In-app language toggle is not a feature that is supported by default by Apple
 enum Text {
-    case LanguageToggle
-    case Delivery
-    case Signature
-    case LeftAtReception
-    case Visitor
-    case IKnow
-    case IDontKnow
-    case LookingFor
-    case WizardOfOz
-    case NoContactInfo
-    case YourName
-    case ThankYou
-    case PleaseWait
-    case PleaseWaitMessage
-    case NiceDay
-    case Back
-    case Other
+    case languageToggle
+    case delivery
+    case signature
+    case leftAtReception
+    case visitor
+    case iKnow
+    case iDontKnow
+    case lookingFor
+    case wizardOfOz
+    case noContactInfo
+    case yourName
+    case thankYou
+    case pleaseWait
+    case pleaseWaitMessage
+    case niceDay
+    case back
+    case other
 
     // The language to use by default
-    static var language: TextLanguage = .English
+    static var language: TextLanguage = .english
 
     private func english() -> String {
         switch self {
-        case .LanguageToggle:
+        case .languageToggle:
             return "français" // Show the button to switch to French if English
-        case .Delivery:
+        case .delivery:
             return "delivery"
-        case .Signature:
+        case .signature:
             return "i need a signature"
-        case .LeftAtReception:
+        case .leftAtReception:
             return "i left a package at the reception"
-        case .Visitor:
+        case .visitor:
             return "i'm a visitor"
-        case .IKnow:
+        case .iKnow:
             return "i know the name\nof the person i am\nhere to see"
-        case .IDontKnow:
+        case .iDontKnow:
             return "i don't know"
-        case .LookingFor:
+        case .lookingFor:
             return "Who are you looking for?"
-        case .WizardOfOz:
+        case .wizardOfOz:
             return "The Wonderful Wizard of Oz"
-        case .NoContactInfo:
+        case .noContactInfo:
             return "no contact info"
-        case .YourName:
+        case .yourName:
             return "What is your name?"
-        case .ThankYou:
+        case .thankYou:
             return "thank you! :)"
-        case .PleaseWait:
+        case .pleaseWait:
             return "please wait"
-        case .PleaseWaitMessage:
+        case .pleaseWaitMessage:
             return "someone will be here shortly to meet you"
-        case .NiceDay:
+        case .niceDay:
             return "and have a nice day"
-        case .Back:
+        case .back:
             return "Back"
-        case .Other:
+        case .other:
             return "other"
         }
     }
 
     private func french() -> String {
         switch self {
-        case .LanguageToggle:
+        case .languageToggle:
             return "English" // Show the button to switch to English if French
-        case .Delivery:
+        case .delivery:
             return "livraison"
-        case .Signature:
+        case .signature:
             return "j'ai besoin d' une signature"
-        case .LeftAtReception:
+        case .leftAtReception:
             return "j'ai laissé un paquet à la réception"
-        case .Visitor:
+        case .visitor:
             return "visiteur"
-        case .IKnow:
+        case .iKnow:
             return "je connais le nom\nde la personne que\nje viens voir"
-        case .IDontKnow:
+        case .iDontKnow:
             return "je ne sais pas"
-        case .LookingFor:
+        case .lookingFor:
             return "Quel est le nom de la personne?"
-        case .WizardOfOz:
+        case .wizardOfOz:
             return "Le Magicien d'Oz"
-        case .NoContactInfo:
+        case .noContactInfo:
             return "pas d'info de contact"
-        case .YourName:
+        case .yourName:
             return "Quel est votre nom?"
-        case .ThankYou:
+        case .thankYou:
             return "merci! :)"
-        case .PleaseWait:
+        case .pleaseWait:
             return "veuillez patienter"
-        case .PleaseWaitMessage:
+        case .pleaseWaitMessage:
             return "quelqu'un sera avec vous sous peu"
-        case .NiceDay:
+        case .niceDay:
             return "et bonne journée"
-        case .Back:
+        case .back:
             return "Retour"
-        case .Other:
+        case .other:
             return "autre"
         }
     }
@@ -116,9 +116,9 @@ enum Text {
     /// Get text from a key word
     func get() -> String {
         switch Text.language {
-        case .English:
+        case .english:
             return self.english()
-        case .French:
+        case .french:
             return self.french()
         }
     }
@@ -126,20 +126,20 @@ enum Text {
     /// Switch between English and French
     static func swapLanguage() {
         switch language {
-        case .English:
-            language = .French
-        case .French:
-            language = .English
+        case .english:
+            language = .french
+        case .french:
+            language = .english
         }
     }
 
     /// Get the accessibility label
     func accessibility() -> String {
         switch self {
-        case .LanguageToggle:
+        case .languageToggle:
             return "Switch to \(get())"
         default:
-            return english().stringByReplacingOccurrencesOfString("\n", withString: " ")
+            return english().replacingOccurrences(of: "\n", with: " ")
         }
     }
 }

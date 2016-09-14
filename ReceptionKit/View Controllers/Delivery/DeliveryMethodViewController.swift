@@ -23,53 +23,53 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
     @IBOutlet weak var signatureButton: UIButton!
     @IBOutlet weak var leftReceptionButton: UIButton!
 
-    func configure(viewModel: DeliveryMethodViewModel) {
+    func configure(_ viewModel: DeliveryMethodViewModel) {
         self.viewModel = viewModel
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        signatureButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .Signature, text: .Signature), forState: .Normal)
-        signatureButton.accessibilityLabel = Text.Signature.accessibility()
+        signatureButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .signature, text: .signature), for: UIControlState())
+        signatureButton.accessibilityLabel = Text.signature.accessibility()
 
-        leftReceptionButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .LeftAtReception, text: .LeftAtReception), forState: .Normal)
-        leftReceptionButton.accessibilityLabel = Text.LeftAtReception.accessibility()
+        leftReceptionButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .leftAtReception, text: .leftAtReception), for: UIControlState())
+        leftReceptionButton.accessibilityLabel = Text.leftAtReception.accessibility()
     }
 
     // MARK: - Delivery method buttons
 
-    @IBAction func signatureButtonTapped(sender: AnyObject) {
+    @IBAction func signatureButtonTapped(_ sender: AnyObject) {
         guard let deliveryCompany = viewModel?.deliveryCompany else {
             Logger.error("Tapped signature button without delivery company being set")
             return
         }
         viewModel?.shouldAskToWait = true
-        segueWithMessage(.RequiresSignature(deliveryCompany: deliveryCompany))
+        segueWithMessage(.requiresSignature(deliveryCompany: deliveryCompany))
     }
 
-    @IBAction func leftReceptionButtonTapped(sender: AnyObject) {
+    @IBAction func leftReceptionButtonTapped(_ sender: AnyObject) {
         guard let deliveryCompany = viewModel?.deliveryCompany else {
             Logger.error("Tapped left at reception button without delivery company being set")
             return
         }
         viewModel?.shouldAskToWait = false
-        segueWithMessage(.LeftAtReception(deliveryCompany: deliveryCompany))
+        segueWithMessage(.leftAtReception(deliveryCompany: deliveryCompany))
     }
 
     // Segue to the thank you controller after sending a Smooch message
-    func segueWithMessage(message: SlackMessage) {
+    func segueWithMessage(_ message: SlackMessage) {
         messageSender.sendMessage(message)
-        performSegueWithIdentifier("DeliveryMethodSelectedSegue", sender: self)
+        performSegue(withIdentifier: "DeliveryMethodSelectedSegue", sender: self)
     }
 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        guard let waitingViewController = segue.destinationViewController as? WaitingViewController else {
+        guard let waitingViewController = segue.destination as? WaitingViewController else {
             return
         }
         waitingViewController.configure(WaitingViewModel(shouldAskToWait: viewModel?.shouldAskToWait ?? true))

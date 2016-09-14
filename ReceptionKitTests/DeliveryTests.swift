@@ -26,7 +26,7 @@ class DeliveryTests: KIFTestCase {
         tapUPS()
         tapSignatureRequired()
         assertPleaseWaitMessageExists()
-        assertMessage(.RequiresSignature(deliveryCompany: .UPS))
+        assertMessage(.requiresSignature(deliveryCompany: .ups))
 
     }
 
@@ -35,7 +35,7 @@ class DeliveryTests: KIFTestCase {
         tapCanadaPost()
         tapLeftAtReception()
         assertThankYouMessageExists()
-        assertMessage(.LeftAtReception(deliveryCompany: .CanadaPost))
+        assertMessage(.leftAtReception(deliveryCompany: .canadaPost))
     }
 
     func testOtherCompanyOption() {
@@ -43,7 +43,7 @@ class DeliveryTests: KIFTestCase {
         tapOther()
         tapLeftAtReception()
         assertThankYouMessageExists()
-        assertMessage(.LeftAtReception(deliveryCompany: .Other))
+        assertMessage(.leftAtReception(deliveryCompany: .other))
     }
 
 }
@@ -52,46 +52,46 @@ private extension DeliveryTests {
 
     // MARK: Helpers - Main page
 
-    private func tapDelivery() {
-        tester.tapViewWithAccessibilityLabel(Text.Delivery.accessibility())
+    func tapDelivery() {
+        tester.tapView(withAccessibilityLabel: Text.delivery.accessibility())
     }
 
     // MARK: Helpers - Delivery companies
 
-    private func tapUPS() {
-        tester.tapViewWithAccessibilityLabel(DeliveryCompany.UPS.text())
+    func tapUPS() {
+        tester.tapView(withAccessibilityLabel: DeliveryCompany.ups.text())
     }
 
-    private func tapCanadaPost() {
-        tester.tapViewWithAccessibilityLabel(DeliveryCompany.CanadaPost.text())
+    func tapCanadaPost() {
+        tester.tapView(withAccessibilityLabel: DeliveryCompany.canadaPost.text())
     }
 
-    private func tapOther() {
-        tester.tapViewWithAccessibilityLabel(DeliveryCompany.Other.text())
+    func tapOther() {
+        tester.tapView(withAccessibilityLabel: DeliveryCompany.other.text())
     }
 
     // MARK: Helpers - Type of delivery
 
-    private func tapSignatureRequired() {
-        tester.tapViewWithAccessibilityLabel(Text.Signature.accessibility())
+    func tapSignatureRequired() {
+        tester.tapView(withAccessibilityLabel: Text.signature.accessibility())
     }
 
-    private func tapLeftAtReception() {
-        tester.tapViewWithAccessibilityLabel(Text.LeftAtReception.accessibility())
+    func tapLeftAtReception() {
+        tester.tapView(withAccessibilityLabel: Text.leftAtReception.accessibility())
     }
 
     // MARK: Helpers - Successfully sent message
 
     /// Check that we see the please wait screen
-    private func assertPleaseWaitMessageExists() {
-        tester.waitForViewWithAccessibilityLabel(Text.PleaseWait.accessibility())
-        tester.waitForViewWithAccessibilityLabel(Text.PleaseWaitMessage.accessibility())
+    func assertPleaseWaitMessageExists() {
+        tester.waitForView(withAccessibilityLabel: Text.pleaseWait.accessibility())
+        tester.waitForView(withAccessibilityLabel: Text.pleaseWaitMessage.accessibility())
     }
 
     /// Check that we see the thank you screen
-    private func assertThankYouMessageExists() {
-        tester.waitForViewWithAccessibilityLabel(Text.ThankYou.accessibility())
-        tester.waitForViewWithAccessibilityLabel(Text.NiceDay.accessibility())
+    func assertThankYouMessageExists() {
+        tester.waitForView(withAccessibilityLabel: Text.thankYou.accessibility())
+        tester.waitForView(withAccessibilityLabel: Text.niceDay.accessibility())
     }
 
     /**
@@ -99,7 +99,7 @@ private extension DeliveryTests {
 
      - parameter sentMessage: The message that should have been sent
      */
-    private func assertMessage(sentMessage: SlackMessage) {
+    func assertMessage(_ sentMessage: SlackMessage) {
         assertMessageSent(mockMessageSender, message: sentMessage)
     }
 }

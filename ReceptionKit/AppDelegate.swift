@@ -17,19 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let conversationDelegate = ConversationDelegate()
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         // Smooch Settings
         let smoochSettings = SKTSettings(appToken: Config.Smooch.AppToken)
-        Smooch.initWithSettings(smoochSettings)
+        Smooch.initWith(smoochSettings)
 
         // Setup Smooch
         Smooch.conversation().delegate = conversationDelegate
         Smooch.setUserFirstName(Config.Slack.Name, lastName: "")
-        SKTUser.currentUser().email = Config.Slack.Email
+        SKTUser.current().email = Config.Slack.Email
 
         // App-wide styles
-        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
+        UIApplication.shared.setStatusBarHidden(true, with: UIStatusBarAnimation.slide)
         UINavigationBar.appearance().barTintColor = UIColor(hex: Config.Colour.NavigationBar)
 
         // Create an instance of the Camera
@@ -56,7 +56,7 @@ extension AppDelegate {
             Logger.error("Could not get the root view controller")
             return
         }
-        rootVC.popToRootViewControllerAnimated(false)
+        rootVC.popToRootViewController(animated: false)
     }
 
     /**
@@ -65,7 +65,7 @@ extension AppDelegate {
 
      - parameter newMessageSender: The message sender to use
      */
-    func replaceMessageSender(newMessageSender: MessageSender) {
+    func replaceMessageSender(_ newMessageSender: MessageSender) {
         messageSender = newMessageSender
     }
 

@@ -10,9 +10,9 @@ import AVFoundation
 
 class Camera: NSObject {
     /// The last image captured from the camera
-    private var cameraImage: UIImage?
+    fileprivate var cameraImage: UIImage?
     /// Keep a reference to the session so it doesn't get deallocated
-    private var captureSession: AVCaptureSession?
+    fileprivate var captureSession: AVCaptureSession?
 
     /**
      Create a Camera instance and start streaming from the front facing camera
@@ -36,7 +36,7 @@ class Camera: NSObject {
     /**
      Start streaming from the front facing camera
      */
-    private func setupCamera() {
+    fileprivate func setupCamera() {
         guard let camera = getFrontFacingCamera() else {
             Logger.error("Front facing camera not found")
             return
@@ -55,10 +55,10 @@ class Camera: NSObject {
 
      - returns: The front facing camera, an AVCaptureDevice, or `nil` if none exists.
      */
-    private func getFrontFacingCamera() -> AVCaptureDevice? {
-        let devices = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo)
-        for device in devices {
-            if device.position == AVCaptureDevicePosition.Front {
+    fileprivate func getFrontFacingCamera() -> AVCaptureDevice? {
+        let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo)
+        for device in devices! {
+            if (device as AnyObject).position == AVCaptureDevicePosition.front {
                 return device as? AVCaptureDevice
             }
         }
@@ -70,16 +70,15 @@ class Camera: NSObject {
 
      - returns: A camera output stream
      */
-    private func createCameraOutputStream() -> AVCaptureVideoDataOutput {
-        let queue = dispatch_queue_create("cameraQueue", nil)
+    fileprivate func createCameraOutputStream() -> AVCaptureVideoDataOutput {
+        let queue = DispatchQueue(label: "cameraQueue", attributes: [])
         let output = AVCaptureVideoDataOutput()
         output.alwaysDiscardsLateVideoFrames = true
         output.setSampleBufferDelegate(self, queue: queue)
 
         let key = kCVPixelBufferPixelFormatTypeKey as NSString
-        let value = NSNumber(unsignedInt: kCVPixelFormatType_32BGRA)
-        let videoSettings = NSDictionary(object: value, forKey: key) as [NSObject: AnyObject]
-        output.videoSettings = videoSettings
+        let value = NSNumber(value: kCVPixelFormatType_32BGRA as UInt32)
+        output.videoSettings = [key: value]
 
         return output
     }
@@ -92,7 +91,7 @@ class Camera: NSObject {
 
      - returns: An AVCaptureSession that has not yet been started
      */
-    private func createCaptureSession(input: AVCaptureDeviceInput, output: AVCaptureVideoDataOutput) -> AVCaptureSession {
+    fileprivate func createCaptureSession(_ input: AVCaptureDeviceInput, output: AVCaptureVideoDataOutput) -> AVCaptureSession {
         let captureSession = AVCaptureSession()
         captureSession.addInput(input)
         captureSession.addOutput(output)
@@ -107,7 +106,7 @@ class Camera: NSObject {
 
 extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
 
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
         guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return
         }
@@ -121,10 +120,12 @@ extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
 
      - returns: An UIImage instance if one could be created, nil otherwise
      */
-    private func createImageFromBuffer(buffer: CVImageBuffer) -> UIImage? {
-        CVPixelBufferLockBaseAddress(buffer, CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)))
+    fileprivate func createImageFromBuffer(_ buffer: CVImageBuffer) -> UIImage? {
+        let noOption = CVPixelBufferLockFlags(rawValue: CVOptionFlags(0))
+
+        CVPixelBufferLockBaseAddress(buffer, noOption)
         defer {
-            CVPixelBufferUnlockBaseAddress(buffer, CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)))
+            CVPixelBufferUnlockBaseAddress(buffer, noOption)
         }
 
         let baseAddress = CVPixelBufferGetBaseAddress(buffer)
@@ -133,26 +134,26 @@ extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
         let height = CVPixelBufferGetHeight(buffer)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
 
-        let newContext = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, CGBitmapInfo.ByteOrder32Little.rawValue | CGImageAlphaInfo.PremultipliedFirst.rawValue)
-        guard let newImage = CGBitmapContextCreateImage(newContext!) else {
+        let newContext = CGContext(data: baseAddress, width: width, height: height, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue)
+        guard let newImage = newContext!.makeImage() else {
             return nil
         }
 
-        return UIImage(CGImage: newImage, scale: 1.0, orientation: getPhotoOrientation())
+        return UIImage(cgImage: newImage, scale: 1.0, orientation: getPhotoOrientation())
     }
 
-    private func getPhotoOrientation() -> UIImageOrientation {
-        switch UIDevice.currentDevice().orientation {
-        case .LandscapeLeft:
-            return .DownMirrored
-        case .LandscapeRight:
-            return .UpMirrored
-        case .Portrait:
-            return .LeftMirrored
-        case .PortraitUpsideDown:
-            return .RightMirrored
+    fileprivate func getPhotoOrientation() -> UIImageOrientation {
+        switch UIDevice.current.orientation {
+        case .landscapeLeft:
+            return .downMirrored
+        case .landscapeRight:
+            return .upMirrored
+        case .portrait:
+            return .leftMirrored
+        case .portraitUpsideDown:
+            return .rightMirrored
         default:
-            return .RightMirrored
+            return .rightMirrored
         }
     }
 

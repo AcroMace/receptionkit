@@ -14,7 +14,7 @@ struct Logger {
 
      - parameter message: The message to print
      */
-    static func debug(message: String) {
+    static func debug(_ message: String) {
         print("DEBUG: \(message)")
     }
 
@@ -23,7 +23,7 @@ struct Logger {
 
      - parameter message: The message to print
      */
-    static func error(message: String) {
+    static func error(_ message: String) {
         print("ERROR: \(message)")
     }
 }

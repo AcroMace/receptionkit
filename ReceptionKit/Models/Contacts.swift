@@ -48,22 +48,21 @@ class Contact {
     static func isAuthorized() -> Bool {
         // Get the authorization if needed
         let authStatus = ABAddressBookGetAuthorizationStatus()
-        if authStatus == ABAuthorizationStatus.Denied ||
-            authStatus == ABAuthorizationStatus.Restricted {
+        if authStatus == .denied || authStatus == .restricted {
                 print("No permission to access the contacts")
-        } else if authStatus == ABAuthorizationStatus.NotDetermined {
-            ABAddressBookRequestAccessWithCompletion(nil) { (granted: Bool, error: CFError!) in
+        } else if authStatus == .notDetermined {
+            ABAddressBookRequestAccessWithCompletion(nil) { (granted: Bool, error: CFError?) in
                 print("Successfully got permission for the contacts")
             }
         }
 
         // Need to refetch the status if it was updated
-        return ABAddressBookGetAuthorizationStatus() == ABAuthorizationStatus.Authorized
+        return ABAddressBookGetAuthorizationStatus() == ABAuthorizationStatus.authorized
     }
 
 
     // Search for all contacts that match a name
-    static func search(name: String) -> [Contact] {
+    static func search(_ name: String) -> [Contact] {
         guard isAuthorized() else {
             return []
         }
@@ -73,13 +72,13 @@ class Contact {
         let people = ABAddressBookCopyPeopleWithName(addressBook, query).takeRetainedValue() as Array
 
         var contacts = [Contact]()
-        for person: ABRecordRef in people {
+        for person: ABRecord in people {
             let contactName: String = ABRecordCopyCompositeName(person).takeRetainedValue() as String
             let contactPhoneNumbers = getPhoneNumbers(person, property: kABPersonPhoneProperty)
 
             var contactPicture: UIImage?
             if let contactPictureDataOptional = ABPersonCopyImageData(person) {
-                let contactPictureData = contactPictureDataOptional.takeRetainedValue() as NSData
+                let contactPictureData = contactPictureDataOptional.takeRetainedValue() as Data
                 contactPicture = UIImage(data: contactPictureData)
             }
 
@@ -95,7 +94,7 @@ class Contact {
     //
 
     // Get a property from a ABPerson, returns an array of Strings that matches the value
-    private static func getPhoneNumbers(person: ABRecordRef, property: ABPropertyID) -> [ContactPhone] {
+    fileprivate static func getPhoneNumbers(_ person: ABRecord, property: ABPropertyID) -> [ContactPhone] {
         let personProperty = ABRecordCopyValue(person, property).takeRetainedValue()
         guard let personPropertyValues = ABMultiValueCopyArrayOfAllValues(personProperty) else {
             return []
@@ -103,7 +102,7 @@ class Contact {
 
         var propertyValues = [ContactPhone]()
         let properties = personPropertyValues.takeUnretainedValue() as NSArray
-        for (index, property) in properties.enumerate() {
+        for (index, property) in properties.enumerated() {
             let propertyLabel = ABMultiValueCopyLabelAtIndex(personProperty, index).takeRetainedValue() as String
             if let propertyValue = property as? String {
                 let phone = ContactPhone(type: propertyLabel, number: propertyValue)
