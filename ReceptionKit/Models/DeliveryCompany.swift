@@ -9,10 +9,10 @@
 import UIKit
 
 enum DeliveryCompany {
-    case UPS
-    case FedEx
-    case CanadaPost
-    case Other
+    case ups
+    case fedEx
+    case canadaPost
+    case other
 
     /**
      Used to get the text used in messages for the companies
@@ -22,14 +22,14 @@ enum DeliveryCompany {
      */
     func text() -> String {
         switch self {
-        case .UPS:
+        case .ups:
             return "UPS"
-        case .FedEx:
+        case .fedEx:
             return "FedEx"
-        case .CanadaPost:
+        case .canadaPost:
             return "Canada Post"
-        case .Other:
-            return Text.Other.get()
+        case .other:
+            return Text.other.get()
         }
     }
 }

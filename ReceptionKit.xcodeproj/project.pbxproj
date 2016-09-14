@@ -364,9 +364,11 @@
 					81B445141AE9313900725576 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = N92XZM98NX;
+						LastSwiftMigration = 0800;
 					};
 					81B445291AE9313900725576 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 81B445141AE9313900725576;
 					};
 				};
@@ -691,6 +693,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MyCompany.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ReceptionKit;
 				SWIFT_OBJC_BRIDGING_HEADER = "ReceptionKit/ReceptionKit-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -706,6 +709,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MyCompany.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ReceptionKit;
 				SWIFT_OBJC_BRIDGING_HEADER = "ReceptionKit/ReceptionKit-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
@@ -730,6 +734,7 @@
 				PRODUCT_NAME = ReceptionKitTests;
 				SWIFT_OBJC_BRIDGING_HEADER = "ReceptionKitTests/ReceptionKitTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReceptionKit.app/ReceptionKit";
 			};
 			name = Debug;
@@ -749,6 +754,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "RadialPoint.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ReceptionKitTests;
 				SWIFT_OBJC_BRIDGING_HEADER = "ReceptionKitTests/ReceptionKitTests-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReceptionKit.app/ReceptionKit";
 			};
 			name = Release;

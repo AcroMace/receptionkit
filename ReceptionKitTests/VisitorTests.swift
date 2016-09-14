@@ -29,7 +29,7 @@ class VisitorTests: KIFTestCase {
         tapReturnKey()
         tapDontKnowName()
         assertPleaseWaitMessageExists()
-        assertMessage(.UnknownVisitorUnknownVisitee())
+        assertMessage(.unknownVisitorUnknownVisitee())
     }
 
     func testVisitorsNameUnknownButKnowVisitee() {
@@ -38,7 +38,7 @@ class VisitorTests: KIFTestCase {
         tapKnowName()
         enterVisiteeName()
         assertPleaseWaitMessageExists()
-        assertMessage(.UnknownVisitorKnownVisitee(visiteeName: VisitorTests.visiteeName))
+        assertMessage(.unknownVisitorKnownVisitee(visiteeName: VisitorTests.visiteeName))
     }
 
     func testVisitorsNameKnownButDontKnowVisitee() {
@@ -46,7 +46,7 @@ class VisitorTests: KIFTestCase {
         enterVisitorName()
         tapDontKnowName()
         assertPleaseWaitMessageExists()
-        assertMessage(.KnownVisitorUnknownVisitee(visitorName: VisitorTests.visitorName))
+        assertMessage(.knownVisitorUnknownVisitee(visitorName: VisitorTests.visitorName))
     }
 
     func testVisitorsNameKnownButVisteeNotInContacts() {
@@ -55,7 +55,7 @@ class VisitorTests: KIFTestCase {
         tapKnowName()
         enterVisiteeName()
         assertPleaseWaitMessageExists()
-        assertMessage(.KnownVisitorKnownVisitee(visitorName: VisitorTests.visitorName, visiteeName: VisitorTests.visiteeName))
+        assertMessage(.knownVisitorKnownVisitee(visitorName: VisitorTests.visitorName, visiteeName: VisitorTests.visiteeName))
     }
 }
 
@@ -63,57 +63,58 @@ extension VisitorTests {
 
     // MARK: Helpers - Main page
 
-    private func tapVisitor() {
-        tester.tapViewWithAccessibilityLabel(Text.Visitor.accessibility())
+    fileprivate func tapVisitor() {
+        tester.tapView(withAccessibilityLabel:
+            Text.visitor.accessibility())
     }
 
     // MARK: Helpers - Enter name
 
-    private func enterVisitorName() {
+    fileprivate func enterVisitorName() {
         tester.enterText(
             VisitorTests.visitorName,
             intoViewWithAccessibilityLabel: VisitorAskNameViewController.nameTextFieldAccessibilityLabel)
         tapReturnKey()
     }
 
-    private func enterVisiteeName() {
+    fileprivate func enterVisiteeName() {
         tester.enterText(
             VisitorTests.visiteeName,
             intoViewWithAccessibilityLabel: VisitorSearchViewController.nameTextFieldAccessibilityLabel)
         tapReturnKey()
     }
 
-    private func tapReturnKey() {
-        tester.enterTextIntoCurrentFirstResponder("\n")
+    fileprivate func tapReturnKey() {
+        tester.enterText(intoCurrentFirstResponder: "\n")
     }
 
     // MARK: Helpers - Know the name
 
-    private func tapKnowName() {
-        tester.tapViewWithAccessibilityLabel(Text.IKnow.accessibility())
+    fileprivate func tapKnowName() {
+        tester.tapView(withAccessibilityLabel: Text.iKnow.accessibility())
     }
 
     // MARK: Helpers - Don't know the name
-    private func tapDontKnowName() {
-        tester.tapViewWithAccessibilityLabel(Text.IDontKnow.accessibility())
+    fileprivate func tapDontKnowName() {
+        tester.tapView(withAccessibilityLabel: Text.iDontKnow.accessibility())
     }
 
     // MARK: Helpers - Type of delivery
 
-    private func tapSignatureRequired() {
-        tester.tapViewWithAccessibilityLabel(Text.Signature.accessibility())
+    fileprivate func tapSignatureRequired() {
+        tester.tapView(withAccessibilityLabel: Text.signature.accessibility())
     }
 
-    private func tapLeftAtReception() {
-        tester.tapViewWithAccessibilityLabel(Text.LeftAtReception.accessibility())
+    fileprivate func tapLeftAtReception() {
+        tester.tapView(withAccessibilityLabel: Text.leftAtReception.accessibility())
     }
 
     // MARK: Helpers - Successfully sent message
 
     /// Check that we see the please wait screen
-    private func assertPleaseWaitMessageExists() {
-        tester.waitForViewWithAccessibilityLabel(Text.PleaseWait.accessibility())
-        tester.waitForViewWithAccessibilityLabel(Text.PleaseWaitMessage.accessibility())
+    fileprivate func assertPleaseWaitMessageExists() {
+        tester.waitForView(withAccessibilityLabel: Text.pleaseWait.accessibility())
+        tester.waitForView(withAccessibilityLabel: Text.pleaseWaitMessage.accessibility())
     }
 
     /**
@@ -121,7 +122,7 @@ extension VisitorTests {
 
      - parameter sentMessage: The message that should have been sent
      */
-    private func assertMessage(sentMessage: SlackMessage) {
+    fileprivate func assertMessage(_ sentMessage: SlackMessage) {
         assertMessageSent(mockMessageSender, message: sentMessage)
     }
 }

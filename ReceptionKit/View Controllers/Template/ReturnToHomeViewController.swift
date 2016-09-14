@@ -10,16 +10,16 @@ import UIKit
 
 class ReturnToHomeViewController: ThemedViewController {
 
-    var backToHomeTimer: NSTimer?
+    var backToHomeTimer: Timer?
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         // Start a timer to return back to the first view
-        backToHomeTimer = NSTimer.scheduledTimerWithTimeInterval(Config.General.Timeout, target: self, selector: #selector(ReturnToHomeViewController.unwindToHome(_:)), userInfo: nil, repeats: false)
+        backToHomeTimer = Timer.scheduledTimer(timeInterval: Config.General.Timeout, target: self, selector: #selector(ReturnToHomeViewController.unwindToHome(_:)), userInfo: nil, repeats: false)
     }
 
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         // Delete the timer
@@ -28,8 +28,8 @@ class ReturnToHomeViewController: ThemedViewController {
     }
 
     // Navigate back to the first view
-    func unwindToHome(timer: NSTimer!) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+    func unwindToHome(_ timer: Timer!) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
 }

@@ -9,34 +9,34 @@
 import UIKit
 
 enum SlackMessage {
-    case KnownVisitorKnownVisitee(visitorName: String, visiteeName: String)
-    case KnownVisitorUnknownVisitee(visitorName: String)
-    case UnknownVisitorKnownVisitee(visiteeName: String)
-    case UnknownVisitorUnknownVisitee()
-    case RequiresSignature(deliveryCompany: DeliveryCompany)
-    case LeftAtReception(deliveryCompany: DeliveryCompany)
+    case knownVisitorKnownVisitee(visitorName: String, visiteeName: String)
+    case knownVisitorUnknownVisitee(visitorName: String)
+    case unknownVisitorKnownVisitee(visiteeName: String)
+    case unknownVisitorUnknownVisitee()
+    case requiresSignature(deliveryCompany: DeliveryCompany)
+    case leftAtReception(deliveryCompany: DeliveryCompany)
 
     func text() -> String {
         switch self {
-        case .KnownVisitorKnownVisitee(let visitorName, let visiteeName):
+        case .knownVisitorKnownVisitee(let visitorName, let visiteeName):
             return "\(visitorName) is at the reception looking for \(visiteeName)!"
-        case .KnownVisitorUnknownVisitee(let visitorName):
+        case .knownVisitorUnknownVisitee(let visitorName):
             return "\(visitorName) is at the reception!"
-        case .UnknownVisitorKnownVisitee(let visiteeName):
+        case .unknownVisitorKnownVisitee(let visiteeName):
             return "Someone is at the reception looking for \(visiteeName)!"
-        case .UnknownVisitorUnknownVisitee:
+        case .unknownVisitorUnknownVisitee:
             return "Someone is at the reception!"
-        case .RequiresSignature(let deliveryCompany):
+        case .requiresSignature(let deliveryCompany):
             return makeDeliveryFromText(deliveryCompany) + " that requires a signature!"
-        case .LeftAtReception(let deliveryCompany):
+        case .leftAtReception(let deliveryCompany):
             return makeDeliveryFromText(deliveryCompany) + " that has been left at the reception!"
         }
     }
 
     // Exclude the "from" if the delivery company is unknown
-    private func makeDeliveryFromText(deliveryCompany: DeliveryCompany) -> String {
+    fileprivate func makeDeliveryFromText(_ deliveryCompany: DeliveryCompany) -> String {
         var messageText = "There is a delivery"
-        if deliveryCompany != .Other {
+        if deliveryCompany != .other {
             messageText += " from " + deliveryCompany.text()
         }
         return messageText

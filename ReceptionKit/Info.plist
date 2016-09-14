@@ -53,5 +53,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSContactsUsageDescription</key>
+	<string>The visitor can search the contacts on the iPad to pick the person that they are visiting</string>
 </dict>
 </plist>

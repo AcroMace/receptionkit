@@ -10,9 +10,9 @@
  *  Protocol used for a service that can send messages
  */
 protocol MessageSender {
-    func sendMessage(slackMessage: SlackMessage) // Text + Image
-    func sendText(slackMessage: SlackMessage)
-    func sendImage(image: UIImage)
+    func sendMessage(_ slackMessage: SlackMessage) // Text + Image
+    func sendText(_ slackMessage: SlackMessage)
+    func sendImage(_ image: UIImage)
 }
 
 class SmoochMessageSender: MessageSender {
@@ -22,9 +22,9 @@ class SmoochMessageSender: MessageSender {
 
      - parameter text: The text of the message to send
      */
-    func sendMessage(slackMessage: SlackMessage) {
+    func sendMessage(_ slackMessage: SlackMessage) {
         sendText(slackMessage)
-        if let photo = camera.takePhoto() where Config.Photos.SendOnInteraction {
+        if let photo = camera.takePhoto() , Config.Photos.SendOnInteraction {
             sendImage(photo)
         }
     }
@@ -34,7 +34,7 @@ class SmoochMessageSender: MessageSender {
 
      - parameter text: The text of the message to send
      */
-    func sendText(slackMessage: SlackMessage) {
+    func sendText(_ slackMessage: SlackMessage) {
         let message = SKTMessage(text: slackMessage.text())
         Smooch.conversation().sendMessage(message)
     }
@@ -44,7 +44,7 @@ class SmoochMessageSender: MessageSender {
 
      - parameter image: The image to send
      */
-    func sendImage(image: UIImage) {
-        Smooch.conversation().sendImage(image, withProgress: nil, completion: nil)
+    func sendImage(_ image: UIImage) {
+        Smooch.conversation().send(image, withProgress: nil, completion: nil)
     }
 }

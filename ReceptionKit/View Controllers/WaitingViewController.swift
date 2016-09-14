@@ -19,7 +19,7 @@ class WaitingViewController: ReturnToHomeViewController {
     @IBOutlet weak var thankYouLabel: UILabel!
     @IBOutlet weak var thankYouMessageText: UITextView!
 
-    func configure(viewModel: WaitingViewModel) {
+    func configure(_ viewModel: WaitingViewModel) {
         self.viewModel = viewModel
     }
 
@@ -30,20 +30,20 @@ class WaitingViewController: ReturnToHomeViewController {
             return
         }
 
-        thankYouMessageText.selectable = true
+        thankYouMessageText.isSelectable = true
         if viewModel.shouldAskToWait {
-            thankYouLabel.text = Text.PleaseWait.get()
-            thankYouLabel.accessibilityLabel = Text.PleaseWait.accessibility()
+            thankYouLabel.text = Text.pleaseWait.get()
+            thankYouLabel.accessibilityLabel = Text.pleaseWait.accessibility()
 
-            thankYouMessageText.text = Text.PleaseWaitMessage.get()
-            thankYouMessageText.accessibilityLabel = Text.PleaseWaitMessage.accessibility()
+            thankYouMessageText.text = Text.pleaseWaitMessage.get()
+            thankYouMessageText.accessibilityLabel = Text.pleaseWaitMessage.accessibility()
         } else {
-            thankYouLabel.text = Text.ThankYou.get()
-            thankYouLabel.accessibilityLabel = Text.ThankYou.accessibility()
+            thankYouLabel.text = Text.thankYou.get()
+            thankYouLabel.accessibilityLabel = Text.thankYou.accessibility()
 
-            thankYouMessageText.text = Text.NiceDay.get()
-            thankYouMessageText.accessibilityLabel = Text.NiceDay.accessibility()
+            thankYouMessageText.text = Text.niceDay.get()
+            thankYouMessageText.accessibilityLabel = Text.niceDay.accessibility()
         }
-        thankYouMessageText.selectable = false
+        thankYouMessageText.isSelectable = false
     }
 }

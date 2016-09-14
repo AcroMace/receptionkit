@@ -16,7 +16,7 @@ extension KIFTestCase {
     }
 
     func getAppDelegate() -> AppDelegate {
-        guard let delegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
             Logger.error("Could not get the app delegate")
             return AppDelegate()
         }
@@ -29,7 +29,7 @@ extension KIFTestCase {
         return mockMessageSender
     }
 
-    func assertMessageSent(messageSender: MockMessageSender, message: SlackMessage) {
+    func assertMessageSent(_ messageSender: MockMessageSender, message: SlackMessage) {
         if !messageSender.wasMessageSent(message) {
             XCTFail("Message: \(message.text()) was expected to be sent but was not")
         }
