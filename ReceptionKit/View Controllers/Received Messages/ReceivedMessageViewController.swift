@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Haneke
+import SDWebImage
 
 struct ReceivedMessageViewModel {
     let name: String
@@ -51,7 +51,7 @@ class ReceivedMessageViewController: UIViewController {
 
         // Load the image
         guard let picture = viewModel?.picture, URL = NSURL(string: picture) else { return }
-        contactPicture.hnk_setImageFromURL(URL)
+        contactPicture.sd_setImageWithURL(URL)
     }
 
 }

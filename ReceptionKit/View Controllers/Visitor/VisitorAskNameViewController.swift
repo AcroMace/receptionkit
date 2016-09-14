@@ -23,7 +23,7 @@ class VisitorAskNameViewController: ReturnToHomeViewController, UITextFieldDeleg
         nameTextField.delegate = self
         nameTextField.borderStyle = UITextBorderStyle.RoundedRect
         nameTextField.accessibilityLabel = VisitorAskNameViewController.nameTextFieldAccessibilityLabel
-        yourNameLabel.text = VisitorAskNameViewController.nameTextFieldAccessibilityLabel
+        yourNameLabel.text = Text.YourName.get()
     }
 
     override func viewDidAppear(animated: Bool) {

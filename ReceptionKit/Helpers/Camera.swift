@@ -122,9 +122,9 @@ extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
      - returns: An UIImage instance if one could be created, nil otherwise
      */
     private func createImageFromBuffer(buffer: CVImageBuffer) -> UIImage? {
-        CVPixelBufferLockBaseAddress(buffer, 0)
+        CVPixelBufferLockBaseAddress(buffer, CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)))
         defer {
-            CVPixelBufferUnlockBaseAddress(buffer, 0)
+            CVPixelBufferUnlockBaseAddress(buffer, CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)))
         }
 
         let baseAddress = CVPixelBufferGetBaseAddress(buffer)
@@ -134,7 +134,7 @@ extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
         let colorSpace = CGColorSpaceCreateDeviceRGB()
 
         let newContext = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, CGBitmapInfo.ByteOrder32Little.rawValue | CGImageAlphaInfo.PremultipliedFirst.rawValue)
-        guard let newImage = CGBitmapContextCreateImage(newContext) else {
+        guard let newImage = CGBitmapContextCreateImage(newContext!) else {
             return nil
         }
 

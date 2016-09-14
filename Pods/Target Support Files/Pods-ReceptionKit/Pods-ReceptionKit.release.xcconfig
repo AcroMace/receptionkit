@@ -1,11 +1,9 @@
-EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) $(PODS_ROOT)/Smooch "$PODS_CONFIGURATION_BUILD_DIR/HanekeSwift" "${PODS_ROOT}/Smooch"
+FRAMEWORK_SEARCH_PATHS = $(inherited) $(PODS_ROOT)/Smooch "$PODS_CONFIGURATION_BUILD_DIR/SDWebImage" "${PODS_ROOT}/Smooch"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Smooch"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/HanekeSwift/Haneke.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Smooch"
-OTHER_LDFLAGS = $(inherited) -l"icucore" -framework "AVFoundation" -framework "AssetsLibrary" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreTelephony" -framework "CoreText" -framework "Foundation" -framework "Haneke" -framework "Photos" -framework "QuartzCore" -framework "Smooch" -framework "SystemConfiguration" -framework "UIKit"
-OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/SDWebImage/SDWebImage.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Smooch"
+OTHER_LDFLAGS = $(inherited) -l"icucore" -framework "AVFoundation" -framework "AssetsLibrary" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreTelephony" -framework "CoreText" -framework "Foundation" -framework "Photos" -framework "QuartzCore" -framework "SDWebImage" -framework "Smooch" -framework "SystemConfiguration" -framework "UIKit"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/Pods

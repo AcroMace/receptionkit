@@ -2,7 +2,7 @@ use_frameworks!
 
 target 'ReceptionKit' do
   pod 'Smooch'
-  pod 'HanekeSwift'
+  pod 'SDWebImage', '~>3.8'
 end
 
 target 'ReceptionKitTests' do

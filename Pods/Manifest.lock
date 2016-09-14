@@ -1,20 +1,22 @@
 PODS:
-  - HanekeSwift (0.10.1)
   - KIF (3.5.1):
     - KIF/Core (= 3.5.1)
   - KIF/Core (3.5.1)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - Smooch (5.0.0)
 
 DEPENDENCIES:
-  - HanekeSwift
   - KIF (~> 3.0)
+  - SDWebImage (~> 3.8)
   - Smooch
 
 SPEC CHECKSUMS:
-  HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
   KIF: 082eb65279e51c3092923802849eb796a04982ab
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   Smooch: 88d317c4972654e854eba3383d43e6b77d0cb988
 
-PODFILE CHECKSUM: 85629312317a630f8ca608fdf5ce2e12717faab6
+PODFILE CHECKSUM: e50e424b5f10b600188faa0a97f8c9bdcee9ade4
 
 COCOAPODS: 1.0.1
