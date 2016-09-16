@@ -34,7 +34,7 @@ enum SlackMessage {
     }
 
     // Exclude the "from" if the delivery company is unknown
-    fileprivate func makeDeliveryFromText(_ deliveryCompany: DeliveryCompany) -> String {
+    private func makeDeliveryFromText(_ deliveryCompany: DeliveryCompany) -> String {
         var messageText = "There is a delivery"
         if deliveryCompany != .other {
             messageText += " from " + deliveryCompany.text()

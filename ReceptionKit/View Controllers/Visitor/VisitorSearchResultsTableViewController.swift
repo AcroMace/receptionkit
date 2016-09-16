@@ -15,7 +15,7 @@ struct VisitorSearchResultsViewModel {
 }
 
 class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
-    fileprivate var viewModel: VisitorSearchResultsViewModel?
+    private var viewModel: VisitorSearchResultsViewModel?
 
     static let selectedContactSegue = "SelectedContact"
 
@@ -42,35 +42,35 @@ class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
             return ContactTableViewCell()
         }
 
-        guard let searchResults = viewModel?.searchResults , (indexPath as NSIndexPath).row < searchResults.count else {
+        guard let searchResults = viewModel?.searchResults, indexPath.row < searchResults.count else {
             Logger.error("Search results not specified in VisitorSearchResultsTableViewController")
             return ContactTableViewCell()
         }
 
-        let contact = searchResults[(indexPath as NSIndexPath).row]
+        let contact = searchResults[indexPath.row]
         cell.configure(contact)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // No search results
-        guard let searchResults = viewModel?.searchResults , (indexPath as NSIndexPath).row < searchResults.count else {
+        guard let searchResults = viewModel?.searchResults, indexPath.row < searchResults.count else {
             return
         }
-        let contactName = searchResults[(indexPath as NSIndexPath).row].name
+        let contactName = searchResults[indexPath.row].name
 
         // No visitor name
-        guard let visitorName = viewModel?.visitorName , !visitorName.isEmpty else {
-            messageSender.sendMessage(.unknownVisitorKnownVisitee(visiteeName: contactName))
+        guard let visitorName = viewModel?.visitorName, !visitorName.isEmpty else {
+            messageSender.send(message: .unknownVisitorKnownVisitee(visiteeName: contactName))
             performSelectedContactSegue()
             return
         }
 
-        messageSender.sendMessage(.knownVisitorKnownVisitee(visitorName: visitorName, visiteeName: contactName))
+        messageSender.send(message: .knownVisitorKnownVisitee(visitorName: visitorName, visiteeName: contactName))
         performSelectedContactSegue()
     }
 
-    fileprivate func performSelectedContactSegue() {
+    private func performSelectedContactSegue() {
         performSegue(withIdentifier: VisitorSearchResultsTableViewController.selectedContactSegue, sender: self)
     }
 

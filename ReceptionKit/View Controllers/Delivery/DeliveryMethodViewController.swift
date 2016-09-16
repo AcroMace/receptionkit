@@ -59,7 +59,7 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
 
     // Segue to the thank you controller after sending a Smooch message
     func segueWithMessage(_ message: SlackMessage) {
-        messageSender.sendMessage(message)
+        messageSender.send(message: message)
         performSegue(withIdentifier: "DeliveryMethodSelectedSegue", sender: self)
     }
 

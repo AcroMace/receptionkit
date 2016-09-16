@@ -47,7 +47,7 @@ class ReturnToHomeTableViewController: UITableViewController {
 
     // Navigate back to the first view
     func unwindToHome(_ timer: Timer!) {
-        self.navigationController?.popToRootViewController(animated: true)
+        _ = navigationController?.popToRootViewController(animated: true)
     }
 
 }

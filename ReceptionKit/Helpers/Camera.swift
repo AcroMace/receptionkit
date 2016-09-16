@@ -12,7 +12,7 @@ class Camera: NSObject {
     /// The last image captured from the camera
     fileprivate var cameraImage: UIImage?
     /// Keep a reference to the session so it doesn't get deallocated
-    fileprivate var captureSession: AVCaptureSession?
+    private var captureSession: AVCaptureSession?
 
     /**
      Create a Camera instance and start streaming from the front facing camera
@@ -36,7 +36,7 @@ class Camera: NSObject {
     /**
      Start streaming from the front facing camera
      */
-    fileprivate func setupCamera() {
+    private func setupCamera() {
         guard let camera = getFrontFacingCamera() else {
             Logger.error("Front facing camera not found")
             return
@@ -46,7 +46,7 @@ class Camera: NSObject {
             return
         }
         let output = createCameraOutputStream()
-        captureSession = createCaptureSession(input, output: output)
+        captureSession = createCaptureSession(input: input, output: output)
         captureSession?.startRunning()
     }
 
@@ -55,7 +55,7 @@ class Camera: NSObject {
 
      - returns: The front facing camera, an AVCaptureDevice, or `nil` if none exists.
      */
-    fileprivate func getFrontFacingCamera() -> AVCaptureDevice? {
+    private func getFrontFacingCamera() -> AVCaptureDevice? {
         let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo)
         for device in devices! {
             if (device as AnyObject).position == AVCaptureDevicePosition.front {
@@ -70,7 +70,7 @@ class Camera: NSObject {
 
      - returns: A camera output stream
      */
-    fileprivate func createCameraOutputStream() -> AVCaptureVideoDataOutput {
+    private func createCameraOutputStream() -> AVCaptureVideoDataOutput {
         let queue = DispatchQueue(label: "cameraQueue", attributes: [])
         let output = AVCaptureVideoDataOutput()
         output.alwaysDiscardsLateVideoFrames = true
@@ -91,7 +91,7 @@ class Camera: NSObject {
 
      - returns: An AVCaptureSession that has not yet been started
      */
-    fileprivate func createCaptureSession(_ input: AVCaptureDeviceInput, output: AVCaptureVideoDataOutput) -> AVCaptureSession {
+    private func createCaptureSession(input: AVCaptureDeviceInput, output: AVCaptureVideoDataOutput) -> AVCaptureSession {
         let captureSession = AVCaptureSession()
         captureSession.addInput(input)
         captureSession.addOutput(output)
@@ -120,7 +120,7 @@ extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
 
      - returns: An UIImage instance if one could be created, nil otherwise
      */
-    fileprivate func createImageFromBuffer(_ buffer: CVImageBuffer) -> UIImage? {
+    private func createImageFromBuffer(_ buffer: CVImageBuffer) -> UIImage? {
         let noOption = CVPixelBufferLockFlags(rawValue: CVOptionFlags(0))
 
         CVPixelBufferLockBaseAddress(buffer, noOption)
@@ -133,16 +133,24 @@ extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
         let width = CVPixelBufferGetWidth(buffer)
         let height = CVPixelBufferGetHeight(buffer)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue
 
-        let newContext = CGContext(data: baseAddress, width: width, height: height, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue)
-        guard let newImage = newContext!.makeImage() else {
+        let newContext = CGContext(
+            data: baseAddress,
+            width: width,
+            height: height,
+            bitsPerComponent: 8,
+            bytesPerRow: bytesPerRow,
+            space: colorSpace,
+            bitmapInfo: bitmapInfo)
+        guard let newImage = newContext?.makeImage() else {
             return nil
         }
 
         return UIImage(cgImage: newImage, scale: 1.0, orientation: getPhotoOrientation())
     }
 
-    fileprivate func getPhotoOrientation() -> UIImageOrientation {
+    private func getPhotoOrientation() -> UIImageOrientation {
         switch UIDevice.current.orientation {
         case .landscapeLeft:
             return .downMirrored

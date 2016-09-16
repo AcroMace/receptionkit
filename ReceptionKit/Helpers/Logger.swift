@@ -9,6 +9,7 @@
 import UIKit
 
 struct Logger {
+
     /**
      Print a debug message
 
@@ -26,4 +27,5 @@ struct Logger {
     static func error(_ message: String) {
         print("ERROR: \(message)")
     }
+
 }
