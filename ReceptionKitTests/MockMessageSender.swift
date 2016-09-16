@@ -14,18 +14,18 @@ class MockMessageSender: MessageSender {
     var textSent = [SlackMessage]()
     var imagesSent = [UIImage]()
 
-    func sendMessage(_ slackMessage: SlackMessage) {
-        sendText(slackMessage)
-        if let photo = camera.takePhoto() , Config.Photos.SendOnInteraction {
-            sendImage(photo)
+    func send(message: SlackMessage) {
+        send(text: message)
+        if let photo = camera.takePhoto(), Config.Photos.SendOnInteraction {
+            send(image: photo)
         }
     }
 
-    func sendText(_ slackMessage: SlackMessage) {
-        textSent.append(slackMessage)
+    func send(text: SlackMessage) {
+        textSent.append(text)
     }
 
-    func sendImage(_ image: UIImage) {
+    func send(image: UIImage) {
         imagesSent.append(image)
     }
 

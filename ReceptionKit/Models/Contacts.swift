@@ -94,7 +94,7 @@ class Contact {
     //
 
     // Get a property from a ABPerson, returns an array of Strings that matches the value
-    fileprivate static func getPhoneNumbers(_ person: ABRecord, property: ABPropertyID) -> [ContactPhone] {
+    private static func getPhoneNumbers(_ person: ABRecord, property: ABPropertyID) -> [ContactPhone] {
         let personProperty = ABRecordCopyValue(person, property).takeRetainedValue()
         guard let personPropertyValues = ABMultiValueCopyArrayOfAllValues(personProperty) else {
             return []

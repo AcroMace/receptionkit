@@ -18,7 +18,7 @@ struct VisitorSearchViewModel {
 }
 
 class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelegate {
-    fileprivate var viewModel: VisitorSearchViewModel?
+    private var viewModel: VisitorSearchViewModel?
 
     @IBOutlet weak var lookingForLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
@@ -92,11 +92,11 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
 
             // The visitor's name is unknown
             guard let visitorName = viewModel?.visitorName, !visitorName.isEmpty else {
-                messageSender.sendMessage(.unknownVisitorKnownVisitee(visiteeName: lookingForName))
+                messageSender.send(message: .unknownVisitorKnownVisitee(visiteeName: lookingForName))
                 return
             }
             // The visitor's name is known
-            messageSender.sendMessage(.knownVisitorKnownVisitee(visitorName: visitorName, visiteeName: lookingForName))
+            messageSender.send(message: .knownVisitorKnownVisitee(visitorName: visitorName, visiteeName: lookingForName))
         }
     }
 

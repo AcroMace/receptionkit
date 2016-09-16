@@ -15,15 +15,17 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
 
     // Display the message modal when a message arrives
     // Only displays the last message
-    func conversation(_ conversation: SKTConversation!, didReceiveMessages messages: [AnyObject]!) {
+    func conversation(_ conversation: SKTConversation, didReceiveMessages messages: [AnyObject]) {
+        // guard let `conversation` = conversation, let `messages` = messages else { return }
+
         // May be a bug here where messages are ignored if the messages are batched
         // and multiple messages are sent at once
-        guard let lastMessage = conversation.messages.last as? SKTMessage , !lastMessage.isFromCurrentUser else {
+        guard let lastMessage = conversation.messages.last as? SKTMessage, !lastMessage.isFromCurrentUser else {
             return
         }
 
         if Config.Photos.EnableCommand && containsImageCommand(lastMessage.text), let photo = camera.takePhoto() {
-            messageSender.sendImage(photo)
+            messageSender.send(image: photo)
         } else {
             showReceivedMessage(lastMessage)
         }
@@ -61,11 +63,11 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
 
     // MARK: - Private methods
 
-    fileprivate func containsImageCommand(_ text: String) -> Bool {
+    private func containsImageCommand(_ text: String) -> Bool {
         return text.contains(Config.Photos.ImageCaptureCommand)
     }
 
-    fileprivate func showReceivedMessage(_ message: SKTMessage) {
+    private func showReceivedMessage(_ message: SKTMessage) {
         let topVC = getTopViewController()
         let receivedMessageView = createReceivedMessageView(message)
 
@@ -94,7 +96,7 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
 
      - returns: The top view controller
      */
-    fileprivate func getTopViewController() -> UIViewController {
+    private func getTopViewController() -> UIViewController {
         return UIApplication.shared.keyWindow!.rootViewController!
     }
 
@@ -105,7 +107,7 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
 
      - returns: The view created
      */
-    fileprivate func createReceivedMessageView(_ lastMessage: SKTMessage) -> ReceivedMessageViewController {
+    private func createReceivedMessageView(_ lastMessage: SKTMessage) -> ReceivedMessageViewController {
         let receivedMessageView = ReceivedMessageViewController(nibName: ReceivedMessageViewController.nibName, bundle: nil)
         let receivedMessageViewModel = ReceivedMessageViewModel(
             name: lastMessage.name,

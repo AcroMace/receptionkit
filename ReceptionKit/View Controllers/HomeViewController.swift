@@ -43,7 +43,7 @@ class HomeViewController: ThemedViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: Text.back.get(), style: UIBarButtonItemStyle.plain, target: nil, action: nil)
     }
 
-    fileprivate func updateButtons() {
+    private func updateButtons() {
         deliveryButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .delivery, text: .delivery), for: UIControlState())
         deliveryButton.accessibilityLabel = Text.delivery.accessibility()
 

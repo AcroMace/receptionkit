@@ -36,7 +36,7 @@ class ContactTableViewCell: UITableViewCell {
     }
 
     // Take the phone numbers and create a descriptive string for it
-    fileprivate func formatPhoneString(_ phones: [ContactPhone]) -> String {
+    private func formatPhoneString(_ phones: [ContactPhone]) -> String {
         var workPhones = [String]()
         var mobilePhones = [String]()
 

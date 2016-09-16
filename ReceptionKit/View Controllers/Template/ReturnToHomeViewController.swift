@@ -29,7 +29,7 @@ class ReturnToHomeViewController: ThemedViewController {
 
     // Navigate back to the first view
     func unwindToHome(_ timer: Timer!) {
-        self.navigationController?.popToRootViewController(animated: true)
+        _ = self.navigationController?.popToRootViewController(animated: true)
     }
 
 }
