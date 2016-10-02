@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: ThemedViewController, StackViewOrientable {
+class HomeViewController: UIViewController, Themed, StackViewOrientable {
 
     @IBOutlet weak var languageButton: UIBarButtonItem!
     @IBOutlet weak var stackView: UIStackView!
@@ -31,6 +31,7 @@ class HomeViewController: ThemedViewController, StackViewOrientable {
             navigationItem.rightBarButtonItem = nil
         }
 
+        setTheme()
         updateButtons()
     }
 

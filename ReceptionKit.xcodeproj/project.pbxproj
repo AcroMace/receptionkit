@@ -11,6 +11,8 @@
 		630603061D74FF19005FF564 /* XCTestCase+KIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630603051D74FF19005FF564 /* XCTestCase+KIF.swift */; };
 		630603081D75002E005FF564 /* DeliveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630603071D75002E005FF564 /* DeliveryTests.swift */; };
 		630CDB0C1DA090F7000C8724 /* UIViewController+StackViewOrientable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630CDB0B1DA090F7000C8724 /* UIViewController+StackViewOrientable.swift */; };
+		630CDB101DA09D0D000C8724 /* UIViewController+Themed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630CDB0F1DA09D0D000C8724 /* UIViewController+Themed.swift */; };
+		630CDB121DA09E2E000C8724 /* UIViewController+ReturnsToHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630CDB111DA09E2E000C8724 /* UIViewController+ReturnsToHome.swift */; };
 		631439931AF1BCDA00B7B757 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631439921AF1BCDA00B7B757 /* Config.swift */; };
 		6336ADD61CD6237600036786 /* ButtonFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6336ADD51CD6237600036786 /* ButtonFormatter.swift */; };
 		633DD7D91AF1E5D5001BE427 /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DD7D81AF1E5D5001BE427 /* Colour.swift */; };
@@ -22,7 +24,6 @@
 		639744521D75602C0046F62B /* MockMessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639744511D75602C0046F62B /* MockMessageSender.swift */; };
 		639744561D7566630046F62B /* SlackMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639744551D7566630046F62B /* SlackMessage.swift */; };
 		639A54141C34FA55005FC850 /* MessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A54131C34FA55005FC850 /* MessageSender.swift */; };
-		63AC285E1AF1F93E00D2AEA5 /* ThemedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC285D1AF1F93E00D2AEA5 /* ThemedViewController.swift */; };
 		63AC28601AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC285F1AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift */; };
 		63AC28621AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC28611AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift */; };
 		63C9695C1D7506710025FA15 /* KIFTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C9695B1D7506710025FA15 /* KIFTestCase+Helpers.swift */; };
@@ -66,6 +67,8 @@
 		630603051D74FF19005FF564 /* XCTestCase+KIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+KIF.swift"; sourceTree = "<group>"; };
 		630603071D75002E005FF564 /* DeliveryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryTests.swift; sourceTree = "<group>"; };
 		630CDB0B1DA090F7000C8724 /* UIViewController+StackViewOrientable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+StackViewOrientable.swift"; path = "View Controllers/Template/UIViewController+StackViewOrientable.swift"; sourceTree = "<group>"; };
+		630CDB0F1DA09D0D000C8724 /* UIViewController+Themed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Themed.swift"; path = "View Controllers/Template/UIViewController+Themed.swift"; sourceTree = "<group>"; };
+		630CDB111DA09E2E000C8724 /* UIViewController+ReturnsToHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+ReturnsToHome.swift"; path = "View Controllers/Template/UIViewController+ReturnsToHome.swift"; sourceTree = "<group>"; };
 		631439921AF1BCDA00B7B757 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6336ADD51CD6237600036786 /* ButtonFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonFormatter.swift; path = Helpers/ButtonFormatter.swift; sourceTree = "<group>"; };
 		633DD7D81AF1E5D5001BE427 /* Colour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colour.swift; path = Helpers/Colour.swift; sourceTree = "<group>"; };
@@ -78,7 +81,6 @@
 		639744551D7566630046F62B /* SlackMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackMessage.swift; path = Models/SlackMessage.swift; sourceTree = "<group>"; };
 		639A54131C34FA55005FC850 /* MessageSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageSender.swift; path = Helpers/MessageSender.swift; sourceTree = "<group>"; };
 		639D9CE41D73D25000D6E781 /* ReceptionKitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReceptionKitTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		63AC285D1AF1F93E00D2AEA5 /* ThemedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemedViewController.swift; path = "View Controllers/Template/ThemedViewController.swift"; sourceTree = "<group>"; };
 		63AC285F1AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturnToHomeViewController.swift; path = "View Controllers/Template/ReturnToHomeViewController.swift"; sourceTree = "<group>"; };
 		63AC28611AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturnToHomeTableViewController.swift; path = "View Controllers/Template/ReturnToHomeTableViewController.swift"; sourceTree = "<group>"; };
 		63C9695B1D7506710025FA15 /* KIFTestCase+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KIFTestCase+Helpers.swift"; sourceTree = "<group>"; };
@@ -155,10 +157,11 @@
 		63AC285C1AF1F85300D2AEA5 /* Template */ = {
 			isa = PBXGroup;
 			children = (
-				63AC285D1AF1F93E00D2AEA5 /* ThemedViewController.swift */,
 				63AC285F1AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift */,
 				63AC28611AF201DA00D2AEA5 /* ReturnToHomeTableViewController.swift */,
+				630CDB0F1DA09D0D000C8724 /* UIViewController+Themed.swift */,
 				630CDB0B1DA090F7000C8724 /* UIViewController+StackViewOrientable.swift */,
+				630CDB111DA09E2E000C8724 /* UIViewController+ReturnsToHome.swift */,
 			);
 			name = Template;
 			sourceTree = "<group>";
@@ -538,8 +541,10 @@
 				631439931AF1BCDA00B7B757 /* Config.swift in Sources */,
 				630CDB0C1DA090F7000C8724 /* UIViewController+StackViewOrientable.swift in Sources */,
 				81B4453D1AE9360400725576 /* DeliveryMethodViewController.swift in Sources */,
+				630CDB121DA09E2E000C8724 /* UIViewController+ReturnsToHome.swift in Sources */,
 				633FD21D1D0E165D0093419B /* Camera.swift in Sources */,
 				81E2AC821AE959FA000D5F25 /* VisitorSearchViewController.swift in Sources */,
+				630CDB101DA09D0D000C8724 /* UIViewController+Themed.swift in Sources */,
 				81E2AC881AE95BF4000D5F25 /* Contacts.swift in Sources */,
 				81E2AC801AE95843000D5F25 /* WaitingViewController.swift in Sources */,
 				81B4451B1AE9313900725576 /* AppDelegate.swift in Sources */,
@@ -556,7 +561,6 @@
 				81B4453B1AE935E400725576 /* DeliveryCompanyViewController.swift in Sources */,
 				63AC28601AF1FA8A00D2AEA5 /* ReturnToHomeViewController.swift in Sources */,
 				639744561D7566630046F62B /* SlackMessage.swift in Sources */,
-				63AC285E1AF1F93E00D2AEA5 /* ThemedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
