@@ -19,67 +19,37 @@
                         <rect key="frame" x="0.0" y="64" width="1024" height="1302"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uCB-dj-GQe">
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
-                                <state key="normal" title="i'm a visitor">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="3Yy-Wq-cJ7" kind="show" id="vVh-Fq-cLT"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-2M-Olk">
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
-                                <state key="normal" title="delivery">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="GCF-Zq-Vv5" kind="show" id="xcE-97-maj"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Wfg-EL-92o">
+                                <subviews>
+                                    <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-2M-Olk">
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
+                                        <state key="normal" title="delivery">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="GCF-Zq-Vv5" kind="show" id="xcE-97-maj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uCB-dj-GQe">
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
+                                        <state key="normal" title="i'm a visitor">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="3Yy-Wq-cJ7" kind="show" id="vVh-Fq-cLT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.75686274509803919" green="0.031372549019607843" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Dxu-2M-Olk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="AZ3-dy-u9F" userLabel="Delivery Left"/>
-                            <constraint firstItem="uCB-dj-GQe" firstAttribute="width" secondItem="Dxu-2M-Olk" secondAttribute="width" id="Bl4-kC-PYc" userLabel="Equal Width"/>
-                            <constraint firstItem="Dxu-2M-Olk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Jnt-r5-QP0" userLabel="Delivery Top"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uCB-dj-GQe" secondAttribute="bottom" id="KZg-AZ-hN6" userLabel="Visitor Bottom"/>
-                            <constraint firstAttribute="trailing" secondItem="Dxu-2M-Olk" secondAttribute="trailing" id="Sdu-DE-y0Y" userLabel="Delivery Right"/>
-                            <constraint firstItem="uCB-dj-GQe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bJ4-xO-OBl" userLabel="Visitor Left"/>
-                            <constraint firstItem="uCB-dj-GQe" firstAttribute="top" secondItem="Dxu-2M-Olk" secondAttribute="bottom" id="cbz-pI-rn8" userLabel="Vertical Margin"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Dxu-2M-Olk" secondAttribute="bottom" id="esz-Kt-vNK" userLabel="Delivery Bottom"/>
-                            <constraint firstItem="uCB-dj-GQe" firstAttribute="leading" secondItem="Dxu-2M-Olk" secondAttribute="trailing" id="naM-sm-Lyz" userLabel="Horizontal Margin"/>
-                            <constraint firstItem="uCB-dj-GQe" firstAttribute="height" secondItem="Dxu-2M-Olk" secondAttribute="height" id="nk2-Fo-hsY" userLabel="Equal Height"/>
-                            <constraint firstAttribute="trailing" secondItem="uCB-dj-GQe" secondAttribute="trailing" id="zfv-R8-fqB" userLabel="Visitor Right"/>
+                            <constraint firstAttribute="trailing" secondItem="Wfg-EL-92o" secondAttribute="trailing" id="Oxa-DL-kLc"/>
+                            <constraint firstItem="Wfg-EL-92o" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="kgr-DZ-RMf"/>
+                            <constraint firstItem="Wfg-EL-92o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qG4-NQ-iA6"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Wfg-EL-92o" secondAttribute="bottom" id="tUB-lf-SL4"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Sdu-DE-y0Y"/>
-                                <exclude reference="bJ4-xO-OBl"/>
-                                <exclude reference="cbz-pI-rn8"/>
-                                <exclude reference="naM-sm-Lyz"/>
-                                <exclude reference="esz-Kt-vNK"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular">
-                            <mask key="constraints">
-                                <include reference="Sdu-DE-y0Y"/>
-                                <include reference="bJ4-xO-OBl"/>
-                                <include reference="cbz-pI-rn8"/>
-                                <exclude reference="naM-sm-Lyz"/>
-                                <exclude reference="esz-Kt-vNK"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=regular">
-                            <mask key="constraints">
-                                <exclude reference="Sdu-DE-y0Y"/>
-                                <exclude reference="bJ4-xO-OBl"/>
-                                <exclude reference="cbz-pI-rn8"/>
-                                <include reference="naM-sm-Lyz"/>
-                                <include reference="esz-Kt-vNK"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="ZpT-XF-Ski">
                         <barButtonItem key="rightBarButtonItem" title="français" style="done" id="WBp-5Z-Vg3">
@@ -91,6 +61,7 @@
                     <connections>
                         <outlet property="deliveryButton" destination="Dxu-2M-Olk" id="7Nj-KX-Fdu"/>
                         <outlet property="languageButton" destination="WBp-5Z-Vg3" id="EEb-Ql-QA3"/>
+                        <outlet property="stackView" destination="Wfg-EL-92o" id="EUQ-Kd-tNr"/>
                         <outlet property="visitorButton" destination="uCB-dj-GQe" id="kKg-zq-bfQ"/>
                     </connections>
                 </viewController>
@@ -522,6 +493,6 @@
         <image name="IconDeliveryUPS" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uts-8T-2PH"/>
+        <segue reference="9RB-Zb-qnu"/>
     </inferredMetricsTieBreakers>
 </document>

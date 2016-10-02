@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VisitorViewController: ReturnToHomeViewController {
+class VisitorViewController: ReturnToHomeViewController, StackViewOrientable {
 
     // Name of the visitor set by VisitorAskNameViewController
     var visitorName: String?
@@ -38,15 +38,6 @@ class VisitorViewController: ReturnToHomeViewController {
     // Reset the alignment of the text on rotation
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         setButtonVerticalAlignment(withDeviceDimensions: size)
-    }
-
-    // Change the direction of the stack view given the dimensions of the device
-    func setButtonVerticalAlignment(withDeviceDimensions size: CGSize) {
-        if size.width < size.height {
-            stackView.axis = .vertical
-        } else {
-            stackView.axis = .horizontal
-        }
     }
 
     // MARK: - Navigation
