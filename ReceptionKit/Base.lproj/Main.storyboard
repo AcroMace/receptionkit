@@ -332,41 +332,42 @@
                         <rect key="frame" x="0.0" y="64" width="1024" height="1302"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DyD-yG-B4D">
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
-                                <state key="normal" title="i need a signature">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signatureButtonTapped:" destination="bto-05-yno" eventType="touchUpInside" id="8FA-Sl-1R0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fdR-hF-OqZ">
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
-                                <state key="normal" title="i left a package at the reception">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="leftReceptionButtonTapped:" destination="bto-05-yno" eventType="touchUpInside" id="8b0-12-rcx"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ntd-z4-weE">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DyD-yG-B4D">
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
+                                        <state key="normal" title="i need a signature">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signatureButtonTapped:" destination="bto-05-yno" eventType="touchUpInside" id="8FA-Sl-1R0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fdR-hF-OqZ">
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="64"/>
+                                        <state key="normal" title="i left a package at the reception">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="leftReceptionButtonTapped:" destination="bto-05-yno" eventType="touchUpInside" id="8b0-12-rcx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.75686274509999996" green="0.031372549020000001" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fdR-hF-OqZ" firstAttribute="top" secondItem="DyD-yG-B4D" secondAttribute="bottom" constant="8" id="7De-3L-Vo8"/>
-                            <constraint firstItem="DyD-yG-B4D" firstAttribute="trailing" secondItem="pyp-lf-XmJ" secondAttribute="trailingMargin" id="8vB-ho-YfG"/>
-                            <constraint firstItem="lac-AJ-t2f" firstAttribute="top" secondItem="fdR-hF-OqZ" secondAttribute="bottom" constant="20" id="KN7-Jn-ra5"/>
-                            <constraint firstItem="fdR-hF-OqZ" firstAttribute="height" secondItem="DyD-yG-B4D" secondAttribute="height" id="MMZ-0I-KMg"/>
-                            <constraint firstItem="DyD-yG-B4D" firstAttribute="top" secondItem="V0o-Fq-ta6" secondAttribute="bottom" constant="8" id="hC4-dX-kch"/>
-                            <constraint firstItem="DyD-yG-B4D" firstAttribute="leading" secondItem="pyp-lf-XmJ" secondAttribute="leadingMargin" id="ieP-Vs-a0z"/>
-                            <constraint firstItem="fdR-hF-OqZ" firstAttribute="leading" secondItem="pyp-lf-XmJ" secondAttribute="leadingMargin" id="qUa-bH-6EL"/>
-                            <constraint firstItem="fdR-hF-OqZ" firstAttribute="trailing" secondItem="pyp-lf-XmJ" secondAttribute="trailingMargin" id="ztg-rg-fky"/>
+                            <constraint firstAttribute="trailing" secondItem="ntd-z4-weE" secondAttribute="trailing" id="Ap9-60-lBr"/>
+                            <constraint firstItem="ntd-z4-weE" firstAttribute="top" secondItem="V0o-Fq-ta6" secondAttribute="bottom" id="mfs-w3-ye8"/>
+                            <constraint firstItem="lac-AJ-t2f" firstAttribute="top" secondItem="ntd-z4-weE" secondAttribute="bottom" id="nze-8P-Pir"/>
+                            <constraint firstItem="ntd-z4-weE" firstAttribute="leading" secondItem="pyp-lf-XmJ" secondAttribute="leading" id="sSq-2L-VZq"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="leftReceptionButton" destination="fdR-hF-OqZ" id="vf0-jP-clY"/>
                         <outlet property="signatureButton" destination="DyD-yG-B4D" id="vvK-Wr-ZAx"/>
+                        <outlet property="stackView" destination="ntd-z4-weE" id="beD-uV-7km"/>
                         <segue destination="XcS-0N-QxK" kind="show" identifier="DeliveryMethodSelectedSegue" id="9RB-Zb-qnu"/>
                     </connections>
                 </viewController>

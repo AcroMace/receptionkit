@@ -17,9 +17,10 @@ struct DeliveryMethodViewModel {
     }
 }
 
-class DeliveryMethodViewController: ReturnToHomeViewController {
+class DeliveryMethodViewController: ReturnToHomeViewController, StackViewOrientable {
     var viewModel: DeliveryMethodViewModel?
 
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var signatureButton: UIButton!
     @IBOutlet weak var leftReceptionButton: UIButton!
 
@@ -32,9 +33,20 @@ class DeliveryMethodViewController: ReturnToHomeViewController {
 
         signatureButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .signature, text: .signature), for: UIControlState())
         signatureButton.accessibilityLabel = Text.signature.accessibility()
+        signatureButton.titleLabel?.textAlignment = NSTextAlignment.center
+        signatureButton.titleEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
 
         leftReceptionButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .leftAtReception, text: .leftAtReception), for: UIControlState())
         leftReceptionButton.accessibilityLabel = Text.leftAtReception.accessibility()
+        leftReceptionButton.titleLabel?.textAlignment = NSTextAlignment.center
+        leftReceptionButton.titleEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+
+        setButtonVerticalAlignment(withDeviceDimensions: view.frame.size)
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        setButtonVerticalAlignment(withDeviceDimensions: size)
     }
 
     // MARK: - Delivery method buttons

@@ -22,17 +22,15 @@ class VisitorViewController: ReturnToHomeViewController, StackViewOrientable {
 
         knowButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .iKnow, text: .iKnow), for: UIControlState())
         knowButton.accessibilityLabel = Text.iKnow.accessibility()
+        knowButton.titleLabel?.textAlignment = NSTextAlignment.center
+        knowButton.titleEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
 
         notKnowButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .iDontKnow, text: .iDontKnow), for: UIControlState())
         notKnowButton.accessibilityLabel = Text.iDontKnow.accessibility()
+        notKnowButton.titleLabel?.textAlignment = NSTextAlignment.center
+        notKnowButton.titleEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
 
         setButtonVerticalAlignment(withDeviceDimensions: view.bounds.size)
-    }
-
-    // Centre align the button text - left-aligned by default
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        knowButton.titleLabel?.textAlignment = NSTextAlignment.center
     }
 
     // Reset the alignment of the text on rotation

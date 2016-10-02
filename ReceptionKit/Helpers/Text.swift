@@ -48,7 +48,7 @@ enum Text {
         case .visitor:
             return "i'm a visitor"
         case .iKnow:
-            return "i know the name\nof the person i am\nhere to see"
+            return "i know the name of the person i am here to see"
         case .iDontKnow:
             return "i don't know"
         case .lookingFor:
@@ -87,7 +87,7 @@ enum Text {
         case .visitor:
             return "visiteur"
         case .iKnow:
-            return "je connais le nom\nde la personne que\nje viens voir"
+            return "je connais le nom de la personne que je viens voir"
         case .iDontKnow:
             return "je ne sais pas"
         case .lookingFor:
