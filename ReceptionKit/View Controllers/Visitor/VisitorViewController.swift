@@ -8,11 +8,12 @@
 
 import UIKit
 
-class VisitorViewController: ReturnToHomeViewController {
+class VisitorViewController: ReturnToHomeViewController, StackViewOrientable {
 
     // Name of the visitor set by VisitorAskNameViewController
     var visitorName: String?
 
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var knowButton: UIButton!
     @IBOutlet weak var notKnowButton: UIButton!
 
@@ -21,35 +22,20 @@ class VisitorViewController: ReturnToHomeViewController {
 
         knowButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .iKnow, text: .iKnow), for: UIControlState())
         knowButton.accessibilityLabel = Text.iKnow.accessibility()
+        knowButton.titleLabel?.textAlignment = NSTextAlignment.center
+        knowButton.titleEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
 
         notKnowButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .iDontKnow, text: .iDontKnow), for: UIControlState())
         notKnowButton.accessibilityLabel = Text.iDontKnow.accessibility()
+        notKnowButton.titleLabel?.textAlignment = NSTextAlignment.center
+        notKnowButton.titleEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
 
-        resetButtonVerticalAlignment(view.bounds.size)
+        setButtonVerticalAlignment(withDeviceDimensions: view.bounds.size)
     }
-
-    // Centre align the button text - left-aligned by default
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        knowButton.titleLabel?.textAlignment = NSTextAlignment.center
-    }
-
 
     // Reset the alignment of the text on rotation
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        resetButtonVerticalAlignment(size)
-    }
-
-    func resetButtonVerticalAlignment(_ size: CGSize) {
-        if size.width < size.height {
-            // Vertical - alignment doesn't matter
-            knowButton.contentVerticalAlignment = .center
-            notKnowButton.contentVerticalAlignment = .center
-        } else {
-            // Horizontal - align to top
-            knowButton.contentVerticalAlignment = .top
-            notKnowButton.contentVerticalAlignment = .top
-        }
+        setButtonVerticalAlignment(withDeviceDimensions: size)
     }
 
     // MARK: - Navigation

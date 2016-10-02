@@ -8,9 +8,10 @@
 
 import UIKit
 
-class HomeViewController: ThemedViewController {
+class HomeViewController: ThemedViewController, StackViewOrientable {
 
     @IBOutlet weak var languageButton: UIBarButtonItem!
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var deliveryButton: UIButton!
     @IBOutlet weak var visitorButton: UIButton!
 
@@ -33,6 +34,11 @@ class HomeViewController: ThemedViewController {
         updateButtons()
     }
 
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        setButtonVerticalAlignment(withDeviceDimensions: size)
+    }
+
     @IBAction func languageButtonTapped(_ sender: AnyObject) {
         Text.swapLanguage()
         languageButton.title = Text.languageToggle.get()
@@ -49,6 +55,8 @@ class HomeViewController: ThemedViewController {
 
         visitorButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .visitor, text: .visitor), for: UIControlState())
         visitorButton.accessibilityLabel = Text.visitor.accessibility()
+
+        setButtonVerticalAlignment(withDeviceDimensions: view.frame.size)
     }
 
 }

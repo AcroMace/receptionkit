@@ -22,6 +22,7 @@ class ButtonFormatter {
         // Center align the text
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
+        paragraphStyle.lineBreakMode = .byWordWrapping
         // Add the text
         attributedString.append(NSAttributedString(string: icon.unicode() + "\n",
             attributes: [NSFontAttributeName: IconFont]))
