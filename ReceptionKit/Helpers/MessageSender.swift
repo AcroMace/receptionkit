@@ -36,7 +36,7 @@ class SmoochMessageSender: MessageSender {
      */
     func send(text: SlackMessage) {
         let message = SKTMessage(text: text.text())
-        Smooch.conversation().sendMessage(message)
+        Smooch.conversation()?.sendMessage(message)
     }
 
     /**
@@ -45,6 +45,6 @@ class SmoochMessageSender: MessageSender {
      - parameter image: The image to send
      */
     func send(image: UIImage) {
-        Smooch.conversation().send(image, withProgress: nil, completion: nil)
+        Smooch.conversation()?.send(image, withProgress: nil, completion: nil)
     }
 }

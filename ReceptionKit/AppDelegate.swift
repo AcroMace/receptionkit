@@ -24,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Smooch.initWith(smoochSettings)
 
         // Setup Smooch
-        Smooch.conversation().delegate = conversationDelegate
+        Smooch.conversation()?.delegate = conversationDelegate
         Smooch.setUserFirstName(Config.Slack.Name, lastName: "")
-        SKTUser.current().email = Config.Slack.Email
+        SKTUser.current()?.email = Config.Slack.Email
 
         // App-wide styles
         UIApplication.shared.setStatusBarHidden(true, with: UIStatusBarAnimation.slide)

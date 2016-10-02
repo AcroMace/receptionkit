@@ -5,7 +5,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - Smooch (5.0.0)
+  - Smooch (5.0.1)
 
 DEPENDENCIES:
   - KIF (~> 3.0)
@@ -15,7 +15,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   KIF: 082eb65279e51c3092923802849eb796a04982ab
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  Smooch: 88d317c4972654e854eba3383d43e6b77d0cb988
+  Smooch: a00b498a63db9922124ef59325cdd7c28cc7f3eb
 
 PODFILE CHECKSUM: e50e424b5f10b600188faa0a97f8c9bdcee9ade4
 
