@@ -13,6 +13,7 @@ class VisitorViewController: ReturnToHomeViewController {
     // Name of the visitor set by VisitorAskNameViewController
     var visitorName: String?
 
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var knowButton: UIButton!
     @IBOutlet weak var notKnowButton: UIButton!
 
@@ -25,7 +26,7 @@ class VisitorViewController: ReturnToHomeViewController {
         notKnowButton.setAttributedTitle(ButtonFormatter.getAttributedString(icon: .iDontKnow, text: .iDontKnow), for: UIControlState())
         notKnowButton.accessibilityLabel = Text.iDontKnow.accessibility()
 
-        resetButtonVerticalAlignment(view.bounds.size)
+        setButtonVerticalAlignment(withDeviceDimensions: view.bounds.size)
     }
 
     // Centre align the button text - left-aligned by default
@@ -34,21 +35,17 @@ class VisitorViewController: ReturnToHomeViewController {
         knowButton.titleLabel?.textAlignment = NSTextAlignment.center
     }
 
-
     // Reset the alignment of the text on rotation
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        resetButtonVerticalAlignment(size)
+        setButtonVerticalAlignment(withDeviceDimensions: size)
     }
 
-    func resetButtonVerticalAlignment(_ size: CGSize) {
+    // Change the direction of the stack view given the dimensions of the device
+    func setButtonVerticalAlignment(withDeviceDimensions size: CGSize) {
         if size.width < size.height {
-            // Vertical - alignment doesn't matter
-            knowButton.contentVerticalAlignment = .center
-            notKnowButton.contentVerticalAlignment = .center
+            stackView.axis = .vertical
         } else {
-            // Horizontal - align to top
-            knowButton.contentVerticalAlignment = .top
-            notKnowButton.contentVerticalAlignment = .top
+            stackView.axis = .horizontal
         }
     }
 
