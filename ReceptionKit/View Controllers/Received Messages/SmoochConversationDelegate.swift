@@ -15,16 +15,18 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
 
     // Display the message modal when a message arrives
     // Only displays the last message
-    func conversation(_ conversation: SKTConversation, didReceiveMessages messages: [AnyObject]) {
-        // guard let `conversation` = conversation, let `messages` = messages else { return }
-
+    func conversation(_ conversation: SKTConversation, didReceiveMessages messages: [Any]) {
         // May be a bug here where messages are ignored if the messages are batched
         // and multiple messages are sent at once
-        guard let lastMessage = conversation.messages.last as? SKTMessage, !lastMessage.isFromCurrentUser else {
+        guard let lastMessage = conversation.messages?.last as? SKTMessage, !lastMessage.isFromCurrentUser else {
             return
         }
 
-        if Config.Photos.EnableCommand && containsImageCommand(lastMessage.text), let photo = camera.takePhoto() {
+        guard let text = lastMessage.text else {
+            Logger.error("Received an empty message from Smooch")
+            return
+        }
+        if Config.Photos.EnableCommand && containsImageCommand(text), let photo = camera.takePhoto() {
             messageSender.send(image: photo)
         } else {
             showReceivedMessage(lastMessage)
@@ -47,17 +49,17 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
     }
 
     // Don't show the default Smooch conversation
-    func conversation(_ conversation: SKTConversation!, shouldShowFor action: SKTAction) -> Bool {
+    func conversation(_ conversation: SKTConversation, shouldShowFor action: SKTAction) -> Bool {
         return false
     }
 
     // Don't show the default Smooch notification
-    func conversation(_ conversation: SKTConversation!, shouldShowInAppNotificationFor message: SKTMessage!) -> Bool {
+    func conversation(_ conversation: SKTConversation, shouldShowInAppNotificationFor message: SKTMessage) -> Bool {
         return false
     }
 
     // Don't do anything when reading messages
-    func conversation(_ conversation: SKTConversation!, unreadCountDidChange unreadCount: UInt) {
+    func conversation(_ conversation: SKTConversation, unreadCountDidChange unreadCount: UInt) {
         // Do nothing
     }
 
@@ -69,7 +71,10 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
 
     private func showReceivedMessage(_ message: SKTMessage) {
         let topVC = getTopViewController()
-        let receivedMessageView = createReceivedMessageView(message)
+        guard let receivedMessageView = createReceivedMessageView(message) else {
+            Logger.error("Could not create ReceivedMessageView to display the received message")
+            return
+        }
 
         // Check that there is no presentation already before presenting
         if isPresentingMessage {
@@ -107,12 +112,16 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
 
      - returns: The view created
      */
-    private func createReceivedMessageView(_ lastMessage: SKTMessage) -> ReceivedMessageViewController {
+    private func createReceivedMessageView(_ lastMessage: SKTMessage) -> ReceivedMessageViewController? {
+        guard let name = lastMessage.name, let text = lastMessage.text, let picture = lastMessage.avatarUrl else {
+                Logger.error("Message received was missing information")
+                return nil
+        }
         let receivedMessageView = ReceivedMessageViewController(nibName: ReceivedMessageViewController.nibName, bundle: nil)
         let receivedMessageViewModel = ReceivedMessageViewModel(
-            name: lastMessage.name,
-            message: lastMessage.text,
-            picture: lastMessage.avatarUrl)
+            name: name,
+            message: text,
+            picture: picture)
         receivedMessageView.configure(receivedMessageViewModel)
         return receivedMessageView
     }

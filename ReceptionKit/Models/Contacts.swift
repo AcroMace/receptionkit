@@ -49,10 +49,10 @@ class Contact {
         // Get the authorization if needed
         let authStatus = ABAddressBookGetAuthorizationStatus()
         if authStatus == .denied || authStatus == .restricted {
-                print("No permission to access the contacts")
+                Logger.error("No permission to access the contacts")
         } else if authStatus == .notDetermined {
             ABAddressBookRequestAccessWithCompletion(nil) { (granted: Bool, error: CFError?) in
-                print("Successfully got permission for the contacts")
+                Logger.debug("Successfully got permission for the contacts")
             }
         }
 
