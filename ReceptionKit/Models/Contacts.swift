@@ -29,7 +29,6 @@ class ContactPhone {
 
 }
 
-
 class Contact {
 
     var name: String
@@ -42,7 +41,6 @@ class Contact {
         self.picture = picture
     }
 
-
     // Check to see if the user has granted the address book permission, ask for permission if not
     // Returns true if authorized, false if not
     static func isAuthorized() -> Bool {
@@ -51,7 +49,7 @@ class Contact {
         if authStatus == .denied || authStatus == .restricted {
                 Logger.error("No permission to access the contacts")
         } else if authStatus == .notDetermined {
-            ABAddressBookRequestAccessWithCompletion(nil) { (granted: Bool, error: CFError?) in
+            ABAddressBookRequestAccessWithCompletion(nil) { _, _ in
                 Logger.debug("Successfully got permission for the contacts")
             }
         }
@@ -59,7 +57,6 @@ class Contact {
         // Need to refetch the status if it was updated
         return ABAddressBookGetAuthorizationStatus() == ABAuthorizationStatus.authorized
     }
-
 
     // Search for all contacts that match a name
     static func search(_ name: String) -> [Contact] {
@@ -87,7 +84,6 @@ class Contact {
 
         return contacts
     }
-
 
     //
     // Private functions

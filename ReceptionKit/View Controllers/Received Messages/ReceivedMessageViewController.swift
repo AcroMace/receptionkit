@@ -35,7 +35,7 @@ class ReceivedMessageViewController: UIViewController {
         super.viewDidLoad()
 
         // Set the text
-        let name = viewModel?.name.uppercased()
+        let name = viewModel?.name.uppercased() ?? "UNKNOWN"
         contactTitle.text = name
         contactTitle.accessibilityLabel = name
 

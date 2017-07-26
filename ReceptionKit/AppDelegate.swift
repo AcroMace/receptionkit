@@ -15,7 +15,7 @@ var camera: Camera!
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let conversationDelegate = ConversationDelegate()
+    weak var conversationDelegate = ConversationDelegate()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SKTUser.current()?.email = Config.Slack.Email
 
         // App-wide styles
-        UIApplication.shared.setStatusBarHidden(true, with: UIStatusBarAnimation.slide)
+        UIApplication.shared.isStatusBarHidden = true
         UINavigationBar.appearance().barTintColor = UIColor(hex: Config.Colour.NavigationBar)
 
         // Create an instance of the Camera

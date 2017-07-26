@@ -56,13 +56,14 @@ class Camera: NSObject {
      - returns: The front facing camera, an AVCaptureDevice, or `nil` if none exists.
      */
     private func getFrontFacingCamera() -> AVCaptureDevice? {
-        let devices = AVCaptureDevice.devices(for: AVMediaType.video)
-        for device in devices {
-            if (device as AnyObject).position == AVCaptureDevice.Position.front {
-                return device as? AVCaptureDevice
+        return AVCaptureDevice.devices(for: AVMediaType.video)
+            .flatMap { device in
+                if device.position == AVCaptureDevice.Position.front {
+                    return device
+                }
+                return nil
             }
-        }
-        return nil
+            .first
     }
 
     /**

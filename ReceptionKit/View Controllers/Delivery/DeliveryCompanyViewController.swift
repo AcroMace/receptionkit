@@ -35,7 +35,6 @@ class DeliveryCompanyViewController: ReturnToHomeViewController {
         otherButton.accessibilityLabel = DeliveryCompany.other.text()
     }
 
-
     //
     // Delivery company button taps
     //

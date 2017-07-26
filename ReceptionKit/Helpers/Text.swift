@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Andy Cho. All rights reserved.
 //
 
+// swiftlint:disable cyclomatic_complexity
+
 enum TextLanguage {
     case english
     case french
