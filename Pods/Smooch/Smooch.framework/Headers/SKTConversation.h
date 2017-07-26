@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "SKTMessage.h"
 #import "SKTMessageAction.h"
+#import "SKTConversationActivity.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @protocol SKTConversationDelegate;
@@ -87,6 +88,27 @@ extern NSString* const SKTConversationImageUploadCompletedNotification;
 extern NSString* const SKTConversationDidReceiveMessagesNotification;
 
 /**
+ *  @abstract Posted when an operation to load previous messages in a conversation has been completed
+ *
+ *  @discussion This notification is posted as the result of [SKTConversation loadPreviousMessages]
+ *
+ *  If the operation succeeded, the object returned by this notification will include the updated array of messages
+ *  If the operation failed, the userInfo dictionary will contain an "error" object with the response error
+ *
+ *  @see SKTMessage
+ *  @see SKTConversationPreviousMessagesKey
+ */
+extern NSString* const SKTConversationDidReceivePreviousMessagesNotification;
+
+/**
+ *  @abstract Posted when a conversation activity has been created, such as typing start/stop
+ *
+ *  @see SKTConversationActivity
+ *  @see SKTConversationActivityKey
+ */
+extern NSString* const SKTConversationDidReceiveActivityNotification;
+
+/**
  *  @abstract A key whose value is an NSArray of SKTMessage objects.
  *
  *  @discussion This key is used with SKTConversationDidReceiveMessagesNotification notification.
@@ -94,6 +116,15 @@ extern NSString* const SKTConversationDidReceiveMessagesNotification;
  *  @see SKTConversationDidReceiveMessagesNotification
  */
 extern NSString* const SKTConversationNewMessagesKey;
+
+/**
+ *  @abstract A key whose value is an NSArray of SKTMessage objects
+ *
+ *  @discussion This key is used with SKTConversationDidReceivePreviousMessagesNotification notification
+ *
+ *  @see SKTConversationDidReceivePreviousMessagesNotification
+ */
+extern NSString* const SKTConversationPreviousMessagesKey;
 
 /**
  *  @abstract A key whose value is a UIImage which represents an image being uploaded. 
@@ -132,6 +163,15 @@ extern NSString* const SKTConversationMessageKey;
  *  @see SKTConversationImageUploadProgressDidChangeNotification
  */
 extern NSString* const SKTConversationProgressKey;
+
+/**
+ *  @abstract A key whose value is a SKTConversationActivity object representing the newly created activity
+ *
+ *  @discussion This key is used with SKTConversationDidReceiveActivityNotification notification.
+ *
+ *  @see SKTConversationDidReceiveActivityNotification
+ */
+extern NSString* const SKTConversationActivityKey;
 
 /**
  *  @discussion The SKTConversation class provides an interface to interact with the current user's conversation. 
@@ -183,6 +223,14 @@ extern NSString* const SKTConversationProgressKey;
  */
 @property(weak, nullable) id<SKTConversationDelegate> delegate;
 
+
+/**
+ *  @abstract URL used for fetching previous messages in the conversation, if they exist.
+ *
+ *  @discussion if there are no previous messages in the conversation, this will be nil. For fetching previous messages, use [SKTConversation loadPreviousMessages]
+ */
+@property(readonly, nullable) NSString *previous;
+
 /**
  *  @abstract Marks all unread messages as read.
  *
@@ -191,6 +239,13 @@ extern NSString* const SKTConversationProgressKey;
  *  @see SKTMessage
  */
 -(void)markAllAsRead;
+
+/**
+ *  @abstract Loads previous messages for this conversation, if any
+ *
+ *  @dicussion Will get previous messages for this conversation based on the timestamp of the current oldest message and will notify the delegate of new incoming messages through [SKTConversationDelegate conversation:didReceivePreviousMessages:]
+ */
+-(void)loadPreviousMessages;
 
 /**
  *  @abstract Adds a new message to the conversation.
@@ -285,13 +340,48 @@ extern NSString* const SKTConversationProgressKey;
  *  @discussion Called when the user performs an action that causes the conversation screen to show. Return NO to cancel the display of the conversation screen and perform your own handling of the action.
  *
  *  @param conversation The conversation object.
- *  @param message The action the user has taken.
+ *  @param action The action the user has taken.
+ *
+ *  @deprecated Use conversation:shouldShowForAction:info instead
  *
  *  @return YES to allow default handling. NO to suppress the conversation screen, and perform custom handling.
  *
  *  @see SKTAction
  */
--(BOOL)conversation:(SKTConversation*)conversation shouldShowForAction:(SKTAction)action;
+-(BOOL)conversation:(SKTConversation*)conversation shouldShowForAction:(SKTAction)action __attribute((deprecated("use conversation:shouldShowForAction:info instead")));
+
+/**
+ *  @abstract Asks the delegate if the conversation should show for the given action.
+ *
+ *  @discussion Called when the user performs an action that causes the conversation screen to show. Return NO to cancel the display of the conversation screen and perform your own handling of the action.
+ *
+ *  @param conversation The conversation object.
+ *  @param action The action the user has taken.
+ *  @param info An instance of NSDictionary with a `message` object with the latest SKTMessage represented as an NSDictionary
+ *
+ *  @return YES to allow default handling. NO to suppress the conversation screen, and perform custom handling.
+ *
+ *  @see SKTAction
+ */
+-(BOOL)conversation:(SKTConversation*)conversation shouldShowForAction:(SKTAction)action withInfo:(nullable NSDictionary *) info;
+
+/**
+ *  @abstract Gives the delegate the option to modify a message before it is sent
+ *
+ *  @discussion Called when a message is about to be sent to give the delegate the option of modify or decorate its content (i.e. add metadata) before sending to Smooch
+ *
+ *  @return the message to be sent
+ */
+-(SKTMessage *)conversation:(SKTConversation*)conversation willSendMessage:(SKTMessage *)message;
+
+/**
+ *  @abstract Gives the delegate the option to modify a message before it is displayed. If nil is returned the message will be hidden
+ *
+ *  @discussion Called when a message is about to be displayed to the user to give the delegate the option of modifying its content before display or hide it
+ *
+ *  @return the message to be displayed. If nil, the message won't get displayed
+ */
+-(nullable SKTMessage *)conversation:(SKTConversation*)conversation willDisplayMessage:(SKTMessage *)message;
 
 /**
  *  @abstract Notifies the delegate of new incoming messages.
@@ -299,11 +389,31 @@ extern NSString* const SKTConversationProgressKey;
  *  @discussion Called when new messages are received from the server.
  *
  *  @param conversation The conversation object.
- *  @param message An array of SKTMessage objects representing the new messages.
+ *  @param messages An array of SKTMessage objects representing the new messages.
  *
  *  @see SKTMessage
  */
 -(void)conversation:(SKTConversation*)conversation didReceiveMessages:(NSArray*)messages;
+
+/**
+ *  @abstract Notifies the delegate when older messages in the conversation history have been received
+ *
+ *  @dicussion Called when older messages in the conversation history are received from the server
+ *
+ *  @param conversation The conversation object
+ *  @param messages The messages that have been fetched
+ */
+-(void)conversation:(SKTConversation*)conversation didReceivePreviousMessages:(NSArray*)messages;
+
+/**
+ *  @abstract Notifies the delegate of new conversation activity
+ *
+ *  @dicussion Called when a new activity is received from the server
+ *
+ *  @param conversation The conversation object
+ *  @param activity The activity that was received
+ */
+-(void)conversation:(SKTConversation *)conversation didReceiveActivity:(SKTConversationActivity *)activity;
 
 /**
  *  @abstract Asks the delegate if default handling should be performed for a message action.

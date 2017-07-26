@@ -6,5 +6,6 @@ target 'ReceptionKit' do
 end
 
 target 'ReceptionKitTests' do
+  pod 'Smooch'
   pod 'KIF', '~> 3.0', :configurations => ['Debug']
 end

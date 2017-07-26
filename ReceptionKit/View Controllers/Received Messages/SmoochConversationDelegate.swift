@@ -41,7 +41,7 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
     }
 
     // Dismiss the message
-    func dismissMessageView(_ timer: Timer!) {
+    @objc func dismissMessageView(_ timer: Timer!) {
         guard isPresentingMessage else { return }
         getTopViewController().dismiss(animated: true) { [weak self] in
             self?.isPresentingMessage = false

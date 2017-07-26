@@ -177,6 +177,11 @@ MAKE_CATEGORIES_LOADABLE(UIAccessibilityElement_KIFAdditions)
             
             if (((UIAccessibilityElement *)view == element) && ![view isKindOfClass:[UITableViewCell class]]) {
                 [scrollView scrollViewToVisible:view animated:YES];
+            } else if ([view isKindOfClass:[UITableViewCell class]] && [scrollView.superview isKindOfClass:[UITableView class]]) {
+                UITableViewCell *cell = (UITableViewCell *)view;
+                UITableView *tableView = (UITableView *)scrollView.superview;
+                NSIndexPath *indexPath = [tableView indexPathForCell:cell];
+                [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
             } else {
                 CGRect elementFrame = [view.window convertRect:element.accessibilityFrame toView:scrollView];
                 CGRect visibleRect = CGRectMake(scrollView.contentOffset.x, scrollView.contentOffset.y, CGRectGetWidth(scrollView.bounds), CGRectGetHeight(scrollView.bounds));
@@ -212,7 +217,7 @@ MAKE_CATEGORIES_LOADABLE(UIAccessibilityElement_KIFAdditions)
     
     if (mustBeTappable && !view.isProbablyTappable) {
         if (error) {
-            *error = [NSError KIFErrorWithFormat:@"Accessibility element with label \"%@\" is not tappable. It may be blocked by other views.", element.accessibilityLabel];
+            *error = [NSError KIFErrorWithFormat:@"Accessibility element %@ for view %@ with label \"%@\" is not tappable. It may be blocked by other views.", element, view, element.accessibilityLabel];
         }
         return nil;
     }

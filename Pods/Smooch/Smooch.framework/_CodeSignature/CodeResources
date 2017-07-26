@@ -6,15 +6,23 @@
 	<dict>
 		<key>Headers/SKTConversation.h</key>
 		<data>
-		8yK8Esjs2ktn5wJfcuLpSCu6RKE=
+		krjmYbfxGnLlK6YvxH2JUFyNzig=
+		</data>
+		<key>Headers/SKTConversationActivity.h</key>
+		<data>
+		31XE9trmYQL5NK3jsQyFq/ifabM=
+		</data>
+		<key>Headers/SKTCoordinates.h</key>
+		<data>
+		mP4Mb2xab9lvhHiLxzHgO797VmM=
 		</data>
 		<key>Headers/SKTMessage.h</key>
 		<data>
-		Z8gBzagQRtEG5Yd8Kem8HjO3VDI=
+		naTjc8UTzwSSyzfGfg3gLtxElb8=
 		</data>
 		<key>Headers/SKTMessageAction.h</key>
 		<data>
-		ojroY4RGxkHFb4fMk7TUPhlguio=
+		Bc2IWQlbwjFfkWAul4/nI/RJMz0=
 		</data>
 		<key>Headers/SKTSettings.h</key>
 		<data>
@@ -26,11 +34,15 @@
 		</data>
 		<key>Headers/Smooch.h</key>
 		<data>
-		Smhg94vNzLyy8kEridQXYhl77nY=
+		x6hVOQDRnNWu0w11iKSqQLsYMr4=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		kc5YQm08FdrmRLNJSBVtXLus2ro=
+		7ry/XyhmsReeAr31ygXtnm468gQ=
+		</data>
+		<key>Modules/module.modulemap</key>
+		<data>
+		7v0ki6L4CqoTIzZaKSmvz4UXfHo=
 		</data>
 		<key>ar.lproj/SmoochLocalizable.strings</key>
 		<dict>
@@ -45,7 +57,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			f9SHWv9hAR7EBgpFWqfVp7uHhiU=
+			xot9AGLPb/VUi2XVCinLi64y8jU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -66,7 +78,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sVuKKnmuk7M1HA192K/FiMlgEDI=
+			kX9jIzvssAF6vRue3f9UvtPfPoM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -134,6 +146,27 @@
 			<key>hash</key>
 			<data>
 			F3F80n1PJHlYiym7OLc80qj3zQQ=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>locationIcon.png</key>
+		<data>
+		n9/8KH5i5S5/Fqk4aRjAfitgsDU=
+		</data>
+		<key>locationIcon@2x.png</key>
+		<data>
+		tpRuH8JQTdZ/I9e99LthAFHZNYY=
+		</data>
+		<key>locationIcon@3x.png</key>
+		<data>
+		OKdo9S8LS2EfWPcOgegSdRUagpM=
+		</data>
+		<key>nl.lproj/SmoochLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/ajaaAgHFyMynig50/3S7eltAGk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -303,6 +336,15 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>uk.lproj/SmoochLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			IpwjLOmpBYiMtP3af/EszF886rU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>zh-Hans.lproj/SmoochLocalizable.strings</key>
 		<dict>
 			<key>hash</key>
@@ -328,33 +370,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8yK8Esjs2ktn5wJfcuLpSCu6RKE=
+			krjmYbfxGnLlK6YvxH2JUFyNzig=
 			</data>
 			<key>hash2</key>
 			<data>
-			nJ4fDY6Ic7WX1n/C6AuQZA2AZLb421Tr5V5aMHKFi7M=
+			5PTMaKk7ERXaTfcYN6hpGuR9e2lp7QtLiLelrYprQoc=
+			</data>
+		</dict>
+		<key>Headers/SKTConversationActivity.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			31XE9trmYQL5NK3jsQyFq/ifabM=
+			</data>
+			<key>hash2</key>
+			<data>
+			ARXF8QdMF3TabAmZtC28b2msF1u+PViW91qi2SNFQhY=
+			</data>
+		</dict>
+		<key>Headers/SKTCoordinates.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mP4Mb2xab9lvhHiLxzHgO797VmM=
+			</data>
+			<key>hash2</key>
+			<data>
+			PQFOl+POv6Lp+en+51TRy4ORjfwvvt/0D4kD+EyeFcw=
 			</data>
 		</dict>
 		<key>Headers/SKTMessage.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Z8gBzagQRtEG5Yd8Kem8HjO3VDI=
+			naTjc8UTzwSSyzfGfg3gLtxElb8=
 			</data>
 			<key>hash2</key>
 			<data>
-			zSWfwYq7Gd7J+K38HuG2dEW78XJ1GcbJ92cag37OPL0=
+			m7fagQad1niKofZupqyutQEHe0WwPO9fMTbOGFzyobU=
 			</data>
 		</dict>
 		<key>Headers/SKTMessageAction.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ojroY4RGxkHFb4fMk7TUPhlguio=
+			Bc2IWQlbwjFfkWAul4/nI/RJMz0=
 			</data>
 			<key>hash2</key>
 			<data>
-			RdmYBR8b6QC+9+XSp6g2ui6skmlZqm/9qScdbQhF7wA=
+			rewC611QPNHZDEJbCg8QDlw22/7OqGyUCBLDRU2OA3Y=
 			</data>
 		</dict>
 		<key>Headers/SKTSettings.h</key>
@@ -383,11 +447,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Smhg94vNzLyy8kEridQXYhl77nY=
+			x6hVOQDRnNWu0w11iKSqQLsYMr4=
 			</data>
 			<key>hash2</key>
 			<data>
-			jq/bmn8IFDTDUyxg17k75nDZasj6hT0NRyOvOH2V2PE=
+			r9zgJjqn6SdzGVsFB9bEENgIlHwgDy1AVPL/x4YO5Kg=
+			</data>
+		</dict>
+		<key>Modules/module.modulemap</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7v0ki6L4CqoTIzZaKSmvz4UXfHo=
+			</data>
+			<key>hash2</key>
+			<data>
+			ANDEGkj6LzRpBNYdokxoz4o7SCfJBxqgV7AKrAOlcbQ=
 			</data>
 		</dict>
 		<key>ar.lproj/SmoochLocalizable.strings</key>
@@ -407,11 +482,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			f9SHWv9hAR7EBgpFWqfVp7uHhiU=
+			xot9AGLPb/VUi2XVCinLi64y8jU=
 			</data>
 			<key>hash2</key>
 			<data>
-			eZXJ5CWzCGD1WUFhCetzKdATl9Ymlypt8qXfw7hNLN8=
+			E9reEBVlk4y7kscCSNIEplDVe910Yu8an9XbUL5kznE=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -453,11 +528,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sVuKKnmuk7M1HA192K/FiMlgEDI=
+			kX9jIzvssAF6vRue3f9UvtPfPoM=
 			</data>
 			<key>hash2</key>
 			<data>
-			e9OTnUz+ex23h0F65S19JwI4hU6I95JE3leR0+vpmZo=
+			35x8WNQ/tHLLgJwK1nBB/GfLOLPvZ67gAdTM5dWfw8E=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -560,6 +635,52 @@
 			<key>hash2</key>
 			<data>
 			WxZTm1bpCaxJvVLkeb3/mOG80FuiC51vP/w5ecHUooc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>locationIcon.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			n9/8KH5i5S5/Fqk4aRjAfitgsDU=
+			</data>
+			<key>hash2</key>
+			<data>
+			70YoNa5o6hMqQ+sHn4V7V9FCcoXqkpEg1s5XDQrl1EM=
+			</data>
+		</dict>
+		<key>locationIcon@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tpRuH8JQTdZ/I9e99LthAFHZNYY=
+			</data>
+			<key>hash2</key>
+			<data>
+			IQOe8dGMf/4Foc0FbW+BtqoqITL+qdPcAWgzQfLYOWE=
+			</data>
+		</dict>
+		<key>locationIcon@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OKdo9S8LS2EfWPcOgegSdRUagpM=
+			</data>
+			<key>hash2</key>
+			<data>
+			sJGxzQ87hrck5OFNwBpzorpHJsHrxviTSfcpXvx2/34=
+			</data>
+		</dict>
+		<key>nl.lproj/SmoochLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/ajaaAgHFyMynig50/3S7eltAGk=
+			</data>
+			<key>hash2</key>
+			<data>
+			fZEoyJhbqzlCeGgmuMTH86N+fhFWEMlxR1zjDMvsPJ0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -959,6 +1080,19 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>uk.lproj/SmoochLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			IpwjLOmpBYiMtP3af/EszF886rU=
+			</data>
+			<key>hash2</key>
+			<data>
+			Md04B6uYAO1cChFC3nEimez3DJh44Du4v18T+VezQl4=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>zh-Hans.lproj/SmoochLocalizable.strings</key>
 		<dict>
 			<key>hash</key>
@@ -1004,6 +1138,11 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
+		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -1048,6 +1187,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

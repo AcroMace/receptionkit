@@ -35,6 +35,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 </string>
+			<key>License</key>
+			<string>MIT</string>
 			<key>Title</key>
 			<string>SDWebImage</string>
 			<key>Type</key>
@@ -43,6 +45,8 @@ THE SOFTWARE.
 		<dict>
 			<key>FooterText</key>
 			<string>Smooch Technologies Inc.  All rights reserved.</string>
+			<key>License</key>
+			<string>Commercial</string>
 			<key>Title</key>
 			<string>Smooch</string>
 			<key>Type</key>
