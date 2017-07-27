@@ -55,19 +55,26 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
             return false
         }
 
-        viewModel?.searchResults = Contact.search(nameText)
-        guard let numberOfSearchResults = viewModel?.searchResults.count else {
-            return false
-        }
-
-        // Check if the person the visitor is searching for exists
-        if numberOfSearchResults > 0 {
-            performSegue(withIdentifier: "VisitorNameSearchSegue", sender: self)
-        } else {
-            performSegue(withIdentifier: "VisitorNameInvalidSearchSegue", sender: self)
-        }
-
+        Contact.search(nameText, completion: receiveSearchResults)
         return false
+    }
+
+    func receiveSearchResults(contacts: [Contact]) {
+        DispatchQueue.main.async { [weak self] in
+            guard let `self` = self else { return }
+
+            self.viewModel?.searchResults = contacts
+            guard let numberOfSearchResults = self.viewModel?.searchResults.count else {
+                return
+            }
+
+            // Check if the person the visitor is searching for exists
+            if numberOfSearchResults > 0 {
+                self.performSegue(withIdentifier: "VisitorNameSearchSegue", sender: self)
+            } else {
+                self.performSegue(withIdentifier: "VisitorNameInvalidSearchSegue", sender: self)
+            }
+        }
     }
 
     // MARK: - Navigation

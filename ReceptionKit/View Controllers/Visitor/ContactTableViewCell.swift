@@ -37,22 +37,22 @@ class ContactTableViewCell: UITableViewCell {
 
     // Take the phone numbers and create a descriptive string for it
     private func formatPhoneString(_ phones: [ContactPhone]) -> String {
-        var workPhones = [String]()
+        var mainPhones = [String]()
         var mobilePhones = [String]()
 
         let separator = "\t\t"
         var formattedString = ""
 
         phones.forEach { phone in
-            if phone.isWorkPhone() {
-                workPhones.append(phone.number)
-            } else if phone.isMobilePhone() {
+            if phone.type == .main {
+                mainPhones.append(phone.number)
+            } else if phone.type == .mobile {
                 mobilePhones.append(phone.number)
             }
         }
 
-        if !workPhones.isEmpty {
-            formattedString += "Work: " + workPhones.joined(separator: separator)
+        if !mainPhones.isEmpty {
+            formattedString += "Main: " + mainPhones.joined(separator: separator)
         }
         if !mobilePhones.isEmpty {
             formattedString += "Mobile: " + mobilePhones.joined(separator: separator)
