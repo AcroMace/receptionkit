@@ -56,13 +56,14 @@ class Camera: NSObject {
      - returns: The front facing camera, an AVCaptureDevice, or `nil` if none exists.
      */
     private func getFrontFacingCamera() -> AVCaptureDevice? {
-        let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo)
-        for device in devices! {
-            if (device as AnyObject).position == AVCaptureDevicePosition.front {
-                return device as? AVCaptureDevice
+        return AVCaptureDevice.devices(for: AVMediaType.video)
+            .flatMap { device in
+                if device.position == AVCaptureDevice.Position.front {
+                    return device
+                }
+                return nil
             }
-        }
-        return nil
+            .first
     }
 
     /**
@@ -78,7 +79,7 @@ class Camera: NSObject {
 
         let key = kCVPixelBufferPixelFormatTypeKey as NSString
         let value = NSNumber(value: kCVPixelFormatType_32BGRA as UInt32)
-        output.videoSettings = [key: value]
+        output.videoSettings = [key as String: value]
 
         return output
     }
@@ -95,7 +96,7 @@ class Camera: NSObject {
         let captureSession = AVCaptureSession()
         captureSession.addInput(input)
         captureSession.addOutput(output)
-        captureSession.sessionPreset = AVCaptureSessionPresetPhoto
+        captureSession.sessionPreset = AVCaptureSession.Preset.photo
         captureSession.startRunning()
         return captureSession
     }
@@ -106,7 +107,7 @@ class Camera: NSObject {
 
 extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
 
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+    func captureOutput(_ captureOutput: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return
         }

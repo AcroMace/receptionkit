@@ -1,6 +1,10 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## Smooch
+
+Smooch Technologies Inc.  All rights reserved.
+
 ## KIF
 
 KIF

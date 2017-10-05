@@ -7,34 +7,18 @@
 //
 
 import Foundation
-import AddressBook
+import Contacts
 
-class ContactPhone {
+// MARK: - Contact
 
-    var type: String
-    var number: String
+struct Contact {
 
-    init(type: String, number: String) {
-        self.type = type
-        self.number = number
-    }
+    // Used to keep track of contact permission
+    static let contactStore = CNContactStore()
 
-    func isWorkPhone() -> Bool {
-        return self.type == "_$!<Work>!$_"
-    }
-
-    func isMobilePhone() -> Bool {
-        return self.type == "_$!<Mobile>!$_"
-    }
-
-}
-
-
-class Contact {
-
-    var name: String
-    var phones: [ContactPhone]
-    var picture: UIImage?
+    let name: String
+    let phones: [ContactPhone]
+    let picture: UIImage?
 
     init(name: String, phones: [ContactPhone], picture: UIImage?) {
         self.name = name
@@ -42,75 +26,123 @@ class Contact {
         self.picture = picture
     }
 
+}
 
-    // Check to see if the user has granted the address book permission, ask for permission if not
-    // Returns true if authorized, false if not
-    static func isAuthorized() -> Bool {
-        // Get the authorization if needed
-        let authStatus = ABAddressBookGetAuthorizationStatus()
-        if authStatus == .denied || authStatus == .restricted {
-                Logger.error("No permission to access the contacts")
-        } else if authStatus == .notDetermined {
-            ABAddressBookRequestAccessWithCompletion(nil) { (granted: Bool, error: CFError?) in
-                Logger.debug("Successfully got permission for the contacts")
-            }
-        }
+// MARK: - ContactPhone
+// Describes a phone number for a contact with helper methods
 
-        // Need to refetch the status if it was updated
-        return ABAddressBookGetAuthorizationStatus() == ABAuthorizationStatus.authorized
+enum PhoneType {
+    case main
+    case mobile
+    case fax
+    case pager
+}
+
+struct ContactPhone {
+
+    let type: PhoneType
+    let number: String
+
+    fileprivate init(type: String, number: String) {
+        self.type = ContactPhone.getPhoneType(for: type)
+        self.number = number
     }
 
+    private static func getPhoneType(for label: String) -> PhoneType {
+        switch label {
+        case CNLabelPhoneNumberiPhone, CNLabelPhoneNumberMobile:
+            return .mobile
+        case CNLabelPhoneNumberMain:
+            return .main
+        case CNLabelPhoneNumberHomeFax, CNLabelPhoneNumberWorkFax, CNLabelPhoneNumberOtherFax:
+            return .fax
+        case CNLabelPhoneNumberPager:
+            return .pager
+        default:
+            return .mobile
+        }
+    }
+
+}
+
+extension Contact {
 
     // Search for all contacts that match a name
-    static func search(_ name: String) -> [Contact] {
-        guard isAuthorized() else {
-            return []
-        }
-
-        let addressBook: ABAddressBook = ABAddressBookCreateWithOptions(nil, nil).takeUnretainedValue()
-        let query = name as CFString
-        let people = ABAddressBookCopyPeopleWithName(addressBook, query).takeRetainedValue() as Array
-
-        var contacts = [Contact]()
-        for person: ABRecord in people {
-            let contactName: String = ABRecordCopyCompositeName(person).takeRetainedValue() as String
-            let contactPhoneNumbers = getPhoneNumbers(person, property: kABPersonPhoneProperty)
-
-            var contactPicture: UIImage?
-            if let contactPictureDataOptional = ABPersonCopyImageData(person) {
-                let contactPictureData = contactPictureDataOptional.takeRetainedValue() as Data
-                contactPicture = UIImage(data: contactPictureData)
+    static func search(_ name: String, completion: @escaping (([Contact]) -> Void)) {
+        isAuthorized { authorized in
+            if !authorized {
+                completion([])
+                return
             }
 
-            contacts.append(Contact(name: contactName, phones: contactPhoneNumbers, picture: contactPicture))
+            let namePredicate = CNContact.predicateForContacts(matchingName: name)
+            let keysToFetch: [CNKeyDescriptor] = [
+                CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
+                CNContactPhoneNumbersKey as CNKeyDescriptor,
+                CNContactImageDataAvailableKey as CNKeyDescriptor,
+                CNContactImageDataKey as CNKeyDescriptor
+            ]
+            guard let queriedContacts = try? Contact.contactStore.unifiedContacts(matching: namePredicate, keysToFetch: keysToFetch) else {
+                Logger.error("Could not query contacts with the name: \(name)")
+                completion([])
+                return
+            }
+
+            let contacts: [Contact] = queriedContacts.flatMap { queriedContact in
+                let name = [queriedContact.givenName, queriedContact.familyName].joined(separator: " ")
+                let phoneNumbers: [ContactPhone] = queriedContact.phoneNumbers.flatMap { phoneNumber in
+                    guard let label = phoneNumber.label else {
+                        return nil
+                    }
+                    let number = phoneNumber.value.stringValue
+                    return ContactPhone(type: label, number: number)
+                }
+                var contactImage: UIImage?
+                if queriedContact.imageDataAvailable,
+                    let imageData = queriedContact.imageData,
+                    let image = UIImage(data: imageData) {
+                    contactImage = image
+                }
+                return Contact(name: name, phones: phoneNumbers, picture: contactImage)
+            }
+
+            completion(contacts)
         }
-
-        return contacts
     }
-
 
     //
     // Private functions
     //
 
-    // Get a property from a ABPerson, returns an array of Strings that matches the value
-    private static func getPhoneNumbers(_ person: ABRecord, property: ABPropertyID) -> [ContactPhone] {
-        let personProperty = ABRecordCopyValue(person, property).takeRetainedValue()
-        guard let personPropertyValues = ABMultiValueCopyArrayOfAllValues(personProperty) else {
-            return []
-        }
-
-        var propertyValues = [ContactPhone]()
-        let properties = personPropertyValues.takeUnretainedValue() as NSArray
-        for (index, property) in properties.enumerated() {
-            let propertyLabel = ABMultiValueCopyLabelAtIndex(personProperty, index).takeRetainedValue() as String
-            if let propertyValue = property as? String {
-                let phone = ContactPhone(type: propertyLabel, number: propertyValue)
-                propertyValues.append(phone)
+    // Check to see if the user has granted the address book permission, ask for permission if not
+    // Calls completion with true if authorized, false if not
+    static func isAuthorized(completion: @escaping (Bool) -> Void) {
+        // Get the authorization if needed
+        let authStatus = CNContactStore.authorizationStatus(for: .contacts)
+        switch authStatus {
+        case .denied, .restricted:
+            Logger.error("No permission to access the contacts")
+            completion(false)
+        case .notDetermined:
+            contactStore.requestAccess(for: .contacts) { granted, error in
+                guard error == nil else {
+                    Logger.error("Requesting contact access: \(error.debugDescription)")
+                    completion(false)
+                    return
+                }
+                if granted {
+                    Logger.debug("Successfully received permission for contacts")
+                    completion(true)
+                    return
+                } else {
+                    Logger.error("User denied contacts permission")
+                    completion(false)
+                    return
+                }
             }
+        case .authorized:
+            completion(true)
         }
-
-        return propertyValues
     }
 
 }

@@ -132,11 +132,22 @@ static void FixReactivateApp(void)
 
 - (BOOL)_alertIsValidAndVisible:(UIAAlert *)alert;
 {
+    // Ignore alert if in process; calling isVisible on alert in process causes a signal such as EXC_BAD_INSTRUCTION (not a catchable exception)
+    UIAApplication *application = [[self target] frontMostApp];
+    if ([@(getpid()) isEqual:[application pid]])
+        return false;
+
     // [alert isValid] is returning an __NSCFBoolean which is really hard to compare against.
     // Translate the __NSCFBoolean into a vanilla BOOL.
     // See https://www.bignerdranch.com/blog/bools-sharp-corners/ for more details.
     
-    BOOL visible = [[alert valueForKeyPath:@"isVisible"] boolValue];
+    BOOL visible = NO;
+    
+    @try {
+        visible = [[alert valueForKeyPath:@"isVisible"] boolValue];
+    }
+    @catch (NSException *exception) { } 
+
     return ([alert isValid] && visible);
 }
 

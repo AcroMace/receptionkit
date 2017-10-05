@@ -1,10 +1,11 @@
 use_frameworks!
 
 target 'ReceptionKit' do
-  pod 'Smooch'
-  pod 'SDWebImage', '~>3.8'
+  pod 'Smooch', '~> 6.1'
+  pod 'SDWebImage', '~> 4.1'
 end
 
 target 'ReceptionKitTests' do
-  pod 'KIF', '~> 3.0', :configurations => ['Debug']
+  pod 'Smooch', '~> 6.1'
+  pod 'KIF', '~> 3.6', :configurations => ['Debug']
 end

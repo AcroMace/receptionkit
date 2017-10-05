@@ -25,12 +25,12 @@ class ButtonFormatter {
         paragraphStyle.lineBreakMode = .byWordWrapping
         // Add the text
         attributedString.append(NSAttributedString(string: icon.unicode() + "\n",
-            attributes: [NSFontAttributeName: IconFont]))
-        attributedString.append(NSAttributedString(string: text.get(), attributes: [NSFontAttributeName: TextFont]))
+            attributes: [NSAttributedStringKey.font: IconFont]))
+        attributedString.append(NSAttributedString(string: text.get(), attributes: [NSAttributedStringKey.font: TextFont]))
         // Set the style
         attributedString.addAttributes([
-            NSParagraphStyleAttributeName: paragraphStyle,
-            NSForegroundColorAttributeName: UIColor.white
+            NSAttributedStringKey.paragraphStyle: paragraphStyle,
+            NSAttributedStringKey.foregroundColor: UIColor.white
             ], range: NSRange(location: 0, length: attributedString.length))
 
         return attributedString

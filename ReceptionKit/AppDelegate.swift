@@ -15,21 +15,28 @@ var camera: Camera!
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+
+    // swiftlint:disable weak_delegate
     let conversationDelegate = ConversationDelegate()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         // Smooch Settings
-        let smoochSettings = SKTSettings(appToken: Config.Smooch.AppToken)
-        Smooch.initWith(smoochSettings)
-
-        // Setup Smooch
-        Smooch.conversation()?.delegate = conversationDelegate
-        Smooch.setUserFirstName(Config.Slack.Name, lastName: "")
-        SKTUser.current()?.email = Config.Slack.Email
+        let smoochSettings = SKTSettings(appId: Config.Smooch.AppID)
+        Smooch.initWith(smoochSettings) { error, _ in
+            guard error == nil else {
+                print("Could not initialize Smooch")
+                print(error as Any)
+                return
+            }
+            // Setup Smooch
+            Smooch.conversation()?.delegate = self.conversationDelegate
+            Smooch.setUserFirstName(Config.Slack.Name, lastName: "")
+            SKTUser.current()?.email = Config.Slack.Email
+        }
 
         // App-wide styles
-        UIApplication.shared.setStatusBarHidden(true, with: UIStatusBarAnimation.slide)
+        UIApplication.shared.isStatusBarHidden = true
         UINavigationBar.appearance().barTintColor = UIColor(hex: Config.Colour.NavigationBar)
 
         // Create an instance of the Camera

@@ -7,16 +7,30 @@
 //  See the LICENSE file distributed with this work for the terms under
 //  which Square, Inc. licenses this file to you.
 
-#import <XCTest/XCTest.h>
-#import "NSException-KIFAdditions.h"
-#import "KIFTestActor.h"
-#import "NSError-KIFAdditions.h"
 #import <dlfcn.h>
 #import <objc/runtime.h>
+#import <XCTest/XCTest.h>
+
+#import "KIFTestActor_Private.h"
+
+#import "NSError-KIFAdditions.h"
+#import "NSException-KIFAdditions.h"
 #import "UIApplication-KIFAdditions.h"
 #import "UIView-KIFAdditions.h"
 
 @implementation KIFTestActor
+
++ (void)load
+{
+    @autoreleasepool {
+        if (NSClassFromString(@"UIApplication")) {
+            [UIApplication swizzleRunLoop];
+            NSLog(@"KIFTester loaded");
+        } else {
+            NSLog(@"KIFTester skipping runloop swizzling, no UIApplication class found.");
+        }
+    }
+}
 
 - (instancetype)initWithFile:(NSString *)file line:(NSInteger)line delegate:(id<KIFTestActorDelegate>)delegate
 {
@@ -40,6 +54,18 @@
 - (instancetype)usingTimeout:(NSTimeInterval)executionBlockTimeout
 {
     self.executionBlockTimeout = executionBlockTimeout;
+    return self;
+}
+
+- (instancetype)usingAnimationWaitingTimeout:(NSTimeInterval)animationWaitingTimeout;
+{
+    self.animationWaitingTimeout = animationWaitingTimeout;
+    return self;
+}
+
+- (instancetype)usingAnimationStabilizationTimeout:(NSTimeInterval)animationStabilizationTimeout;
+{
+    self.animationStabilizationTimeout = animationStabilizationTimeout;
     return self;
 }
 
@@ -198,22 +224,6 @@ static NSTimeInterval KIFTestStepDelay = 0.1;
     NSException *newException = [NSException failureInFile:self.file atLine:(int)self.line withDescription:@"Failure in child step: %@", firstException.description];
 
     [self.delegate failWithExceptions:[exceptions arrayByAddingObject:newException] stopTest:stop];
-}
-
-@end
-
-@interface UIApplication (KIFTestActorLoading)
-
-@end
-
-@implementation UIApplication (KIFTestActorLoading)
-
-+ (void)load
-{
-    @autoreleasepool {
-        NSLog(@"KIFTester loaded");
-        [UIApplication swizzleRunLoop];
-    }
 }
 
 @end

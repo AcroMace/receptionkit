@@ -30,7 +30,7 @@ extension ReturnsToHome where Self: UIViewController {
 extension UIViewController {
 
     // Go back to the home screen, which is the root view controller
-    func returnToHomeScreen() {
+    @objc func returnToHomeScreen() {
         _ = self.navigationController?.popToRootViewController(animated: true)
     }
 

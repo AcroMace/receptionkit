@@ -26,7 +26,19 @@
  */
 extern NSString *const inputFieldTestString;
 
+#pragma mark - Behavior modifiers
+
+/*!
+ @abstract Controls if typing methods will validate the entered text.
+ @discussion This method will only impact the functioning of the `enterText:...` method variants.
+ 
+ @param validateEnteredText Whether or not to validate the entered text. Defaults to YES.
+ @return The message reciever, these methods are intended to be chained together.
+ */
+- (instancetype)validateEnteredText:(BOOL)validateEnteredText;
+
 #pragma mark - Searching for Accessibility Elements
+
 /*!
  These methods are used to build the tester's search predicate. they are intended to be chained together allowing for complex searches.
  You can also build constructor methods which return view testers configured to find a specific element.
@@ -46,7 +58,7 @@ extern NSString *const inputFieldTestString;
 
 /*!
  @abstract Adds a check for an accessibility label to the tester's search pedicate.
- @discussion The tester will evaluate accessibility elements looking for a maching accessibility label.
+ @discussion The tester will evaluate accessibility elements looking for a matching accessibility label.
  @param accessibilityLabel The accessibility label of an element to match.
  @return The message reciever, these methods are intended to be chained together.
  */
@@ -54,7 +66,7 @@ extern NSString *const inputFieldTestString;
 
 /*!
  @abstract Adds a check for an accessibility identifier to the tester's search pedicate.
- @discussion The tester will evaluate accessibility elements looking for a maching accessibility identifier.
+ @discussion The tester will evaluate accessibility elements looking for a matching accessibility identifier.
  @param accessibilityIdentifier The accessibility identifier of an element to match.
  @return The message reciever, these methods are intended to be chained together.
  */
@@ -62,7 +74,7 @@ extern NSString *const inputFieldTestString;
 
 /*!
  @abstract Adds a check for accessibility traits to the tester's search pedicate.
- @discussion The tester will evaluate accessibility elements looking for maching accessibility traits.
+ @discussion The tester will evaluate accessibility elements looking for matching accessibility traits.
  @param accessibilityTraits The accessibility traits of an element to match.
  @return The message reciever, these methods are intended to be chained together.
  */
@@ -70,11 +82,18 @@ extern NSString *const inputFieldTestString;
 
 /*!
  @abstract Adds a check for an accessibility value to the tester's search pedicate.
- @discussion The tester will evaluate accessibility elements looking for a maching accessibility value.
+ @discussion The tester will evaluate accessibility elements looking for a matching accessibility value.
  @param accessibilityValue The accessibility value of an element to match.
  @return The message reciever, these methods are intended to be chained together.
  */
 - (instancetype)usingValue:(NSString *)accessibilityValue;
+
+/*!
+ @abstract Adds a check to only operate on the current first responder.
+ @discussion The tester will evaluate accessibility elements waiting for a first responder.
+ @return The message reciever, these methods are intended to be chained together.
+ */
+- (instancetype)usingFirstResponder;
 
 /*!
  @abstract Adds a given predicate to the tester's search predicate.
@@ -84,7 +103,6 @@ extern NSString *const inputFieldTestString;
  */
 - (instancetype)usingPredicate:(NSPredicate *)predicate;
 
-
 #pragma mark - Acting on Accessibility Elements
 
 /*!
@@ -93,6 +111,7 @@ extern NSString *const inputFieldTestString;
  */
 
 #pragma mark Tapping, Pressing & Swiping
+
 /*!
  @abstract Tap a view matching the tester's search predicate.
  @discussion The tester will evaluate the accessibility hierarchy against it's search predicate and perform a tap on the first match.
@@ -112,8 +131,8 @@ extern NSString *const inputFieldTestString;
 
 /*!
  @abstract Taps the screen at a particular point.
- @discussion Taps the screen at a specific point. In general you should use the factory steps that tap a view based on its accessibility label, but there are situations where it's not possible to access a view using accessibility mechanisms. This step is more lenient than the steps that use the accessibility label, and does not wait for any particular view to appear, or validate that the tapped view is enabled or has interaction enabled. Because this step doesn't doesn't validate that a view is present before tapping it, it's good practice to precede this step where possible with a -waitForViewWithAccessibilityLabel: with the label for another view that should appear on the same screen.
- 
+ @discussion Taps the screen at a specific point. In general you should use the factory steps that tap a view based on its accessibility label, but there are situations where it's not possible to access a view using accessibility mechanisms. This step is more lenient than the steps that use the accessibility label, and does not wait for any particular view to appear, or validate that the tapped view is enabled or has interaction enabled. Because this step doesn't validate that a view is present before tapping it, it's good practice to precede this step where possible with a -waitForViewWithAccessibilityLabel: with the label for another view that should appear on the same screen.
+
  @param screenPoint The point in screen coordinates to tap. Screen points originate from the top left of the screen.
  */
 - (void)tapScreenAtPoint:(CGPoint)screenPoint;
@@ -137,6 +156,14 @@ extern NSString *const inputFieldTestString;
 - (UIView *)waitForView;
 
 /*!
+ @abstract Waits until a view or accessibility element matching the tester's search predicate is present and available for tapping.
+ @discussion The view or accessibility elemenr is searched for in the view hierarchy. If the element isn't found or isn't currently tappable, then the step will attempt to wait until it is. Whether or not a view is tappable is based on -[UIView hitTest:]
+
+ @return The found view, if applicable.
+ */
+- (UIView *)waitForTappableView;
+
+/*!
  @abstract Waits until a view or accessibility element is no longer present.
  @discussion The view or accessibility element is searched for in the view hierarchy. If the element is found, then the step will attempt to wait until it isn't. Note that the view does not necessarily have to be visible on the screen, and may be behind another view or offscreen. Views with their hidden property set to YES are considered absent.
  */
@@ -145,7 +172,7 @@ extern NSString *const inputFieldTestString;
 /*!
  @abstract Waits until a view or accessibility element matching the tester's search predicate is present and available for tapping.
  @discussion The view or accessibility elemenr is searched for in the view hierarchy. If the element isn't found or isn't currently tappable, then the step will attempt to wait until it is. Whether or not a view is tappable is based on -[UIView hitTest:]. */
-- (void)waitToBecomeTappable;
+- (void)waitToBecomeTappable DEPRECATED_MSG_ATTRIBUTE("Use 'waitForTappableView' instead.");
 
 /*!
  @abstract Waits until a view or accessibility element matching the tester's search predicate is the first responder.
@@ -169,8 +196,13 @@ extern NSString *const inputFieldTestString;
  */
 - (BOOL)tryFindingTappableView;
 
+/*!
+ @abstract Tries to guess if there are any unfinished animations and waits for a certain amount of time to let them finish.
+ */
+- (void)waitForAnimationsToFinish;
 
 #pragma mark Scroll Views, Table Views and Collection Views
+
 /*!
  @abstract Taps the row at indexPath in a table view matching the tester's search predicate.
  @discussion This step will tap the row at indexPath.
@@ -191,6 +223,18 @@ extern NSString *const inputFieldTestString;
  @return The table view cell at the given index path.
  */
 - (UITableViewCell *)waitForCellInTableViewAtIndexPath:(NSIndexPath *)indexPath;
+
+/*!
+ @abstract Scrolls a table view matching the tester's search predicate while waiting for the cell at the given indexPath to appear.
+ @discussion This step will get the cell at the indexPath.
+ 
+ For cases where you may need to work from the end of a table view rather than the beginning, negative sections count back from the end of the table view (-1 is the last section) and negative rows count back from the end of the section (-1 is the last row for that section).
+ 
+ @param indexPath Index path of the cell.
+ @param position Table View scroll position to scroll to. Useful for tall cells when the content needed is in a specific location.
+ @return The table view cell at the given index path.
+ */
+- (UITableViewCell *)waitForCellInTableViewAtIndexPath:(NSIndexPath *)indexPath atPosition:(UITableViewScrollPosition)position;
 
 /*!
  @abstract Moves the row at sourceIndexPath to destinationIndexPath in a table view matching the tester's search predicate.
@@ -232,7 +276,6 @@ extern NSString *const inputFieldTestString;
  */
 - (void)scrollByFractionOfSizeHorizontal:(CGFloat)horizontalFraction vertical:(CGFloat)verticalFraction;
 
-
 #pragma mark Text Input
 
 /*!
@@ -255,14 +298,14 @@ extern NSString *const inputFieldTestString;
  @discussion Text is entered into the view by simulating taps on the appropriate keyboard keys if the keyboard is already displayed. Useful to enter text in UIWebViews or components with no accessibility labels.
  @param text The text to enter.
  */
-- (void)enterTextIntoCurrentFirstResponder:(NSString *)text;
+- (void)enterTextIntoCurrentFirstResponder:(NSString *)text DEPRECATED_MSG_ATTRIBUTE("Use 'usingFirstResponder' instead.");
 /*!
  @abstract Enters text into a the current first responder. if KIF is unable to type with the keyboard (which could be dismissed or obscured) the tester will call setText on the fallback view directly.
  @discussion Text is entered into the view by simulating taps on the appropriate keyboard keys if the keyboard is already displayed. Useful to enter text in UIWebViews or components with no accessibility labels.
  @param text The text to enter.
  @param fallbackView The UIView to enter if keyboard input fails.
  */
-- (void)enterTextIntoCurrentFirstResponder:(NSString *)text fallbackView:(UIView *)fallbackView;
+- (void)enterTextIntoCurrentFirstResponder:(NSString *)text fallbackView:(UIView *)fallbackView DEPRECATED_MSG_ATTRIBUTE("Please log a KIF Github issue if you have a use case for this.");
 
 /*!
  @abstract Clears text from a particular view matching the tester's search predicate.
@@ -294,10 +337,17 @@ extern NSString *const inputFieldTestString;
 
 /*!
  @abstract Sets text into a particular view matching the tester's search predicate.
- @discussion If the element isn't currently tappable, then the step will attempt to wait until it is. Once the view is present and tappable, then text is set on the view. Does not result in first responder changes. Does not perform expected result validation.
+ @discussion The text is set on the view directly with 'setText:'. Does not result in first responder changes. Does not perform expected result validation.
  @param text The text to set.
  */
 - (void)setText:(NSString *)text;
+
+/*!
+ @abstract Validates the text in a field matches the supplied expected value.
+ @discussion Waits until the view is present (up to the standard timeout), and then ensures that it has expected text.
+ @param expectedResult The text to expect the view to contain.
+ */
+- (void)expectToContainText:(NSString *)expectedResult;
 
 /*!
  @abstract Waits for the software keyboard to be visible.
@@ -366,11 +416,27 @@ extern NSString *const inputFieldTestString;
 - (void)selectPickerViewRowWithTitle:(NSString *)title inComponent:(NSInteger)component;
 
 /*!
+ @abstract Selects an item from a currently visible date picker view in specified component. This can only be used on UIDatePicker objects and not UIPickerView objects.
+ @discussion With a date picker view already visible, this step will find an item with the given title in given component, select that item, and tap the Done button.
+ @param title The title of the row to select.
+ @param component The component tester inteds to select the title in.
+ */
+- (void)selectDatePickerViewRowWithTitle:(NSString *)title inComponent:(NSInteger)component;
+
+/*!
  @abstract Selects a value from a currently visible date picker view.
- @discussion With a date picker view already visible, this step will select the different rotating weel values in order of how the array parameter is passed in. After it is done it will hide the date picker. It works with all 4 UIDatePickerMode* modes. The input parameter of type NSArray has to match in what order the date picker is displaying the values/columns. So if the locale is changing the input parameter has to be adjusted. Example: Mode: UIDatePickerModeDate, Locale: en_US, Input param: NSArray *date = @[@"June", @"17", @"1965"];. Example: Mode: UIDatePickerModeDate, Locale: de_DE, Input param: NSArray *date = @[@"17.", @"Juni", @"1965".
+ @discussion With a date picker view already visible, this step will select the different rotating wheel values in order of how the array parameter is passed in. After it is done it will hide the date picker. It works with all 4 UIDatePickerMode* modes. The input parameter of type NSArray has to match in what order the date picker is displaying the values/columns. So if the locale is changing the input parameter has to be adjusted. Example: Mode: UIDatePickerModeDate, Locale: en_US, Input param: NSArray *date = @[@"June", @"17", @"1965"];. Example: Mode: UIDatePickerModeDate, Locale: de_DE, Input param: NSArray *date = @[@"17.", @"Juni", @"1965".
  @param datePickerColumnValues Each element in the NSArray represents a rotating wheel in the date picker control. Elements from 0 - n are listed in the order of the rotating wheels, left to right.
  */
 - (void)selectDatePickerValue:(NSArray *)datePickerColumnValues;
+
+/*!
+ @abstract Selects a value from a currently visible date picker view, according to the search order specified.
+ @discussion With a date picker view already visible, this step will select the different rotating wheel values in order of how the array parameter is passed in. Each value will be searched according to the search order provided. After it is done it will hide the date picker. It works with all 4 UIDatePickerMode* modes. The input parameter of type NSArray has to match in what order the date picker is displaying the values/columns. So if the locale is changing the input parameter has to be adjusted. Example: Mode: UIDatePickerModeDate, Locale: en_US, Input param: NSArray *date = @[@"June", @"17", @"1965"];. Example: Mode: UIDatePickerModeDate, Locale: de_DE, Input param: NSArray *date = @[@"17.", @"Juni", @"1965".
+ @param datePickerColumnValues Each element in the NSArray represents a rotating wheel in the date picker control. Elements from 0 - n are listed in the order of the rotating wheels, left to right.
+ @param searchOrder The order in which the values are being searched for selection in each compotent.
+ */
+- (void)selectDatePickerValue:(NSArray *)datePickerColumnValues withSearchOrder:(KIFPickerSearchOrder)searchOrder;
 
 /*!
  @abstract Select a certain photo from the built in photo picker.

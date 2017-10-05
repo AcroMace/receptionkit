@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8
+osx_image: xcode9
 xcode_workspace: ReceptionKit.xcworkspace
 xcode_scheme: ReceptionKit
 
@@ -11,4 +11,4 @@ install:
 script:
 #  - swiftlint
 #  - xctool test -workspace ReceptionKit.xcworkspace -scheme ReceptionKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPad Pro'
-  - set -o pipefail && xcodebuild test -workspace ReceptionKit.xcworkspace -scheme ReceptionKit -destination 'platform=iOS Simulator,name=iPad Pro (12.9 inch)' | xcpretty
+  - set -o pipefail && xcodebuild test -workspace ReceptionKit.xcworkspace -scheme ReceptionKit -destination 'platform=iOS Simulator,name=iPad Pro (12.9-inch)' | xcpretty
