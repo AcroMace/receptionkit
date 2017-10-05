@@ -16,40 +16,15 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
     // Display the message modal when a message arrives
     // Only displays the last message
     func conversation(_ conversation: SKTConversation, didReceiveMessages messages: [Any]) {
-        // May be a bug here where messages are ignored if the messages are batched
-        // and multiple messages are sent at once
-        guard let lastMessage = conversation.messages?.last as? SKTMessage, !lastMessage.isFromCurrentUser else {
-            return
-        }
-
-        guard let text = lastMessage.text else {
-            Logger.error("Received an empty message from Smooch")
-            return
-        }
-        if Config.Photos.EnableCommand && containsImageCommand(text), let photo = camera.takePhoto() {
-            messageSender.send(image: photo)
-        } else {
-            showReceivedMessage(lastMessage)
-        }
+        display(messages: messages)
     }
 
-    // Present the message
-    func presentMessageView(_ viewController: UIViewController) {
-        getTopViewController().present(viewController, animated: true) { () -> Void in
-            self.isPresentingMessage = true
-        }
-    }
-
-    // Dismiss the message
-    @objc func dismissMessageView(_ timer: Timer!) {
-        guard isPresentingMessage else { return }
-        getTopViewController().dismiss(animated: true) { [weak self] in
-            self?.isPresentingMessage = false
-        }
+    func conversation(_ conversation: SKTConversation, didReceivePreviousMessages messages: [Any]) {
+        display(messages: messages)
     }
 
     // Don't show the default Smooch conversation
-    func conversation(_ conversation: SKTConversation, shouldShowFor action: SKTAction) -> Bool {
+    func conversation(_ conversation: SKTConversation, shouldShowFor action: SKTAction, withInfo info: [AnyHashable : Any]?) -> Bool {
         return false
     }
 
@@ -63,7 +38,30 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
         // Do nothing
     }
 
+    // Don't let the user tap on the message (which should not be visible)
+    func conversation(_ conversation: SKTConversation, shouldHandle action: SKTMessageAction) -> Bool {
+        return false
+    }
+
     // MARK: - Private methods
+
+    private func display(messages: [Any]) {
+        // May be a bug here where messages are ignored if the messages are batched
+        // and multiple messages are sent at once
+        guard let lastMessage = messages.last as? SKTMessage, !lastMessage.isFromCurrentUser else {
+            return
+        }
+
+        guard let text = lastMessage.text else {
+            Logger.error("Received an empty message from Smooch")
+            return
+        }
+        if Config.Photos.EnableCommand && containsImageCommand(text), let photo = camera.takePhoto() {
+            messageSender.send(image: photo)
+        } else {
+            showReceivedMessage(lastMessage)
+        }
+    }
 
     private func containsImageCommand(_ text: String) -> Bool {
         return text.contains(Config.Photos.ImageCaptureCommand)
@@ -90,9 +88,24 @@ class ConversationDelegate: NSObject, SKTConversationDelegate {
         Timer.scheduledTimer(
             timeInterval: 10.0,
             target: self,
-            selector: #selector(ConversationDelegate.dismissMessageView(_:)),
+            selector: #selector(dismissMessageView(_:)),
             userInfo: nil,
             repeats: false)
+    }
+
+    // Present the message
+    private func presentMessageView(_ viewController: UIViewController) {
+        getTopViewController().present(viewController, animated: true) { () -> Void in
+            self.isPresentingMessage = true
+        }
+    }
+
+    // Dismiss the message
+    @objc private func dismissMessageView(_ timer: Timer!) {
+        guard isPresentingMessage else { return }
+        getTopViewController().dismiss(animated: true) { [weak self] in
+            self?.isPresentingMessage = false
+        }
     }
 
     /**
