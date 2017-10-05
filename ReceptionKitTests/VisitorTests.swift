@@ -37,6 +37,7 @@ class VisitorTests: KIFTestCase {
         tapReturnKey()
         tapKnowName()
         enterVisiteeName()
+        tester.acknowledgeSystemAlert()
         assertPleaseWaitMessageExists()
         assertMessage(.unknownVisitorKnownVisitee(visiteeName: VisitorTests.visiteeName))
     }
@@ -54,6 +55,7 @@ class VisitorTests: KIFTestCase {
         enterVisitorName()
         tapKnowName()
         enterVisiteeName()
+        tester.acknowledgeSystemAlert()
         assertPleaseWaitMessageExists()
         assertMessage(.knownVisitorKnownVisitee(visitorName: VisitorTests.visitorName, visiteeName: VisitorTests.visiteeName))
     }
