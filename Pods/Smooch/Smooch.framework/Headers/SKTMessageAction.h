@@ -11,6 +11,11 @@
 extern NSString* _Nonnull const SKTMessageActionTypeLink;
 
 /**
+ *  @abstract Type for a webview action.
+ */
+extern NSString* _Nonnull const SKTMessageActionTypeWebview;
+
+/**
  *  @abstract Type for a buy action.
  */
 extern NSString* _Nonnull const SKTMessageActionTypeBuy;
@@ -39,6 +44,21 @@ extern NSString* _Nonnull const SKTMessageActionStateOffered;
  *  @abstract Paid state for a buy message. The user has completed the transaction and payment was successful.
  */
 extern NSString* _Nonnull const SKTMessageActionStatePaid;
+
+/**
+ *  @abstract A full-sized webview
+ */
+extern NSString* _Nonnull const SKTMessageActionWebviewSizeFull;
+
+/**
+ *  @abstract A tall-sized webview
+ */
+extern NSString* _Nonnull const SKTMessageActionWebviewSizeTall;
+
+/**
+ *  @abstract A compact-sized webview
+ */
+extern NSString* _Nonnull const SKTMessageActionWebviewSizeCompact;
 
 /**
  *  @abstract An action associated to a particular SKTMessage.
@@ -71,9 +91,30 @@ extern NSString* _Nonnull const SKTMessageActionStatePaid;
 /**
  *  @abstract The URI to navigate to if the user interacts with the action.
  *
- *  @discussion May not be nil if message is of type `SKTMessageActionTypeLink`
+ *  @discussion May not be nil if message is of type `SKTMessageActionTypeLink` or `SKTMessageActionTypeWebview`
  */
 @property(nullable) NSURL* uri;
+
+/**
+ *  @abstract Fallback URI to use for action types not supported by the SDK. May be nil.
+ */
+@property(nullable) NSURL* fallback;
+
+/**
+ *  @abstract The size of a webview
+ *
+ *  @discussion May not be nil if message is of type `SKTMessageActionTypeWebview`
+ */
+@property(nullable, copy) NSString* size;
+
+/**
+ *  @abstract Boolean value indicating whether this action is the default action for an SKTMessageItem
+ *
+ *  @discussion Default value is `NO`
+ *
+ *  @see SKTMessageItem
+ */
+@property(readonly) BOOL isDefault;
 
 /**
  *  @abstract Metadata associated with the action.
