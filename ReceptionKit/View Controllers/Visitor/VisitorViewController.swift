@@ -50,11 +50,13 @@ class VisitorViewController: ReturnToHomeViewController, StackViewOrientable {
             // We don't know the name of the person who just checked in
             guard let visitorName = visitorName, !visitorName.isEmpty else {
                 messageSender.send(message: .unknownVisitorUnknownVisitee())
+                doorbell.play()
                 return
             }
 
             // We know the visitor's name but they don't know the person they're looking for
             messageSender.send(message: .knownVisitorUnknownVisitee(visitorName: visitorName))
+            doorbell.play()
         } else if let visitorSearchViewController = segue.destination as? VisitorSearchViewController {
             visitorSearchViewController.configure(VisitorSearchViewModel(visitorName: visitorName))
         }

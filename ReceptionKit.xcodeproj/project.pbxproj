@@ -21,6 +21,8 @@
 		63607DB21CD61EF200A0934F /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63607DB11CD61EF200A0934F /* Icons.swift */; };
 		63607DB41CD61F3900A0934F /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 63607DB31CD61F3900A0934F /* FontAwesome.otf */; };
 		6376F15D1AEA077600C1F9C4 /* VisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */; };
+		6393C89C20994D9E0030700E /* DoorBell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6393C89B20994D9E0030700E /* DoorBell.swift */; };
+		6393C89E20994F1A0030700E /* doorbell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6393C89D20994F1A0030700E /* doorbell.mp3 */; };
 		639744521D75602C0046F62B /* MockMessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639744511D75602C0046F62B /* MockMessageSender.swift */; };
 		639744561D7566630046F62B /* SlackMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639744551D7566630046F62B /* SlackMessage.swift */; };
 		639A54141C34FA55005FC850 /* MessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A54131C34FA55005FC850 /* MessageSender.swift */; };
@@ -77,6 +79,8 @@
 		63607DB11CD61EF200A0934F /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Icons.swift; path = Helpers/Icons.swift; sourceTree = "<group>"; };
 		63607DB31CD61F3900A0934F /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		6376F15C1AEA077600C1F9C4 /* VisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VisitorViewController.swift; path = "View Controllers/Visitor/VisitorViewController.swift"; sourceTree = "<group>"; };
+		6393C89B20994D9E0030700E /* DoorBell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoorBell.swift; path = Helpers/DoorBell.swift; sourceTree = "<group>"; };
+		6393C89D20994F1A0030700E /* doorbell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = doorbell.mp3; path = ReceptionKit/doorbell.mp3; sourceTree = SOURCE_ROOT; };
 		639744511D75602C0046F62B /* MockMessageSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMessageSender.swift; sourceTree = "<group>"; };
 		639744551D7566630046F62B /* SlackMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackMessage.swift; path = Models/SlackMessage.swift; sourceTree = "<group>"; };
 		639A54131C34FA55005FC850 /* MessageSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageSender.swift; path = Helpers/MessageSender.swift; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 		81B445181AE9313900725576 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6393C89D20994F1A0030700E /* doorbell.mp3 */,
 				81B445231AE9313900725576 /* LaunchScreen.xib */,
 				63607DB31CD61F3900A0934F /* FontAwesome.otf */,
 				81B4453E1AE939C700725576 /* ReceptionKit-Bridging-Header.h */,
@@ -305,6 +310,7 @@
 				633DD7D81AF1E5D5001BE427 /* Colour.swift */,
 				6336ADD51CD6237600036786 /* ButtonFormatter.swift */,
 				639A54131C34FA55005FC850 /* MessageSender.swift */,
+				6393C89B20994D9E0030700E /* DoorBell.swift */,
 				633FD21C1D0E165D0093419B /* Camera.swift */,
 				63EC19901D5303C3007C6FAC /* Logger.swift */,
 			);
@@ -408,6 +414,7 @@
 				81B445251AE9313900725576 /* LaunchScreen.xib in Resources */,
 				81B445221AE9313900725576 /* Images.xcassets in Resources */,
 				81D637D51AEA9BA0004D26DF /* ReceivedMessageViewController.xib in Resources */,
+				6393C89E20994F1A0030700E /* doorbell.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +557,7 @@
 				81B4451B1AE9313900725576 /* AppDelegate.swift in Sources */,
 				81D637D41AEA9BA0004D26DF /* ReceivedMessageViewController.swift in Sources */,
 				81D637C61AEA7F0E004D26DF /* SmoochConversationDelegate.swift in Sources */,
+				6393C89C20994D9E0030700E /* DoorBell.swift in Sources */,
 				81E2AC861AE95AFF000D5F25 /* VisitorSearchResultsTableViewController.swift in Sources */,
 				81E2AC7E1AE95786000D5F25 /* HomeViewController.swift in Sources */,
 				63607DB01CD6091700A0934F /* OrientationNavigationController.swift in Sources */,

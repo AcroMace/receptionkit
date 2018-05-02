@@ -72,6 +72,7 @@ class DeliveryMethodViewController: ReturnToHomeViewController, StackViewOrienta
     // Segue to the thank you controller after sending a Smooch message
     func segueWithMessage(_ message: SlackMessage) {
         messageSender.send(message: message)
+        doorbell.play()
         performSegue(withIdentifier: "DeliveryMethodSelectedSegue", sender: self)
     }
 

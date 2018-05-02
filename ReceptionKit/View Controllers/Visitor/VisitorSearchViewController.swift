@@ -100,10 +100,12 @@ class VisitorSearchViewController: ReturnToHomeViewController, UITextFieldDelega
             // The visitor's name is unknown
             guard let visitorName = viewModel?.visitorName, !visitorName.isEmpty else {
                 messageSender.send(message: .unknownVisitorKnownVisitee(visiteeName: lookingForName))
+                doorbell.play()
                 return
             }
             // The visitor's name is known
             messageSender.send(message: .knownVisitorKnownVisitee(visitorName: visitorName, visiteeName: lookingForName))
+            doorbell.play()
         }
     }
 

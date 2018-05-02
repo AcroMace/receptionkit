@@ -62,11 +62,13 @@ class VisitorSearchResultsTableViewController: ReturnToHomeTableViewController {
         // No visitor name
         guard let visitorName = viewModel?.visitorName, !visitorName.isEmpty else {
             messageSender.send(message: .unknownVisitorKnownVisitee(visiteeName: contactName))
+            doorbell.play()
             performSelectedContactSegue()
             return
         }
 
         messageSender.send(message: .knownVisitorKnownVisitee(visitorName: visitorName, visiteeName: contactName))
+        doorbell.play()
         performSelectedContactSegue()
     }
 
