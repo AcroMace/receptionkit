@@ -3,6 +3,12 @@ osx_image: xcode9.3
 xcode_workspace: ReceptionKit.xcworkspace
 xcode_scheme: ReceptionKit
 
+# From https://github.com/travis-ci/travis-ci/issues/6675
+before_install:
+  - export IOS_SIMULATOR_UDID=`instruments -s devices | grep "iPad Pro (12.9-inch" | awk -F '[ ]' '{print $4}' | awk -F '[\[]' '{print $2}' | sed 's/.$//'`
+  - echo $IOS_SIMULATOR_UDID
+  - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_UDID
+
 install:
   - ./Scripts/install_swiftlint.sh
 
@@ -11,4 +17,4 @@ install:
 script:
 #  - swiftlint
 #  - xctool test -workspace ReceptionKit.xcworkspace -scheme ReceptionKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPad Pro'
-  - set -o pipefail && xcodebuild test -workspace ReceptionKit.xcworkspace -scheme ReceptionKit -destination 'platform=iOS Simulator,name=iPad Pro (12.9-inch)' | xcpretty
+  - travis-retry (set -o pipefail && xcodebuild test -workspace ReceptionKit.xcworkspace -scheme ReceptionKit -destination 'platform=iOS Simulator,name=iPad Pro (12.9-inch)') | xcpretty
