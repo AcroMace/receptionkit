@@ -2,7 +2,7 @@
 //  Smooch.h
 //  Smooch
 //
-//  version : 6.1.0
+//  version : 6.9.1
 
 #import <Foundation/Foundation.h>
 #import "SKTConversation.h"
@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @protocol UNUserNotificationCenterDelegate;
 
-#define SMOOCH_VERSION @"6.1.0"
+#define SMOOCH_VERSION @"6.9.1"
 
 FOUNDATION_EXPORT double SmoochVersionNumber;
 FOUNDATION_EXPORT const unsigned char SmoochVersionString[];
@@ -29,13 +29,19 @@ extern NSString* const SKTPushNotificationIdentifier;
 /**
  *  @abstract User info dictionary key for an SKTUser after a successful call to +login:jwt:completionHandler:
  *
- *  @discussion User info dictionary key for an SKTUser after a successful call to +login:jwt:completionHandler:
- *
  *  @see SKTUser
  *  @see SKTLoginDidCompleteNotification
  *  @see +login:jwt:completionHandler:
  */
 extern NSString* const SKTUserIdentifier;
+
+/**
+ *  @abstract User info dictionary key for an SKTConversation after a successful call to +startConversationWithCompletionHandler:
+ *
+ *  @see SKTConversation
+ *  @see +startConversationWithCompletionHandler:
+ */
+extern NSString* const SKTConversationIdentifier;
 
 /**
  *  @abstract User info dictionary key to determine the error code of a failed operation. Possible operations that may include this value are +initWithSettings:completionHandler:, +login:jwt:completionHandler: and +logoutWithCompletionHandler:
@@ -286,6 +292,32 @@ extern NSString* const SKTLogoutDidFailNotification;
  *  You may not call logout while the conversation screen is shown. Doing so will result in a no-op.
  */
 +(void)logoutWithCompletionHandler:(nullable void(^)( NSError * _Nullable error, NSDictionary * _Nullable userInfo))completionHandler;
+
+/**
+ *  @abstract Force-start a conversation for the current user
+ *
+ *  @discussion Creates a user and conversation on the server, allowing the business to reach out proactively to the user via the public API.
+ *
+ *  Creating a conversation via this method will count as an active user conversation (AUC) whether messages are exchanged or not, which may incur cost based on your plan. It is strongly recommended to only call this method in the case where a message is likely to be sent.
+ *
+ *  This method is called automatically when starting a conversation via the -sendMessage: or -sendImage:withProgress:completion: methods, or when a user sends a message via the conversation view controller.
+ *
+ *  If a conversation already exists for the current user, this call is a no-op.
+ */
++(void)startConversationWithCompletionHandler:(nullable void(^)(NSError * _Nullable error, NSDictionary * _Nullable userInfo))completionHandler;
+
+/**
+ *  @abstract Toggles whether the input bar is displayed on the conversation view.
+ *
+ *  @discussion For some use cases, it can be useful to remove the ability for the user to craft their own messages. For example, if your conversation flow relies solely on postback buttons or quick replies, you may not want to allow the user to send anything other than the presented options.
+ *
+ *  Passing NO to this method will hide the input bar entirely, including the media button and the text area, thus preventing the user from sending messages themselves.
+ *
+ *  This method may be called at any time, even when the conversation view is currently displayed.
+ *
+ *  State is persisted across view controller launches.
+ */
++(void)setConversationInputDisplayed:(BOOL)displayed;
 
 /**
  *  @abstract Set the push notification token for this device.

@@ -1,22 +1,22 @@
 PODS:
-  - KIF (3.6.0):
-    - KIF/Core (= 3.6.0)
-  - KIF/Core (3.6.0)
-  - SDWebImage (4.1.0):
-    - SDWebImage/Core (= 4.1.0)
-  - SDWebImage/Core (4.1.0)
-  - Smooch (6.1.0)
+  - KIF (3.7.3):
+    - KIF/Core (= 3.7.3)
+  - KIF/Core (3.7.3)
+  - SDWebImage (4.3.3):
+    - SDWebImage/Core (= 4.3.3)
+  - SDWebImage/Core (4.3.3)
+  - Smooch (6.9.1)
 
 DEPENDENCIES:
-  - KIF (~> 3.6)
-  - SDWebImage (~> 4.1)
-  - Smooch (~> 6.1)
+  - KIF (~> 3.7)
+  - SDWebImage (~> 4.3)
+  - Smooch (~> 6.9)
 
 SPEC CHECKSUMS:
-  KIF: bd770edd8ce49bc7308501e4871e58a02d137be3
-  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
-  Smooch: c27e6e931059717222130801b716d2712318ee93
+  KIF: 4c23b5d24dba24d3cb6dbb9c7d325b31e526ba4a
+  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+  Smooch: 0aa7c588ac85c80c17c2d1ca7db16ffe5bea22a8
 
-PODFILE CHECKSUM: f8533b1ea01ab1488b124cfe439832b10b915bb5
+PODFILE CHECKSUM: f8265f35653d23938a72b81f9e7852efd5acac3b
 
 COCOAPODS: 1.2.1

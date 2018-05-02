@@ -1,7 +1,13 @@
 language: objective-c
-osx_image: xcode9
+osx_image: xcode9.3
 xcode_workspace: ReceptionKit.xcworkspace
 xcode_scheme: ReceptionKit
+
+# From https://github.com/travis-ci/travis-ci/issues/6675
+before_install:
+  - export IOS_SIMULATOR_UDID=`instruments -s devices | grep "iPad Pro (12.9-inch" | awk -F '[ ]' '{print $4}' | awk -F '[\[]' '{print $2}' | sed 's/.$//'`
+  - echo $IOS_SIMULATOR_UDID
+  - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_UDID
 
 install:
   - ./Scripts/install_swiftlint.sh

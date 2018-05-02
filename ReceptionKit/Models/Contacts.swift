@@ -88,9 +88,9 @@ extension Contact {
                 return
             }
 
-            let contacts: [Contact] = queriedContacts.flatMap { queriedContact in
+            let contacts: [Contact] = queriedContacts.compactMap { queriedContact in
                 let name = [queriedContact.givenName, queriedContact.familyName].joined(separator: " ")
-                let phoneNumbers: [ContactPhone] = queriedContact.phoneNumbers.flatMap { phoneNumber in
+                let phoneNumbers: [ContactPhone] = queriedContact.phoneNumbers.compactMap { phoneNumber in
                     guard let label = phoneNumber.label else {
                         return nil
                     }

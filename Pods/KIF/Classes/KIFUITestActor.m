@@ -26,12 +26,22 @@
 #define kKIFMinorSwipeDisplacement 5
 
 
+#if DEPRECATE_KIF_TESTER
+KIFUITestActor *_KIF_tester()
+{
+    NSCAssert(NO, @"Attempting to use deprecated `KIFUITestActor`!");
+    return nil;
+}
+#endif
+
+
 @interface KIFUITestActor ()
 
 @property (nonatomic, assign) BOOL validateEnteredText;
 
 @end
 
+static BOOL KIFUITestActorAnimationsEnabled = YES;
 
 @implementation KIFUITestActor
 
@@ -97,14 +107,14 @@
     return view;
 }
 
-- (void)waitForAccessibilityElement:(UIAccessibilityElement **)element view:(out UIView **)view withLabel:(NSString *)label value:(NSString *)value traits:(UIAccessibilityTraits)traits tappable:(BOOL)mustBeTappable
+- (void)waitForAccessibilityElement:(UIAccessibilityElement * __autoreleasing *)element view:(out UIView * __autoreleasing *)view withLabel:(NSString *)label value:(NSString *)value traits:(UIAccessibilityTraits)traits tappable:(BOOL)mustBeTappable
 {
     [self runBlock:^KIFTestStepResult(NSError **error) {
         return [UIAccessibilityElement accessibilityElement:element view:view withLabel:label value:value traits:traits tappable:mustBeTappable error:error] ? KIFTestStepResultSuccess : KIFTestStepResultWait;
     }];
 }
 
-- (void)waitForAccessibilityElement:(UIAccessibilityElement **)element view:(out UIView **)view withLabel:(NSString *)label value:(NSString *)value traits:(UIAccessibilityTraits)traits fromRootView:(UIView *)fromView tappable:(BOOL)mustBeTappable
+- (void)waitForAccessibilityElement:(UIAccessibilityElement * __autoreleasing *)element view:(out UIView * __autoreleasing *)view withLabel:(NSString *)label value:(NSString *)value traits:(UIAccessibilityTraits)traits fromRootView:(UIView *)fromView tappable:(BOOL)mustBeTappable
 {
     [self runBlock:^KIFTestStepResult(NSError **error) {
         return [UIAccessibilityElement accessibilityElement:element view:view withLabel:label value:value traits:traits fromRootView:fromView tappable:mustBeTappable error:error];
@@ -127,7 +137,7 @@
     }];
 }
 
-- (void)waitForAccessibilityElement:(UIAccessibilityElement **)element view:(out UIView **)view withElementMatchingPredicate:(NSPredicate *)predicate tappable:(BOOL)mustBeTappable
+- (void)waitForAccessibilityElement:(UIAccessibilityElement * __autoreleasing *)element view:(out UIView * __autoreleasing *)view withElementMatchingPredicate:(NSPredicate *)predicate tappable:(BOOL)mustBeTappable
 {
     [self runBlock:^KIFTestStepResult(NSError **error) {
         return [UIAccessibilityElement accessibilityElement:element view:view withElementMatchingPredicate:predicate tappable:mustBeTappable error:error] ? KIFTestStepResultSuccess : KIFTestStepResultWait;
@@ -496,9 +506,11 @@
 
 - (void)clearTextFromFirstResponder
 {
-    UIView *firstResponder = (id)[[[UIApplication sharedApplication] keyWindow] firstResponder];
-    if ([firstResponder isKindOfClass:[UIView class]]) {
-        [self clearTextFromElement:(UIAccessibilityElement *)firstResponder inView:firstResponder];
+    @autoreleasepool {
+        UIView *firstResponder = (id)[[[UIApplication sharedApplication] keyWindow] firstResponder];
+        if ([firstResponder isKindOfClass:[UIView class]]) {
+            [self clearTextFromElement:(UIAccessibilityElement *)firstResponder inView:firstResponder];
+        }
     }
 }
 
@@ -655,12 +667,19 @@
             NSString *rowTitle = nil;
             if ([pickerView.delegate respondsToSelector:@selector(pickerView:titleForRow:forComponent:)]) {
                 rowTitle = [pickerView.delegate pickerView:pickerView titleForRow:currentIndex forComponent:i];
+            } else if ([pickerView.delegate respondsToSelector:@selector(pickerView:attributedTitleForRow:forComponent:)]) {
+                rowTitle = [[pickerView.delegate pickerView:pickerView attributedTitleForRow:currentIndex forComponent:i] string];
             } else if ([pickerView.delegate respondsToSelector:@selector(pickerView:viewForRow:forComponent:reusingView:)]) {
                 // This delegate inserts views directly, so try to figure out what the title is by looking for a label
                 UIView *rowView = [pickerView.delegate pickerView:pickerView viewForRow:currentIndex forComponent:i reusingView:nil];
-                NSArray *labels = [rowView subviewsWithClassNameOrSuperClassNamePrefix:@"UILabel"];
-                UILabel *label = (labels.count > 0 ? labels[0] : nil);
-                rowTitle = label.text;
+                if ([rowView isKindOfClass:[UILabel class]]) {
+                    UILabel *label = (UILabel *) rowView;
+                    rowTitle = label.text;
+                } else {
+                    NSArray *labels = [rowView subviewsWithClassNameOrSuperClassNamePrefix:@"UILabel"];
+                    UILabel *label = (labels.count > 0 ? labels[0] : nil);
+                    rowTitle = label.text;
+                }
             }
             if (rowTitle) {
                 [dataToSelect addObject: rowTitle];
@@ -821,7 +840,7 @@
     }
 
     NSLog(@"Faking turning switch %@", switchIsOn ? @"ON" : @"OFF");
-    [switchView setOn:switchIsOn animated:YES];
+    [switchView setOn:switchIsOn animated:[[self class] testActorAnimationsEnabled]];
     [switchView sendActionsForControlEvents:UIControlEventValueChanged];
     [self waitForTimeInterval:0.5 relativeToAnimationSpeed:YES];
 
@@ -989,6 +1008,11 @@
 - (BOOL)acknowledgeSystemAlert
 {
     return [UIAutomationHelper acknowledgeSystemAlert];
+}
+
+- (BOOL)acknowledgeSystemAlertWithIndex:(NSUInteger)index
+{
+    return [UIAutomationHelper acknowledgeSystemAlertWithIndex: index];
 }
 
 #endif
@@ -1186,7 +1210,7 @@
     __block UITableViewCell *cell = nil;
     __block CGFloat lastYOffset = CGFLOAT_MAX;
     [self runBlock:^KIFTestStepResult(NSError **error) {
-        [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:position animated:YES];
+        [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:position animated:[[self class] testActorAnimationsEnabled]];
         cell = [tableView cellForRowAtIndexPath:indexPath];
         KIFTestWaitCondition(!!cell, error, @"Table view cell at index path %@ not found", indexPath);
         
@@ -1243,7 +1267,7 @@
 
     [collectionView scrollToItemAtIndexPath:indexPath
                            atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally | UICollectionViewScrollPositionCenteredVertically
-                                   animated:YES];
+                                   animated:[[self class] testActorAnimationsEnabled]];
 
     // waitForAnimationsToFinish doesn't allow collection view to settle when animations are sped up
     // So use waitForTimeInterval instead
@@ -1385,6 +1409,16 @@
         case KIFSwipeDirectionDown:
             return CGPointMake(kKIFMinorSwipeDisplacement, UIScreen.mainScreen.majorSwipeDisplacement);
     }
+}
+
++ (BOOL)testActorAnimationsEnabled;
+{
+    return KIFUITestActorAnimationsEnabled;
+}
+
++ (void)setTestActorAnimationsEnabled:(BOOL)animationsEnabled;
+{
+    KIFUITestActorAnimationsEnabled = animationsEnabled;
 }
 
 @end

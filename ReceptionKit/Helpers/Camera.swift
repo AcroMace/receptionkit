@@ -57,7 +57,7 @@ class Camera: NSObject {
      */
     private func getFrontFacingCamera() -> AVCaptureDevice? {
         return AVCaptureDevice.devices(for: AVMediaType.video)
-            .flatMap { device in
+            .compactMap { device in
                 if device.position == AVCaptureDevice.Position.front {
                     return device
                 }

@@ -14,7 +14,7 @@ import UIKit
  */
 protocol StackViewOrientable {
 
-    weak var stackView: UIStackView! { get set }
+    var stackView: UIStackView! { get set }
 
 }
 
