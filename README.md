@@ -92,6 +92,12 @@ The English/French language toggle is enabled by default. You can turn it off by
 
 If you wish to customize the launch screen, you must change the `LaunchScreen.xib` file.
 
+**Doorbell noise**
+
+You can disable the doorbell sound when someone checks in by setting `Config.General.PlayDoorBell` to `false`. You can also change the default sound played by replacing `ReceptionKit/doorbell.mp3` with the mp3 file you wish to play instead.
+
+The current sound effect is [Bell1.wav from pac007](https://freesound.org/people/pac007/sounds/331567/), licensed CC0.
+
 
 ## Note
 
