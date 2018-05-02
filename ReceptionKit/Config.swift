@@ -22,6 +22,9 @@ class Config {
 
         /// Time in seconds for when to reset back to the main screen
         static let Timeout = 30.0
+
+        /// Change to false if the doorbell sound should not play
+        static let PlayDoorbell = true
     }
 
     class Colour {

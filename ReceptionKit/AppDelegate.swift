@@ -10,6 +10,7 @@ import UIKit
 
 var messageSender: MessageSender!
 var camera: Camera!
+var doorbell = DoorBell()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let smoochSettings = SKTSettings(appId: Config.Smooch.AppID)
         Smooch.initWith(smoochSettings) { error, _ in
             guard error == nil else {
-                print("Could not initialize Smooch")
+                Logger.error("Could not initialize Smooch")
                 print(error as Any)
                 return
             }
